@@ -1,0 +1,30 @@
+---
+import { SITE_TITLE } from '../consts';
+import Navigation from './Navigation.astro';
+---
+
+<!-- Example: Header using UnoCSS (Base Theme style) -->
+<!-- This shows how to use UnoCSS utility classes instead of custom CSS -->
+<header class="sticky top-0 z-100 bg-white shadow-sm px-4">
+	<div class="max-w-6xl mx-auto flex items-center justify-between py-4 gap-8 md:flex-row flex-col">
+		<div class="logo">
+			<a href="/" aria-label="MineralWise Home" class="flex items-center no-underline text-black">
+				<img 
+					src="/images/mineralWise-logo.png" 
+					alt="MineralWise Logo" 
+					class="h-12 w-auto max-w-[200px]"
+					onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+				/>
+				<span class="text-xl font-bold hidden">{SITE_TITLE}</span>
+			</a>
+		</div>
+		<Navigation />
+	</div>
+</header>
+
+<!-- 
+To use this version:
+1. Replace the content of Header.astro with this code
+2. Remove the <style> block - UnoCSS handles all styling
+3. All classes are utility-based (Base Theme style)
+-->
