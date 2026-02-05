@@ -1,0 +1,10 @@
+# Cloudflare Workers/Pages Configuration
+# This file is optional and only needed if using server-side features
+
+name = "mineralwise-astro"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# Uncomment if using environment variables
+# [vars]
+# ENVIRONMENT = "production"

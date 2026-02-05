@@ -1,0 +1,178 @@
+---
+interface Props {
+	item: {
+		title: string;
+		href: string;
+		children?: Array<{
+			title: string;
+			href: string;
+			external?: boolean;
+		}>;
+	};
+	currentPath: string;
+}
+
+const { item, currentPath } = Astro.props;
+const isActive = item.children?.some(child => currentPath === child.href) || false;
+---
+
+<div class="dropdown">
+	<button
+		class:list={{
+			'dropdown-toggle': true,
+			active: isActive,
+		}}
+		aria-expanded="false"
+		aria-haspopup="true"
+	>
+		{item.title}
+		<svg
+			class="dropdown-icon"
+			width="12"
+			height="12"
+			viewBox="0 0 12 12"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M2 4L6 8L10 4"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	</button>
+	<ul class="dropdown-menu">
+		{item.children?.map((child) => (
+			<li>
+				<a
+					href={child.href}
+					class:list={{
+						'dropdown-link': true,
+						active: currentPath === child.href,
+					}}
+					target={child.external ? '_blank' : undefined}
+					rel={child.external ? 'noopener noreferrer' : undefined}
+				>
+					{child.title}
+				</a>
+			</li>
+		))}
+	</ul>
+</div>
+
+<style>
+	.dropdown {
+		position: relative;
+	}
+
+	.dropdown-toggle {
+		background: none;
+		border: none;
+		color: rgb(var(--black));
+		font-weight: 500;
+		padding: 0.5rem 0;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		border-bottom: 2px solid transparent;
+		transition: border-color 0.2s;
+		font-size: inherit;
+		font-family: inherit;
+	}
+
+	.dropdown-toggle:hover,
+	.dropdown-toggle.active {
+		border-bottom-color: var(--accent);
+	}
+
+	.dropdown-icon {
+		transition: transform 0.2s;
+	}
+
+	.dropdown:hover .dropdown-icon {
+		transform: rotate(180deg);
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: white;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 4px;
+		box-shadow: var(--box-shadow);
+		list-style: none;
+		margin: 0;
+		padding: 0.5rem 0;
+		min-width: 200px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+		z-index: 1000;
+	}
+
+	.dropdown:hover .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.dropdown-link {
+		display: block;
+		padding: 0.5rem 1rem;
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		transition: background-color 0.2s;
+	}
+
+	.dropdown-link:hover,
+	.dropdown-link.active {
+		background-color: rgb(var(--gray-light));
+		color: var(--accent);
+	}
+
+	@media (max-width: 768px) {
+		.dropdown-menu {
+			position: static;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			box-shadow: none;
+			border: none;
+			margin-top: 0.5rem;
+			padding-left: 1rem;
+		}
+
+		.dropdown-toggle {
+			width: 100%;
+			justify-content: space-between;
+		}
+	}
+</style>
+
+<script>
+	// Mobile menu toggle functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const dropdowns = document.querySelectorAll('.dropdown');
+		
+		dropdowns.forEach(dropdown => {
+			const toggle = dropdown.querySelector('.dropdown-toggle');
+			const menu = dropdown.querySelector('.dropdown-menu');
+			
+			if (toggle && menu) {
+				toggle.addEventListener('click', (e) => {
+					if (window.innerWidth <= 768) {
+						e.preventDefault();
+						const isOpen = menu.style.display === 'block';
+						menu.style.display = isOpen ? 'none' : 'block';
+						toggle.setAttribute('aria-expanded', (!isOpen).toString());
+					}
+				});
+			}
+		});
+	});
+</script>

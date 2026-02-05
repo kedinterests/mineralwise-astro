@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "download-images": "node scripts/download-images.js",
+    "convert-html": "node scripts/convert-html-to-astro.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

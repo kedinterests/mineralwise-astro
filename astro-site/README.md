@@ -1,62 +1,111 @@
-# Astro Starter Kit: Blog
+# MineralWise Astro Site
 
-```sh
-npm create astro@latest -- --template blog
+Modern Astro site converted from scraped HTML files.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Development
 
-Features:
+```bash
+npm run dev
+```
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+Visit `http://localhost:4321` to see your site.
 
-## 🚀 Project Structure
+## Migration Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+### 1. Download Images
 
-```text
+Download all images from the scraped HTML files:
+
+```bash
+npm run download-images
+```
+
+This will:
+- Extract image URLs from all HTML files
+- Download images to `public/images/`
+- Create `src/data/image-map.json` mapping original URLs to local paths
+
+### 2. Convert HTML to Astro Pages
+
+Convert scraped HTML files to Astro pages:
+
+```bash
+npm run convert-html
+```
+
+This will:
+- Parse all HTML files in the `scraped/` directory
+- Extract titles, descriptions, and content
+- Clean up Brizy-specific markup
+- Convert links and images
+- Generate Astro pages in `src/pages/`
+
+## Project Structure
+
+```
+astro-site/
 ├── public/
+│   └── images/          # Downloaded images
+├── scripts/
+│   ├── download-images.js      # Image download script
+│   └── convert-html-to-astro.js # HTML conversion script
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/
+│   │   ├── Header.astro         # Site header with logo
+│   │   ├── Navigation.astro     # Main navigation
+│   │   ├── NavDropdown.astro    # Dropdown menu component
+│   │   ├── Footer.astro         # Site footer
+│   │   └── Image.astro           # Optimized image component
+│   ├── data/
+│   │   ├── navigation.ts        # Navigation structure
+│   │   └── image-map.json        # Image URL mapping (generated)
+│   ├── layouts/
+│   │   └── BaseLayout.astro     # Base page layout
+│   ├── pages/                    # Astro pages (generated)
+│   └── styles/
+│       ├── global.css            # Global styles
+│       └── theme.css              # Theme styles
+└── scraped/                      # Original HTML files
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deployment
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for Cloudflare Pages deployment instructions.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Features
 
-Any static assets, like images, can be placed in the `public/` directory.
+- ✅ Modern Astro architecture
+- ✅ Responsive navigation with dropdowns
+- ✅ Image optimization and local storage
+- ✅ Clean, maintainable CSS
+- ✅ SEO-friendly meta tags
+- ✅ Sitemap generation
+- ✅ Ready for Cloudflare Pages deployment
 
-## 🧞 Commands
+## Next Steps
 
-All commands are run from the root of the project, from a terminal:
+1. Run `npm run download-images` to download all images
+2. Run `npm run convert-html` to convert HTML files to Astro pages
+3. Review and refine converted pages as needed
+4. Test locally with `npm run dev`
+5. Deploy to Cloudflare Pages (see DEPLOYMENT.md)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Notes
 
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- The conversion scripts clean up Brizy page builder markup
+- Some manual cleanup may be needed for complex pages
+- Images are downloaded from the original CDN URLs
+- Navigation structure is extracted from HTML and stored in `src/data/navigation.ts`

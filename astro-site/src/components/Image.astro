@@ -1,0 +1,40 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+	class?: string;
+	lazy?: boolean;
+}
+
+const { src, alt, width, height, class: className, lazy = true } = Astro.props;
+
+// Check if src is a local path or external URL
+const isLocal = src.startsWith('/') || !src.startsWith('http');
+const imageSrc = isLocal ? src : src;
+---
+
+<picture>
+	<img
+		src={imageSrc}
+		alt={alt}
+		width={width}
+		height={height}
+		class={className}
+		loading={lazy ? 'lazy' : 'eager'}
+		decoding="async"
+	/>
+</picture>
+
+<style>
+	picture {
+		display: block;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 8px;
+	}
+</style>
