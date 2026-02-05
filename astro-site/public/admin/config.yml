@@ -1,0 +1,55 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  # Use Cloudflare Pages OAuth proxy
+  # Update base_url to your actual Cloudflare Pages URL after deployment
+  base_url: https://your-site.pages.dev
+  auth_endpoint: api/auth
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: public/images # Media files will be stored in the repo under public/images
+public_folder: /images # The src attribute for uploaded media will begin with /images
+
+collections:
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    folder: "src/content/pages" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Updated Date", name: "updatedDate", widget: "datetime", required: false}
+      - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - label: "Main Navigation"
+        name: "navigation"
+        file: "src/data/navigation.ts"
+        fields:
+          - {label: "Navigation Items", name: "navigation", widget: "list", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "URL", name: "href", widget: "string"},
+              {label: "External", name: "external", widget: "boolean", required: false},
+              {label: "Children", name: "children", widget: "list", required: false, fields: [
+                {label: "Title", name: "title", widget: "string"},
+                {label: "URL", name: "href", widget: "string"}
+              ]}
+            ]}
