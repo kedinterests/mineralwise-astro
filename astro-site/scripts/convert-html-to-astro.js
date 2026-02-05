@@ -13,8 +13,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const SCRAPED_DIR = path.join(__dirname, '../../scraped');
-const PAGES_DIR = path.join(__dirname, '../../src/pages');
-const IMAGE_MAP_FILE = path.join(__dirname, '../../src/data/image-map.json');
+const PAGES_DIR = path.join(__dirname, '../src/pages');
+const IMAGE_MAP_FILE = path.join(__dirname, '../src/data/image-map.json');
 
 // Load image map if it exists
 let imageMap = {};
@@ -164,7 +164,7 @@ function convertLinks(html) {
 /**
  * Generate Astro page from HTML file
  */
-function convertHtmlToAstro(htmlFilePath) {
+function convertHtmlToAstro(htmlFilePath, layoutImport) {
 	const htmlContent = fs.readFileSync(htmlFilePath, 'utf-8');
 	
 	// Extract metadata
@@ -179,7 +179,8 @@ function convertHtmlToAstro(htmlFilePath) {
 	
 	// Generate Astro page
 	const astroContent = `---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '${layoutImport}';
+import { Fragment } from 'astro/jsx-runtime';
 
 const title = ${JSON.stringify(title)};
 const description = ${JSON.stringify(description)};
@@ -189,7 +190,9 @@ const content = ${JSON.stringify(content)};
 
 <BaseLayout title={title} description={description}>
 	<article class="content-wrapper">
-		<div class="content-section" set:html={content} />
+		<div class="content-section">
+			<Fragment set:html={content} />
+		</div>
 	</article>
 </BaseLayout>
 `;
@@ -205,7 +208,10 @@ function getOutputPath(htmlFilePath) {
 	
 	// Handle index.html -> index.astro
 	if (fileName === 'index') {
-		return path.join(PAGES_DIR, 'index.astro');
+		return { 
+			path: path.join(PAGES_DIR, 'index.astro'),
+			layoutImport: '../layouts/BaseLayout.astro'
+		};
 	}
 	
 	// Handle special pages
@@ -218,7 +224,10 @@ function getOutputPath(htmlFilePath) {
 	};
 	
 	if (specialPages[fileName]) {
-		return path.join(PAGES_DIR, specialPages[fileName]);
+		return { 
+			path: path.join(PAGES_DIR, specialPages[fileName]),
+			layoutImport: '../layouts/BaseLayout.astro'
+		};
 	}
 	
 	// Handle oil-and-gas-terms pages
@@ -228,11 +237,17 @@ function getOutputPath(htmlFilePath) {
 		if (!fs.existsSync(termsDir)) {
 			fs.mkdirSync(termsDir, { recursive: true });
 		}
-		return path.join(termsDir, `${letter}.astro`);
+		return { 
+			path: path.join(termsDir, `${letter}.astro`),
+			layoutImport: '../../layouts/BaseLayout.astro'
+		};
 	}
 	
 	// Default: create in pages root
-	return path.join(PAGES_DIR, `${fileName}.astro`);
+	return { 
+		path: path.join(PAGES_DIR, `${fileName}.astro`),
+		layoutImport: '../layouts/BaseLayout.astro'
+	};
 }
 
 /**
@@ -249,8 +264,15 @@ async function processAllFiles() {
 	for (const file of files) {
 		try {
 			const htmlPath = path.join(SCRAPED_DIR, file);
-			const astroContent = convertHtmlToAstro(htmlPath);
-			const outputPath = getOutputPath(htmlPath);
+			const outputInfo = getOutputPath(htmlPath);
+			const outputPath = typeof outputInfo === 'string' 
+				? outputInfo 
+				: outputInfo.path;
+			const layoutImport = typeof outputInfo === 'string'
+				? '../layouts/BaseLayout.astro'
+				: outputInfo.layoutImport;
+			
+			const astroContent = convertHtmlToAstro(htmlPath, layoutImport);
 			
 			// Ensure directory exists
 			const outputDir = path.dirname(outputPath);

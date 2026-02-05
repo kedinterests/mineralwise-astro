@@ -16,8 +16,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const SCRAPED_DIR = path.join(__dirname, '../../scraped');
-const IMAGES_DIR = path.join(__dirname, '../../public/images');
-const IMAGE_MAP_FILE = path.join(__dirname, '../../src/data/image-map.json');
+const IMAGES_DIR = path.join(__dirname, '../public/images');
+const IMAGE_MAP_FILE = path.join(__dirname, '../src/data/image-map.json');
 
 // Ensure images directory exists
 if (!fs.existsSync(IMAGES_DIR)) {
