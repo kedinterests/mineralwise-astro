@@ -1,8 +1,10 @@
+import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import UnoCSS from 'unocss/astro';
+import tailwind from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
@@ -11,4 +13,7 @@ export default defineConfig({
 	site: 'http://localhost:4321',
 	output: 'static', // Use 'static' for localhost, change to 'server' when deploying to Cloudflare Pages
 	integrations: [UnoCSS(), mdx(), sitemap()],
+	vite: {
+		plugins: [tailwindcss(), tailwind()],
+	},
 });

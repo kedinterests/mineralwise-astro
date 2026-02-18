@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Custom theme variables */
+@theme {
+	--color-accent: #2337ff;
+	--color-accent-dark: #000d8a;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: #0a0a0a;
+		--color-foreground: #fafafa;
+	}
+}
