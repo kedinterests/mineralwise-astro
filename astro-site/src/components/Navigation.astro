@@ -5,18 +5,79 @@ import NavDropdown from './NavDropdown.astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="main-navigation">
-	<ul class="nav-list">
+<nav class="hidden md:flex items-center space-x-8">
+	{navigation.map((item) => (
+		<div class="relative flex items-center">
+			{item.children ? (
+				<NavDropdown item={item} currentPath={currentPath} />
+			) : (
+				<a
+					href={item.href}
+					class:list={{
+						'text-sm font-medium transition-colors flex items-center': true,
+						'text-gray-900 dark:text-white': currentPath !== item.href,
+						'text-blue-600 dark:text-blue-400': currentPath === item.href || (item.href === '/' && currentPath === '/'),
+						'hover:text-blue-600 dark:hover:text-blue-400': true,
+					}}
+					target={item.external ? '_blank' : undefined}
+					rel={item.external ? 'noopener noreferrer' : undefined}
+				>
+					{item.title}
+				</a>
+			)}
+		</div>
+	))}
+</nav>
+
+<!-- Mobile Menu Button -->
+<button 
+	type="button" 
+	class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+	aria-label="Toggle menu"
+	id="mobile-menu-button"
+>
+	<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+	</svg>
+</button>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-lg">
+	<div class="px-4 py-4 space-y-4">
 		{navigation.map((item) => (
-			<li class="nav-item">
+			<div>
 				{item.children ? (
-					<NavDropdown item={item} currentPath={currentPath} />
+					<div>
+						<button 
+							class="w-full text-left text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-between"
+							data-mobile-dropdown={item.title}
+						>
+							{item.title}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						<div class="hidden mt-2 pl-4 space-y-2" data-mobile-dropdown-menu={item.title}>
+							{item.children.map((child) => (
+								<a
+									href={child.href}
+									class="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+									target={child.external ? '_blank' : undefined}
+									rel={child.external ? 'noopener noreferrer' : undefined}
+								>
+									{child.title}
+								</a>
+							))}
+						</div>
+					</div>
 				) : (
 					<a
 						href={item.href}
 						class:list={{
-							'nav-link': true,
-							active: currentPath === item.href || (item.href === '/' && currentPath === '/'),
+							'block text-sm font-medium transition-colors': true,
+							'text-gray-900 dark:text-white': currentPath !== item.href,
+							'text-blue-600 dark:text-blue-400': currentPath === item.href || (item.href === '/' && currentPath === '/'),
+							'hover:text-blue-600 dark:hover:text-blue-400': true,
 						}}
 						target={item.external ? '_blank' : undefined}
 						rel={item.external ? 'noopener noreferrer' : undefined}
@@ -24,48 +85,31 @@ const currentPath = Astro.url.pathname;
 						{item.title}
 					</a>
 				)}
-			</li>
+			</div>
 		))}
-	</ul>
-</nav>
+	</div>
+</div>
 
-<style>
-	.main-navigation {
-		display: flex;
-		align-items: center;
-	}
-
-	.nav-list {
-		display: flex;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		gap: 1.5rem;
-		flex-wrap: wrap;
-	}
-
-	.nav-item {
-		position: relative;
-	}
-
-	.nav-link {
-		color: rgb(var(--black));
-		text-decoration: none;
-		font-weight: 500;
-		padding: 0.5rem 0;
-		border-bottom: 2px solid transparent;
-		transition: border-color 0.2s;
-	}
-
-	.nav-link:hover,
-	.nav-link.active {
-		border-bottom-color: var(--accent);
-	}
-
-	@media (max-width: 768px) {
-		.nav-list {
-			flex-direction: column;
-			gap: 0.5rem;
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const menuButton = document.getElementById('mobile-menu-button');
+		const mobileMenu = document.getElementById('mobile-menu');
+		
+		if (menuButton && mobileMenu) {
+			menuButton.addEventListener('click', () => {
+				mobileMenu.classList.toggle('hidden');
+			});
 		}
-	}
-</style>
+		
+		// Mobile dropdowns
+		document.querySelectorAll('[data-mobile-dropdown]').forEach(button => {
+			button.addEventListener('click', () => {
+				const menuId = button.getAttribute('data-mobile-dropdown');
+				const menu = document.querySelector(`[data-mobile-dropdown-menu="${menuId}"]`);
+				if (menu) {
+					menu.classList.toggle('hidden');
+				}
+			});
+		});
+	});
+</script>

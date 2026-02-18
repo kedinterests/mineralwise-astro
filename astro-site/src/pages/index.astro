@@ -1,18 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/starwind/button/Button.astro';
-import Card from '../components/starwind/card/Card.astro';
-import CardHeader from '../components/starwind/card/CardHeader.astro';
-import CardTitle from '../components/starwind/card/CardTitle.astro';
-import CardContent from '../components/starwind/card/CardContent.astro';
-import { navigation } from '../data/navigation.ts';
 
 const title = "MineralWise - Leading Mineral Rights Education";
 const description = "Discover expert insights and tools for managing your mineral rights with MineralWise. Learn about leasing, royalties, property valuation, and more. Empowering mineral owners with knowledge and resources.";
-
-// Get Owner's Guide articles for cards
-const ownersGuide = navigation.find(item => item.title === "Owner's Guide");
-const guideArticles = ownersGuide?.children || [];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -25,158 +16,257 @@ const guideArticles = ownersGuide?.children || [];
 	</style>
 	
 	<!-- Hero Section with Full-Width Background -->
-	<section class="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center bg-cover bg-center bg-no-repeat w-full" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/oil-pump-jack-1407715-1920.jpg');">
-		<div class="container mx-auto px-4 text-center text-white max-w-7xl w-full">
-			<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-				Insight for<br />
-				<span class="text-blue-400">Mineral Owners</span>
-			</h1>
-			<p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
-				Empowering mineral rights owners with education, opportunities, and insights.
-			</p>
-			<Button href="/owners-guide" variant="primary" size="lg" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
-				Mineral Owners Start Here
-			</Button>
+	<section class="relative min-h-[500px] md:min-h-[600px] flex items-center bg-cover bg-center bg-no-repeat w-full overflow-hidden">
+		<!-- Background Image - Flipped Horizontally with Parallax -->
+		<div id="hero-background" class="absolute inset-0 bg-cover" style="background-image: url('/images/hero-background.jpg'); background-position: center 65%; transform: scaleX(-1);"></div>
+		
+		<!-- Gradient Overlay from Left to Right -->
+		<div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+		
+		<!-- Content Container - Left Side (where gradient is darkest) -->
+		<div class="relative z-10 container mx-auto px-4 max-w-7xl w-full">
+			<div class="max-w-2xl text-white">
+				<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
+					Insight for<br />
+					<span class="text-white">Mineral Owners</span>
+				</h1>
+				<p class="text-xl md:text-2xl mb-8 font-light text-white">
+					Empowering mineral rights owners with education, opportunities, and insights.
+				</p>
+				<Button href="/owners-guide" variant="primary" size="lg" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
+					Mineral Owners Start Here
+				</Button>
+			</div>
 		</div>
 	</section>
 
-	<!-- Owner's Guide Cards Section -->
-	<section class="py-20 bg-gray-50 dark:bg-neutral-900 w-full">
-		<div class="container mx-auto px-4 max-w-7xl">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white">
-					Owner's Guide
-				</h2>
-				<p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-					Practical, action-oriented resources for mineral rights owners. Whether you're already leased, considering a lease offer, or exploring opportunities.
-				</p>
-			</div>
-			
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-				{guideArticles.map((article) => (
-					<a href={article.href} class="block h-full">
-						<Card class="hover:shadow-xl transition-shadow cursor-pointer group h-full">
-							<CardHeader>
-								<CardTitle class="text-xl font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-									{article.title}
-								</CardTitle>
-							</CardHeader>
-							<CardContent>
-								<p class="text-gray-600 dark:text-gray-400 mb-4">
-									{article.title === "Oil & Gas 101" && "General information for mineral rights owners. Start here if you're new to mineral rights."}
-									{article.title === "Leased & Producing" && "Articles designed to assist owners with questions or issues related to a producing well."}
-									{article.title === "Unleased Mineral Owner" && "Information about how to attract oil or gas drilling on your property, and understanding the value of your mineral rights."}
-									{article.title === "Leased But Not Producing" && "Information for mineral rights owners who have newly-leased property."}
-									{article.title === "Lease Proposals" && "Articles and guidelines for evaluating and understanding lease proposals."}
-									{article.title === "Opportunities" && "Articles about discovering unclaimed royalties in your name."}
-									{article.title === "Prefer Cash Payment" && "Information on estimating the value of your mineral interests and the possible sale of your mineral rights."}
-								</p>
-								<div class="text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
-									Learn more →
-								</div>
-							</CardContent>
-						</Card>
-					</a>
-				))}
-			</div>
+	<!-- Search Section -->
+	<section class="py-12 bg-white dark:bg-neutral-950 w-full">
+		<div class="container mx-auto px-4 max-w-4xl">
+			<form id="siq_searchForm" class="max-w-2xl mx-auto">
+				<input 
+					type="search" 
+					placeholder="Type here to search..." 
+					name="s" 
+					class="w-full h-14 px-6 text-lg rounded-lg border-2 border-gray-300 dark:border-gray-700 dark:bg-neutral-800 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
+					autocomplete="off"
+				/>
+			</form>
 		</div>
 	</section>
 
 	<!-- Main Content Section -->
 	<section class="py-20 bg-white dark:bg-neutral-950 w-full">
-		<div class="container mx-auto px-4 max-w-4xl">
-			<!-- Search Section -->
-			<div class="mb-16">
-				<form id="siq_searchForm" class="max-w-2xl mx-auto">
-					<input 
-						type="search" 
-						placeholder="Type here to search..." 
-						name="s" 
-						class="w-full h-14 px-6 text-lg rounded-lg border-2 border-gray-300 dark:border-gray-700 dark:bg-neutral-800 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
-						autocomplete="off"
-					/>
-				</form>
+		<div class="container mx-auto px-4 max-w-6xl">
+			<!-- Forum Link - Creative Card at Top -->
+			<div class="mb-16 max-w-3xl mx-auto">
+				<div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl p-8 border border-blue-100 dark:border-blue-900/50 shadow-lg">
+					<p class="text-lg text-gray-800 dark:text-gray-200 text-center">
+						If you would like to discuss oil & gas mineral related issues with other landowners, visit the popular{' '}
+						<a href="https://mineralrightsforum.com" target="_blank" rel="noreferrer noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold underline decoration-2 underline-offset-4">
+							Mineral Rights Forum
+						</a>.
+					</p>
+				</div>
 			</div>
 
-			<!-- Forum Link -->
-			<div class="mb-16 text-center">
-				<p class="text-lg text-gray-700 dark:text-gray-300">
-					If you would like to discuss oil & gas mineral related issues with other landowners, visit the popular{' '}
-					<a href="https://mineralrightsforum.com" target="_blank" rel="noreferrer noopener" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
-						Mineral Rights Forum
-					</a>.
-				</p>
+			<!-- Two Column Layout: Mineral Rights Text + Sticky Questions -->
+			<div class="grid grid-cols-1 md:grid-cols-[60%_40%] gap-12 mb-16" id="content-scroll-container">
+				<!-- Left Column - Mineral Rights Content -->
+				<div class="space-y-6">
+					<h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white leading-tight">
+						Mineral Rights and Surface Rights
+					</h2>
+					<div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6"></div>
+					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+						Mineral rights can be described as the <em class="text-blue-600 dark:text-blue-400 font-semibold">unseen</em> value associated with a tract of land. Historically, land was transferred among owners, with the royalty rights co-mingled with the surface rights. As oil and gas production began in the U.S., these rights started to be viewed independently. If mineral rights are <strong>severed</strong>, i.e. the process of separating mineral rights from the surface rights, a new and separate chain of title for the minerals begins.
+					</p>
+					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+						Separate ownership of mineral rights and surface rights can sometimes cause confusion. Regarding oil and gas production, the owner of the surface rights has limited input whether oil or gas is produced from underneath his property. If production is established, a portion of the value is paid via a royalty fraction (i.e. percentage) to the mineral rights owner.
+					</p>
+				</div>
+
+				<!-- Right Column - Sticky Questions Section -->
+				<div class="space-y-6">
+					<div id="sticky-questions" class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+						<h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900 dark:text-white">
+							Questions about Mineral Rights?
+						</h2>
+						<p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+							Click the link that best describes your situation.
+						</p>
+						<ul class="space-y-4">
+							<li>
+								<a href="/leased-and-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+									<span class="mt-1.5 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 group-hover:scale-125 transition-transform"></span>
+									<span>My mineral rights are leased and producing.</span>
+								</a>
+							</li>
+							<li>
+								<a href="/unleased-mineral-owner" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+									<span class="mt-1.5 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 group-hover:scale-125 transition-transform"></span>
+									<span>I am an un-leased mineral rights owner.</span>
+								</a>
+							</li>
+							<li>
+								<a href="/leased-but-not-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+									<span class="mt-1.5 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 group-hover:scale-125 transition-transform"></span>
+									<span>My mineral rights are leased but not producing.</span>
+								</a>
+							</li>
+							<li>
+								<a href="/lease-proposals" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+									<span class="mt-1.5 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 group-hover:scale-125 transition-transform"></span>
+									<span>I just received an oil or gas lease proposal - what's next?</span>
+								</a>
+							</li>
+							<li>
+								<a href="/cash-payment-for-oil-and-gas-royalty" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+									<span class="mt-1.5 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 group-hover:scale-125 transition-transform"></span>
+									<span>I am interested in a cash payment for my minerals.</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 
-			<!-- Mineral Rights Content -->
-			<div class="prose prose-lg dark:prose-invert max-w-none">
-				<h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
-					Mineral Rights and Surface Rights
-				</h2>
-				<p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-					Mineral rights can be described as the <em>unseen</em> value associated with a tract of land. Historically, land was transferred among owners, with the royalty rights co-mingled with the surface rights. As oil and gas production began in the U.S., these rights started to be viewed independently. If mineral rights are <strong>severed</strong>, i.e. the process of separating mineral rights from the surface rights, a new and separate chain of title for the minerals begins.
-				</p>
-				<p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-					Separate ownership of mineral rights and surface rights can sometimes cause confusion. Regarding oil and gas production, the owner of the surface rights has limited input whether oil or gas is produced from underneath his property. If production is established, a portion of the value is paid via a royalty fraction (i.e. percentage) to the mineral rights owner.
-				</p>
+			<!-- Additional Content Sections -->
+			<div class="space-y-16">
+				<!-- Leasing Section -->
+				<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 border-2 border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors shadow-lg">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="h-12 w-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+							<svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+							</svg>
+						</div>
+						<h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
+							Leasing Your Mineral Rights
+						</h2>
+					</div>
+					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+						If a landman comes knocking at your door, it's wise to know a few things before signing an oil and gas lease. Here are two articles that will help you negotiate your oil and gas lease. The first, <strong>Oil and Gas Leases: Top Ten Things Not to Do</strong> describes some of the mistakes owners make and how you can avoid them. The second article, <strong>Oil and Gas Leasing: Top Ten Things to Do</strong> illustrates how you can pursue the best deal for your mineral rights regarding your lease bonus payment, royalty percentage, and other important lease provisions.
+					</p>
+				</div>
+
+				<!-- Taxes Section -->
+				<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 border-2 border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors shadow-lg">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+							<svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+							</svg>
+						</div>
+						<h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
+							Mineral Rights Taxes
+						</h2>
+					</div>
+					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+						As with other assets, royalty rights come with a tax liability. These tax burdens vary depending on whether the minerals are being produced or not. Minerals can be taxed both at the state and county level, in addition to your Federal tax obligation. The <strong>County Ad Valorem Tax</strong> is generally levied only on producing minerals. There are several ways to mitigate tax impact, including the <strong>Depletion Allowance</strong> and <strong>1031 Exchanges</strong>.
+					</p>
+				</div>
 			</div>
 
-			<!-- Quick Links Section -->
-			<div class="mt-16 p-8 bg-gray-50 dark:bg-neutral-900 rounded-xl">
-				<h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900 dark:text-white">
-					Questions about Mineral Rights?
-				</h2>
-				<p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-					Click the link that best describes your situation.
-				</p>
-				<ul class="space-y-3">
-					<li>
-						<a href="/leased-and-producing" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold text-lg">
-							My mineral rights are leased and producing.
-						</a>
-					</li>
-					<li>
-						<a href="/unleased-mineral-owner" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold text-lg">
-							I am an un-leased mineral rights owner.
-						</a>
-					</li>
-					<li>
-						<a href="/leased-but-not-producing" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold text-lg">
-							My mineral rights are leased but not producing.
-						</a>
-					</li>
-					<li>
-						<a href="/lease-proposals" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold text-lg">
-							I just received an oil or gas lease proposal - what's next?
-						</a>
-					</li>
-					<li>
-						<a href="/cash-payment-for-oil-and-gas-royalty" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold text-lg">
-							I am interested in a cash payment for my minerals.
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<!-- Leasing Section -->
-			<div class="mt-16">
-				<h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
-					Leasing Your Mineral Rights
-				</h2>
-				<p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-					If a landman comes knocking at your door, it's wise to know a few things before signing an oil and gas lease. Here are two articles that will help you negotiate your oil and gas lease. The first, <strong>Oil and Gas Leases: Top Ten Things Not to Do</strong> describes some of the mistakes owners make and how you can avoid them. The second article, <strong>Oil and Gas Leasing: Top Ten Things to Do</strong> illustrates how you can pursue the best deal for your mineral rights regarding your lease bonus payment, royalty percentage, and other important lease provisions. Learn more about the process of oil and gas production in the article <strong>Oil and Gas Production in Nontechnical Language</strong>.
-				</p>
-			</div>
-
-			<!-- Taxes Section -->
-			<div class="mt-16">
-				<h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
-					Mineral Rights Taxes
-				</h2>
-				<p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-					As with other assets, royalty rights come with a tax liability. These tax burdens vary depending on whether the minerals are being produced or not. Minerals can be taxed both at the state and county level, in addition to your Federal tax obligation. The <strong>County Ad Valorem Tax</strong> is generally levied only on producing minerals. There are several ways to mitigate tax impact, including the <strong>Depletion Allowance</strong> and <strong>1031 Exchanges</strong>. The article <strong>Royalty Tax</strong> provides answers and links to common questions oil and gas royalty owners have about mineral right taxes.
-				</p>
-			</div>
 		</div>
 	</section>
+
+	<script>
+		// Parallax effect for hero background
+		function initParallax() {
+			const heroSection = document.querySelector('section');
+			const heroBackground = document.getElementById('hero-background');
+			
+			if (!heroSection || !heroBackground) return;
+			
+			// Make background taller to prevent gaps during parallax
+			heroBackground.style.height = '120%';
+			heroBackground.style.top = '-10%';
+			
+			function updateParallax() {
+				const rect = heroSection.getBoundingClientRect();
+				const scrollY = window.scrollY;
+				const heroTop = rect.top + scrollY;
+				
+				// Calculate parallax offset (background moves slower than scroll)
+				const parallaxSpeed = 0.5;
+				const offset = (scrollY - heroTop) * parallaxSpeed;
+				
+				// Only apply parallax when hero is in viewport
+				if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+					heroBackground.style.transform = `scaleX(-1) translateY(${offset}px)`;
+				} else {
+					// Reset when out of viewport
+					heroBackground.style.transform = 'scaleX(-1) translateY(0px)';
+				}
+			}
+			
+			// Use requestAnimationFrame for smooth performance
+			let ticking = false;
+			function onScroll() {
+				if (!ticking) {
+					window.requestAnimationFrame(() => {
+						updateParallax();
+						ticking = false;
+					});
+					ticking = true;
+				}
+			}
+			
+			window.addEventListener('scroll', onScroll, { passive: true });
+			updateParallax(); // Initial call
+		}
+		
+		// Sticky questions section
+		function initStickyQuestions() {
+			const container = document.getElementById('content-scroll-container');
+			const stickyElement = document.getElementById('sticky-questions');
+			
+			if (!container || !stickyElement) return;
+			
+			function updateSticky() {
+				const containerRect = container.getBoundingClientRect();
+				const stickyRect = stickyElement.getBoundingClientRect();
+				const headerHeight = 80; // Approximate header height
+				
+				// Calculate when to stop being sticky (when container bottom reaches sticky element bottom)
+				const containerBottom = containerRect.bottom;
+				const stickyBottom = stickyRect.bottom;
+				const shouldStick = containerRect.top <= headerHeight && containerBottom > stickyBottom;
+				
+				if (shouldStick) {
+					stickyElement.style.position = 'sticky';
+					stickyElement.style.top = `${headerHeight}px`;
+				} else {
+					stickyElement.style.position = 'relative';
+					stickyElement.style.top = '0';
+				}
+			}
+			
+			let ticking = false;
+			function onScroll() {
+				if (!ticking) {
+					window.requestAnimationFrame(() => {
+						updateSticky();
+						ticking = false;
+					});
+					ticking = true;
+				}
+			}
+			
+			window.addEventListener('scroll', onScroll, { passive: true });
+			updateSticky(); // Initial call
+		}
+		
+		// Initialize when DOM is ready
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', () => {
+				initParallax();
+				initStickyQuestions();
+			});
+		} else {
+			initParallax();
+			initStickyQuestions();
+		}
+	</script>
 </BaseLayout>
