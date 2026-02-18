@@ -16,9 +16,17 @@ const guideArticles = ownersGuide?.children || [];
 ---
 
 <BaseLayout title={title} description={description}>
+	<style>
+		:global(main) {
+			width: 100% !important;
+			max-width: 100% !important;
+			padding: 0 !important;
+		}
+	</style>
+	
 	<!-- Hero Section with Full-Width Background -->
-	<section class="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/oil-pump-jack-1407715-1920.jpg');">
-		<div class="container mx-auto px-4 text-center text-white">
+	<section class="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center bg-cover bg-center bg-no-repeat w-full" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/oil-pump-jack-1407715-1920.jpg');">
+		<div class="container mx-auto px-4 text-center text-white max-w-7xl w-full">
 			<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
 				Insight for<br />
 				<span class="text-blue-400">Mineral Owners</span>
@@ -33,8 +41,8 @@ const guideArticles = ownersGuide?.children || [];
 	</section>
 
 	<!-- Owner's Guide Cards Section -->
-	<section class="py-20 bg-gray-50 dark:bg-neutral-900">
-		<div class="container mx-auto px-4">
+	<section class="py-20 bg-gray-50 dark:bg-neutral-900 w-full">
+		<div class="container mx-auto px-4 max-w-7xl">
 			<div class="text-center mb-16">
 				<h2 class="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white">
 					Owner's Guide
@@ -75,7 +83,7 @@ const guideArticles = ownersGuide?.children || [];
 	</section>
 
 	<!-- Main Content Section -->
-	<section class="py-20 bg-white dark:bg-neutral-950">
+	<section class="py-20 bg-white dark:bg-neutral-950 w-full">
 		<div class="container mx-auto px-4 max-w-4xl">
 			<!-- Search Section -->
 			<div class="mb-16">

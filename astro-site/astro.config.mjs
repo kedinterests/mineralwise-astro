@@ -1,4 +1,3 @@
-import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 
 import mdx from '@astrojs/mdx';
@@ -14,6 +13,6 @@ export default defineConfig({
 	output: 'static', // Use 'static' for localhost, change to 'server' when deploying to Cloudflare Pages
 	integrations: [UnoCSS(), mdx(), sitemap()],
 	vite: {
-		plugins: [tailwindcss(), tailwind()],
+		plugins: [tailwind()],
 	},
 });
