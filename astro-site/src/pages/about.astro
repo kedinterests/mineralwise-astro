@@ -2,13 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
 import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "MineralWise: Expert Advice for Oil &amp; Gas Mineral Rights Owners";
 const description = "Discover expert consulting, advice, and resources for oil and gas mineral rights owners in America. MineralWise empowers you to maximize bonus and royalty payments while navigating mineral ownership with confidence.";
+
+// Breadcrumbs come from hierarchy.ts: About's parent is Home
+const breadcrumbs = getBreadcrumbs('/about');
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}>
+	<PageShell breadcrumbs={breadcrumbs}>
 		<ArticleContent>
 			<h1>About MineralWise.com</h1>
 

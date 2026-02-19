@@ -81,9 +81,13 @@ astro-site/
 └── scraped/                      # Original HTML files
 ```
 
+## Migration
+
+See [MIGRATION.md](./MIGRATION.md) for the full migration guide (plan, tracker, content cleanup, hierarchy).
+
 ## Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for Cloudflare Pages deployment instructions.
+See [DEPLOYMENT_AND_SETUP.md](./DEPLOYMENT_AND_SETUP.md) for Cloudflare Pages deployment and optional Decap CMS setup.
 
 ## Features
 
@@ -101,7 +105,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for Cloudflare Pages deployment instruction
 2. Run `npm run convert-html` to convert HTML files to Astro pages
 3. Review and refine converted pages as needed
 4. Test locally with `npm run dev`
-5. Deploy to Cloudflare Pages (see DEPLOYMENT.md)
+5. Deploy to Cloudflare Pages (see DEPLOYMENT_AND_SETUP.md)
 
 ## Notes
 

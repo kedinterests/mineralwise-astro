@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Our Team | MineralWise";
+const description = "Meet the MineralWise team.";
+
+// Declare this page's path. Breadcrumbs come from hierarchy.ts.
+const path = '/about/team';
+const breadcrumbs = getBreadcrumbs(path);
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={breadcrumbs}>
+		<ArticleContent>
+			<h1>Our Team</h1>
+			<p>This is a child page of About. The breadcrumbs show: Home &gt; About &gt; Our Team.</p>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

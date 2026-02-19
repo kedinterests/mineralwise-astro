@@ -125,4 +125,4 @@ npm run dev
 
 ---
 
-**Need help?** Check `DECAP_CMS_SETUP.md` for detailed instructions.
+**Need help?** See `DEPLOYMENT_AND_SETUP.md` Part 2 for Decap CMS details.
