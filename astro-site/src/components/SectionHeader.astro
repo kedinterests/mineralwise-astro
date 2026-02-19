@@ -1,0 +1,22 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	level?: 1 | 2 | 3;
+	class?: string;
+}
+
+const {
+	title,
+	description,
+	level = 2,
+	class: className = ''
+} = Astro.props;
+
+const Tag = `h${level}` as 'h1' | 'h2' | 'h3';
+---
+
+<header class:list={['mb-6', className]}>
+	<Tag>{title}</Tag>
+	{description && <p>{description}</p>}
+</header>

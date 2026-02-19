@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
 
 const title = "Abandoned Well | MineralWise";
 const description = "A well no longer in use, whether dry, inoperable or no longer productive.";
@@ -9,9 +11,9 @@ const content = "<div id=\"mm-0\">\n    <section id=\"bB_BBNEYGX6g_bB_BBNEYGX6g\
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
+	<PageShell>
+		<ArticleContent>
 			<Fragment set:html={content} />
-		</div>
-	</article>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>

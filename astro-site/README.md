@@ -76,8 +76,8 @@ astro-site/
 │   │   └── BaseLayout.astro     # Base page layout
 │   ├── pages/                    # Astro pages (generated)
 │   └── styles/
-│       ├── global.css            # Global styles
-│       └── theme.css              # Theme styles
+│       ├── starwind.css          # Single source of truth for styles/tokens/typography
+│       └── tailwind.css          # Utility framework entry
 └── scraped/                      # Original HTML files
 ```
 

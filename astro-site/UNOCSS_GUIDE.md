@@ -41,7 +41,7 @@ You can now use UnoCSS utility classes throughout your components. Examples:
 
 ### Existing CSS
 
-Your existing custom CSS (`theme.css` and `global.css`) will continue to work alongside UnoCSS. You can:
+Your existing custom CSS (`starwind.css`) will continue to work alongside UnoCSS. You can:
 
 1. **Keep using custom CSS** - Everything still works
 2. **Gradually migrate** - Replace custom CSS with UnoCSS classes over time

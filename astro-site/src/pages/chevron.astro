@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
 
 const title = "Chevron | MineralWise";
 const description = "Chevron Corporation operates as an integrated energy company worldwide. Chevron stock is listed on the NYSE under the symbol CVX. The company";
@@ -9,9 +11,9 @@ const content = "<div id=\"mm-0\">\n    <section id=\"sObP6GwHMOZd_sObP6GwHMOZd\
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
+	<PageShell>
+		<ArticleContent>
 			<Fragment set:html={content} />
-		</div>
-	</article>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>

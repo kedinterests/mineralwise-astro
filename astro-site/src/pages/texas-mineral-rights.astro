@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
 
 const title = "Texas Mineral Rights | MineralWise";
 const description = "Texas Mineral Rights have a long history going back to the time when Texas was under the Spanish and Mexican flags. Texas mineral rights are even written in the state’s constitutions of 1869 and 1876. Under current Texas law, mineral rights can be severed from the surface rights and sold and transferred as a separate unit.Also, Texas mineral rights may be produced by the owner or leased to an oil and gas company for production. Two-thirds of the counties in Texas produce oil or gas for their mineral rights owners. The first oil well in the state of Texas was the Spindletop discovered in 1901 south of Beaumont, TexasMajor Oil and Gas Fields in TexasBald Prairie FieldCarthage FieldFreestone FieldHugoton FieldNewark East FieldOak Hill FieldPinon FieldSawyer FieldSpraberry Trend FieldStiles Ranch FieldMajor Oil and Gas Producing Counties in TexasAndrews CountyFreestone CountyGaines CountyJohnson CountyMidland CountyPanola CountyPecos CountyScurry CountyTarrant CountyYoakum CountyOil and Gas Companies Active in TexasApacheChevronCOG OperatingExxon MobilHess CorporationKinder MorganOccidental Permian LimitedOXY USAPioneer Natural ResourcesXTO EnergyTexas Mineral Rights LinksRailroad Commission of Texas: http://www.rrc.state.tx.us/Additional ReadingOil &amp;amp; Gas 101 – General information for mineral rights owners. Start here if you’re a newbie.Barnett Shale Texas - Short article describing geology, location &amp;amp; counties within the Barnett Shale of Texas. Written for oil and gas mineral rights and royalty owners in TX.Bossier Shale - Short article describing geology, location &amp;amp; counties within the Bossier Shale. Written for oil and gas mineral rights and royalty owners.Eagle Ford Shale - Short article describing geology, location &amp;amp; counties within the Eagle Ford Shale. Written for oil and gas mineral rights and royalty owners.Haynesville Shale Texas - Short article describing geology, location &amp;amp; counties within the Haynesville Shale of Texas. Written for oil and gas mineral rights and royalty owners in TX.";
@@ -9,9 +11,9 @@ const content = "<div id=\"mm-0\">\n    <section id=\"j3FFGevBbx_r_j3FFGevBbx_r\
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
+	<PageShell>
+		<ArticleContent>
 			<Fragment set:html={content} />
-		</div>
-	</article>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
