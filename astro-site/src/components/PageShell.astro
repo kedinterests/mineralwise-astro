@@ -1,17 +1,30 @@
 ---
+import Breadcrumbs from './Breadcrumbs.astro';
+
+interface BreadcrumbItem {
+	label: string;
+	href?: string;
+}
+
 interface Props {
 	as?: 'article' | 'section' | 'div';
 	class?: string;
+	/** Optional breadcrumb trail. Last item is current page (no href). */
+	breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
 	as = 'article',
-	class: className = ''
+	class: className = '',
+	breadcrumbs
 } = Astro.props;
 
 const Tag = as;
 ---
 
 <Tag class:list={['content-wrapper', className]}>
+	{breadcrumbs && breadcrumbs.length > 0 && (
+		<Breadcrumbs items={breadcrumbs} />
+	)}
 	<slot />
 </Tag>

@@ -28,6 +28,16 @@ Last updated: 2026-02-19
 - Target: 2 migration slices per week.
 - Suggested days: Tuesday + Friday.
 
+## Layout & Components
+
+- **Content max-width:** Default 1000px. Override per page via `BaseLayout` prop: `maxWidth={1200}` or `maxWidth="100%"`.
+- **Breadcrumbs:** Required. Pass `breadcrumbs` prop to `PageShell` with `{ label, href? }[]`. Last item is current page (no href).
+
+## Content Cleanup
+
+- All content exported from Brizzy. Apply cleanup per `CONTENT_CLEANUP_GUIDE.md` as each page goes live.
+- Remove Brizzy attributes, duplicate footers, ad cruft; replace `--brz-global-color*` with semantic styles.
+
 ## Current Baseline
 
 - Total Astro pages in `src/pages`: **409**

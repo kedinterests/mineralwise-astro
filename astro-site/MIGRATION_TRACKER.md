@@ -59,12 +59,12 @@ Use this as the active source-of-truth checklist for migration execution.
 
 ## Phase 1 Checklist (Days 1-3)
 
-- [ ] Finalize global layout behavior in `BaseLayout.astro` (container spacing review pending).
+- [x] Finalize global layout behavior in `BaseLayout.astro` (default max-width 1000px, per-page override via `maxWidth` prop).
 - [x] Create structural components:
   - [x] `PageShell`
   - [x] `ArticleContent`
   - [x] `SectionHeader`
-  - [ ] `Breadcrumbs` (optional)
+  - [x] `Breadcrumbs`
 - [x] Verify shell on representative page families.
 
 ### Phase 1 Exit Criteria

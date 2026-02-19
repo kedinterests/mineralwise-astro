@@ -8,12 +8,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 interface Props {
 	title?: string;
 	description?: string;
+	/** Max width of content area in px. Default 1000. Override for pages that need wider/narrower. */
+	maxWidth?: number | string;
 }
 
 const { 
 	title = SITE_TITLE,
-	description = SITE_DESCRIPTION 
+	description = SITE_DESCRIPTION,
+	maxWidth = 1000
 } = Astro.props;
+
+const maxWidthValue = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
 ---
 
 <!doctype html>
@@ -23,7 +28,7 @@ const {
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main style={`--container-max-width: ${maxWidthValue}`}>
 			<slot />
 		</main>
 		<Footer />

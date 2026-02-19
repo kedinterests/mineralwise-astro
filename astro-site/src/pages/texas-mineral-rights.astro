@@ -11,7 +11,7 @@ const content = "<div id=\"mm-0\">\n    <section id=\"j3FFGevBbx_r_j3FFGevBbx_r\
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell>
+	<PageShell breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Mineral Rights by State', href: '/mineral-rights-by-state' }, { label: 'Texas Mineral Rights' }]}>
 		<ArticleContent>
 			<Fragment set:html={content} />
 		</ArticleContent>

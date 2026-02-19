@@ -1,0 +1,70 @@
+---
+interface BreadcrumbItem {
+	label: string;
+	href?: string;
+}
+
+interface Props {
+	items: BreadcrumbItem[];
+	class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class:list={['breadcrumbs', className]}>
+	<ol class="breadcrumbs__list">
+		{items.map((item, i) => (
+			<li class="breadcrumbs__item">
+				{i > 0 && <span class="breadcrumbs__separator" aria-hidden="true">/</span>}
+				{item.href ? (
+					<a href={item.href} class="breadcrumbs__link">{item.label}</a>
+				) : (
+					<span class="breadcrumbs__current" aria-current="page">{item.label}</span>
+				)}
+			</li>
+		))}
+	</ol>
+</nav>
+
+<style>
+	.breadcrumbs {
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+	}
+
+	.breadcrumbs__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.25rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.breadcrumbs__item {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.breadcrumbs__separator {
+		color: rgb(var(--gray));
+		user-select: none;
+	}
+
+	.breadcrumbs__link {
+		color: var(--primary);
+		text-decoration: none;
+	}
+
+	.breadcrumbs__link:hover {
+		text-decoration: underline;
+	}
+
+	.breadcrumbs__current {
+		color: rgb(var(--gray-dark));
+		font-weight: 500;
+	}
+</style>

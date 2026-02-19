@@ -8,7 +8,7 @@ const description = "Discover expert consulting, advice, and resources for oil a
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell>
+	<PageShell breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}>
 		<ArticleContent>
 			<h1>About MineralWise.com</h1>
 
