@@ -206,8 +206,8 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 1.2rem;
-  line-height: 1.7;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
 
 main {
