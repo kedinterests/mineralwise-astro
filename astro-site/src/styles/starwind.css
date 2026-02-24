@@ -174,8 +174,8 @@
 /* Consolidated global + theme styles (single source of truth) */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
+  --accent: #0ea5e9; /* sky-500 */
+  --accent-dark: #0284c7; /* sky-600 */
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -214,7 +214,7 @@ main {
   width: min(var(--container-max-width), calc(100% - 2em));
   max-width: calc(100% - 2em);
   margin: auto;
-  padding: 3em 1em;
+  padding: 0 1em;
 }
 
 .content-section h1,
@@ -336,11 +336,14 @@ hr {
 .content-wrapper {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .content-section {
-  padding: var(--section-padding);
+  padding-top: 0;
+  padding-bottom: 75px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .btn {
@@ -411,7 +414,10 @@ hr {
 
 @media (max-width: 768px) {
   .content-section {
-    padding: var(--section-padding-mobile);
+    padding-top: 0;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .content-section h1 {

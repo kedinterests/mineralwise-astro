@@ -1,0 +1,121 @@
+---
+interface Article {
+	title: string;
+	href: string;
+	description: string;
+}
+
+interface Props {
+	heading: string;
+	intro: string;
+	articles: Article[];
+}
+
+const { heading, intro, articles } = Astro.props;
+---
+
+<div class="owner-guide-card">
+	<h1 class="owner-guide-heading">{heading}</h1>
+	<p class="owner-guide-intro">{intro}</p>
+	
+	<div class="articles-grid">
+		{articles.map((article) => (
+			<article class="article-card">
+				<h2 class="article-title">
+					<a href={article.href} class="article-link">{article.title}</a>
+				</h2>
+				<p class="article-description">{article.description}</p>
+			</article>
+		))}
+	</div>
+</div>
+
+<style>
+	.owner-guide-card {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.owner-guide-heading {
+		margin-top: 0;
+		margin-bottom: 1.5rem;
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1.2;
+		color: rgb(var(--gray-dark));
+	}
+
+	.owner-guide-intro {
+		margin-bottom: 2.5rem;
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+		color: rgb(var(--gray-dark));
+	}
+
+	.articles-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.article-card {
+		padding: 1.5rem;
+		background: #f8fafc;
+		border: 1px solid #e2e8f0;
+		border-radius: 0.75rem;
+		transition: all 0.2s;
+	}
+
+	.article-card:hover {
+		border-color: #0ea5e9;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+	}
+
+	.article-title {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	.article-link {
+		color: #0ea5e9; /* sky-500 */
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.article-link:hover {
+		color: #0284c7; /* sky-600 */
+		text-decoration: underline;
+	}
+
+	.article-description {
+		margin-bottom: 0;
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+
+	@media (max-width: 768px) {
+		.owner-guide-card {
+			padding: 1.5rem;
+		}
+
+		.owner-guide-heading {
+			font-size: 1.75rem;
+		}
+
+		.articles-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.article-card {
+			padding: 1.25rem;
+		}
+	}
+</style>

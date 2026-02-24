@@ -15,9 +15,8 @@ const currentPath = Astro.url.pathname;
 					href={item.href}
 					class:list={{
 						'text-1rem font-medium transition-colors flex items-center': true,
-						'text-gray-900 dark:text-white': currentPath !== item.href,
-						'text-blue-600 dark:text-blue-400': currentPath === item.href || (item.href === '/' && currentPath === '/'),
-						'hover:text-blue-600 dark:hover:text-blue-400': true,
+						'text-gray-900 dark:text-white': true,
+						'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 					}}
 					target={item.external ? '_blank' : undefined}
 					rel={item.external ? 'noopener noreferrer' : undefined}
@@ -49,7 +48,7 @@ const currentPath = Astro.url.pathname;
 				{item.children ? (
 					<div>
 						<button 
-							class="w-full text-left text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-between"
+							class="w-full text-left text-sm font-medium text-gray-900 dark:text-white hover:text-[#0284c7] dark:hover:text-sky-400 flex items-center justify-between"
 							data-mobile-dropdown={item.title}
 						>
 							{item.title}
@@ -61,7 +60,7 @@ const currentPath = Astro.url.pathname;
 							{item.children.map((child) => (
 								<a
 									href={child.href}
-									class="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+									class="block text-sm text-gray-600 dark:text-gray-400 hover:text-[#0284c7] dark:hover:text-sky-400"
 									target={child.external ? '_blank' : undefined}
 									rel={child.external ? 'noopener noreferrer' : undefined}
 								>
@@ -75,9 +74,8 @@ const currentPath = Astro.url.pathname;
 						href={item.href}
 						class:list={{
 							'block text-sm font-medium transition-colors': true,
-							'text-gray-900 dark:text-white': currentPath !== item.href,
-							'text-blue-600 dark:text-blue-400': currentPath === item.href || (item.href === '/' && currentPath === '/'),
-							'hover:text-blue-600 dark:hover:text-blue-400': true,
+							'text-gray-900 dark:text-white': true,
+							'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 						}}
 						target={item.external ? '_blank' : undefined}
 						rel={item.external ? 'noopener noreferrer' : undefined}

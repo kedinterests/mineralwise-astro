@@ -20,9 +20,8 @@ const isActive = item.children?.some(child => currentPath === child.href) || fal
 	<button
 		class:list={{
 			'text-1rem font-medium transition-colors flex items-center gap-1 leading-none': true,
-			'text-gray-900 dark:text-white': !isActive,
-			'text-blue-600 dark:text-blue-400': isActive,
-			'hover:text-blue-600 dark:hover:text-blue-400': true,
+			'text-gray-900 dark:text-white': true,
+			'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 		}}
 		aria-expanded="false"
 		aria-haspopup="true"
@@ -44,8 +43,7 @@ const isActive = item.children?.some(child => currentPath === child.href) || fal
 					href={child.href}
 					class:list={{
 						'block px-4 py-2 text-.9rem transition-colors': true,
-						'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800': currentPath !== child.href,
-						'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20': currentPath === child.href,
+						'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800': true,
 					}}
 					target={child.external ? '_blank' : undefined}
 					rel={child.external ? 'noopener noreferrer' : undefined}

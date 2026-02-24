@@ -29,7 +29,8 @@ const { items, class: className = '' } = Astro.props;
 
 <style>
 	.breadcrumbs {
-		margin-bottom: 1rem;
+		margin-top: 1.875rem; /* 30px from header bottom */
+		margin-bottom: 1.875rem; /* 30px to content */
 		font-size: 0.9rem;
 	}
 
@@ -55,11 +56,13 @@ const { items, class: className = '' } = Astro.props;
 	}
 
 	.breadcrumbs__link {
-		color: var(--primary);
+		color: #0ea5e9; /* sky-500 */
 		text-decoration: none;
+		transition: color 0.2s;
 	}
 
 	.breadcrumbs__link:hover {
+		color: #0284c7; /* sky-600 */
 		text-decoration: underline;
 	}
 
