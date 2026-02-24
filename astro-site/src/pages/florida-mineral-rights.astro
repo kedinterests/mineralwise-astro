@@ -6,26 +6,55 @@ import StatePage from '../components/StatePage.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Florida Mineral Rights | MineralWise";
-const metaDescription = "Florida mineral rights are wide and varied. Florida’s first producing oil well, the Sunniland No. 1, was drilled in September 1943 by the Humble Oil Co. This we";
+const metaDescription = "Florida mineral rights are wide and varied. Florida's first producing oil well, the Sunniland No. 1, was drilled in September 1943 by the Humble Oil Co.";
 
 const stateName = "Florida";
 const stateAbbr = "FL";
-const description = "Florida mineral rights are wide and varied. Florida’s first producing oil well, the Sunniland No. 1, was drilled in September 1943 by the Humble Oil Co. This we";
+const description = "Florida mineral rights are wide and varied. Florida's first producing oil well, the Sunniland No. 1, was drilled in September 1943 by the Humble Oil Co. This well site is next to the Big Cypress Preserve and is located half an hour from Naples. Most of the producing mineral rights in Florida are located north of Pensacola near the Alabama border. The other primary area in Florida with mineral rights are under production is toward the southern end of the state.";
 
 const stats = [];
-const majorFields = [];
-const companies = [];
-
-const additionalReading = [];
+const majorFields = [
+	"Bear Island Field",
+	"Blackjack Creek Field",
+	"Corkscrew Field",
+	"Jay Field",
+	"Lake Trafford Field",
+	"Lehigh Park Field",
+	"McLellan Field",
+	"Mid Felda Field",
+	"Raccoon Point Field",
+	"Sunniland Field",
+	"Sunoco Felda field",
+	"West Felda Field"
+];
+const companies = [
+	"Breitburn Energy Partners",
+	"Mack Oil",
+	"Newport Oil",
+	"Peninsular Oil Company",
+	"Petro Operating Company",
+	"Quantum Resources",
+	"U.S. Capital Energy"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
 ---
 
 <BaseLayout title={title} description={metaDescription}>
 	<PageShell breadcrumbs={getBreadcrumbs('/florida-mineral-rights')}>
 		<ArticleContent>
-			<StatePage 
+			<StatePage
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

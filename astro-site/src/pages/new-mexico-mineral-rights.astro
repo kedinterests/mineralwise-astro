@@ -6,26 +6,59 @@ import StatePage from '../components/StatePage.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "New Mexico Mineral Rights | MineralWise";
-const metaDescription = "New Mexico mineral rights were first exploited about the time of the founding of the state. The first successful gas well was completed in 1921. The first oil w";
+const metaDescription = "New Mexico mineral rights were first exploited about the time of the founding of the state. The first successful gas well was completed in 1921.";
 
 const stateName = "New Mexico";
 const stateAbbr = "NM";
-const description = "New Mexico mineral rights were first exploited about the time of the founding of the state. The first successful gas well was completed in 1921. The first oil w";
+const description = "New Mexico mineral rights were first exploited about the time of the founding of the state. The first successful gas well was completed in 1921. The first oil well in New Mexico was produced in 1924 by Van S. Welch, Tom Flynn, and Martin Yates. This oil well was drilled in southeastern New Mexico. Currently, producing mineral rights in New Mexico also include such resources as Helium and CO2.";
 
 const stats = [];
-const majorFields = [];
-const companies = [];
-
-const additionalReading = [];
+const majorFields = [
+	"Acoma/Lucero Basin",
+	"Albuquerque Basin",
+	"Chama Basin",
+	"Chupadera Mesa Area",
+	"Dalhart Basin",
+	"Estancia Basin",
+	"Jornada Del Muerto Basin",
+	"Las Vegas Basin",
+	"Pedregosa Basin",
+	"Sin Nombre Area",
+	"St. Johns CO2 Area",
+	"Tucumcari Basin",
+	"Tularosa Basin",
+	"Zuni Gallup Basin"
+];
+const companies = [
+	"Armstrong Energy",
+	"Cimarron Exploration",
+	"Conoco Phillips",
+	"EOG Resources",
+	"Manzona Resources",
+	"Santa Fe Exploration",
+	"Schlumberger",
+	"Slayton Resources",
+	"Yates Petroleum"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
 ---
 
 <BaseLayout title={title} description={metaDescription}>
 	<PageShell breadcrumbs={getBreadcrumbs('/new-mexico-mineral-rights')}>
 		<ArticleContent>
-			<StatePage 
+			<StatePage
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

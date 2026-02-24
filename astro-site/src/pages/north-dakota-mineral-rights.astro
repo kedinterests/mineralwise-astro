@@ -6,26 +6,61 @@ import StatePage from '../components/StatePage.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "North Dakota Mineral Rights | MineralWise";
-const metaDescription = "Oil was first discovered in North Dakota in 1951. Mineral rights in this sparsely populated region bordering Canada did not receive much attention until the dis";
+const metaDescription = "Oil was first discovered in North Dakota in 1951. Mineral rights in this sparsely populated region bordering Canada did not receive much attention until the discovery of the Bakken Shale formation.";
 
 const stateName = "North Dakota";
 const stateAbbr = "ND";
-const description = "Oil was first discovered in North Dakota in 1951. Mineral rights in this sparsely populated region bordering Canada did not receive much attention until the dis";
+const description = "Oil was first discovered in North Dakota in 1951. Mineral rights in this sparsely populated region bordering Canada did not receive much attention until the discovery of the Bakken Shale formation. The Bakken Shale formation spreads over 24,000 square miles. Most of the mineral rights owners in North Dakota are farmers who have been tilling the soil for generations.";
 
 const stats = [];
-const majorFields = [];
-const companies = [];
-
-const additionalReading = [];
+const majorFields = [
+	"Bakken Formation",
+	"Deadwood Formation",
+	"Devonian Formation",
+	"Madision Formation",
+	"Ordovician Formation",
+	"Red River B Formation",
+	"Red River Formation",
+	"Silurian Formation"
+];
+const companies = [
+	"Continental Resources",
+	"EOG Resources",
+	"Hess Corporation",
+	"Marathon Oil",
+	"Tracker Resource Development",
+	"XTO Energy"
+];
+const regulatoryLink = {
+	text: "https://www.dmr.nd.gov/oilgas/",
+	href: "https://www.dmr.nd.gov/oilgas/",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Bakken Shale North Dakota",
+		href: "/directory/shale-plays/bakken-shale-north-dakota",
+		external: false
+	}
+];
 ---
 
 <BaseLayout title={title} description={metaDescription}>
 	<PageShell breadcrumbs={getBreadcrumbs('/north-dakota-mineral-rights')}>
 		<ArticleContent>
-			<StatePage 
+			<StatePage
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

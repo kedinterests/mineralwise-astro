@@ -6,26 +6,70 @@ import StatePage from '../components/StatePage.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "New York Mineral Rights | MineralWise";
-const metaDescription = "Economic benefit from New York mineral rights date back to November 1865 when Job Moses' Hall Farm Petroleum Company discovered oil in Carrollton Township of Ca";
+const metaDescription = "Economic benefit from New York mineral rights date back to November 1865 when Job Moses' Hall Farm Petroleum Company discovered oil in Carrollton Township of Cattaraugus County.";
 
 const stateName = "New York";
 const stateAbbr = "NY";
-const description = "Economic benefit from New York mineral rights date back to November 1865 when Job Moses' Hall Farm Petroleum Company discovered oil in Carrollton Township of Ca";
+const description = "Economic benefit from New York mineral rights date back to November 1865 when Job Moses' Hall Farm Petroleum Company discovered oil in Carrollton Township of Cattaraugus County. The Moses No. 1 well was drilled to 1,165 feet with initial production of only seven barrels per day. Recently, the Marcellus Shale has become a natural gas play made possible by advances in horizontal drilling and hydraulic fracturing. This shale play is located in the southern part of New York.";
 
 const stats = [];
-const majorFields = [];
-const companies = [];
-
-const additionalReading = [];
+const majorFields = [
+	"Bradford Field",
+	"Caton Field",
+	"Cramer Hollow Field",
+	"Darling Creek Field",
+	"Five Mile Field",
+	"Forest Hill Field",
+	"Green Hill Field",
+	"Lakeshore Field",
+	"Quackenbush Hill Field",
+	"Rayner Field"
+];
+const companies = [
+	"Ardent Resources",
+	"Case Brothers",
+	"Chesapeake Energy",
+	"Copper Ridge Oil",
+	"Fortuna Energy",
+	"Hydrocarbon Generation",
+	"Nornew Inc",
+	"Stedman Energy"
+];
+const regulatoryLink = {
+	text: "http://www.dec.ny.gov/energy/205.html",
+	href: "http://www.dec.ny.gov/energy/205.html",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Marcellus Shale New York",
+		href: "/directory/shale-plays/marcellus-shale-new-york",
+		external: false
+	},
+	{
+		text: "Utica Shale",
+		href: "/directory/shale-plays/utica-shale",
+		external: false
+	}
+];
 ---
 
 <BaseLayout title={title} description={metaDescription}>
 	<PageShell breadcrumbs={getBreadcrumbs('/new-york-mineral-rights')}>
 		<ArticleContent>
-			<StatePage 
+			<StatePage
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

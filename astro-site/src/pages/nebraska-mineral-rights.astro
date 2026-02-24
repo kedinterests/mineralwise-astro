@@ -6,26 +6,66 @@ import StatePage from '../components/StatePage.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Nebraska Mineral Rights | MineralWise";
-const metaDescription = "The economic value of Nebraska mineral rights dates back to May of 1940 when the first oil well was drilled. The Bucholz Well No. 1 was drilled by the Pawnee Ro";
+const metaDescription = "The economic value of Nebraska mineral rights dates back to May of 1940 when the first oil well was drilled. The Bucholz Well No. 1 was drilled by the Pawnee Royalty Company.";
 
 const stateName = "Nebraska";
 const stateAbbr = "NE";
-const description = "The economic value of Nebraska mineral rights dates back to May of 1940 when the first oil well was drilled. The Bucholz Well No. 1 was drilled by the Pawnee Ro";
+const description = "The economic value of Nebraska mineral rights dates back to May of 1940 when the first oil well was drilled. The Bucholz Well No. 1 was drilled by the Pawnee Royalty Company. This was the first well in Nebraska to produce at least 50 barrels daily for 60 consecutive days. Currently, most of the producing mineral rights in Nebraska originate from the production of crude oil. There is very little production of natural gas in Nebraska.";
 
 const stats = [];
-const majorFields = [];
-const companies = [];
-
-const additionalReading = [];
+const majorFields = [
+	"Boevau Canyon Field",
+	"Culbertson Field",
+	"Dill East Field",
+	"Dry Creek Field",
+	"Hoover Field",
+	"Jones Field",
+	"Kleinholz Field",
+	"Meeker Canal Field",
+	"Sleepy Hollow Field",
+	"Terrestrial Field"
+];
+const companies = [
+	"Benson Mineral Group",
+	"Berexco",
+	"Black Hills Exploration & Production",
+	"Central Operating",
+	"Coral Production",
+	"Edward Mike Davis",
+	"Evertson Operating Co",
+	"Gore Oil",
+	"H & M Petroleum",
+	"Hoefle Oil",
+	"MICA Energy",
+	"Noble Energy",
+	"Pathex Petroleum",
+	"Vista Operating"
+];
+const regulatoryLink = {
+	text: "http://www.nogcc.ne.gov/",
+	href: "http://www.nogcc.ne.gov/",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
 ---
 
 <BaseLayout title={title} description={metaDescription}>
 	<PageShell breadcrumbs={getBreadcrumbs('/nebraska-mineral-rights')}>
 		<ArticleContent>
-			<StatePage 
+			<StatePage
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>
