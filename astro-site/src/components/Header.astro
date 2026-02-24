@@ -3,7 +3,7 @@ import { SITE_TITLE } from '../consts';
 import Navigation from './Navigation.astro';
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+<header class="sticky py-4 top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<div class="flex-shrink-0">
@@ -11,7 +11,7 @@ import Navigation from './Navigation.astro';
 					<img 
 						src="/images/mineralWise-logo.png" 
 						alt="MineralWise Logo" 
-						class="h-10 w-auto"
+						class="h-16 w-auto"
 						onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
 					/>
 					<span class="text-xl font-bold text-gray-900 dark:text-white hidden">{SITE_TITLE}</span>
