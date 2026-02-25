@@ -1,17 +1,153 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
-const title = "Comprehensive Guide to Oil Severance Taxes by State";
-const description = "Discover how oil severance taxes are applied across states. Learn about tax calculations, royalty owner responsibilities, and incentives for low production wells or enhanced recovery projects.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"seAsqy91IWsX_seAsqy91IWsX\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-alAQ6\" data-uniq-id=\"fTM0q\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Oil Severance Tax Overview</span></h1></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"pHKPM\" data-generated-css=\"brz-css-iYAKo\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Most (but not all) oil producing states levy a severance tax on its oil production. This tax is based on either the </span><em style=\"color: rgba(var(--brz-global-color2),1);\">volume</em><span style=\"color: rgba(var(--brz-global-color2),1);\"> or </span><em style=\"color: rgba(var(--brz-global-color2),1);\">value </em><span style=\"color: rgba(var(--brz-global-color2),1);\">of the production. Royalty and mineral owners pay their pro rata share of these oil severance taxes. You’ll notice these severance taxes </span></p><p data-uniq-id=\"vMPc0\" data-generated-css=\"brz-css-volhD\"><span style=\"color: rgba(var(--brz-global-color2),1);\">deducted on your monthly royalty revenue statements.</span></p><p data-uniq-id=\"bmmcX\" data-generated-css=\"brz-css-v1NO_\"></p><p data-uniq-id=\"gjyR7\" data-generated-css=\"brz-css-qBqBH\"><span style=\"color: rgba(var(--brz-global-color2),1);\">There's No Standard Oil Severance Tax</span></p><p data-uniq-id=\"uSdIR\" data-generated-css=\"brz-css-upVYo\"><span style=\"color: rgba(var(--brz-global-color2),1);\"> The vast majority of law affecting oil and gas production emanates from the state level. In keeping with this, oil severance taxes also are designed and collected by each individual state. There are as many rate schemes and methodologies as there are oil producing states. States generally base their calculations on the value of the oil produced, the volume of oil produced, or some combination of these.</span></p><p data-uniq-id=\"cUKR9\" data-generated-css=\"brz-css-bf9n2\"></p><p data-uniq-id=\"dcRmo\" data-generated-css=\"brz-css-wXiyF\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Various incentives through credits or lower tax rates are often allowed in situations where the tax rate might be burdensome enough such that wells might be plugged and abandoned. Examples might be: periods of low commodity prices, low production stripper wells, or with fields deemed as enhanced oil recovery projects.</span></p><p data-uniq-id=\"ywTIb\" data-generated-css=\"brz-css-dgNcw\"></p><p data-uniq-id=\"ukASf\" data-generated-css=\"brz-css-u95Bl\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Royalty Owners Pay Their Share of the Oil Severance Tax</span></p><p data-uniq-id=\"cdrB4\" data-generated-css=\"brz-css-kuD_x\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Just as the Working Interest parties within a well must pay their pro rata share of oil severance taxes, so must the royalty owners. Royalty owners will notice this deduction shown on their monthly royalty owner revenue statement. For further reading on your royalty owner revenue statement, see </span><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-royalty-management\" data-brz-link-type=\"page\">Oil and Gas Royalty Statement</a><span style=\"color: rgba(var(--brz-global-color2),1);\">.</span></p><p data-uniq-id=\"a7oUG\" data-generated-css=\"brz-css-wiyon\"></p><p data-uniq-id=\"pl0Cw\" data-generated-css=\"brz-css-fpMfj\"><span style=\"color: rgba(var(--brz-global-color2),1);\">State Oil Severance Taxes</span></p><p data-uniq-id=\"s6eLN\" data-generated-css=\"brz-css-de1z_\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Click on the links below to locate oil severance tax by state. Iowa, New York, and Pennsylvania do not currently have an oil severance tax.</span></p></div></div></div><div><div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><ul><li data-uniq-id=\"aDfBq\" data-generated-css=\"brz-css-semYo\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.ador.state.al.us/severancetax/tableofc.html\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Alabama Oil Severance Taxes</a></li><li data-uniq-id=\"xby_U\" data-generated-css=\"brz-css-pJyEb\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.aogc.state.ar.us/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Arkansas Oil Severance Taxes</a></li><li data-uniq-id=\"lHs8A\" data-generated-css=\"brz-css-tEJ3C\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://cogcc.state.co.us/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Colorado Oil Severance Taxes</a></li><li data-uniq-id=\"arQ9E\" data-generated-css=\"brz-css-etSFP\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://dor.myflorida.com/dor/tips/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Florida Oil Severance Taxes</a></li><li data-uniq-id=\"hNOuq\" data-generated-css=\"brz-css-scBfr\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://tax.illinois.gov/LegalInformation/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Illinois Oil Severance Taxes</a></li><li data-uniq-id=\"h4bCj\" data-generated-css=\"brz-css-lS06u\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.in.gov/legislative/ic/code/title6/ar8/ch1.html\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Indiana Oil Severance Taxes</a></li><li data-uniq-id=\"q6yyy\" data-generated-css=\"brz-css-m8FKq\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.ksrevenue.org/taxrates.html\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Kansas Oil Severance Taxes</a></li><li data-uniq-id=\"hUejS\" data-generated-css=\"brz-css-oEo9_\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.lrc.ky.gov/KRS/137-00/120.PDF\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Kentucky Oil Severance Taxes</a></li><li data-uniq-id=\"dPFGr\" data-generated-css=\"brz-css-meyFU\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://dnr.louisiana.gov/assets/TAD/data/severance/la_severance_tax_rates.pdf\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Louisiana Oil Severance Taxes</a></li><li data-uniq-id=\"en6ga\" data-generated-css=\"brz-css-vLlig\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.michigan.gov/taxes/0,1607,7-238-43542_43545---,00.html\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Michigan Oil Severance Taxes</a></li></ul></div></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><ul><li data-uniq-id=\"rHJgj\" data-generated-css=\"brz-css-zX82j\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://revenue.mt.gov/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Montana Oil Severance Taxes</a></li><li data-uniq-id=\"sFFC1\" data-generated-css=\"brz-css-bSObU\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.revenue.nebraska.gov/research/tax_expenditure_rep/2014/Section_P.pdf\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Nebraska Oil Severance Taxes</a></li><li data-uniq-id=\"z6xqu\" data-generated-css=\"brz-css-r6_Oe\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.tax.newmexico.gov/Default.aspx\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">New Mexico Oil Severance Taxes</a></li><li data-uniq-id=\"oV1ax\" data-generated-css=\"brz-css-qcl_G\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.nd.gov/tax/oilgas/\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">North Dakota Oil Severance Taxes</a></li><li data-uniq-id=\"rTRu3\" data-generated-css=\"brz-css-qWp7w\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://codes.ohio.gov/orc/5749\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Ohio Oil Severance Taxes</a></li><li data-uniq-id=\"nJR05\" data-generated-css=\"brz-css-aMRHj\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.rrc.state.tx.us/search-result?q=severance+tax\" data-brz-link-type=\"external\">Texas Oil Severance Taxes</a></li><li data-uniq-id=\"u4alk\" data-generated-css=\"brz-css-zGxXA\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://tax.utah.gov/utah-taxes/oil-gas-severance\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Utah Oil Severance Taxes</a></li><li data-uniq-id=\"bQSkd\" data-generated-css=\"brz-css-wRiX2\" style=\"color: rgba(var(--brz-global-color1),1);\"><span style=\"color: rgba(var(--brz-global-color1),1);\">West Virginia Oil Severance Taxes</span></li><li data-uniq-id=\"aLXvK\" data-generated-css=\"brz-css-l5DBO\" style=\"color: rgba(var(--brz-global-color1),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://revenue.state.wy.us/PortalVBVS/DesktopDefault.aspx?tabindex=3&amp;tabid=10#Mineral%20Tax%20Materials\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Wyoming Oil Severance Taxes</a></li></ul></div></div></div></div></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-kh4rr\" data-uniq-id=\"cISGl\"><span>The Severance Tax Balancing Act</span></p><p data-generated-css=\"brz-css-rvpth\" data-uniq-id=\"c1F0Q\"><span>Each state attempts to balance its need for revenue to run state government with the off putting of the oil industry by placing yet another tax upon its operations within that state. This of course makes for regular political debate within each state. Most states argue this on a regular basis, attempting to find the right balance for their particular circumstances. </span></p></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div><ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770326380&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Foil-severance-tax&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770326379921&amp;bpp=864&amp;bdt=173&amp;idt=864&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D8e7e41176e254318%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MblivJFQ4Ny90AKHmH0XZaYxFY6OQ&amp;gpic=UID%3D000013365d204dbd%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MadBZ867FjwzaUuXWTqpX6RwUQLhA&amp;eo_id_str=ID%3D40a0bbe0b83e5aee%3AT%3D1770325942%3ART%3D1770326243%3AS%3DAA-Afjb20zDehl-6KwTYGL5LRZ-9&amp;nras=1&amp;correlator=7033580617439&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=42532524%2C95378425%2C95381032%2C95381248%2C95381489%2C31096588%2C42533294&amp;oid=2&amp;pvsid=5688019079052740&amp;tmod=472124239&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=452x808_l%7C452x808_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=911\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins>\n    <iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
+const title = "Oil Severance Tax";
+const description = "A detailed explanation of the oil severance tax.";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-severance-tax')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Oil Severance Tax Overview</h1>
+				
+				<div class="content-body">
+					<p>Most (but not all) oil producing states levy a severance tax on its oil production. This tax is based on either the volume or value of the production. Royalty and mineral owners pay their pro rata share of these oil severance taxes. You’ll notice these severance taxes</p>
+					<p>deducted on your monthly royalty revenue statements.</p>
+					<h2>There's No Standard Oil Severance Tax</h2>
+					<p>The vast majority of law affecting oil and gas production emanates from the state level. In keeping with this, oil severance taxes also are designed and collected by each individual state. There are as many rate schemes and methodologies as there are oil producing states. States generally base their calculations on the value of the oil produced, the volume of oil produced, or some combination of these.</p>
+					<p>Various incentives through credits or lower tax rates are often allowed in situations where the tax rate might be burdensome enough such that wells might be plugged and abandoned. Examples might be: periods of low commodity prices, low production stripper wells, or with fields deemed as enhanced oil recovery projects.</p>
+					<h2>Royalty Owners Pay Their Share of the Oil Severance Tax</h2>
+					<p>Just as the Working Interest parties within a well must pay their pro rata share of oil severance taxes, so must the royalty owners. Royalty owners will notice this deduction shown on their monthly royalty owner revenue statement. For further reading on your royalty owner revenue statement, see Oil and Gas Royalty Statement.</p>
+					<h2>State Oil Severance Taxes</h2>
+					<p>Click on the links below to locate oil severance tax by state. Iowa, New York, and Pennsylvania do not currently have an oil severance tax.</p>
+					<h2>The Severance Tax Balancing Act</h2>
+					<p>Each state attempts to balance its need for revenue to run state government with the off putting of the oil industry by placing yet another tax upon its operations within that state. This of course makes for regular political debate within each state. Most states argue this on a regular basis, attempting to find the right balance for their particular circumstances.</p>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

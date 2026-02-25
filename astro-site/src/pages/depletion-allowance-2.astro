@@ -1,17 +1,153 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
-const title = "Comprehensive Guide to Oil &amp; Gas Royalty Depletion Allowance: Cost &amp; Percentage Methods Explained";
-const description = "Learn all about depletion allowance for oil and gas royalty owners, including cost depletion, percentage depletion, and taxable income limits. Maximize your tax deductions effectively with this detailed guide.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"te6oYWneAr67_te6oYWneAr67\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-kbFxZ\" data-uniq-id=\"qWSQ8\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Depletion Allowance</span></h1></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-bXqKs\" data-uniq-id=\"x0Mar\"><span style=\"color: rgba(var(--brz-global-color2),1);\">If you are looking for general&nbsp;gas royalty tax help please visit our </span><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/royalty-taxes\" data-brz-link-type=\"page\">Royalty Tax&nbsp;Guide</a><span style=\"color: rgba(var(--brz-global-color2),1);\">.</span></p><p data-generated-css=\"brz-css-l2dM9\" data-uniq-id=\"kmu4B\"></p><p data-generated-css=\"brz-css-mAdHX\" data-uniq-id=\"s3BwR\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Depletion is the </span><em style=\"color: rgba(var(--brz-global-color2),1);\">using up</em><span style=\"color: rgba(var(--brz-global-color2),1);\"> of a natural resource by mining, quarrying, drilling, or felling. Depletion allowance, then, is the allowance available through the IRS code allowing an owner to account for the reduction (production) of reserves as a product is produced and sold. For purposes of this article, the depletion allowance we are concerned with is the depletion allowance associated with the production of oil and/or gas. The depletion allowance, like depreciation, is a form of cost recovery for capital investments. There are two ways of calculating depletion allowance: cost depletion and percentage depletion. Oil and gas royalty owners have the availability of using either, yet for mineral properties you must generally use the method that gives you the larger deduction.</span></p><p data-generated-css=\"brz-css-teYMI\" data-uniq-id=\"l9Fmr\"></p><p data-generated-css=\"brz-css-auq17\" data-uniq-id=\"h4rkS\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Who Can Claim a Depletion Allowance?</span></p><p data-generated-css=\"brz-css-e6nDi\" data-uniq-id=\"nOBd6\"><span style=\"color: rgba(var(--brz-global-color2),1);\">If you have an economic interest in mineral property (which includes royalty income), you can take a deduction for depletion. You have an economic interest if </span><em style=\"color: rgba(var(--brz-global-color2),1);\">both</em><span style=\"color: rgba(var(--brz-global-color2),1);\"> of the following apply:</span></p><p data-generated-css=\"brz-css-x15OA\" data-uniq-id=\"hOMYz\"></p><ul><li data-generated-css=\"brz-css-bBQFA\" data-uniq-id=\"rtxSd\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">You have acquired by investment any interest in mineral deposits</span></li><li data-generated-css=\"brz-css-uqRqD\" data-uniq-id=\"p2t53\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">You have a legal right to income from the extraction of the minerals to which you look for a return of your capital investment</span></li></ul><p data-generated-css=\"brz-css-eU3D4\" data-uniq-id=\"ao2W_\"></p><p data-generated-css=\"brz-css-bPq03\" data-uniq-id=\"qKaTP\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Cost Depletion</span></p><p data-generated-css=\"brz-css-i9_jz\" data-uniq-id=\"dpkhj\"><span style=\"color: rgba(var(--brz-global-color2),1);\">With cost depletion, a taxpayer recovers the actual capital investment throughout the period of income production. Each year, the taxpayer deducts a portion of the original capital investment, less previous deductions, that is equal to the fraction of the estimated remaining recoverable reserves that have been produced and sold that year. The cumulative amount recovered under this method can never exceed the taxpayer's original capital investment.</span></p><p data-generated-css=\"brz-css-jXjeB\" data-uniq-id=\"iiYlK\"></p><p data-generated-css=\"brz-css-oHVvY\" data-uniq-id=\"iC8jj\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Percentage Depletion Allowance</span></p><p data-generated-css=\"brz-css-r2RiM\" data-uniq-id=\"yqyxj\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Under percentage depletion, the deduction for the recovery of one’s capital investment is a fixed percentage of the gross income (sales revenue) from the sale of the oil or gas. For oil and gas royalty owners, percentage depletion is calculated using a rate of 15% of the gross income based on your average daily production of crude oil or natural gas, up to your depletable oil or natural gas quantity. An attractive element of percentage depletion is that the cumulative depletion deductions may be greater than the capital amount spent by the taxpayer to acquire the property.</span></p><p data-generated-css=\"brz-css-aPnpT\" data-uniq-id=\"eTKvJ\"></p><p data-generated-css=\"brz-css-jeqbi\" data-uniq-id=\"ughoH\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Taxable Income Limit</span></p><p data-generated-css=\"brz-css-olBxL\" data-uniq-id=\"vj7li\"><span style=\"color: rgba(var(--brz-global-color2),1);\">There is a taxable income limit for oil and gas royalty owners. Your annual deduction for percentage depletion is limited to the </span><em style=\"color: rgba(var(--brz-global-color2),1);\">smaller</em><span style=\"color: rgba(var(--brz-global-color2),1);\"> of the following:</span></p><p data-generated-css=\"brz-css-mVG_C\" data-uniq-id=\"wzwRp\"></p><ul><li data-generated-css=\"brz-css-zXxQY\" data-uniq-id=\"r36rj\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">100% of your taxable income from the property figured without the deduction for depletion</span></li><li data-generated-css=\"brz-css-gD3Lj\" data-uniq-id=\"apbCp\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">65% of your taxable income from all sources, figured without the depletion allowance.</span></li></ul><p data-generated-css=\"brz-css-gpaAA\" data-uniq-id=\"las9R\"></p><p data-generated-css=\"brz-css-xC5M6\" data-uniq-id=\"x0dBt\"><span style=\"color: rgba(var(--brz-global-color2),1);\">More specific details on this topic can be found in </span><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"http://www.irs.gov/publications/p535/index.html\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">IRS Publication 535. </a></p></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div>\n    <ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770332549&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Fdepletion-allowance-2&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770332549594&amp;bpp=2&amp;bdt=342&amp;idt=100&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D76b5a03bbfcabae4%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_MbWcA_uP8zgWLLxo7bmMgv1QDSz7g&amp;gpic=UID%3D0000133661f0c877%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_Mas0Jt3U3kaURPkJgqQuHaCtk4Agw&amp;eo_id_str=ID%3Ddcdb3d53d3e323ee%3AT%3D1770332541%3ART%3D1770332541%3AS%3DAA-Afjb4mvv-39hHGJocUYhJpJ5j&amp;nras=1&amp;correlator=7508808928508&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=31096537%2C95378429%2C95381032%2C95381248%2C95381489%2C31096588&amp;oid=2&amp;pvsid=5982477995666728&amp;tmod=824238814&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=128x606_l%7C128x606_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=111\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins><iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
+const title = "Depletion Allowance";
+const description = "Learn about this royalty tax saving strategy.";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/depletion-allowance-2')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Depletion Allowance</h1>
+				
+				<div class="content-body">
+					<p>If you are looking for general gas royalty tax help please visit our Royalty Tax Guide.</p>
+					<p>Depletion is the using up of a natural resource by mining, quarrying, drilling, or felling. Depletion allowance, then, is the allowance available through the IRS code allowing an owner to account for the reduction (production) of reserves as a product is produced and sold. For purposes of this article, the depletion allowance we are concerned with is the depletion allowance associated with the production of oil and/or gas. The depletion allowance, like depreciation, is a form of cost recovery for capital investments. There are two ways of calculating depletion allowance: cost depletion and percentage depletion. Oil and gas royalty owners have the availability of using either, yet for mineral properties you must generally use the method that gives you the larger deduction.</p>
+					<h2>Who Can Claim a Depletion Allowance?</h2>
+					<p>If you have an economic interest in mineral property (which includes royalty income), you can take a deduction for depletion. You have an economic interest if both of the following apply:</p>
+					<h2>Cost Depletion</h2>
+					<p>With cost depletion, a taxpayer recovers the actual capital investment throughout the period of income production. Each year, the taxpayer deducts a portion of the original capital investment, less previous deductions, that is equal to the fraction of the estimated remaining recoverable reserves that have been produced and sold that year. The cumulative amount recovered under this method can never exceed the taxpayer's original capital investment.</p>
+					<h2>Percentage Depletion Allowance</h2>
+					<p>Under percentage depletion, the deduction for the recovery of one’s capital investment is a fixed percentage of the gross income (sales revenue) from the sale of the oil or gas. For oil and gas royalty owners, percentage depletion is calculated using a rate of 15% of the gross income based on your average daily production of crude oil or natural gas, up to your depletable oil or natural gas quantity. An attractive element of percentage depletion is that the cumulative depletion deductions may be greater than the capital amount spent by the taxpayer to acquire the property.</p>
+					<h2>Taxable Income Limit</h2>
+					<p>There is a taxable income limit for oil and gas royalty owners. Your annual deduction for percentage depletion is limited to the smaller of the following:</p>
+					<p>More specific details on this topic can be found in IRS Publication 535.</p>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

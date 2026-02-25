@@ -1,17 +1,153 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Understanding Oil and Production: A Guide for Mineral Rights Owners";
 const description = "Learn the oil and gas production process in simple terms, from well completion to production. Discover key insights on drilling, pipelines, royalty payments, and managing mineral rights effectively.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"vMoM5ZNxWW92_vMoM5ZNxWW92\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-uniq-id=\"l1MK2\" data-generated-css=\"brz-css-o3cxz\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Understanding Oil and Gas Production for Mineral Owners</span></h1></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"proxk\" data-generated-css=\"brz-css-icMEK\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Oil and gas production in the U.S. directly benefits millions of everyday Americans. This article, Oil and Gas Production 101 is written in non-technical language and addresses the oil and gas production process for mineral rights owners. For context, we'll begin just before the actual production phase with what is known as completing the well, this occurs just after the drilling process. Additional topics we cover include the following: well testing, pipelines, title issues, and actual production.</span></p><p data-uniq-id=\"xGlSK\" data-generated-css=\"brz-css-sPf6M\"></p><p data-uniq-id=\"bdr4k\" data-generated-css=\"brz-css-jHR3x\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Oil or Gas Well Completion</span></p><p data-uniq-id=\"tmc3U\" data-generated-css=\"brz-css-ss44n\">Following the drilling process, a critical decision must be made – whether to complete a well. This is the decision that says, yes, we’re pretty sure we’ve got a productive well here, and&nbsp;will move ahead in purchasing casing, tubing, surface equipment, and possibly constructing a&nbsp;pipeline.&nbsp;Or, the alternative, to plug and abandon (P&amp;A) the well, declaring it a dry&nbsp;hole. While sometimes a very simple decision, at other times this can elicit&nbsp;differing judgment calls from reasonable minds.&nbsp;Let me pause here and emphasize that there is nothing non technical at all about this decision - in fact it's one of the most technically important decisions ever made in the life of an oil or gas well.&nbsp;The completion process typically takes from a few weeks to a few months, sometimes longer.</p><p data-uniq-id=\"xYM9p\" data-generated-css=\"brz-css-sjhHN\"><br></p><p data-uniq-id=\"dMzCs\" data-generated-css=\"brz-css-oLhye\">Well Testing</p><p data-uniq-id=\"yJ8Ck\" data-generated-css=\"brz-css-glJNU\">Now that a well is completed, it is beneficial for an Operator to determine its producing characteristics. Of interest will be <strong>oil &amp; gas production</strong> metrics such as flow rates of crude oil, natural gas, water (also known as brine) and condensate, the flowing and shut-in tubing pressures, and the physical and chemical properties of the production. All of this falls under the heading of well testing. Assuming all goes well, this can take a few days up to a couple of months.</p><p data-uniq-id=\"n_BRK\" data-generated-css=\"brz-css-g6haF\"><br></p><p data-uniq-id=\"rC9o0\" data-generated-css=\"brz-css-r4PZU\">Pipeline Outlet</p><p data-uniq-id=\"sEsot\" data-generated-css=\"brz-css-fRCRh\">With the exception of an oil&nbsp;(only) well where the oil will be trucked from the location, an off-take&nbsp;pipeline must be layed from the drilling location to a transmission pipeline.&nbsp;This could be as simple as an in-field gathering line connecting to an existing outlet (often&nbsp;the case in mature oil and gas fields), or a much more complex situation involving laying&nbsp;miles of pipeline. Laying pipelines over long distances can be quite time&nbsp;consuming. In order to provide protection to the mineral rights owner typical oil and gas leases contain language known as a shut in royalty provision. The intent of this provision is to provide interem payment to the lessor (the royalty owner) from a well that is capable of production but is not yet producing due to lack of an off-take pipeline.</p><p data-uniq-id=\"azLZW\" data-generated-css=\"brz-css-oeViL\"><br></p><p data-uniq-id=\"wlwsJ\" data-generated-css=\"brz-css-qCd37\">Mineral Title Curative</p><p data-uniq-id=\"xJDSY\" data-generated-css=\"brz-css-glkfl\">Simultaneous with the decision to complete and produce a well comes the mineral title curative process. It’s now time for&nbsp;the oil company to dot the I’s and cross the T’s regarding mineral and royalty&nbsp;ownership, thus determining exactly who gets paid and how much. All sorts of&nbsp;issues can arise in mineral title curative process – contested wills, intestate deaths, divorce&nbsp;decrees, questionable deeds, etc.</p><p data-uniq-id=\"d6c7n\" data-generated-css=\"brz-css-qNOVm\"><br></p><p data-uniq-id=\"inMQh\" data-generated-css=\"brz-css-e42Kf\">Division Orders</p><p data-uniq-id=\"w_wAw\" data-generated-css=\"brz-css-iDCvU\">While the curative process moves&nbsp;forward, as the oil company title attorneys nail down each specific owners&nbsp;interest, the company prepares and sends them a legal document called a&nbsp;Division Order. This document states the decimal ownership interest that the&nbsp;company believes (according to its division order title opinion) is attributable to a specific owner, and requests the owner’s&nbsp;concurrence by signing and returning the document.</p><p data-uniq-id=\"znx1S\" data-generated-css=\"brz-css-hLFAl\"><br></p><p data-uniq-id=\"myOqa\" data-generated-css=\"brz-css-r9orV\">Oil &amp; Gas Production Phase</p><p data-uniq-id=\"qq96s\" data-generated-css=\"brz-css-bPCVH\">After the flurry of activity surrounding drilling, completing, testing and getting the ownership and payment paperwork in order, finally comes what both oil company and mineral owner look forward to - the production phase. Crude oil, natural gas, condensate, (and err...usually some salt water) begin to flow. Or, in a less desirable scenario, must be pumped or compressed. Either way, whatever has been tapped into begins to be produced, thus also begins its depletion.</p><p data-uniq-id=\"kcdUZ\" data-generated-css=\"brz-css-laDpA\"><strong> </strong></p><p data-uniq-id=\"zjLul\" data-generated-css=\"brz-css-ylGH1\"><strong>Additional Reading</strong></p><ul><li data-uniq-id=\"sPTmf\" data-generated-css=\"brz-css-mTlu0\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-basics-for-mineral-owners\" data-brz-link-type=\"page\">Oil &amp; Gas 101: Oil and Gas Basics for the Mineral Owner</a> - Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing.</li><li data-uniq-id=\"mWl0G\" data-generated-css=\"brz-css-tFHre\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-royalty-management\" data-brz-link-type=\"page\">Royalty Management</a> – Explains how to manage oil and gas royalties. Covers topics like mineral rights fragmentation and estate cleanup.</li></ul></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div>\n    <ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770326302&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Foil-and-gas-production-nontechnical-language&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770326302214&amp;bpp=2&amp;bdt=274&amp;idt=99&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D8e7e41176e254318%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MblivJFQ4Ny90AKHmH0XZaYxFY6OQ&amp;gpic=UID%3D000013365d204dbd%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MadBZ867FjwzaUuXWTqpX6RwUQLhA&amp;eo_id_str=ID%3D40a0bbe0b83e5aee%3AT%3D1770325942%3ART%3D1770326243%3AS%3DAA-Afjb20zDehl-6KwTYGL5LRZ-9&amp;nras=1&amp;correlator=2885871581424&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=95378429%2C95381033%2C95381248%2C95381490%2C31096588&amp;oid=2&amp;pvsid=7287394618479510&amp;tmod=472124239&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=128x606_l%7C128x606_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=111\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins><iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-production-nontechnical-language')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Understanding Oil and Gas Production for Mineral Owners</h1>
+				
+				<div class="content-body">
+					<p>Oil and gas production in the U.S. directly benefits millions of everyday Americans. This article, Oil and Gas Production 101 is written in non-technical language and addresses the oil and gas production process for mineral rights owners. For context, we'll begin just before the actual production phase with what is known as completing the well, this occurs just after the drilling process. Additional topics we cover include the following: well testing, pipelines, title issues, and actual production.</p>
+					<h2>Oil or Gas Well Completion</h2>
+					<p>Following the drilling process, a critical decision must be made – whether to complete a well. This is the decision that says, yes, we’re pretty sure we’ve got a productive well here, and will move ahead in purchasing casing, tubing, surface equipment, and possibly constructing a pipeline. Or, the alternative, to plug and abandon (P&A) the well, declaring it a dry hole. While sometimes a very simple decision, at other times this can elicit differing judgment calls from reasonable minds. Let me pause here and emphasize that there is nothing non technical at all about this decision - in fact it's one of the most technically important decisions ever made in the life of an oil or gas well. The completion process typically takes from a few weeks to a few months, sometimes longer.</p>
+					<h2>Well Testing</h2>
+					<p>Now that a well is completed, it is beneficial for an Operator to determine its producing characteristics. Of interest will be oil & gas production metrics such as flow rates of crude oil, natural gas, water (also known as brine) and condensate, the flowing and shut-in tubing pressures, and the physical and chemical properties of the production. All of this falls under the heading of well testing. Assuming all goes well, this can take a few days up to a couple of months.</p>
+					<h2>Pipeline Outlet</h2>
+					<p>With the exception of an oil (only) well where the oil will be trucked from the location, an off-take pipeline must be layed from the drilling location to a transmission pipeline. This could be as simple as an in-field gathering line connecting to an existing outlet (often the case in mature oil and gas fields), or a much more complex situation involving laying miles of pipeline. Laying pipelines over long distances can be quite time consuming. In order to provide protection to the mineral rights owner typical oil and gas leases contain language known as a shut in royalty provision. The intent of this provision is to provide interem payment to the lessor (the royalty owner) from a well that is capable of production but is not yet producing due to lack of an off-take pipeline.</p>
+					<h2>Mineral Title Curative</h2>
+					<p>Simultaneous with the decision to complete and produce a well comes the mineral title curative process. It’s now time for the oil company to dot the I’s and cross the T’s regarding mineral and royalty ownership, thus determining exactly who gets paid and how much. All sorts of issues can arise in mineral title curative process – contested wills, intestate deaths, divorce decrees, questionable deeds, etc.</p>
+					<h2>Division Orders</h2>
+					<p>While the curative process moves forward, as the oil company title attorneys nail down each specific owners interest, the company prepares and sends them a legal document called a Division Order. This document states the decimal ownership interest that the company believes (according to its division order title opinion) is attributable to a specific owner, and requests the owner’s concurrence by signing and returning the document.</p>
+					<h2>Oil & Gas Production Phase</h2>
+					<p>After the flurry of activity surrounding drilling, completing, testing and getting the ownership and payment paperwork in order, finally comes what both oil company and mineral owner look forward to - the production phase. Crude oil, natural gas, condensate, (and err...usually some salt water) begin to flow. Or, in a less desirable scenario, must be pumped or compressed. Either way, whatever has been tapped into begins to be produced, thus also begins its depletion.</p>
+				</div>
+				<div class="additional-reading">
+					<h2>Additional Reading</h2>
+					<ul>
+						<li><a href="/oil-and-gas-basics-for-mineral-owners">Oil &amp; Gas 101: Oil and Gas Basics for the Mineral Owner</a></li>
+						<li><a href="/oil-and-gas-royalty-management">Royalty Management</a></li>
+					</ul>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

@@ -1,17 +1,161 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Top 10 Mistakes to Avoid When Negotiating Oil and Gas Leases";
 const description = "Discover the top 10 mistakes to avoid when negotiating oil and gas leases. Learn how to secure the best terms for your mineral rights with expert tips on what not to do.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"kleMlIzhnp9q_kleMlIzhnp9q\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-nczqW\" data-uniq-id=\"cTvjc\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Top 10 Things Not To Do When Negotiating Oil and Gas Leases</span></h1></div></div></div><div><div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"vvYMu\" data-generated-css=\"brz-css-inS7_\"><span style=\"color: rgb(31, 31, 31);\">Negotiating oil and gas leases requires knowledge, patience, and a balanced mindset. Every day across America, mineral&nbsp;owners receive oil and gas lease proposals asking to lease their mineral&nbsp;interests. Negotiating the lease is a big responsibility. Unfortunately many mineral rights owners don’t do their homework and miss available&nbsp;upside during oil and gas lease negotiations. Along with a sister article titled Oil and Gas Leasing - Top 10 Things&nbsp;TO DO, we present here things not to do when negotiating oil and gas leases. Hopefully you won’t find your actions&nbsp;among these.</span></p></div></div></div></div></div><div><div><div id=\"\"><div><picture><source srcset=\"/images/negotiate.jpg, /images/negotiate.jpg\" media=\"(min-width: 992px)\"><source srcset=\"/images/negotiate.jpg, /images/negotiate.jpg\" media=\"(min-width: 768px)\"><img srcset=\"/images/negotiate.jpg, /images/negotiate.jpg\" src=\"/images/negotiate.jpg\" loading=\"lazy\" alt=\"\" title=\"negotiate.jpg\" draggable=\"false\"></picture></div></div></div></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h2 data-uniq-id=\"wzICG\" data-generated-css=\"brz-css-yag08\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Jump at the Sight of an Oil and Gas Lease!</span></h2><p data-uniq-id=\"xDEre\" data-generated-css=\"brz-css-wPxDP\"><span style=\"color: rgba(var(--brz-global-color2),1);\"> Don't immediately pick up the phone to the leasing agent (landman), gushing with emotion that you’ve received a gas lease in&nbsp;the mail. If there’s ever a signal that says you’re an early signer (and likely not getting the best terms), it’s that you just couldn’t wait to start talking. Properly negotiating gas leases takes time. Practice patience. </span><strong style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Focus on Price Alone</strong><span style=\"color: rgba(var(--brz-global-color2),1);\"> Lease bonus payment and royalty percentage are NOT the only two things that matter. Of course the economic&nbsp;implications are important, but these are far from the only important aspects of the oil and gas mineral lease negotiation. Everything is negotiable. In the case where you own&nbsp;surface rights along with mineral rights, the terms related to surface usage can&nbsp;be quite important, possibly more important than lease bonus and royalty percentage.</span></p><p data-uniq-id=\"aCO7t\" data-generated-css=\"brz-css-pH8fE\"></p><h2 data-uniq-id=\"d8nfY\" data-generated-css=\"brz-css-eQlBo\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Immediately Sign Anything Just Yet</span></h2><p data-uniq-id=\"kGmaN\" data-generated-css=\"brz-css-paCLa\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Most documents within an oil and gas lease&nbsp;proposal package (leases, ratifications, bank drafts, etc.) are legally binding&nbsp;documents. Until the deal is thoroughly discussed, negotiated, and understood,&nbsp;there’s no need for you to sign anything. Proper oil, gas, and mineral lease negotiations should progress intently, yet within a patient framework. Once signed, an oil, gas and mineral lease is a binding document. Again, negotiating oil leases takes time.</span></p><p data-uniq-id=\"y5KMm\" data-generated-css=\"brz-css-kCSxH\"><br></p><h2 data-uniq-id=\"rhvj7\" data-generated-css=\"brz-css-rL57c\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Respond That You’re Not&nbsp;Interested</span></h2><p data-uniq-id=\"jbiEQ\" data-generated-css=\"brz-css-iQPdN\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Even if you’re the rare person&nbsp;who couldn’t care less about the economic benefit, it’s in your best interest to&nbsp;learn about what is happening in the area. You may in fact ultimately get force pooled, which will result in certified mail and phone calls to deal with anyway.</span></p><p data-uniq-id=\"pySHM\" data-generated-css=\"brz-css-r_8Pw\"></p><h2 data-uniq-id=\"hMfXP\" data-generated-css=\"brz-css-spmrI\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Rush to Hire a Lawyer</span></h2><p data-uniq-id=\"in_Sl\" data-generated-css=\"brz-css-rqfDu\"><span style=\"color: rgba(var(--brz-global-color2),1);\">While you may in fact want to get&nbsp;an attorney involved later during the process, there are many other things you&nbsp;can do to benefit yourself in the mean time. Immediately hiring a lawyer upon&nbsp;receipt of an oil or gas lease only starts his fees sooner, and will ultimately cost you&nbsp;more than if you had first collected your thoughts on relevant issues. In fact, the lawyer, if he’s worth his salt, should&nbsp;first ask you questions that you’ll need to provide answers to yourself. You&nbsp;will find many of these issues and topics discussed here at MineralWise.com.</span></p><p data-uniq-id=\"vG1zJ\" data-generated-css=\"brz-css-kJ3Bp\"></p><h2 data-uniq-id=\"mK06o\" data-generated-css=\"brz-css-ip_yK\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Start Spending Money You&nbsp;Don’t Yet Have</span></h2><p data-uniq-id=\"tYpLN\" data-generated-css=\"brz-css-yhrF0\"><span style=\"color: rgba(var(--brz-global-color2),1);\">This is called common sense.&nbsp;Until the check clears the bank, you haven’t made a dime. Furthermore, just&nbsp;because the drilling rig has shown up does not mean that a commercially viable&nbsp;well is around the corner. Maybe, but no guarantees. There are plenty of dry&nbsp;holes around.</span></p><p data-uniq-id=\"op6tm\" data-generated-css=\"brz-css-paIgj\"></p><h2 data-uniq-id=\"ibM2l\" data-generated-css=\"brz-css-ur0oC\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Warrant the Mineral Title</span></h2><p data-uniq-id=\"fU2tJ\" data-generated-css=\"brz-css-rArey\"><span style=\"color: rgba(var(--brz-global-color2),1);\">The first draft of an oil and gas lease&nbsp;presented to you likely states that you warrant and defend the chain of title to&nbsp;your minerals. Simply stated, delete the warranty clause. Don’t warrant the mineral title. </span></p><p data-uniq-id=\"vCRB9\" data-generated-css=\"brz-css-rxlv3\"></p><p data-uniq-id=\"eisTQ\" data-generated-css=\"brz-css-lbV_D\"><span style=\"color: rgba(var(--brz-global-color2),1);\">If you have concerns about the chain of title on your property, you might go one step further and completely disclaim warranty of title in your lease.</span></p><p data-uniq-id=\"afAsJ\" data-generated-css=\"brz-css-xEfWI\"></p><h2 data-uniq-id=\"xAmih\" data-generated-css=\"brz-css-gM7G4\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Lease Multiple&nbsp;Non-contiguous Tracts on One Lease Form</span></h2><p data-uniq-id=\"nbytA\" data-generated-css=\"brz-css-n6TGO\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Simply put, this minimizes the&nbsp;chance of problems down the road. Development of an oil or gas field is a&nbsp;dynamic process that unfolds over time – as in years. By matching one oil or gas lease to&nbsp;each contiguous tract, the issue of whether a tract is held by production from&nbsp;another tract is all but eliminated.</span></p><p data-uniq-id=\"lrd1L\" data-generated-css=\"brz-css-myRJ9\"></p><h2 data-uniq-id=\"mb7Um\" data-generated-css=\"brz-css-m0ZlK\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Don’t Spout Off during Negotiating</span></h2><p data-uniq-id=\"mNwea\" data-generated-css=\"brz-css-x2oOi\"><span style=\"color: rgba(var(--brz-global-color2),1);\">As in, don’t say things verbally that you’re not willing to stand on. Absolute statements like “I won’t take anything less than $5,000 per acre” are usually of little value, and in fact may hurt you. If ever you decide to back away from your statement, you’ve lost credibility, which will only minimize your negotiating power. Absolute statements in negotiating are typically made by rookies.</span></p><p data-uniq-id=\"urKYm\" data-generated-css=\"brz-css-vbiYE\"></p><h2 data-uniq-id=\"lTetP\" data-generated-css=\"brz-css-oOxMx\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Watch for Unrestricted Use of&nbsp;Fresh Water</span></h2><p data-uniq-id=\"izkHZ\" data-generated-css=\"brz-css-wIbDS\"><span style=\"color: rgba(var(--brz-global-color2),1);\">The first draft of almost all oil&nbsp;and gas leases allows for unrestricted use of fresh water for operations related&nbsp;to the drilling and completion of a well. This issue may or may not be&nbsp;applicable in your specific case, but it is certainly worth&nbsp;considering.</span></p><p data-uniq-id=\"hiHBg\" data-generated-css=\"brz-css-b5UVq\"></p><p data-uniq-id=\"riOa2\" data-generated-css=\"brz-css-xFyQs\"><strong style=\"color: rgba(var(--brz-global-color2),1);\">Additional Reading</strong></p><ul><li data-uniq-id=\"pOP1Z\" data-generated-css=\"brz-css-tmZ5Z\" style=\"color: rgba(var(--brz-global-color2),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-leasing-top-10-things-to-do\" data-brz-link-type=\"page\">Oil &amp; Gas Leasing: 10 Things To Make Sure You Do</a><span style=\"color: rgba(var(--brz-global-color2),1);\"> – Discover valuable tips for negotiating an oil and gas lease. Avoid costly mistakes when negotiating your oil and gas lease.</span></li><li data-uniq-id=\"zJlAd\" data-generated-css=\"brz-css-xykBu\" style=\"color: rgba(var(--brz-global-color2),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-basics-for-mineral-owners\" data-brz-link-type=\"page\">Oil &amp; Gas 101: Oil and Gas Basics for the Mineral Owner</a><span style=\"color: rgba(var(--brz-global-color2),1);\"> - Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing.</span></li></ul></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div><ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770326298&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Foil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770326298315&amp;bpp=39&amp;bdt=77&amp;idt=262&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D8e7e41176e254318%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MblivJFQ4Ny90AKHmH0XZaYxFY6OQ&amp;gpic=UID%3D000013365d204dbd%3AT%3D1770325942%3ART%3D1770326243%3AS%3DALNI_MadBZ867FjwzaUuXWTqpX6RwUQLhA&amp;eo_id_str=ID%3D40a0bbe0b83e5aee%3AT%3D1770325942%3ART%3D1770326243%3AS%3DAA-Afjb20zDehl-6KwTYGL5LRZ-9&amp;nras=1&amp;correlator=2304559162679&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=95378429%2C95381033%2C95381247%2C31096588%2C42533293&amp;oid=2&amp;pvsid=2825366744852033&amp;tmod=472124239&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=128x606_l%7C128x606_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=274\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins>\n    <iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Top 10 Things Not To Do When Negotiating Oil and Gas Leases</h1>
+				
+				<div class="content-body">
+					<img src="/images/negotiate.jpg" alt="" class="content-image" />
+					<p>Negotiating oil and gas leases requires knowledge, patience, and a balanced mindset. Every day across America, mineral owners receive oil and gas lease proposals asking to lease their mineral interests. Negotiating the lease is a big responsibility. Unfortunately many mineral rights owners don’t do their homework and miss available upside during oil and gas lease negotiations. Along with a sister article titled Oil and Gas Leasing - Top 10 Things TO DO, we present here things not to do when negotiating oil and gas leases. Hopefully you won’t find your actions among these.</p>
+					<p>Don’t Jump at the Sight of an Oil and Gas Lease! Don't immediately pick up the phone to the leasing agent (landman), gushing with emotion that you’ve received a gas lease in the mail. If there’s ever a signal that says you’re an early signer (and likely not getting the best terms), it’s that you just couldn’t wait to start talking. Properly negotiating gas leases takes time. Practice patience. Don’t Focus on Price Alone Lease bonus payment and royalty percentage are NOT the only two things that matter. Of course the economic implications are important, but these are far from the only important aspects of the oil and gas mineral lease negotiation. Everything is negotiable. In the case where you own surface rights along with mineral rights, the terms related to surface usage can be quite important, possibly more important than lease bonus and royalty percentage.</p>
+					<h2>Don’t Jump at the Sight of an Oil and Gas Lease!</h2>
+					<h2>Don’t Immediately Sign Anything Just Yet</h2>
+					<p>Most documents within an oil and gas lease proposal package (leases, ratifications, bank drafts, etc.) are legally binding documents. Until the deal is thoroughly discussed, negotiated, and understood, there’s no need for you to sign anything. Proper oil, gas, and mineral lease negotiations should progress intently, yet within a patient framework. Once signed, an oil, gas and mineral lease is a binding document. Again, negotiating oil leases takes time.</p>
+					<h2>Don’t Respond That You’re Not&nbsp;Interested</h2>
+					<p>Even if you’re the rare person who couldn’t care less about the economic benefit, it’s in your best interest to learn about what is happening in the area. You may in fact ultimately get force pooled, which will result in certified mail and phone calls to deal with anyway.</p>
+					<h2>Don’t Rush to Hire a Lawyer</h2>
+					<p>While you may in fact want to get an attorney involved later during the process, there are many other things you can do to benefit yourself in the mean time. Immediately hiring a lawyer upon receipt of an oil or gas lease only starts his fees sooner, and will ultimately cost you more than if you had first collected your thoughts on relevant issues. In fact, the lawyer, if he’s worth his salt, should first ask you questions that you’ll need to provide answers to yourself. You will find many of these issues and topics discussed here at MineralWise.com.</p>
+					<h2>Don’t Start Spending Money You&nbsp;Don’t Yet Have</h2>
+					<p>This is called common sense. Until the check clears the bank, you haven’t made a dime. Furthermore, just because the drilling rig has shown up does not mean that a commercially viable well is around the corner. Maybe, but no guarantees. There are plenty of dry holes around.</p>
+					<h2>Don’t Warrant the Mineral Title</h2>
+					<p>The first draft of an oil and gas lease presented to you likely states that you warrant and defend the chain of title to your minerals. Simply stated, delete the warranty clause. Don’t warrant the mineral title.</p>
+					<p>If you have concerns about the chain of title on your property, you might go one step further and completely disclaim warranty of title in your lease.</p>
+					<h2>Don’t Lease Multiple&nbsp;Non-contiguous Tracts on One Lease Form</h2>
+					<p>Simply put, this minimizes the chance of problems down the road. Development of an oil or gas field is a dynamic process that unfolds over time – as in years. By matching one oil or gas lease to each contiguous tract, the issue of whether a tract is held by production from another tract is all but eliminated.</p>
+					<h2>Don’t Spout Off during Negotiating</h2>
+					<p>As in, don’t say things verbally that you’re not willing to stand on. Absolute statements like “I won’t take anything less than $5,000 per acre” are usually of little value, and in fact may hurt you. If ever you decide to back away from your statement, you’ve lost credibility, which will only minimize your negotiating power. Absolute statements in negotiating are typically made by rookies.</p>
+					<h2>Watch for Unrestricted Use of&nbsp;Fresh Water</h2>
+					<p>The first draft of almost all oil and gas leases allows for unrestricted use of fresh water for operations related to the drilling and completion of a well. This issue may or may not be applicable in your specific case, but it is certainly worth considering.</p>
+				</div>
+				<div class="additional-reading">
+					<h2>Additional Reading</h2>
+					<ul>
+						<li><a href="/oil-and-gas-leasing-top-10-things-to-do">Oil &amp; Gas Leasing: 10 Things To Make Sure You Do</a></li>
+						<li><a href="/oil-and-gas-basics-for-mineral-owners">Oil &amp; Gas 101: Oil and Gas Basics for the Mineral Owner</a></li>
+					</ul>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

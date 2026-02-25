@@ -1,17 +1,149 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Simplifying Oil and Gas Royalty Management: Succession and Estate Planning Tips";
 const description = "Learn effective strategies for managing oil and gas royalties, including succession planning, estate management, and minimizing time-consuming administrative tasks. Discover how to streamline ownership while maximizing value.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"n2tnxOlhQzEp_n2tnxOlhQzEp\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-vdS5U\" data-uniq-id=\"aehBr\"><span style=\"color: rgba(var(--brz-global-color4),1);\">Several million Americans own oil and gas royalty interests, also known as producing mineral interests. For a variety of reasons, sometimes these interests can become cumbersome to own and manage. Let’s look at some of the issues regarding oil and gas royalty management:</span></p></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-poTkw\" data-uniq-id=\"iBccv\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Oil and Gas Royalty Management Issues</span></h1></div></div></div><div><div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h2 data-uniq-id=\"t2pxH\" data-generated-css=\"brz-css-tQQs0\"><span style=\"color: rgba(var(--brz-global-color4),1);\">Succession Planning</span></h2><p data-uniq-id=\"sIPFz\" data-generated-css=\"brz-css-rVcKH\"><span style=\"color: rgba(var(--brz-global-color4),1);\">As families plan toward passing assets (and the management thereof) to the next generation, due consideration should be given to the handling of oil and gas royalties. Does the next generation know how to manage them? Does it make sense to split the royalty interests 2,3,4 or more times? Generally, the smaller the royalty interest becomes, its value is disproportionately reduced. Do the math… Mineral interests have continually become more and more fragmented through the generations. Is 3/16 of ½ of 1/32 in 40 acres worth the trouble? Tens of thousands of royalty owners have a decimal interest starting with .00000xxx.</span></p><p data-uniq-id=\"ryOEZ\" data-generated-css=\"brz-css-vfSxE\"><br></p></div></div></div></div></div><div><div><div id=\"\"><div><picture><source srcset=\"/images/roylaty.jpg, /images/roylaty.jpg\" media=\"(min-width: 992px)\"><source srcset=\"/images/roylaty.jpg, /images/roylaty.jpg\" media=\"(min-width: 768px)\"><img srcset=\"/images/roylaty.jpg, /images/roylaty.jpg\" src=\"/images/roylaty.jpg\" loading=\"lazy\" alt=\"\" title=\"roylaty.jpg\" draggable=\"false\"></picture></div></div></div></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h2 data-uniq-id=\"pzKo1\" data-generated-css=\"brz-css-hrCXD\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Estate Planning</span></h2><p data-uniq-id=\"bSNtp\" data-generated-css=\"brz-css-sKmed\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Tidying up an estate is an excellent way to reduce the burden of managing oil and gas royalties. Estates often contain an oil or gas interest that is the “odd man out” type of asset requiring a disproportionate amount of administrative oversight.</span></p><p data-uniq-id=\"yjDvp\" data-generated-css=\"brz-css-oolYD\"></p><h2 data-uniq-id=\"bWxHF\" data-generated-css=\"brz-css-t9qCI\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Oil and Gas Royalty Management Becomes Time Consuming</span></h2><p data-uniq-id=\"h4MjM\" data-generated-css=\"brz-css-xXibM\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Regardless of whether you own an interest in 1 or 100 wells, you’re a party to a monthly transaction involving money. As such it's simply prudent to stay on top of things. Depositing the revenue, accounting for it yourself or through an accountant, and paying taxes on the royalty income are all part of the deal. At times there comes a point when the hassle and time spent simply outweighs the benefit of owning the oil &amp; gas royalty.</span></p><p data-uniq-id=\"u7BM9\" data-generated-css=\"brz-css-bPt3N\"><br></p></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div>\n    <ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770332568&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Foil-and-gas-royalty-management&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770332568509&amp;bpp=2&amp;bdt=390&amp;idt=120&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D76b5a03bbfcabae4%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_MbWcA_uP8zgWLLxo7bmMgv1QDSz7g&amp;gpic=UID%3D0000133661f0c877%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_Mas0Jt3U3kaURPkJgqQuHaCtk4Agw&amp;eo_id_str=ID%3Ddcdb3d53d3e323ee%3AT%3D1770332541%3ART%3D1770332541%3AS%3DAA-Afjb4mvv-39hHGJocUYhJpJ5j&amp;nras=1&amp;correlator=6311088113278&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=0&amp;ady=1172&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=31096044%2C95366175%2C95378425%2C95381033%2C95381247%2C31096588%2C42533294&amp;oid=2&amp;pvsid=1002214650617802&amp;tmod=824238814&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=0&amp;bc=31&amp;plas=128x606_l%7C128x606_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=132\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins><iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-royalty-management')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Oil and Gas Royalty Management Issues</h1>
+				
+				<div class="content-body">
+					<img src="/images/roylaty.jpg" alt="" class="content-image" />
+					<h2>Succession Planning</h2>
+					<p>As families plan toward passing assets (and the management thereof) to the next generation, due consideration should be given to the handling of oil and gas royalties. Does the next generation know how to manage them? Does it make sense to split the royalty interests 2,3,4 or more times? Generally, the smaller the royalty interest becomes, its value is disproportionately reduced. Do the math… Mineral interests have continually become more and more fragmented through the generations. Is 3/16 of ½ of 1/32 in 40 acres worth the trouble? Tens of thousands of royalty owners have a decimal interest starting with .00000xxx.</p>
+					<h2>Estate Planning</h2>
+					<p>Tidying up an estate is an excellent way to reduce the burden of managing oil and gas royalties. Estates often contain an oil or gas interest that is the “odd man out” type of asset requiring a disproportionate amount of administrative oversight.</p>
+					<h2>Oil and Gas Royalty Management Becomes Time Consuming</h2>
+					<p>Regardless of whether you own an interest in 1 or 100 wells, you’re a party to a monthly transaction involving money. As such it's simply prudent to stay on top of things. Depositing the revenue, accounting for it yourself or through an accountant, and paying taxes on the royalty income are all part of the deal. At times there comes a point when the hassle and time spent simply outweighs the benefit of owning the oil & gas royalty.</p>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

@@ -1,17 +1,173 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "How to Attract Oil Companies to Lease Your Land | Proactive Tips for Mineral Owners";
 const description = "Learn how to attract oil and gas companies to lease your land with proven strategies. Discover tips for connecting with landmen, negotiating leases, and making your property appealing for oil and gas exploration.";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"hLaQP4XIEH9H_hLaQP4XIEH9H\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-am7H6\" data-uniq-id=\"gqlur\"><span style=\"color: rgba(var(--brz-global-color2),1);\">How to attract leasing interest from an oil company</span></h1></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-afD3y\" data-uniq-id=\"tvnNK\"><span style=\"color: rgba(var(--brz-global-color4),1);\">There are lots of reasonable people around who’d like to lease their land to an oil or gas company for drilling.&nbsp;You may be one of them.&nbsp;Let’s assume so.&nbsp;Here are a few suggestions on how you can be proactive in leasing your land.</span></p></div></div></div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/lease.jpg, /images/lease.jpg\" media=\"(min-width: 992px)\"><source srcset=\"/images/lease.jpg, /images/lease.jpg\" media=\"(min-width: 768px)\"><img srcset=\"/images/lease.jpg, /images/lease.jpg\" src=\"/images/lease.jpg\" loading=\"lazy\" alt=\"\" title=\"lease.jpg\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-z4mDC\" data-uniq-id=\"emghe\"><span style=\"color: rgba(var(--brz-global-color4),1);\">Drop By the Courthouse</span></p><p data-generated-css=\"brz-css-gIf02\" data-uniq-id=\"i93db\"><span style=\"color: rgba(var(--brz-global-color4),1);\">Knowledge is power.&nbsp;This old saying is certainly applicable in oil and gas leasing. Drop by the local courthouse where the land (real property) records are kept.&nbsp;That’s where you’ll find the </span><span style=\"color: rgba(var(--brz-global-color4),1);\">landmen</span><span style=\"color: rgba(var(--brz-global-color4),1);\"> hanging out.&nbsp;They’re doing research to find out who owns the mineral rights underneath the area in which their bosses (the oil companies) are interested in drilling.&nbsp;As a general rule landmen are a friendly lot, so take time to chat them up a bit.&nbsp;Tell them where you own mineral rights, asking them about their areas of interest.&nbsp;Talk to several of them.&nbsp;Take them out for lunch.&nbsp;Chat with the office staff (as they are available), they're usually up to date on the latest buzz.</span></p><p data-generated-css=\"brz-css-r8Yis\" data-uniq-id=\"nAgxJ\"><br></p></div></div></div></div></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"gfhNp\" data-generated-css=\"brz-css-jxisy\">More is Better</p><p data-uniq-id=\"aRe3I\" data-generated-css=\"brz-css-a6PeA\">In the same way as befriending landmen, talk to your neighbors.&nbsp;Find out if they’ve been contacted about leasing, and by whom.&nbsp;Share information freely.&nbsp;Let it be known that you’d be interested in [ad name=\"In Content Right\"] leasing your land for oil and gas.&nbsp;While landmen are usually given an outline of where to lease land, this can sometimes be expanded or shifted if conditions warrant.</p><p data-uniq-id=\"flmus\" data-generated-css=\"brz-css-aFhqK\"><br></p><p data-uniq-id=\"igTNM\" data-generated-css=\"brz-css-ywI_F\">Drilling Plays are Dynamic</p><p data-uniq-id=\"iGJkg\" data-generated-css=\"brz-css-iXOF2\">Drilling plays live, breathe, and die based on science and economics.&nbsp;Pressures, flow rates, rock mechanics, oil prices, natural gas prices, steel costs, land acquisition costs - all these and more are continually influencing oil and gas development. Remember, it takes two to tango – both oil companies and mineral owners joining together.&nbsp;Typically an oil company, also known as <span style=\"color: rgba(var(--brz-global-color4),1);\">Operators</span> will determine their area of interest, and then proactively find the mineral owners.&nbsp;However, it is getting easier in this day of email and the internet to contact oil companies and let them know about your desire to lease your land.</p><p data-uniq-id=\"kbORw\" data-generated-css=\"brz-css-hWU0l\"><br></p><p data-uniq-id=\"coDSb\" data-generated-css=\"brz-css-uGLQA\"><strong>Additional Information</strong></p><ul><li data-uniq-id=\"nDHa6\" data-generated-css=\"brz-css-m5lCE\"><a class=\"link--page\" style=\"color: rgb(12, 42, 233);\" href=\"/oil-and-gas-leasing-top-10-things-to-do\" data-brz-link-type=\"page\">Oil &amp; Gas Leasing: 10 Things To Make Sure You Do</a> – Discover valuable tips for negotiating an oil and gas lease. Avoid costly mistakes when negotiating your oil and gas lease.</li><li data-uniq-id=\"j1SX_\" data-generated-css=\"brz-css-kbuwB\"><a class=\"link--page\" style=\"color: rgb(12, 42, 233);\" href=\"/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation\" data-brz-link-type=\"page\">Oil &amp; Gas Leases: 10 Common Mistakes During Mineral Lease Negotiation</a> – 10 common mistakes to avoid when negotiating an oil &amp; gas lease. A sister article, 10 Things To Make Sure You Do, is also available.</li></ul><p data-uniq-id=\"uthHR\" data-generated-css=\"brz-css-uSEw9\"><br></p></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div><ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770332561&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Flease-my-land&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770332561726&amp;bpp=94&amp;bdt=67&amp;idt=250&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D76b5a03bbfcabae4%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_MbWcA_uP8zgWLLxo7bmMgv1QDSz7g&amp;gpic=UID%3D0000133661f0c877%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_Mas0Jt3U3kaURPkJgqQuHaCtk4Agw&amp;eo_id_str=ID%3Ddcdb3d53d3e323ee%3AT%3D1770332541%3ART%3D1770332541%3AS%3DAA-Afjb4mvv-39hHGJocUYhJpJ5j&amp;nras=1&amp;correlator=2878859260664&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=95378429%2C95381033%2C95381248%2C31096588&amp;oid=2&amp;pvsid=2860955607740108&amp;tmod=824238814&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=452x808_l%7C452x808_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=263\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins>\n    <iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/lease-my-land')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>How to attract leasing interest from an oil company</h1>
+				
+				<div class="content-body">
+					<p>There are lots of reasonable people around who'd like to lease their land to an oil or gas company for drilling. You may be one of them. Let's assume so. Here are a few suggestions on how you can be proactive in leasing your land.</p>
+					
+					<img src="/images/lease.jpg" alt="Oil and gas leasing" class="content-image" />
+					
+					<h2>Drop By the Courthouse</h2>
+					<p>Knowledge is power. This old saying is certainly applicable in oil and gas leasing. Drop by the local courthouse where the land (real property) records are kept. That's where you'll find the landmen hanging out. They're doing research to find out who owns the mineral rights underneath the area in which their bosses (the oil companies) are interested in drilling. As a general rule landmen are a friendly lot, so take time to chat them up a bit. Tell them where you own mineral rights, asking them about their areas of interest. Talk to several of them. Take them out for lunch. Chat with the office staff (as they are available), they're usually up to date on the latest buzz.</p>
+					
+					<h2>More is Better</h2>
+					<p>In the same way as befriending landmen, talk to your neighbors. Find out if they've been contacted about leasing, and by whom. Share information freely. Let it be known that you'd be interested in leasing your land for oil and gas. While landmen are usually given an outline of where to lease land, this can sometimes be expanded or shifted if conditions warrant.</p>
+					
+					<h2>Drilling Plays are Dynamic</h2>
+					<p>Drilling plays live, breathe, and die based on science and economics. Pressures, flow rates, rock mechanics, oil prices, natural gas prices, steel costs, land acquisition costs - all these and more are continually influencing oil and gas development. Remember, it takes two to tango – both oil companies and mineral owners joining together. Typically an oil company, also known as Operators will determine their area of interest, and then proactively find the mineral owners. However, it is getting easier in this day of email and the internet to contact oil companies and let them know about your desire to lease your land.</p>
+				</div>
+				
+				<div class="additional-reading">
+					<h2>Additional Information</h2>
+					<ul>
+						<li><a href="/oil-and-gas-leasing-top-10-things-to-do">Oil & Gas Leasing: 10 Things To Make Sure You Do</a> – Discover valuable tips for negotiating an oil and gas lease. Avoid costly mistakes when negotiating your oil and gas lease.</li>
+						<li><a href="/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation">Oil & Gas Leases: 10 Common Mistakes During Mineral Lease Negotiation</a> – 10 common mistakes to avoid when negotiating an oil & gas lease. A sister article, 10 Things To Make Sure You Do, is also available.</li>
+					</ul>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.content-body a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

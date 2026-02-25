@@ -1,17 +1,192 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Understanding Division Orders: A Guide for Oil and Gas Revenue Owners";
 const description = "Learn everything you need to know about division orders, including their purpose, components, and how they ensure accurate oil and gas revenue distribution. Essential insights for mineral rights owners!";
-
-const content = "<div id=\"mm-0\">\n    <section id=\"brqfvgeORzIf_brqfvgeORzIf\"><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><h1 data-generated-css=\"brz-css-wNLFw\" data-uniq-id=\"zD9DZ\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Division Orders Allocate Oil and Gas Revenue</span></h1></div></div></div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/division.jpg, /images/division.jpg\" media=\"(min-width: 992px)\"><source srcset=\"/images/division.jpg, /images/division.jpg\" media=\"(min-width: 768px)\"><img srcset=\"/images/division.jpg, /images/division.jpg\" src=\"/images/division.jpg\" loading=\"lazy\" alt=\"\" title=\"division.jpg\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"txhNC\" data-generated-css=\"brz-css-koHgv\"><span style=\"color: rgb(31, 31, 31);\"> A Division Order is an instrument which sets forth the proportional ownership in produced hydrocarbons, including crude oil, natural gas, and NGL's. Sometimes the Division Order is referred to as a division of interest. More often than not, a single well or lease will have multiple owners. In fact, it's not uncommon to have hundreds of parties owning an interest in a single well. A Division Order is generally received by a mineral rights owner through the mail within 3 to 4 months after well&nbsp;completion.</span></p><p data-uniq-id=\"cef1Q\" data-generated-css=\"brz-css-rGU35\"></p><p data-uniq-id=\"qX2PA\" data-generated-css=\"brz-css-zvzdA\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"https://www.mineralwise.com/library/oil-and-gas-terms/oil-gas-definitions-d-terms\" data-brz-link-type=\"external\" target=\"_blank\" rel=\"noreferrer noopener\">Click here to view a Division Order Model Form from NADOA</a><span style=\"color: rgba(var(--brz-global-color1),1);\">.</span><span style=\"color: rgb(31, 31, 31);\"> The model form provided by the National Association of Division Order Analyst (NADOA) meets most state requirements.</span></p><p data-uniq-id=\"mkFTY\" data-generated-css=\"brz-css-mMNic\"></p><p data-uniq-id=\"jcrOu\" data-generated-css=\"brz-css-sYNLT\"><span style=\"color: rgb(31, 31, 31);\">Receiving a Division Order is a Good Thing!</span></p><p data-uniq-id=\"anMJx\" data-generated-css=\"brz-css-fBPCo\"><span style=\"color: rgb(31, 31, 31);\">If you've received a </span><strong style=\"color: rgb(31, 31, 31);\">Division Order</strong><span style=\"color: rgb(31, 31, 31);\">, it's as a result of production having been established from property in which you have an interest. From the mineral owner's perspective, receiving a Division Order is a good thing!</span></p></div></div></div></div></div></div></div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-generated-css=\"brz-css-dhh2x\" data-uniq-id=\"bTea5\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Division Orders Ensure Oil Companies Pay the Right People</span></p><p data-generated-css=\"brz-css-sSszh\" data-uniq-id=\"rYq0N\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Imagine the headaches and costs of improperly distributing a well's revenue. It's in everyone's best interest to get this right. The Division Order is a document whereby the revenue distributor (either the Operator or the&nbsp;1st Purchaser) and the recipient (the royalty owner) agree on the exact decimal interest (Net Revenue Interest or NRI) owned within a well, lease, production unit, or field-wide unit. A Division Order doesn't alter the terms of the mineral lease. A Division Order that attempts to amend the terms of the lease is invalid to the extent of the attempted change. While the Division Order document can't amend the lease, sometimes an operator will attempt through negotiation to amend the oil &amp; gas lease at this stage or before revenue is distributed. Be sure you review in detail&nbsp;any other documents included or received around the same time.</span></p><p data-generated-css=\"brz-css-qbi9n\" data-uniq-id=\"tfJbT\"></p><p data-generated-css=\"brz-css-vveSo\" data-uniq-id=\"vGUXE\"><span style=\"color: rgba(var(--brz-global-color2),1);\">The Division Order document will include:</span></p><ul><li data-generated-css=\"brz-css-tF77b\" data-uniq-id=\"ohfSg\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Name of the oil &amp; gas company</span></li><li data-generated-css=\"brz-css-r0gD6\" data-uniq-id=\"pu18C\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Legal description of the producing property</span></li><li data-generated-css=\"brz-css-bcdoo\" data-uniq-id=\"qVddD\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Type of interest - (e.g. royalty interest, mineral interest, or working interest)</span></li><li data-generated-css=\"brz-css-nTfDI\" data-uniq-id=\"xUrfw\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Your decimal interest or net revenue interest, ie the NRI</span></li></ul><p data-generated-css=\"brz-css-aMOsV\" data-uniq-id=\"hXpAl\"></p><p data-generated-css=\"brz-css-grpir\" data-uniq-id=\"y5DIo\"><span style=\"color: rgba(var(--brz-global-color2),1);\">You will provide:</span></p><ul><li data-generated-css=\"brz-css-gXkwo\" data-uniq-id=\"ecNos\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Signature</span></li><li data-generated-css=\"brz-css-w050X\" data-uniq-id=\"gKi0s\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Tax ID or Social Security Number</span></li><li data-generated-css=\"brz-css-kRd0m\" data-uniq-id=\"sRDfQ\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Address</span></li><li data-generated-css=\"brz-css-vawXw\" data-uniq-id=\"tLIPd\" style=\"color: rgba(var(--brz-global-color2),1);\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Possibly direct deposit instructions</span></li></ul><p data-generated-css=\"brz-css-xWQJD\" data-uniq-id=\"r_n1W\"><br></p><p data-generated-css=\"brz-css-geerj\" data-uniq-id=\"oqAye\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Division Order Title Opinion</span></p><p data-generated-css=\"brz-css-rOduh\" data-uniq-id=\"e1vB6\"><span style=\"color: rgba(var(--brz-global-color2),1);\">The oil company has done some homework prior to sending you a Division Order. Either an in-house attorney or a third party law firm has analyzed the supporting documents relating to the mineral title associated with a producing property. This is generally known as the division order curative process; in other words, curing any defects in title. This is what determines your decimal interest or NRI in the property. If you disagree, follow up by phone and in writing. If you have an attorney working on your behalf, legal letterhead will usually garner a little more attention.</span></p><p data-generated-css=\"brz-css-mDYf1\" data-uniq-id=\"hAm8y\"></p><p data-generated-css=\"brz-css-jrU17\" data-uniq-id=\"hLhml\"><span style=\"color: rgba(var(--brz-global-color2),1);\">The Division Order Analyst</span></p><p data-generated-css=\"brz-css-xk5NV\" data-uniq-id=\"sgbCa\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Division Order Analysts are the individuals at the oil&nbsp;company&nbsp;responsible for the proper establishment and maintenance of ownership records. Analysts are generally organized within the land department in an oil company. As a royalty owner, the Division Order Analyst is generally the person with whom you will have initial contact with before entering pay status.</span></p><p data-generated-css=\"brz-css-dvRLH\" data-uniq-id=\"qplGM\"></p><p data-generated-css=\"brz-css-uM4zR\" data-uniq-id=\"kLfkX\"><span style=\"color: rgba(var(--brz-global-color2),1);\">IRS Tax Form W-9 and Division Orders</span></p><p data-generated-css=\"brz-css-gxI0g\" data-uniq-id=\"qNW5x\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Of course, Uncle Sam will want his share of your share. So that the revenue distributor will know how to tell the feds how much royalty they paid you, you'll need to complete the W-9 form&nbsp;(W-9 Form PDF File). Usually an oil company will withhold approximately 30% of the revenue if you don't complete and return this form.</span></p><p data-generated-css=\"brz-css-bBXLm\" data-uniq-id=\"tPYI7\"></p><p data-generated-css=\"brz-css-xqjgJ\" data-uniq-id=\"mbhJ8\"><span style=\"color: rgba(var(--brz-global-color2),1);\">You can also discuss division orders with other mineral rights owners by visiting </span><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"https://mineralrightsforum.com\" data-brz-link-type=\"external\">MineralRightsForum.com</a></p><p data-generated-css=\"brz-css-wTky9\" data-uniq-id=\"aaegb\"></p><p data-generated-css=\"brz-css-sWHHA\" data-uniq-id=\"jlvTn\"><span style=\"color: rgba(var(--brz-global-color2),1);\">Return Documents in a Timely Fashion</span></p><p data-generated-css=\"brz-css-vyQpK\" data-uniq-id=\"hXp00\"><span style=\"color: rgba(var(--brz-global-color2),1);\">There isn't a deadline for returning your division order, but operators will be required to withhold taxes if it isn't received in a timely manner.&nbsp;Besides, your royalty checks will be withheld until your Division Order is signed and returned.&nbsp;</span><strong style=\"color: rgba(var(--brz-global-color2),1);\">Make copies for your records and return the documents in a timely manner. </strong></p><p data-generated-css=\"brz-css-zNwvt\" data-uniq-id=\"wZNsl\"><strong style=\"color: rgba(var(--brz-global-color2),1);\"> </strong></p><p data-generated-css=\"brz-css-b2Uyr\" data-uniq-id=\"je7P0\"><span style=\"color: rgba(var(--brz-global-color2),1);\">If the company doesn't pay you within a certain period, the company will be required to pay interest on the money owed. The interest percentage varies from state to state.</span></p><p data-generated-css=\"brz-css-pXfU7\" data-uniq-id=\"pYqjW\"></p><p data-generated-css=\"brz-css-wEZKn\" data-uniq-id=\"aWzTQ\"><span style=\"color: rgba(var(--brz-global-color2),1);\">In conclusion, don't hold your breath. It might be 3-6 months from the time a well is completed to the time you receive a division order. After that, it might be another 2-3 months before you receive your first check. Plan for up to nine months before receiving oil &amp; gas revenue.</span></p><p data-generated-css=\"brz-css-rgdc3\" data-uniq-id=\"jgIqF\"></p><p data-generated-css=\"brz-css-gSUeI\" data-uniq-id=\"pnIK6\"><strong style=\"color: rgba(var(--brz-global-color2),1);\">Additional Reading</strong></p><ul><li data-generated-css=\"brz-css-biCOM\" data-uniq-id=\"mei55\" style=\"color: rgba(var(--brz-global-color2),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-production-volume-verification\" data-brz-link-type=\"page\">Volume Verification</a><span style=\"color: rgba(var(--brz-global-color2),1);\"> – Short article explaining how oil and gas royalty owners can verify their oil and gas production. Includes links to free state verification.</span></li><li data-generated-css=\"brz-css-gV_Xq\" data-uniq-id=\"qi_Hy\" style=\"color: rgba(var(--brz-global-color2),1);\"><a style=\"color: rgba(var(--brz-global-color1),1);\" href=\"/oil-and-gas-production-nontechnical-language\" data-brz-link-type=\"page\">Production 101</a><span style=\"color: rgba(var(--brz-global-color2),1);\"> – Free article explaining the drilling, completing, and testing of oil and gas wells in nontechnical language. Valuable insight for mineral rights owners.</span></li></ul></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div><ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770332560&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Fdivision-order-2&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770332560679&amp;bpp=99&amp;bdt=55&amp;idt=267&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D76b5a03bbfcabae4%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_MbWcA_uP8zgWLLxo7bmMgv1QDSz7g&amp;gpic=UID%3D0000133661f0c877%3AT%3D1770332541%3ART%3D1770332541%3AS%3DALNI_Mas0Jt3U3kaURPkJgqQuHaCtk4Agw&amp;eo_id_str=ID%3Ddcdb3d53d3e323ee%3AT%3D1770332541%3ART%3D1770332541%3AS%3DAA-Afjb4mvv-39hHGJocUYhJpJ5j&amp;nras=1&amp;correlator=2438011753788&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=31096537%2C95378425%2C95381033%2C95381248%2C31096588%2C95344791&amp;oid=2&amp;pvsid=7625478038224682&amp;tmod=824238814&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=452x808_l%7C452x808_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=287\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins>\n    <iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/division-order-2')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Division Orders Allocate Oil and Gas Revenue</h1>
+				
+				<div class="content-body">
+					<img src="/images/division.jpg" alt="" class="content-image" />
+					<p>A Division Order is an instrument which sets forth the proportional ownership in produced hydrocarbons, including crude oil, natural gas, and NGL's. Sometimes the Division Order is referred to as a division of interest. More often than not, a single well or lease will have multiple owners. In fact, it's not uncommon to have hundreds of parties owning an interest in a single well. A Division Order is generally received by a mineral rights owner through the mail within 3 to 4 months after well completion.</p>
+					<p><a href="https://www.mineralwise.com/library/oil-and-gas-terms/oil-gas-definitions-d-terms" target="_blank" rel="noreferrer noopener">Click here to view a Division Order Model Form from NADOA</a>. The model form provided by the National Association of Division Order Analyst (NADOA) meets most state requirements.</p>
+					<h2>Receiving a Division Order is a Good Thing!</h2>
+					<p>If you've received a <strong>Division Order</strong>, it's as a result of production having been established from property in which you have an interest. From the mineral owner's perspective, receiving a Division Order is a good thing!</p>
+					<h2>Division Orders Ensure Oil Companies Pay the Right People</h2>
+					<p>Imagine the headaches and costs of improperly distributing a well's revenue. It's in everyone's best interest to get this right. The Division Order is a document whereby the revenue distributor (either the Operator or the 1st Purchaser) and the recipient (the royalty owner) agree on the exact decimal interest (Net Revenue Interest or NRI) owned within a well, lease, production unit, or field-wide unit. A Division Order doesn't alter the terms of the mineral lease. A Division Order that attempts to amend the terms of the lease is invalid to the extent of the attempted change. While the Division Order document can't amend the lease, sometimes an operator will attempt through negotiation to amend the oil & gas lease at this stage or before revenue is distributed. Be sure you review in detail any other documents included or received around the same time.</p>
+					<h2>The Division Order document will include:</h2>
+					<ul>
+						<li>Name of the oil & gas company</li>
+						<li>Legal description of the producing property</li>
+						<li>Type of interest - (e.g. royalty interest, mineral interest, or working interest)</li>
+						<li>Your decimal interest or net revenue interest, ie the NRI</li>
+					</ul>
+					<h2>You will provide:</h2>
+					<ul>
+						<li>Signature</li>
+						<li>Tax ID or Social Security Number</li>
+						<li>Address</li>
+						<li>Possibly direct deposit instructions</li>
+					</ul>
+					<h2>Division Order Title Opinion</h2>
+					<p>The oil company has done some homework prior to sending you a Division Order. Either an in-house attorney or a third party law firm has analyzed the supporting documents relating to the mineral title associated with a producing property. This is generally known as the division order curative process; in other words, curing any defects in title. This is what determines your decimal interest or NRI in the property. If you disagree, follow up by phone and in writing. If you have an attorney working on your behalf, legal letterhead will usually garner a little more attention.</p>
+					<h2>The Division Order Analyst</h2>
+					<p>Division Order Analysts are the individuals at the oil company responsible for the proper establishment and maintenance of ownership records. Analysts are generally organized within the land department in an oil company. As a royalty owner, the Division Order Analyst is generally the person with whom you will have initial contact with before entering pay status.</p>
+					<h2>IRS Tax Form W-9 and Division Orders</h2>
+					<p>Of course, Uncle Sam will want his share of your share. So that the revenue distributor will know how to tell the feds how much royalty they paid you, you'll need to complete the W-9 form (W-9 Form PDF File). Usually an oil company will withhold approximately 30% of the revenue if you don't complete and return this form.</p>
+					<p>You can also discuss division orders with other mineral rights owners by visiting <a href="https://mineralrightsforum.com" target="_blank" rel="noreferrer noopener">MineralRightsForum.com</a></p>
+					<h2>Return Documents in a Timely Fashion</h2>
+					<p>There isn't a deadline for returning your division order, but operators will be required to withhold taxes if it isn't received in a timely manner. Besides, your royalty checks will be withheld until your Division Order is signed and returned. <strong>Make copies for your records and return the documents in a timely manner.</strong></p>
+					<p>If the company doesn't pay you within a certain period, the company will be required to pay interest on the money owed. The interest percentage varies from state to state.</p>
+					<p>In conclusion, don't hold your breath. It might be 3-6 months from the time a well is completed to the time you receive a division order. After that, it might be another 2-3 months before you receive your first check. Plan for up to nine months before receiving oil & gas revenue.</p>
+				</div>
+				<div class="additional-reading">
+					<h2>Additional Reading</h2>
+					<ul>
+						<li><a href="/oil-and-gas-production-volume-verification">Volume Verification</a> – Short article explaining how oil and gas royalty owners can verify their oil and gas production. Includes links to free state verification.</li>
+						<li><a href="/oil-and-gas-production-nontechnical-language">Production 101</a> – Free article explaining the drilling, completing, and testing of oil and gas wells in nontechnical language. Valuable insight for mineral rights owners.</li>
+					</ul>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.content-body a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>
