@@ -49,3 +49,70 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<!-- Google Ad Manager / GPT -->
+<script type="text/javascript" is:inline>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" is:inline></script>
+<script is:inline>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    var mapping = googletag.sizeMapping()
+      .addSize([1024, 768], [970, 90])
+      .addSize([800, 0], [728, 90])
+      .addSize([640, 480], [320, 50])
+      .addSize([0, 0], [320, 50])
+      .build();
+    googletag.defineSlot('/6933594/mw_ac_resp', [[320, 50], [728, 90], [970, 90]], 'div-gpt-ad-1566832459374-0')
+      .defineSizeMapping(mapping).addService(googletag.pubads());
+    googletag.defineSlot('/6933594/mw_ss_bc', [[320, 50], [970, 90], [728, 90]], 'div-gpt-ad-1567060937904-0')
+      .defineSizeMapping(mapping).addService(googletag.pubads());
+    googletag.defineSlot('/6933594/mw_ss_ic', [300, 250], 'div-gpt-ad-1567061376991-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2335450736621627" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" is:inline></script>
+
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEHZ4LGDZL" is:inline></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VEHZ4LGDZL');
+</script>
+
+<!-- PageSense -->
+<script src="https://cdn.pagesense.io/js/kedinterestsllc/ce44e7acc11b41cdb45f2e9407e1d616.js" is:inline></script>
+
+<!-- SearchIQ -->
+<script type="text/javascript" is:inline>
+  (function () {
+    window.siqConfig = {
+      engineKey: "00f4986f9cfd1e0b8474dff4c519ba2d"
+    };
+    window.siqConfig.baseUrl = "//pub.searchiq.co/";
+    var script = document.createElement("SCRIPT");
+    script.src = window.siqConfig.baseUrl + '/js/container/siq-container-2.js?cb=' + (Math.floor(Math.random()*999999)) + '&engineKey=' + siqConfig.engineKey;
+    script.id = "siq-container";
+    document.getElementsByTagName("HEAD")[0].appendChild(script);
+  })();
+</script>
+
+<!-- Answerly -->
+<script is:inline>(function(f,n) { n = document.createElement('script'); n.src = 'https://fcdn.answerly.io/fn.js'; n.setAttribute('data-companyId', f); document.getElementsByTagName('html')[0].insertAdjacentElement('beforeend', n); })('8adcea11-b36c-4cbb-9184-b39328483251');</script>

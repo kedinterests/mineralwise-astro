@@ -13,6 +13,8 @@ export const pageHierarchy: Record<string, PageNode> = {
 	'/about': { label: 'About', parent: '/' },
 	'/about/team': { label: 'Our Team', parent: '/about' },
 	'/contact-us': { label: 'Contact Us', parent: '/' },
+	'/advertising': { label: 'Advertise', parent: '/' },
+	'/oil-and-gas-abbreviations': { label: 'Oil & Gas Abbreviations', parent: '/all-oil-and-gas-terms' },
 	'/oil-gas-operators': { label: 'Oil & Gas Operators', parent: '/' },
 	'/aera-energy-llc': { label: 'Aera Energy LLC', parent: '/oil-gas-operators' },
 	'/anschutz-exploration-corp': { label: 'Anschutz Exploration Corp.', parent: '/oil-gas-operators' },

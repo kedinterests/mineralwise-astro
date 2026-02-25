@@ -3,22 +3,31 @@ import "@/styles/starwind.css";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AboveContentAd from '../components/AboveContentAd.astro';
+import BelowContentAd from '../components/BelowContentAd.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+type AdConfig = 'none' | 'ac-only' | 'ac-and-bc' | 'home';
 
 interface Props {
 	title?: string;
 	description?: string;
 	/** Max width of content area in px. Default 1000. Override for pages that need wider/narrower. */
 	maxWidth?: number | string;
+	/** Ad placement: none, ac-only (after header), ac-and-bc, home (ac in page content after hero, bc before footer). Default ac-only. */
+	adConfig?: AdConfig;
 }
 
 const { 
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
-	maxWidth = 1000
+	maxWidth = 1000,
+	adConfig = 'ac-only'
 } = Astro.props;
 
 const maxWidthValue = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
+const showAcAd = adConfig === 'ac-only' || adConfig === 'ac-and-bc';
+const showBcAd = adConfig === 'ac-and-bc' || adConfig === 'home';
 ---
 
 <!doctype html>
@@ -28,9 +37,19 @@ const maxWidthValue = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
 	</head>
 	<body>
 		<Header />
+		{showAcAd && (
+			<div class="ad-slot ad-ac">
+				<AboveContentAd />
+			</div>
+		)}
 		<main style={`--container-max-width: ${maxWidthValue}`}>
 			<slot />
 		</main>
+		{showBcAd && (
+			<div class="ad-slot ad-bc">
+				<BelowContentAd />
+			</div>
+		)}
 		<Footer />
 	</body>
 </html>
@@ -38,5 +57,15 @@ const maxWidthValue = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
 <style>
 	main {
 		min-height: calc(100vh - 200px);
+	}
+	.ad-slot {
+		display: flex;
+		justify-content: center;
+		margin: 1rem 0;
+		min-height: 50px;
+	}
+	.ad-ac {
+		margin-top: 0;
+		padding-top: 1.5rem;
 	}
 </style>
