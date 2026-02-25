@@ -1,0 +1,253 @@
+---
+interface Props {
+	companyName: string;
+	description: string;
+	logoPath: string;
+	contactPhone?: string;
+	contactLabel?: string;
+	additionalSections?: Array<{
+		title: string;
+		content: string;
+	}>;
+	showProductionVerification?: boolean;
+	showCashPayment?: boolean;
+}
+
+const {
+	companyName,
+	description,
+	logoPath,
+	contactPhone,
+	contactLabel = "Contact Information for Royalty Owners",
+	additionalSections = [],
+	showProductionVerification = true,
+	showCashPayment = false
+} = Astro.props;
+---
+
+<div class="company-page">
+	<!-- Hero Section with Logo -->
+	<div class="company-hero">
+		<div class="logo-container">
+			<img src={logoPath} alt={`${companyName} logo`} class="company-logo" />
+		</div>
+		<h1 class="company-title">{companyName}</h1>
+	</div>
+
+	<!-- Company Description -->
+	<div class="company-section">
+		<div class="company-description">
+			{description.split('\n\n').filter(p => p.trim()).map((paragraph, i) => (
+				<p key={i}>{paragraph.trim()}</p>
+			))}
+		</div>
+	</div>
+
+	<!-- Contact Information -->
+	{contactPhone && (
+		<div class="company-section">
+			<h2 class="section-title">
+				<strong>{contactLabel} – Tel. {contactPhone}</strong>
+			</h2>
+			<p>
+				Those who own gas royalties and oil royalties are an important group to {companyName}. 
+				If you receive oil royalty or gas royalty from a lease under production by {companyName}, 
+				you can contact them at {contactPhone}.
+			</p>
+		</div>
+	)}
+
+	<!-- Production Volume Verification -->
+	{showProductionVerification && (
+		<div class="company-section">
+			<h2 class="section-title">
+				<strong>{companyName} Production Volume Verification</strong>
+			</h2>
+			<p>
+				If you are a lease holder (lessor) currently under production by {companyName} you can verify 
+				your oil and gas production volumes by visiting{' '}
+				<a href="/owners-guide/leased-and-producing/oil-and-gas-production-volume-verification" 
+				   target="_blank" rel="noopener noreferrer">
+					How to Verify Your Oil and Gas Production Volumes
+				</a>. This page includes links to the state agencies that record oil and gas production data 
+				and also covers the basics of how oil and gas is measured.
+			</p>
+		</div>
+	)}
+
+	<!-- Cash Payment Section -->
+	{showCashPayment && (
+		<div class="company-section">
+			<h2 class="section-title">
+				<strong>Cash Payment for Your Royalty</strong>
+			</h2>
+			<p>
+				If you own a producing royalty you can receive a{' '}
+				<a href="/owners-guide/cash-payment-for-oil-and-gas-royalty" 
+				   target="_blank" rel="noopener noreferrer">
+					no obligation cash offer
+				</a>{' '}
+				for your producing royalties from the MineralWise experts.
+			</p>
+		</div>
+	)}
+
+	<!-- Additional Sections -->
+	{additionalSections.map((section, i) => (
+		<div class="company-section" key={i}>
+			<h2 class="section-title">
+				<strong>{section.title}</strong>
+			</h2>
+			<div set:html={section.content} />
+		</div>
+	))}
+
+	<!-- Back to Operators Link -->
+	<div class="back-to-operators">
+		<a href="/oil-gas-operators">View All Oil & Gas Operators</a>
+	</div>
+</div>
+
+<style>
+	.company-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.company-hero {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 2px solid #e2e8f0;
+	}
+
+	.logo-container {
+		margin-bottom: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 120px;
+	}
+
+	.company-logo {
+		max-width: 300px;
+		max-height: 120px;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+	}
+
+	.company-title {
+		margin: 0;
+		font-size: 2.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		color: rgb(var(--gray-dark));
+	}
+
+	.company-section {
+		margin-bottom: 2.5rem;
+	}
+
+	.company-section:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.company-description {
+		font-size: 1.0625rem;
+		line-height: 1.75rem;
+		color: rgb(var(--gray-dark));
+	}
+
+	.company-description p {
+		margin-bottom: 1.25rem;
+	}
+
+	.company-description p:last-child {
+		margin-bottom: 0;
+	}
+
+	.section-title {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: rgb(var(--gray-dark));
+		border-bottom: 2px solid #0ea5e9;
+		padding-bottom: 0.5rem;
+	}
+
+	.section-title strong {
+		font-weight: 600;
+	}
+
+	.company-section p {
+		font-size: 1rem;
+		line-height: 1.75rem;
+		color: rgb(var(--gray-dark));
+		margin-bottom: 1rem;
+	}
+
+	.company-section p:last-child {
+		margin-bottom: 0;
+	}
+
+	.company-section a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s;
+		font-weight: 500;
+	}
+
+	.company-section a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	.back-to-operators {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e2e8f0;
+		text-align: center;
+	}
+
+	.back-to-operators a {
+		color: #0ea5e9;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1.0625rem;
+		transition: color 0.2s;
+	}
+
+	.back-to-operators a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		.company-page {
+			padding: 1.5rem;
+		}
+
+		.company-hero {
+			margin-bottom: 2rem;
+			padding-bottom: 1.5rem;
+		}
+
+		.company-title {
+			font-size: 2rem;
+		}
+
+		.company-logo {
+			max-width: 200px;
+			max-height: 100px;
+		}
+
+		.section-title {
+			font-size: 1.25rem;
+		}
+	}
+</style>

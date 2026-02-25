@@ -4,21 +4,19 @@ import PageShell from '../components/PageShell.astro';
 import ArticleContent from '../components/ArticleContent.astro';
 import { getBreadcrumbs } from '../data/hierarchy';
 
-const title = "MineralWise: Expert Advice for Oil &amp; Gas Mineral Rights Owners";
+const title = "MineralWise: Expert Advice for Oil & Gas Mineral Rights Owners";
 const description = "Discover expert consulting, advice, and resources for oil and gas mineral rights owners in America. MineralWise empowers you to maximize bonus and royalty payments while navigating mineral ownership with confidence.";
-
-// Breadcrumbs come from hierarchy.ts: About's parent is Home
-const breadcrumbs = getBreadcrumbs('/about');
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={breadcrumbs}>
+	<PageShell breadcrumbs={getBreadcrumbs('/about')}>
 		<ArticleContent>
-			<h1>About MineralWise.com</h1>
+			<div class="about-page">
+				<h1>About MineralWise.com</h1>
 
 			<p>
 				Welcome – We’re glad you’re visiting. MineralWise is an educational brand of KED Interests
-				focused on citizen oil &amp; gas mineral owners in America. We provide consulting, advice,
+				focused on citizen oil & gas mineral owners in America. We provide consulting, advice,
 				and intelligence to America’s mineral owners.
 			</p>
 
@@ -31,12 +29,12 @@ const breadcrumbs = getBreadcrumbs('/about');
 			<p>
 				<strong>Principal Owner – Kenneth E. DuBose</strong> is past President of Cheyenne Minerals
 				Inc., an independent oil and gas producer operating in Texas, Oklahoma, and Mississippi.
-				CMI operations sold to Anadarko late 90’s. He began his career with ARCO Oil &amp; Gas in
-				Houston TX performing oil &amp; gas reservoir studies. As natural gas deregulation approached
+				CMI operations sold to Anadarko late 90’s. He began his career with ARCO Oil & Gas in
+				Houston TX performing oil & gas reservoir studies. As natural gas deregulation approached
 				the industry in the late 80’s, Mr. DuBose directed development of natural gas storage
 				projects along the U.S. Gulf Coast with Tejas Power Corp. Following a public exit, he was
 				a founding member of U.S. Minerals (acquired by Novistar, a unit of Torch Energy in 1999),
-				a provider of internet-based education for America’s oil &amp; gas royalty owners. As the
+				a provider of internet-based education for America’s oil & gas royalty owners. As the
 				internet revolutionized the business landscape,
 				<a href="https://mineralrightsforum.com" target="_blank" rel="noopener noreferrer">
 					The Mineral Rights Forum
@@ -54,6 +52,16 @@ const breadcrumbs = getBreadcrumbs('/about');
 				Kiplinger’s, Kiplinger’s Personal Finance, Houston Business Journal, The Legal News,
 				and Financial Advisor magazine.
 			</p>
+			</div>
 		</ArticleContent>
 	</PageShell>
 </BaseLayout>
+
+<style>
+	.about-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+</style>
