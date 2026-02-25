@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=mineralwise-astro",
     "astro": "astro",
     "download-images": "node scripts/download-images.js",
     "convert-html": "node scripts/convert-html-to-astro.js"
