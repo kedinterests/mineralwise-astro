@@ -3,63 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
 import ArticleContent from '../components/ArticleContent.astro';
 import { getBreadcrumbs, pageHierarchy } from '../data/hierarchy';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import { fileURLToPath } from 'url';
+import { companyLogos } from '../data/company-logos';
 
 const title = "Top Oil and Gas Companies | Comprehensive List of Leading Energy Providers";
 const description = "Discover a comprehensive list of leading oil and gas companies, including Chevron, BP, ConocoPhillips, Chesapeake Energy, and more. Explore key players in the energy industry driving innovation and global fuel solutions.";
 
-// Get all companies from hierarchy
-const companies = Object.entries(pageHierarchy)
+// Get all companies from hierarchy with logo paths from centralized mapping
+const companyData = Object.entries(pageHierarchy)
 	.filter(([path, node]) => node.parent === '/oil-gas-operators')
 	.map(([path, node]) => ({
 		path,
 		name: node.label,
-		slug: path.replace(/^\//, '')
-	}));
-
-// Extract logo paths from company pages
-const __filename = fileURLToPath(import.meta.url);
-// __filename is the full path to this file, so __dirname is the pages directory
-const pagesDir = join(__filename, '..');
-
-interface Company {
-	path: string;
-	name: string;
-	logoPath: string | null;
-}
-
-const companyData: Company[] = [];
-
-// Try to extract logo paths, but always include all companies
-for (const company of companies) {
-	let logoPath: string | null = null;
-	
-	try {
-		const filePath = join(pagesDir, `${company.slug}.astro`);
-		// Safety check - only read files in our pages directory
-		if (filePath.includes('src/pages') && !filePath.includes('node_modules')) {
-			const content = readFileSync(filePath, 'utf-8');
-			const logoMatch = content.match(/logoPath="([^"]+)"/);
-			if (logoMatch) {
-				logoPath = logoMatch[1];
-			}
-		}
-	} catch (err) {
-		// File might not exist or be unreadable, continue without logo
-	}
-	
-	// Always add the company, with or without logo
-	companyData.push({
-		path: company.path,
-		name: company.name,
-		logoPath
-	});
-}
-
-// Sort alphabetically by name
-companyData.sort((a, b) => a.name.localeCompare(b.name));
+		logoPath: companyLogos[path] ?? null
+	}))
+	.sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <BaseLayout title={title} description={description}>
