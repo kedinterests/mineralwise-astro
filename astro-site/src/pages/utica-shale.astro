@@ -1,17 +1,82 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import ShalePlayPage from '../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Utica Shale | MineralWise";
 const description = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently&amp;nbsp;oil &amp;amp; gas activity has expanded across a wider area and Ohio found itself at the center of an oil &amp;amp; gas boom.The advent of horizontal drilling and hydraulic fracturing completion technology is now advancing the development of the Utica Shale.Utica Shale CompaniesSignificant producers within the Utica Shale are:Anschutz Exploration (Sold Acreage to Chesapeake)Chesapeake EnergyRange ResourcesUtica Shale GeologyThe Utica Shale is from the Ordivician age and is found approximately 2,000 feet below the Marcellus Shale in Ohio.&amp;nbsp;Total depths to the base of the Utica range from 3,000 to 9,000 feet across Ohio. The Utica is a massive, organic rich thermally mature black to greyish shale. They variance in depth and thermal maturity across the play means the formation is prospective for dry gas, wet gas, NGLs, condensate and oil. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The thickness of the Utica Shale varies from 200 to 400 feet across the most prospective areas of Ohio.Utica Shale LocationThe Utica Shale is located in the following counties of Ohio:Ashland County OhioAshtabula County OHAthens County OHBelmont County OHCarroll County OHColumbiana County OHCoshocton County OHCuyahoga County OHDelaware County OHErie County OHFranklin County OHGallia County OHGeauga County OHGuernsey County OHHarrison County OHHolmes County OHHuron County OHJefferson County OHKnox County OHLake County OHLawrence County OHLicking County OHLorain County OHMorrow County OHMahoning County OHMedina County OHMeigs County OHMonroe County OHMorgan County OHMuskingum County OHNoble County OHPerry County OHPortage County OHRichland County OHStark County OHSummit County OHTrumball County OHTuscarawas County OHWashington County OHWayne County OH";
 
-const content = "<div id=\"mm-0\">\n    <section id=\"jlWM949h3sra_jlWM949h3sra\"><div><div><div id=\"\"><div><h1 style=\"min-height:20px\">Utica Shale</h1></div></div><div id=\"\"><div><div><p></p><p>The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently&nbsp;oil &amp; gas activity has expanded across a wider area and Ohio found itself at the center of an oil &amp; gas boom.</p><p><br></p><p>The advent of horizontal drilling and hydraulic fracturing completion technology is now advancing the development of the Utica Shale.</p><p><br></p><h2><strong>Utica Shale Companies</strong></h2><p><br></p><p>Significant producers within the Utica Shale are:</p><p><br></p><ul><li>Anschutz Exploration (Sold Acreage to Chesapeake)</li><li>Chesapeake Energy</li><li>Range Resources</li></ul><p><br></p><h2><strong>Utica Shale Geology</strong></h2><p><br></p><p>The Utica Shale is from the Ordivician age and is found approximately 2,000 feet below the Marcellus Shale in Ohio.&nbsp;Total depths to the base of the Utica range from 3,000 to 9,000 feet across Ohio. The Utica is a massive, organic rich thermally mature black to greyish shale. They variance in depth and thermal maturity across the play means the formation is prospective for dry gas, wet gas, NGLs, condensate and oil. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The thickness of the Utica Shale varies from 200 to 400 feet across the most prospective areas of Ohio.</p><p><br></p><h2><strong>Utica Shale Location</strong></h2><p><br></p><p>The Utica Shale is located in the following counties of Ohio:</p><p><br></p><ul><li>Ashland County Ohio</li><li>Ashtabula County OH</li><li>Athens County OH</li><li>Belmont County OH</li><li>Carroll County OH</li><li>Columbiana County OH</li><li>Coshocton County OH</li><li>Cuyahoga County OH</li><li>Delaware County OH</li><li>Erie County OH</li><li>Franklin County OH</li><li>Gallia County OH</li><li>Geauga County OH</li><li>Guernsey County OH</li><li>Harrison County OH</li><li>Holmes County OH</li><li>Huron County OH</li><li>Jefferson County OH</li><li>Knox County OH</li><li>Lake County OH</li><li>Lawrence County OH</li><li>Licking County OH</li><li>Lorain County OH</li><li>Morrow County OH</li><li>Mahoning County OH</li><li>Medina County OH</li><li>Meigs County OH</li><li>Monroe County OH</li><li>Morgan County OH</li><li>Muskingum County OH</li><li>Noble County OH</li><li>Perry County OH</li><li>Portage County OH</li><li>Richland County OH</li><li>Stark County OH</li><li>Summit County OH</li><li>Trumball County OH</li><li>Tuscarawas County OH</li><li>Washington County OH</li><li>Wayne County OH</li></ul><p><br></p><p></p></div></div></div></div></div></section>\n    <section id=\"5476867bb5c0d4e2e43a4df2533e422b_5476867bb5c0d4e2e43a4df2533e422b\"><div><div></div><div><div><div><div><div><div id=\"\"><div><picture><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 992px)\"><source srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" media=\"(min-width: 768px)\"><img srcset=\"/images/MineralWise-Logo-Transparent.png, /images/MineralWise-Logo-Transparent.png\" src=\"/images/MineralWise-Logo-Transparent.png\" loading=\"lazy\" alt=\"\" title=\"MineralWise-Logo-Transparent.png\" draggable=\"false\"></picture></div></div></div></div><div><div><div id=\"\"><div><div data-brz-translate-text=\"1\"><p data-uniq-id=\"j0TjM\" data-generated-css=\"brz-css-pjVpW\"><span style=\"color: rgba(var(--brz-global-color8),1);\">Use of this site constitutes acceptance of our </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/terms-and-conditions\" data-brz-link-type=\"external\">Terms &amp; Conditions</a><span style=\"color: rgba(var(--brz-global-color8),1);\"> and </span><a style=\"color: rgba(var(--brz-global-color8),1);\" href=\"/privacy-policy\" data-brz-link-type=\"external\">Privacy Policy</a><span style=\"color: rgba(var(--brz-global-color8),1);\">.</span></p><p data-uniq-id=\"n27Va\" data-generated-css=\"brz-css-sHEHX\"><em style=\"color: rgba(var(--brz-global-color8),1);\">© COPYRIGHT 2009-2025 KED INTERESTS, LLC - ALL RIGHTS RESERVED</em></p></div></div></div></div></div></div></div></div></div></section>\n    <div><a href=\"#mm-0\"><span>Close menu</span></a></div></div>\n    <ins class=\"adsbygoogle adsbygoogle-noablate\" data-adsbygoogle-status=\"done\" style=\"display: none !important;\" data-ad-status=\"unfilled\"><div id=\"aswift_0_host\" style=\"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;\"><iframe id=\"aswift_0\" name=\"aswift_0\" style=\"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;\" sandbox=\"allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" vspace=\"0\" hspace=\"0\" allowtransparency=\"true\" scrolling=\"no\" allow=\"attribution-reporting; run-ad-auction\" src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2335450736621627&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1770326641&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.mineralwise.com%2Futica-shale&amp;pra=5&amp;asro=0&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi42IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDpBLUJyYW5kIiwiOTkuMC4wLjAiXSxbIkhlYWRsZXNzQ2hyb21lIiwiMTQ1LjAuNzYzMi42Il0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuNiJdXSwwXQ..&amp;abgtt=9&amp;dt=1770326641376&amp;bpp=2&amp;bdt=206&amp;idt=105&amp;shv=r20260204&amp;mjsv=m202602020101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D8e7e41176e254318%3AT%3D1770325942%3ART%3D1770326552%3AS%3DALNI_MblivJFQ4Ny90AKHmH0XZaYxFY6OQ&amp;gpic=UID%3D000013365d204dbd%3AT%3D1770325942%3ART%3D1770326552%3AS%3DALNI_MadBZ867FjwzaUuXWTqpX6RwUQLhA&amp;eo_id_str=ID%3D40a0bbe0b83e5aee%3AT%3D1770325942%3ART%3D1770326552%3AS%3DAA-Afjb20zDehl-6KwTYGL5LRZ-9&amp;nras=1&amp;correlator=1823673862208&amp;frm=20&amp;pv=2&amp;u_tz=-300&amp;u_his=2&amp;u_h=900&amp;u_w=1440&amp;u_ah=900&amp;u_aw=1440&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1440&amp;bih=900&amp;scr_x=0&amp;scr_y=0&amp;eid=31096537%2C95366176%2C95378425%2C95381033%2C95381248%2C31096588%2C95379058&amp;oid=2&amp;pvsid=3525380559957631&amp;tmod=472124239&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1440%2C0%2C1440%2C900%2C1440%2C900&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;plas=128x606_l%7C128x606_r&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=117\" data-google-container-id=\"a!1\" tabindex=\"0\" title=\"Advertisement\" aria-label=\"Advertisement\" data-load-complete=\"true\"></iframe></div></ins><iframe src=\"https://www.google.com/recaptcha/api2/aframe\" width=\"0\" height=\"0\" style=\"display: none;\"></iframe>";
+const shaleName = "Utica Shale";
+const state = undefined;
+const descriptionText = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently&nbsp;oil &amp; gas activity has expanded across a wider area and Ohio found itself at the center of an oil &amp; gas boom.";
+
+const companies = [
+	"Anschutz Exploration (Sold Acreage to Chesapeake)",
+	"Chesapeake Energy",
+	"Range Resources"
+];
+
+const geology = "";
+
+const counties = [
+	"Ashland County Ohio",
+	"Ashtabula County OH",
+	"Athens County OH",
+	"Belmont County OH",
+	"Carroll County OH",
+	"Columbiana County OH",
+	"Coshocton County OH",
+	"Cuyahoga County OH",
+	"Delaware County OH",
+	"Erie County OH",
+	"Franklin County OH",
+	"Gallia County OH",
+	"Geauga County OH",
+	"Guernsey County OH",
+	"Harrison County OH",
+	"Holmes County OH",
+	"Huron County OH",
+	"Jefferson County OH",
+	"Knox County OH",
+	"Lake County OH",
+	"Lawrence County OH",
+	"Licking County OH",
+	"Lorain County OH",
+	"Morrow County OH",
+	"Mahoning County OH",
+	"Medina County OH",
+	"Meigs County OH",
+	"Monroe County OH",
+	"Morgan County OH",
+	"Muskingum County OH",
+	"Noble County OH",
+	"Perry County OH",
+	"Portage County OH",
+	"Richland County OH",
+	"Stark County OH",
+	"Summit County OH",
+	"Trumball County OH",
+	"Tuscarawas County OH",
+	"Washington County OH",
+	"Wayne County OH"
+];
+
+const additionalReading = [];
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/utica-shale')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
