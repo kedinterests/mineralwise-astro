@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 				<a
 					href={item.href}
 					class:list={{
-						'text-1rem font-medium transition-colors flex items-center': true,
+						'text-1rem font-semibold transition-colors flex items-center': true,
 						'text-gray-900 dark:text-white': true,
 						'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 					}}
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
 				{item.children ? (
 					<div>
 						<button 
-							class="w-full text-left text-sm font-medium text-gray-900 dark:text-white hover:text-[#0284c7] dark:hover:text-sky-400 flex items-center justify-between"
+							class="w-full text-left text-sm font-semibold text-gray-900 dark:text-white hover:text-[#0284c7] dark:hover:text-sky-400 flex items-center justify-between"
 							data-mobile-dropdown={item.title}
 						>
 							{item.title}
@@ -60,7 +60,7 @@ const currentPath = Astro.url.pathname;
 							{item.children.map((child) => (
 								<a
 									href={child.href}
-									class="block text-sm text-gray-600 dark:text-gray-400 hover:text-[#0284c7] dark:hover:text-sky-400"
+									class="block text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-[#0284c7] dark:hover:text-sky-400"
 									target={child.external ? '_blank' : undefined}
 									rel={child.external ? 'noopener noreferrer' : undefined}
 								>
@@ -73,7 +73,7 @@ const currentPath = Astro.url.pathname;
 					<a
 						href={item.href}
 						class:list={{
-							'block text-sm font-medium transition-colors': true,
+							'block text-sm font-semibold transition-colors': true,
 							'text-gray-900 dark:text-white': true,
 							'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 						}}

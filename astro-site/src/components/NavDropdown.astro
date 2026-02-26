@@ -19,7 +19,7 @@ const isActive = item.children?.some(child => currentPath === child.href) || fal
 <div class="relative group flex items-center">
 	<button
 		class:list={{
-			'text-1rem font-medium transition-colors flex items-center gap-1 leading-none': true,
+			'text-1rem font-semibold transition-colors flex items-center gap-1 leading-none': true,
 			'text-gray-900 dark:text-white': true,
 			'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 		}}
@@ -42,7 +42,7 @@ const isActive = item.children?.some(child => currentPath === child.href) || fal
 				<a
 					href={child.href}
 					class:list={{
-						'block px-4 py-2 text-.9rem transition-colors': true,
+						'block px-4 py-2 text-.9rem font-medium transition-colors': true,
 						'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800': true,
 					}}
 					target={child.external ? '_blank' : undefined}
