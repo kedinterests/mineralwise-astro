@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Secondary Recovery";
+const description = "Enhanced recovery of oil or gas from a reservoir beyond the oil or gas that can be recovered by normal flowing and pumping operations. Secondary recovery techniques involve maintaining or enhancing reservoir pressure by injecting water, gas, CO2 or other substances into the formation.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Secondary Recovery"
+		definition="Enhanced recovery of oil or gas from a reservoir beyond the oil or gas that can be recovered by normal flowing and pumping operations. Secondary recovery techniques involve maintaining or enhancing reservoir pressure by injecting water, gas, CO2 or other substances into the formation."
+		path="/oil-and-gas-terms/secondary-recovery"
+		prevTerm={{ href: "/oil-and-gas-terms/salt-water-disposal-well-swd", label: "Salt Water Disposal Well Swd" }}
+		nextTerm={{ href: "/oil-and-gas-terms/sedimentary-rock", label: "Sedimentary Rock" }}
+	/>
+</BaseLayout>

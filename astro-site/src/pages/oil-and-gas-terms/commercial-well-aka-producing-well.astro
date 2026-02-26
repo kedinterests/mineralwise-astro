@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Commercial Well (aka Producing Well)";
+const description = "A well that produces oil and/or gas in sufficient quantities such that proceeds from the sale of production exceeds directly related costs.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Commercial Well (aka Producing Well)"
+		definition="A well that produces oil and/or gas in sufficient quantities such that proceeds from the sale of production exceeds directly related costs."
+		path="/oil-and-gas-terms/commercial-well-aka-producing-well"
+		prevTerm={{ href: "/oil-and-gas-terms/co2", label: "CO2" }}
+		nextTerm={{ href: "/oil-and-gas-terms/commodities", label: "Commodities" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Lessor";
+const description = "The party who grants an Oil, Gas and Mineral Lease.This glossary of common oil and gas terms and definitions will aid newcomers as well as experienced royalty owners or mineral owners with the terminology used in the Oil and Gas industry. We also have a page of Oil and Gas Abbreviations and Acronyms. These are some of the most commonly used oil and gas terms. If you would like to discuss mineral rights related issues with other landowners visit MineralRightsForum.com.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Lessor"
+		definition="The party who grants an Oil, Gas and Mineral Lease."
+		path="/oil-and-gas-terms/lessor"
+		prevTerm={{ href: "/oil-and-gas-terms/lessee", label: "Lessee" }}
+		nextTerm={{ href: "/oil-and-gas-terms/mcf", label: "Mcf" }}
+	/>
+</BaseLayout>

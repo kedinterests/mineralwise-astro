@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Citation Oil and Gas Corp. | MineralWise";
+const description = "Citation Oil and Gas Corp.";
+
+const companyDescription = `Citation Oil & Gas Corp. is one of the larger privately-held independent oil & gas production companies in the U.S.&nbsp;Forrest E. Harrell, Sr. founded the company in 1981 by, Citation has built a significant portfolio of mature, long-life producing properties through a combination of acquisitions, focused operations and further development.Citation has interests in approximately 12,000 wells in over 300 separately designated fields containing over 184 million net equivalent barrels of proved reserves (88% oil).&nbsp;Citation's assets are located exclusively onshore in the central third of the U.S., with concentrated positions in the Mid-Continent, Permian Basin and Rocky Mountain regions.
+
+Citation also is involved in crude oil marketing activities through a wholly owned subsidiary, Citation Crude Marketing, Inc. Citation operations include waterflood optimization, infill drilling and enhanced oil recovery applications. Citation has approximately 400 employees and is headquartered in Houston, Texas. with regional offices located in Midland, Texas, Oklahoma City, Oklahoma, and Gillette, Wyoming.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/citation-oil-and-gas-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Citation Oil and Gas Corp."
+				description={companyDescription}
+				logoPath="/images/citation-oil-and-gas.jpg"
+				contactPhone="(281) 891-1080"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

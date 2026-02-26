@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Regulatory Agency";
+const description = "The body within each state that administers oil and gas policy set by state government. These bodies serve as the repository for public data related to oil and gas operations within the state.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Regulatory Agency"
+		definition="The body within each state that administers oil and gas policy set by state government. These bodies serve as the repository for public data related to oil and gas operations within the state."
+		path="/oil-and-gas-terms/regulatory-agency"
+		prevTerm={{ href: "/oil-and-gas-terms/recompletion", label: "Recompletion" }}
+		nextTerm={{ href: "/oil-and-gas-terms/reserve-pit-mud-pit", label: "Reserve Pit Mud Pit" }}
+	/>
+</BaseLayout>

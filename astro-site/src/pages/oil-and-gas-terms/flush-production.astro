@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Flush Production";
+const description = "The phrase used to describe the initial “rush” of production that usually comes from a producing well after it is first completed and put on line. This flow rate is usually much higher than the rate which will be sustained. Operators also use the term Peak Flow Rate to describe Flush Production.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Flush Production"
+		definition="The phrase used to describe the initial “rush” of production that usually comes from a producing well after it is first completed and put on line. This flow rate is usually much higher than the rate which will be sustained. Operators also use the term Peak Flow Rate to describe Flush Production."
+		path="/oil-and-gas-terms/flush-production"
+		prevTerm={{ href: "/oil-and-gas-terms/first-right-of-refusal", label: "First Right of Refusal" }}
+		nextTerm={{ href: "/oil-and-gas-terms/forced-pooling-or-force-pooled", label: "Forced Pooling or Force Pooled" }}
+	/>
+</BaseLayout>

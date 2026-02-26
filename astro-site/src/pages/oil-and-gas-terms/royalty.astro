@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Royalty";
+const description = "Revenue generally received by a mineral owner from the production of oil or gas, free of costs (except taxes).";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Royalty"
+		definition="Revenue generally received by a mineral owner from the production of oil or gas, free of costs (except taxes)."
+		path="/oil-and-gas-terms/royalty"
+		prevTerm={{ href: "/oil-and-gas-terms/revenue-statement", label: "Revenue Statement" }}
+		nextTerm={{ href: "/oil-and-gas-terms/royalty-interest", label: "Royalty Interest" }}
+	/>
+</BaseLayout>

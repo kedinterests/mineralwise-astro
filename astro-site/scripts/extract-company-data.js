@@ -12,7 +12,7 @@ const require = createRequire(import.meta.url);
 
 // Get all companies from hierarchy
 const companies = Object.entries(pageHierarchy)
-  .filter(([path, node]) => node.parent === '/oil-gas-operators')
+  .filter(([path, node]) => node.parent === '/oil-and-gas-operators')
   .map(([path, node]) => ({
     path,
     name: node.label,

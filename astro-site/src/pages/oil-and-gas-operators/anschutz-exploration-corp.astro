@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Anschutz Exploration Corp. | MineralWise";
+const description = "Anschutz Exploration Corp.";
+
+const companyDescription = `Anschutz Exploration is a privately-held oil and gas exploration and production company with headquarters in Denver, Colorado. The Company’s primary areas of operation include New York, Pennsylvania, Ohio, North Dakota, Montana, and Wyoming. Anschutz was founded in 1965.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/anschutz-exploration-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Anschutz Exploration Corp."
+				description={companyDescription}
+				logoPath="/images/Anschutz.jpg"
+				contactPhone="(303) 298-1000"
+				showProductionVerification={true}
+				showCashPayment={true}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

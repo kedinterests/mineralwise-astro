@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "TXCO Resources | MineralWise";
+const description = "TXCO Resources";
+
+const companyDescription = `Inc. is a U.S. based, oil and gas exploration and production company with a diversified exploitation, drilling and development program. TXCO stock is traded on the Pinksheets under the symbol TXCOQ. Based in San Antonio, TXCO has more than 720,000 net acres under lease (1.3 million gross acres). The company applies new technology to overlooked opportunities in high potential areas that offer multiple resource plays and thousands of drilling prospects. TXCO has interests in and production from the Maverick basin and the Marfa basin. TXCO is currently conducting business following the filing of voluntary petitions for relief under Chapter 11 of the United States Bankruptcy Code in May 2009.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/txco-resources')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="TXCO Resources"
+				description={companyDescription}
+				logoPath="/images/txco.png"
+				contactPhone="(210) 496-5300"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

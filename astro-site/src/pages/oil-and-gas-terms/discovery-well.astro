@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Discovery Well";
+const description = "The first oil or gas well drilled in a new field. The discovery well is the well that is drilled to reveal the actual presence of a petroleum-bearing reservoir. Subsequent wells are called development wells.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Discovery Well"
+		definition="The first oil or gas well drilled in a new field. The discovery well is the well that is drilled to reveal the actual presence of a petroleum-bearing reservoir. Subsequent wells are called development wells."
+		path="/oil-and-gas-terms/discovery-well"
+		prevTerm={{ href: "/oil-and-gas-terms/direct-participation", label: "Direct Participation" }}
+		nextTerm={{ href: "/oil-and-gas-terms/dissolved-gas", label: "Dissolved Gas" }}
+	/>
+</BaseLayout>

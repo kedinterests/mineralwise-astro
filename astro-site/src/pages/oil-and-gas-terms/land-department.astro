@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Land Department";
+const description = "This is generally the title given to the department within an oil company that is responsible for all issues related to acquiring and administering mineral and surface rights in order for the company to explore for and produce oil and gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Land Department"
+		definition="This is generally the title given to the department within an oil company that is responsible for all issues related to acquiring and administering mineral and surface rights in order for the company to explore for and produce oil and gas."
+		path="/oil-and-gas-terms/land-department"
+		prevTerm={{ href: "/oil-and-gas-terms/land-brokerage-company", label: "Land Brokerage Company" }}
+		nextTerm={{ href: "/oil-and-gas-terms/landman-petroleum-landman", label: "Landman Petroleum Landman" }}
+	/>
+</BaseLayout>

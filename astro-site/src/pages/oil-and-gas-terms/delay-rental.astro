@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Delay Rental";
+const description = "Yearly payments made to Lessor during the primary term to compensate for delayed drilling.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Delay Rental"
+		definition="Yearly payments made to Lessor during the primary term to compensate for delayed drilling."
+		path="/oil-and-gas-terms/delay-rental"
+		prevTerm={{ href: "/oil-and-gas-terms/dehydration", label: "Dehydration" }}
+		nextTerm={{ href: "/oil-and-gas-terms/depletion", label: "Depletion" }}
+	/>
+</BaseLayout>

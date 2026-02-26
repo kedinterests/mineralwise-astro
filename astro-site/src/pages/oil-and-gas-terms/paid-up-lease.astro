@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Paid Up Lease";
+const description = "An Oil and Gas Lease where rental payments are paid along with bonus.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Paid Up Lease"
+		definition="An Oil and Gas Lease where rental payments are paid along with bonus."
+		path="/oil-and-gas-terms/paid-up-lease"
+		prevTerm={{ href: "/oil-and-gas-terms/p-and-a-or-plug-and-abandon", label: "P And A Or Plug And Abandon" }}
+		nextTerm={{ href: "/oil-and-gas-terms/participating-royalty-interest", label: "Participating Royalty Interest" }}
+	/>
+</BaseLayout>

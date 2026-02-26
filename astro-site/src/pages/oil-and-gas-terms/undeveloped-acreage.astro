@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Undeveloped Acreage";
+const description = "Lease acreage on which wells have not been drilled or completed to a point that would permit the production of commercial quantities of oil and gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Undeveloped Acreage"
+		definition="Lease acreage on which wells have not been drilled or completed to a point that would permit the production of commercial quantities of oil and gas."
+		path="/oil-and-gas-terms/undeveloped-acreage"
+		prevTerm={{ href: "/oil-and-gas-terms/underproduction", label: "Underproduction" }}
+		nextTerm={{ href: "/oil-and-gas-terms/unitization-unitization-agreement-unit-agreement", label: "Unitization Unitization Agreement Unit Agreement" }}
+	/>
+</BaseLayout>

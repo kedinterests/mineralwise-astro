@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Executive Rights to Minerals";
+const description = "Executive rights include the right to negotiate and execute oil &amp;amp; gas leases, lease bonuses, and delay rentals.The executive right is usually referred to when a Non-Participating Royalty Interest&amp;nbsp;exist. The owner of the mineral fee estate holds executive rights.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Executive Rights to Minerals"
+		definition="Executive rights include the right to negotiate and execute oil &amp; gas leases, lease bonuses, and delay rentals."
+		path="/oil-and-gas-terms/executive-rights-to-minerals"
+		prevTerm={{ href: "/oil-and-gas-terms/escheated", label: "Escheated" }}
+		nextTerm={{ href: "/oil-and-gas-terms/exploratory-well", label: "Exploratory Well" }}
+	/>
+</BaseLayout>

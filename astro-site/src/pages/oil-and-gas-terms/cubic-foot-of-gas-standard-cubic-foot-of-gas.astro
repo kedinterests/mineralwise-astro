@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Cubic Foot of Gas, Standard Cubic Foot of Gas";
+const description = "As a unit of volume, 1,728 cubic inches. As applied to water, 7.48 gallons. As applied to natural gas, the volume of gas which, when saturated with water vapor at 60ºF and at a pressure of 30 inches of mercury occupies one cubic foot of volume.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Cubic Foot of Gas, Standard Cubic Foot of Gas"
+		definition="As a unit of volume, 1,728 cubic inches. As applied to water, 7.48 gallons. As applied to natural gas, the volume of gas which, when saturated with water vapor at 60ºF and at a pressure of 30 inches of mercury occupies one cubic foot of volume."
+		path="/oil-and-gas-terms/cubic-foot-of-gas-standard-cubic-foot-of-gas"
+		prevTerm={{ href: "/oil-and-gas-terms/crude-oil", label: "Crude Oil" }}
+		nextTerm={{ href: "/oil-and-gas-terms/curative", label: "CurativeBank" }}
+	/>
+</BaseLayout>

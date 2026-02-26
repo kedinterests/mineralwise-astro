@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Sour Gas, H2S";
+const description = "Any natural gas containing more than 1-1/2 grains of hydrogen sulfide per 100 cubic feet or more than 30 grains of total sulfur per 100 cubic feet.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Sour Gas, H2S"
+		definition="Any natural gas containing more than 1-1/2 grains of hydrogen sulfide per 100 cubic feet or more than 30 grains of total sulfur per 100 cubic feet."
+		path="/oil-and-gas-terms/sour-gas-h2s"
+		prevTerm={{ href: "/oil-and-gas-terms/sight-draft", label: "Sight Draft" }}
+		nextTerm={{ href: "/oil-and-gas-terms/spot-market", label: "Spot Market" }}
+	/>
+</BaseLayout>

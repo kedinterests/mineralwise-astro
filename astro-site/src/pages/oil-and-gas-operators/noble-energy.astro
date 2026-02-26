@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Noble Energy | MineralWise";
+const description = "Noble Energy";
+
+const companyDescription = `is an oil and gas exploration and production company based in the U.S. Noble stock is listed on the NYSE under the symbol NBL. Noble Energy focuses on low risk development projects in the Rocky Mountains, Mid-Continent area, and the Gulf Coast. Noble's largest natural gas asset is the Wattenberg field located in eastern Colorado. Noble also has several large positions in natural gas shale plays across the country.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/noble-energy')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Noble Energy"
+				description={companyDescription}
+				logoPath="/images/noble-energy.png"
+				contactPhone="1-(800) 220-5824"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

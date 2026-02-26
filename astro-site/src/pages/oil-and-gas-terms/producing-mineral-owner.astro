@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Producing Mineral Owner";
+const description = "An owner of minerals that are currently being produced and sold. Payments made to producing mineral owners are known as royalty payments or royalties.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Producing Mineral Owner"
+		definition="An owner of minerals that are currently being produced and sold. Payments made to producing mineral owners are known as royalty payments or royalties."
+		path="/oil-and-gas-terms/producing-mineral-owner"
+		prevTerm={{ href: "/oil-and-gas-terms/producing-mineral-interests", label: "Producing Mineral Interests" }}
+		nextTerm={{ href: "/oil-and-gas-terms/progressing-or-progressive-cavity-pump", label: "Progressing Or Progressive Cavity Pump" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Geophone";
+const description = "Acoustical sensor used in seismic exploration for collecting reflected waves.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Geophone"
+		definition="Acoustical sensor used in seismic exploration for collecting reflected waves."
+		path="/oil-and-gas-terms/geophone"
+		prevTerm={{ href: "/oil-and-gas-terms/gathering-line", label: "Gathering Line" }}
+		nextTerm={{ href: "/oil-and-gas-terms/grantee", label: "Grantee" }}
+	/>
+</BaseLayout>

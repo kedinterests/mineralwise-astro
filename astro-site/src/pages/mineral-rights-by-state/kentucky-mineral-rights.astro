@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import StatePage from '../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Kentucky Mineral Rights | MineralWise";
+const metaDescription = "Kentucky Mineral Rights date back to 1818 when the Martin Beatty well was drilled in McCreary County. Like many early oil and gas developments, the oil well was found by the salt making industry.";
+
+const stateName = "Kentucky";
+const stateAbbr = "KY";
+const description = "Kentucky Mineral Rights date back to 1818 when the Martin Beatty well was drilled in McCreary County. Like many early oil and gas developments, the oil well was found by the salt making industry as they were searching for brine. The oil found here was shipped on the Cumberland River in wooden barrels. The oil mineral rights most productive in Kentucky are found in the Mississippian limestone and sandstone, while the gas mineral rights are produced from the Devonian black shale in eastern Kentucky.";
+
+const stats = [];
+const majorFields = [
+	"Adair County",
+	"Green County",
+	"Knox County",
+	"Letcher County",
+	"Metcalfe County"
+];
+const companies = [
+	"Abarta Oil & Gas",
+	"Bretagne",
+	"Investors Energy",
+	"Jacobs Energy",
+	"Journey Operating",
+	"MDM Energy",
+	"New River Energy",
+	"North Coast Energy",
+	"Vinland Energy"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Huron Shale",
+		href: "/shale-plays/huron-shale",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/mineral-rights-by-state/kentucky-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

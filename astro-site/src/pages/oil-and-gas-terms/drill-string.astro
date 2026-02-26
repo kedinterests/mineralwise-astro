@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Drill String";
+const description = "The pipe, tools, and bit comprise a drill string";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Drill String"
+		definition="The pipe, tools, and bit comprise a drill string"
+		path="/oil-and-gas-terms/drill-string"
+		prevTerm={{ href: "/oil-and-gas-terms/drill-bit", label: "Drill Bit" }}
+		nextTerm={{ href: "/oil-and-gas-terms/drilling-mud-drilling-fluid", label: "Drilling Mud, Drilling Fluid" }}
+	/>
+</BaseLayout>

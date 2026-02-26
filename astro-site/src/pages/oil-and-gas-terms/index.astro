@@ -1,0 +1,316 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+import { pageHierarchy } from '../../data/hierarchy';
+
+const title = "Comprehensive Glossary of Oil & Gas Terms: Definitions A-Z";
+const metaDescription = "Explore a detailed A-Z glossary of oil and gas terms, including key definitions like hydraulic fracturing, mineral rights, royalty interest, and more. Simplify complex industry jargon today!";
+
+// Get all terms from hierarchy
+const allTerms = Object.entries(pageHierarchy)
+	.filter(([path, node]) => node.parent === '/oil-and-gas-terms')
+	.map(([path, node]) => ({
+		path,
+		label: node.label
+	}))
+	.sort((a, b) => a.label.localeCompare(b.label));
+
+// Organize by first letter
+const termsByLetter: Record<string, Array<{ path: string; label: string }>> = {};
+allTerms.forEach(term => {
+	const firstLetter = term.label.charAt(0).toUpperCase();
+	if (!termsByLetter[firstLetter]) {
+		termsByLetter[firstLetter] = [];
+	}
+	termsByLetter[firstLetter].push(term);
+});
+
+// All letters A-Z
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+// Split terms into two columns for each letter
+function splitIntoColumns(terms: Array<{ path: string; label: string }>) {
+	const mid = Math.ceil(terms.length / 2);
+	return {
+		column1: terms.slice(0, mid),
+		column2: terms.slice(mid)
+	};
+}
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-terms')}>
+		<ArticleContent>
+			<div class="terms-page">
+				<div class="terms-header">
+					<h1>Oil & Gas Terms</h1>
+				</div>
+
+				<!-- Letter Index -->
+				<div class="letter-index" id="top">
+					{letters.map(letter => (
+						<a 
+							href={`#terms-${letter.toLowerCase()}`}
+							class:list={['letter-link', { 'letter-link-empty': !termsByLetter[letter] || termsByLetter[letter].length === 0 }]}
+						>
+							{letter}
+						</a>
+					))}
+				</div>
+
+				<!-- Letter Sections -->
+				{letters.map(letter => {
+					const terms = termsByLetter[letter] || [];
+					if (terms.length === 0) return null;
+					
+					const { column1, column2 } = splitIntoColumns(terms);
+					
+					return (
+						<section class="letter-section" id={`terms-${letter.toLowerCase()}`}>
+							<h2 class="letter-title">Oil & Gas Terms - {letter}</h2>
+							<div class="terms-grid">
+								<div class="terms-column">
+									{column1.map(term => (
+										<a href={term.path} class="term-link">
+											{term.label}
+										</a>
+									))}
+								</div>
+								<div class="terms-column">
+									{column2.map(term => (
+										<a href={term.path} class="term-link">
+											{term.label}
+										</a>
+									))}
+								</div>
+							</div>
+							<div class="back-to-top">
+								<a href="#top">Back to top ^</a>
+							</div>
+						</section>
+					);
+				})}
+			</div>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>
+
+<style>
+	.terms-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.terms-header {
+		margin-bottom: 2.5rem;
+		padding-bottom: 2rem;
+		border-bottom: 2px solid #e2e8f0;
+	}
+
+	.terms-header h1 {
+		margin: 0;
+		font-size: 2.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		color: rgb(var(--gray-dark));
+	}
+
+	/* Letter Index */
+	.letter-index {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: center;
+		padding: 2rem;
+		background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+		border-radius: 12px;
+		margin-bottom: 3rem;
+		border: 1px solid #bae6fd;
+	}
+
+	.letter-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3rem;
+		height: 3rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #0ea5e9;
+		background: white;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: all 0.2s;
+		border: 2px solid #0ea5e9;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	}
+
+	.letter-link:hover {
+		background: #0ea5e9;
+		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+	}
+
+	.letter-link-empty {
+		opacity: 0.4;
+		cursor: not-allowed;
+		border-color: #cbd5e1;
+		color: #94a3b8;
+	}
+
+	.letter-link-empty:hover {
+		background: white;
+		color: #94a3b8;
+		transform: none;
+	}
+
+	/* Letter Sections */
+	.letter-section {
+		margin-bottom: 3rem;
+		scroll-margin-top: 2rem;
+	}
+
+	.letter-section:last-child {
+		margin-bottom: 0;
+	}
+
+	.letter-title {
+		margin: 0 0 1.5rem 0;
+		font-size: 1.75rem;
+		font-weight: 600;
+		color: rgb(var(--gray-dark));
+		border-bottom: 2px solid #0ea5e9;
+		padding-bottom: 0.5rem;
+	}
+
+	.terms-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.terms-column {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.term-link {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		font-size: 1.0625rem;
+		font-weight: 600;
+		line-height: 1.1;
+		padding: 0.5rem 0;
+		transition: color 0.2s;
+		text-align: center;
+	}
+
+	.term-link:hover {
+		color: #0ea5e9;
+	}
+
+	.back-to-top {
+		text-align: center;
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid #e2e8f0;
+	}
+
+	.back-to-top a {
+		color: #0ea5e9;
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.9375rem;
+		transition: color 0.2s;
+	}
+
+	.back-to-top a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		.terms-page {
+			padding: 1.5rem;
+		}
+
+		.terms-header h1 {
+			font-size: 2rem;
+		}
+
+		.letter-index {
+			padding: 1.5rem;
+			gap: 0.375rem;
+		}
+
+		.letter-link {
+			width: 2.5rem;
+			height: 2.5rem;
+			font-size: 1rem;
+		}
+
+		.terms-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Enhanced smooth scrolling with easing - starts immediately
+	(function() {
+		const links = document.querySelectorAll('a[href^="#"]');
+		
+		links.forEach(link => {
+			link.addEventListener('click', (e) => {
+				const href = link.getAttribute('href');
+				if (href === '#') return;
+				
+				const targetId = href.substring(1);
+				const targetElement = document.getElementById(targetId);
+				
+				if (targetElement) {
+					e.preventDefault();
+					
+					const startPosition = window.pageYOffset;
+					const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+					const distance = targetPosition - startPosition;
+					
+					if (Math.abs(distance) < 10) return; // Already close enough
+					
+					const duration = Math.min(Math.abs(distance) * 0.4, 800); // Slower, smoother
+					const startTime = performance.now();
+					
+					// Ease-in-out cubic: smooth acceleration and deceleration
+					function easeInOutCubic(t) {
+						return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+					}
+					
+					// Scroll immediately on click - no frame delay
+					function animate() {
+						const now = performance.now();
+						const elapsed = now - startTime;
+						const progress = Math.min(elapsed / duration, 1);
+						
+						window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+						
+						if (progress < 1) {
+							requestAnimationFrame(animate);
+						}
+					}
+					
+					// Start smooth animation
+					animate();
+				}
+			});
+		});
+	})();
+</script>

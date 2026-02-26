@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Fracking, Hydraulic Fracturing, Fracture, Fracing, Frac Job";
+const description = "The process of using high pressure to pump sand laden gelled fluid into subsurface rock formations in order to improve flow into a well bore.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Fracking, Hydraulic Fracturing, Fracture, Fracing, Frac Job"
+		definition="The process of using high pressure to pump sand laden gelled fluid into subsurface rock formations in order to improve flow into a well bore."
+		path="/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job"
+		prevTerm={{ href: "/oil-and-gas-terms/formation", label: "Formation" }}
+		nextTerm={{ href: "/oil-and-gas-terms/free-water-knockout", label: "Free Water Knockout" }}
+	/>
+</BaseLayout>

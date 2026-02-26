@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Oil Well";
+const description = "Any well that produces one barrel or more crude petroleum oil to each 100,000 cubic feet of natural gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Oil Well"
+		definition="Any well that produces one barrel or more crude petroleum oil to each 100,000 cubic feet of natural gas."
+		path="/oil-and-gas-terms/oil-well"
+		prevTerm={{ href: "/oil-and-gas-terms/oil-gravity", label: "Oil Gravity" }}
+		nextTerm={{ href: "/oil-and-gas-terms/operating-expense", label: "Operating Expense" }}
+	/>
+</BaseLayout>

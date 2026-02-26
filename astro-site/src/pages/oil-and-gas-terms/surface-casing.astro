@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Surface Casing";
+const description = "Outer casing cemented in the upper portion of the well bore to protect fresh water formations from contamination.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Surface Casing"
+		definition="Outer casing cemented in the upper portion of the well bore to protect fresh water formations from contamination."
+		path="/oil-and-gas-terms/surface-casing"
+		prevTerm={{ href: "/oil-and-gas-terms/substandard-acreage", label: "Substandard Acreage" }}
+		nextTerm={{ href: "/oil-and-gas-terms/surface-estate", label: "Surface Estate" }}
+	/>
+</BaseLayout>

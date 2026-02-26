@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Callon Petroleum Company | MineralWise";
+const description = "Callon Petroleum Company";
+
+const companyDescription = `Callon Petroleum Company is a Houston, Texas based company. Callon Petroleum stock is listed on the NYSE under the symbol CPE. It has been engaged in the exploration, development, acquisition and operation of oil and gas properties in the Gulf Coast region since 1950. The Company's properties are geographically concentrated in Louisiana, Alabama and offshore Gulf of Mexico. The Company's objective is to enhance stockholder value through sustained growth in its reserve base, production levels and resulting cash flows from operations. Over the past several years, the Company has shifted its emphasis from the acquisition of producing properties to the acquisition of acreage with development and exploratory drilling opportunities. Callon Performs extensive geological and geophysical studies using computer-aided exploration techniques including, where appropriate, the acquisition of 3-D seismic data to facilitate these efforts.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/callon-petroleum-company')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Callon Petroleum Company"
+				description={companyDescription}
+				logoPath="/images/callon-petroleum-company.jpg"
+				contactPhone="(601) 442-1601"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

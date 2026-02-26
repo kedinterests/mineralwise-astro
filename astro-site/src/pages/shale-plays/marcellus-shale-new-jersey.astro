@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import ShalePlayPage from '../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Marcellus Shale New Jersey | MineralWise";
+const description = "A portion of the Marcellus Shale lies underneath the northwestern corner of New Jersey. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus Shale is now economically viable prompting recovery and marketing of this substantial resource of natural gas within New Jersey.Marcellus Shale CompaniesSignificant producers within the greater Marcellus Shale area are:Anadarko PetroleumAtlas Energy ResourcesCabot Oil &amp;amp; Gas CorporationCarrizo Oil &amp;amp; Gas Corp.Chesapeake EnergyChief Oil &amp;amp; GasEast ResourcesEnergy Corporation of AmericaEOG ResourcesEQT CorpEXCO ResourcesFortuna EnergyNomac DrillingNorth Coast EnergyRange ResourcesRex Energy Corp.Southwestern Energy Production CompanyStatoilHydroStone Energy CompanyUltra Petroleum Corp.Marcellus Shale GeologyThe Marcellus shale of the Appalachian Basin is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface. It";
+
+const shaleName = "Marcellus Shale";
+const state = undefined;
+const descriptionText = "A portion of the Marcellus Shale lies underneath the northwestern corner of New Jersey. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus Shale is now economically viable prompting recovery and marketing of this substantial resource of natural gas within New Jersey.";
+
+const companies = [
+	"Anadarko Petroleum",
+	"Atlas Energy Resources",
+	"Cabot Oil & Gas Corporation",
+	"Carrizo Oil & Gas Corp.",
+	"Chesapeake Energy",
+	"Chief Oil & Gas",
+	"East Resources",
+	"Energy Corporation of America",
+	"EOG Resources",
+	"EQT Corp",
+	"EXCO Resources",
+	"Fortuna Energy",
+	"Nomac Drilling",
+	"North Coast Energy",
+	"Range Resources",
+	"Rex Energy Corp.",
+	"Southwestern Energy Production Company",
+	"StatoilHydro",
+	"Stone Energy Company",
+	"Ultra Petroleum Corp."
+];
+
+const geology = "";
+
+const counties = [
+	"Passaic County NJ",
+	"Sussex County NJ",
+	"Warren County NJ"
+];
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/http://static1.squarespace.com/static/551c790ee4b09bd0ea31c3f2/574075ba5f21e0f3ca2d0865/574076015f21e0f3ca2d5e88/1463842305873/?format=original",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Maryland",
+		"href": "/shale-plays/marcellus-shale-maryland",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale New York",
+		"href": "/shale-plays/marcellus-shale-new-york",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Ohio",
+		"href": "/shale-plays/marcellus-shale-ohio",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Pennsylvania",
+		"href": "/shale-plays/marcellus-shale-pennsylvania",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale West Virginia",
+		"href": "/shale-plays/marcellus-shale-west-virginia",
+		"external": false
+	}
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/shale-plays/marcellus-shale-new-jersey')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

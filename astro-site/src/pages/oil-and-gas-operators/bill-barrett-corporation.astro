@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Bill Barrett Corporation | MineralWise";
+const description = "Bill Barrett Corporation";
+
+const companyDescription = `Bill Barrett Corp. is an Oil Company specializing in natural gas and oil exploration and development near the Rocky Mountains. Bill Barrett Corp. was founded in 2002 by William Barrett, and has headquarters in Denver, Colorado. The company went public in 2004 and is listed in the NYSE as BBG. Bill Barrett Corp is most well known for its discovery of natural gas reserves in the West Tavaputs plateau in Utah.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/bill-barrett-corporation')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Bill Barrett Corporation"
+				description={companyDescription}
+				logoPath="/images/bill-barrett-corporation.jpg"
+				contactPhone="(303) 293-9100"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

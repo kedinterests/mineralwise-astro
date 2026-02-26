@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Hess Corporation | MineralWise";
+const description = "Hess Corporation";
+
+const companyDescription = `Hess Corporation is a global independent energy company, involved in the exploration and production of crude oil and natural gas,refining and marketing of refined petroleum products, natural gas, and electricity. Hess stock is listed on the NYSE under the symbol HES. The Company directs over 95% of its total capital expenditures to exploration, development and production activities. Hess Corporation is the leading independent marketer of petroleum products on the East Coast.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/hess-corporation')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Hess Corporation"
+				description={companyDescription}
+				logoPath="/images/hess.png"
+				contactPhone="1-877-609-4255"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

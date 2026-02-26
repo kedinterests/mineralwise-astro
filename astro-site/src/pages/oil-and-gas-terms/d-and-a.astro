@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "D&amp;A";
+const description = "Dry and abandoned. Refers to oil and gas wells.This glossary of common oil and gas terms and definitions will aid newcomers as well as experienced royalty owners or mineral owners with the terminology used in the Oil and Gas industry. We also have a page of Oil and Gas Abbreviations and Acronyms. These are some of the most commonly used oil and gas terms. If you would like to discuss mineral rights related issues with other landowners visit MineralRightsForum.com.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="D&amp;A"
+		definition="Dry and abandoned. Refers to oil and gas wells."
+		path="/oil-and-gas-terms/d-and-a"
+		prevTerm={{ href: "/oil-and-gas-terms/curative", label: "Curative" }}
+		nextTerm={{ href: "/oil-and-gas-terms/decline-curve", label: "Decline Curve" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Royalty Interest";
+const description = "An interest in an oil and natural gas lease that gives the owner of the interest the right to receive a portion of the production from the leased acreage (or of the proceeds of the sale thereof), but generally does not require the owner to pay any portion of the costs of drilling or operating the wells on the leased acreage.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Royalty Interest"
+		definition="An interest in an oil and natural gas lease that gives the owner of the interest the right to receive a portion of the production from the leased acreage (or of the proceeds of the sale thereof), but generally does not require the owner to pay any portion of the costs of drilling or operating the wells on the leased acreage."
+		path="/oil-and-gas-terms/royalty-interest"
+		prevTerm={{ href: "/oil-and-gas-terms/royalty", label: "Royalty" }}
+		nextTerm={{ href: "/oil-and-gas-terms/royalty-percentage", label: "Royalty Percentage" }}
+	/>
+</BaseLayout>

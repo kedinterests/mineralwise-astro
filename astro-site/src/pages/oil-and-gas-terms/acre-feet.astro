@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Acre-Feet";
+const description = "Unit of volume; one acre of producing formation one foot thick. One acre-foot equals 7,758 barrels, 325,829 gallons or 43,560 cubic feet.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Acre-Feet"
+		definition="Unit of volume; one acre of producing formation one foot thick. One acre-foot equals 7,758 barrels, 325,829 gallons or 43,560 cubic feet."
+		path="/oil-and-gas-terms/acre-feet"
+		prevTerm={{ href: "/oil-and-gas-terms/abandoned-well", label: "Abandoned Well" }}
+		nextTerm={{ href: "/oil-and-gas-terms/aggregate-pay-laws", label: "Aggregate Pay Laws" }}
+	/>
+</BaseLayout>

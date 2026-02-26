@@ -220,7 +220,7 @@ function extractCompanyInfo(filePath) {
   
   // Extract file path for hierarchy
   const fileName = path.basename(filePath, '.astro');
-  const pagePath = `/${fileName}`;
+  const pagePath = `/oil-and-gas-operators/${fileName}`;
   
   // Default logo path if not found
   if (!logoPath) {
@@ -245,11 +245,11 @@ function convertPage(filePath, info) {
   const cashPaymentProp = hasCashPayment ? 'showCashPayment={true}' : '';
   
   const newContent = `---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import CompanyPage from '../components/CompanyPage.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "${companyName} | MineralWise";
 const description = "${description.split('\n\n')[0].replace(/"/g, '\\"')}";
@@ -291,21 +291,21 @@ function updateHierarchy(info) {
     return;
   }
   
-  // Find the insertion point (after the last company entry or after /oil-gas-operators)
-  const insertAfter = "'/aera-energy-llc': { label: 'Aera Energy LLC', parent: '/oil-gas-operators' },";
+  // Find the insertion point (after the last company entry or after /oil-and-gas-operators)
+  const insertAfter = "'/oil-and-gas-operators/aera-energy-llc': { label: 'Aera Energy LLC', parent: '/oil-and-gas-operators' },";
   const insertPattern = new RegExp(`(${insertAfter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'g');
   
   if (insertPattern.test(hierarchyContent)) {
-    const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-gas-operators' },\n`;
+    const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-and-gas-operators' },\n`;
     hierarchyContent = hierarchyContent.replace(
       insertPattern,
       `$1\n${newEntry}`
     );
   } else {
-    // Find a better insertion point - after /oil-gas-operators entry
-    const oilGasOperatorsPattern = /('\/oil-gas-operators':\s*\{[^}]+\},)/;
+    // Find a better insertion point - after /oil-and-gas-operators entry
+    const oilGasOperatorsPattern = /('\/oil-and-gas-operators':\s*\{[^}]+\},)/;
     if (oilGasOperatorsPattern.test(hierarchyContent)) {
-      const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-gas-operators' },\n`;
+      const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-and-gas-operators' },\n`;
       hierarchyContent = hierarchyContent.replace(
         oilGasOperatorsPattern,
         `$1\n${newEntry}`
@@ -314,7 +314,7 @@ function updateHierarchy(info) {
       // Just append before the closing brace
       const closingBracePattern = /(\t'\/all-oil-and-gas-terms':[^}]+\},)/;
       if (closingBracePattern.test(hierarchyContent)) {
-        const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-gas-operators' },\n`;
+        const newEntry = `\t'${info.pagePath}': { label: '${label.replace(/'/g, "\\'")}', parent: '/oil-and-gas-operators' },\n`;
         hierarchyContent = hierarchyContent.replace(
           closingBracePattern,
           `$1\n${newEntry}`
@@ -334,7 +334,7 @@ const hierarchyUpdates = [];
 console.log('Starting company page conversion...\n');
 
 for (const fileName of companyPagePatterns) {
-  const filePath = path.join(pagesDir, `${fileName}.astro`);
+  const filePath = path.join(pagesDir, 'oil-and-gas-operators', `${fileName}.astro`);
   
   if (!fs.existsSync(filePath)) {
     console.log(`⚠ File not found: ${fileName}.astro`);
@@ -389,8 +389,8 @@ for (const info of hierarchyUpdates) {
 
 // Insert all new entries after the last company entry
 if (newEntries.length > 0) {
-  // Find the last company entry (one with parent '/oil-gas-operators')
-  const companyEntryPattern = /('\/[^']+':\s*\{[^}]+parent:\s*'\/oil-gas-operators'[^}]+\},)/g;
+  // Find the last company entry (one with parent '/oil-and-gas-operators')
+  const companyEntryPattern = /('\/oil-and-gas-operators\/[^']+':\s*\{[^}]+parent:\s*'\/oil-and-gas-operators'[^}]+\},)/g;
   const matches = [...hierarchyContent.matchAll(companyEntryPattern)];
   
   if (matches.length > 0) {
@@ -400,7 +400,7 @@ if (newEntries.length > 0) {
     
     // Build new entries string
     const entriesString = newEntries.map(e => 
-      `\t'${e.path}': { label: '${e.label}', parent: '/oil-gas-operators' },`
+      `\t'${e.path}': { label: '${e.label}', parent: '/oil-and-gas-operators' },`
     ).join('\n') + '\n';
     
     // Insert after last company entry

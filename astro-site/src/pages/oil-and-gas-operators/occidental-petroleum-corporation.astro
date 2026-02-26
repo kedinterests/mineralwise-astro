@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Occidental Petroleum Corporation | MineralWise";
+const description = "Occidental Petroleum Corporation";
+
+const companyDescription = `Occidental Petroleum Corporation,headquartered in Los Angeles, California, is one of the world's largest independent oil and natural gas exploration and production companies and a major North American chemical manufacturer. Oxy stock is listed on the NYSE under the symbol OXY. Oxy was founded in 1920. The main operations are in the United States, the Middle East, North Africa, and South America. Oxy is the largest oil producer in Texas and the largest natural gas producer in California, with additional operations in Kansas, Oklahoma, Colorado and New Mexico.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/occidental-petroleum-corporation')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Occidental Petroleum Corporation"
+				description={companyDescription}
+				logoPath="/images/occidental-petroleum.jpg"
+				contactPhone="(310) 208-8800"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

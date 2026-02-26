@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Producing Mineral Interests";
+const description = "A mineral interest upon which production is actively taking place and minerals being removed and marketed. Oil &amp;amp; gas leases often have stipulations that require “commercial quantities” for continuation of a lease.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Producing Mineral Interests"
+		definition="A mineral interest upon which production is actively taking place and minerals being removed and marketed. Oil &amp; gas leases often have stipulations that require “commercial quantities” for continuation of a lease."
+		path="/oil-and-gas-terms/producing-mineral-interests"
+		prevTerm={{ href: "/oil-and-gas-terms/producer", label: "Producer" }}
+		nextTerm={{ href: "/oil-and-gas-terms/producing-mineral-owner", label: "Producing Mineral Owner" }}
+	/>
+</BaseLayout>

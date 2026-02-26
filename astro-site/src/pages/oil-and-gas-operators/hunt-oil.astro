@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Hunt Oil | MineralWise";
+const description = "Hunt Oil is an oil and gas exploration and production company based in Dallas Texas. Hunt Oil got its start in 1934 by developing the East Texas field. Hunt Oil is active in the Gulf of Mexico.";
+
+const companyDescription = `is an oil and gas exploration and production company based in Dallas Texas. Hunt Oil got its start in 1934 by developing the East Texas field. Hunt Oil is active in the Gulf of Mexico.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/hunt-oil')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Hunt Oil"
+				description={companyDescription}
+				logoPath="/images/hunt-oil.png"
+				contactPhone="(903) 876-2227"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

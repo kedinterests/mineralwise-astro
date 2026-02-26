@@ -61,11 +61,11 @@ export const navigation: NavItem[] = [
 			},
 			{
 				title: 'Oil & Gas Operators',
-				href: '/oil-gas-operators',
+				href: '/oil-and-gas-operators',
 			},
 			{
 				title: 'Oil & Gas Terms',
-				href: '/all-oil-and-gas-terms',
+				href: '/oil-and-gas-terms',
 			},
 			{
 				title: 'Oil & Gas Abbreviations',

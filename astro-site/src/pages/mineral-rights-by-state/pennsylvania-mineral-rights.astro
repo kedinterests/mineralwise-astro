@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import StatePage from '../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Pennsylvania Mineral Rights | MineralWise";
+const metaDescription = "Pennsylvania Mineral Rights have a rich history all the way back to 1859 in Titusville, PA when the first successful oil well was drilled in America. The Drake well was drilled by Colonel Edwin L. Drake.";
+
+const stateName = "Pennsylvania";
+const stateAbbr = "PA";
+const description = "Pennsylvania Mineral Rights have a rich history all the way back to 1859 in Titusville, PA when the first successful oil well was drilled in America. The Drake well was drilled by Colonel Edwin L. Drake. More recently, the most active oil and gas formation providing value for Pennsylvania mineral rights has been the Marcellus Shale. The Marcellus Shale gas play has become economically viable with the introduction of horizontal drilling techniques along with advances in hydraulic fracturing.";
+
+const stats = [];
+const majorFields = [
+	"Armstrong County",
+	"Clearfield County",
+	"Crawford County",
+	"Fayette County",
+	"Indiana County",
+	"Jefferson County",
+	"McKean County",
+	"Mercer County",
+	"Westmoreland County",
+	"Venango County"
+];
+const companies = [
+	"Chesapeake Energy",
+	"CNX Gas",
+	"Exxon Mobil",
+	"Range Resources",
+	"XTO Energy"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Marcellus Shale Pennsylyvania",
+		href: "/shale-plays/marcellus-shale-pennsylvania",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/mineral-rights-by-state/pennsylvania-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

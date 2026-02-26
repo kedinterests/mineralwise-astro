@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Formation";
+const description = "Geological term that refers to a separate layer of rock or group of intermingled beds.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Formation"
+		definition="Geological term that refers to a separate layer of rock or group of intermingled beds."
+		path="/oil-and-gas-terms/formation"
+		prevTerm={{ href: "/oil-and-gas-terms/forced-pooling-or-force-pooled", label: "Forced Pooling or Force Pooled" }}
+		nextTerm={{ href: "/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job", label: "Fracking, Hydraulic Fracturing, Fracture, Fracing, Frac Job" }}
+	/>
+</BaseLayout>

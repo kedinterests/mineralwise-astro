@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Dominion Resources Inc. | MineralWise";
+const description = "Dominion Resources Inc.";
+
+const companyDescription = `Dominion Resources exited the producing business when it closed the sale of its natural gas exploration and production business on April 30, 2010 to a subsidiary of CONSOL Energy. The transaction included rights to about 490,000 acres in the Marcellus shale producing region of Pennsylvania and West Virginia. Exiting the E&P business enhances the visibility of Dominion's core natural gas pipeline and storage businesses.&nbsp;Activities in the Appalachian region will now focus on investments such as the new gathering and pipeline infrastructure that development of the Marcellus formation will demand.&nbsp;Dominion owns and operates the nation's largest underground natural gas storage system with about 942 billion cubic feet of storage capacity. The Company's stock is listed on the NYSE as D ( Common Stock).`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/dominion-resources-inc')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Dominion Resources Inc."
+				description={companyDescription}
+				logoPath="/images/dominion.png"
+				contactPhone="(866) 855-0518"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

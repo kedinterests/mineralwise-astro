@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Revenue Statement";
+const description = "The monthly statement sent by either the First Purchaser or the Operator to the interest holders within an oil or gas producing property. These statements detail production volumes and pricing for hydrocarbons that are produced and sold each month.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Revenue Statement"
+		definition="The monthly statement sent by either the First Purchaser or the Operator to the interest holders within an oil or gas producing property. These statements detail production volumes and pricing for hydrocarbons that are produced and sold each month."
+		path="/oil-and-gas-terms/revenue-statement"
+		prevTerm={{ href: "/oil-and-gas-terms/residue-gas", label: "Residue Gas" }}
+		nextTerm={{ href: "/oil-and-gas-terms/royalty", label: "Royalty" }}
+	/>
+</BaseLayout>

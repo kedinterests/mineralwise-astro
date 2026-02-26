@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import ShalePlayPage from '../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Barnett Shale Texas | MineralWise";
+const description = "The Barnett Shale covers approximately 17 counties in North Central Texas, of which only 6 are in what is known as the core zone. The Newark East Field, most commonly referred to as the Barnett Shale, was discovered in the 1980";
+
+const shaleName = "Barnett Shale";
+const state = undefined;
+const descriptionText = "The Barnett Shale covers approximately 17 counties in North Central Texas, of which only 6 are in what is known as the core zone. The Newark East Field, most commonly referred to as the Barnett Shale, was discovered in the 1980's with the C.W. Slay No. 1 well in Southeast Wise County. The Barnett Shale became significantly economically viable with the advent of horizontal drilling and hydraulic fracturing technology during the mid to late 1990's. Mitchell Energy, later sold to Devon Energy, is credited with unlocking the potential of the Barnett Shale. The Newark East field is now the largest producing field in the US.";
+
+const companies = [
+	"EOG Resources",
+	"ExxonMobil",
+	"Hillwood",
+	"Quicksilver Resources",
+	"Range Resources",
+	"Talcon Oil",
+	"Williams",
+	"XTO Energy",
+	"Braden Exploration",
+	"Carrizo Oil and Gas",
+	"Chesapeake Energy",
+	"ConocoPhillips",
+	"Denbury Resources",
+	"Devon Energy",
+	"DTE Energy",
+	"EnCana Oil & Gas"
+];
+
+const geology = "";
+
+const counties = [];
+
+const additionalReading = [];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/shale-plays/barnett-shale-texas')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

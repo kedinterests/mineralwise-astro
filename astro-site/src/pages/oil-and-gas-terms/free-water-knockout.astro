@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Free Water Knockout";
+const description = "A vessel used near a well location to separate produced brine from crude oil. These are used generally when there are high volumes of produced water. Also referred to as an oil-water separator.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Free Water Knockout"
+		definition="A vessel used near a well location to separate produced brine from crude oil. These are used generally when there are high volumes of produced water. Also referred to as an oil-water separator."
+		path="/oil-and-gas-terms/free-water-knockout"
+		prevTerm={{ href: "/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job", label: "Fracking, Hydraulic Fracturing, Fracture, Fracing, Frac Job" }}
+		nextTerm={{ href: "/oil-and-gas-terms/fresh-water", label: "Fresh Water" }}
+	/>
+</BaseLayout>

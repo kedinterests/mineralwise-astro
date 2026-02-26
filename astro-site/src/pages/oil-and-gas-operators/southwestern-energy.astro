@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Southwestern Energy | MineralWise";
+const description = "Southwestern Energy";
+
+const companyDescription = `is an independent oil and gas drilling company. Southwestern Energy stock is traded on the NYSE under the symbol SWN. The company focuses mainly on drilling and producing natural gas within the United States. Southwestern explores and drills for natural gas in the Arkoma Basin of the Fayetteville Shale play of Arkansas. The company also produces natural gas in Oklahoma, Texas, and Pennsylvania. Southwestern operates its drilling rigs in the Fayetteville Shale play and East Texas under its wholly owned subsidiary DeSoto Drilling.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/southwestern-energy')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Southwestern Energy"
+				description={companyDescription}
+				logoPath="/images/southwestern-energy.jpg"
+				contactPhone="(866) 322-0801"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

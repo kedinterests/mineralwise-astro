@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Aggregate Pay Laws";
+const description = "The various state laws which state that oil and gas revenue distributors do not have to issue a check on a monthly basis unless the dollar amount owed reaches a minimum threshold. In most states, this is either $25 or $100. At minimum, a check must be issued each tax year, regardless of how small the amount owed.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Aggregate Pay Laws"
+		definition="The various state laws which state that oil and gas revenue distributors do not have to issue a check on a monthly basis unless the dollar amount owed reaches a minimum threshold. In most states, this is either $25 or $100. At minimum, a check must be issued each tax year, regardless of how small the amount owed."
+		path="/oil-and-gas-terms/aggregate-pay-laws"
+		prevTerm={{ href: "/oil-and-gas-terms/acre-feet", label: "Acre-Feet" }}
+		nextTerm={{ href: "/oil-and-gas-terms/allowable-oil-allowable-gas-allowable", label: "Allowable, Oil Allowable, Gas Allowable" }}
+	/>
+</BaseLayout>

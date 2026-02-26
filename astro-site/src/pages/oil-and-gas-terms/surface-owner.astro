@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Surface Owner";
+const description = "Owner of the rights and interests in a surface estate.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Surface Owner"
+		definition="Owner of the rights and interests in a surface estate."
+		path="/oil-and-gas-terms/surface-owner"
+		prevTerm={{ href: "/oil-and-gas-terms/surface-estate", label: "Surface Estate" }}
+		nextTerm={{ href: "/oil-and-gas-terms/surface-rights", label: "Surface Rights" }}
+	/>
+</BaseLayout>

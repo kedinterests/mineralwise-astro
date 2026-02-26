@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "EnerVest | MineralWise";
+const description = "EV Energy Partners (EVEP) is an upstream Master Limited Partnership (MLP) focused on acquiring and operating oil and gas properties inthe continental United States.&nbsp;EVEP was formed by EnerVest Ltd., a largemanager of oil and gas assets for institutional investors. Current properties are located in the Appalachian Basin, the Monroe field in north Louisiana, Michigan, the Austin Chalk, South Central Texas, the Permian Basin, the San Juan Basin and the Mid-continent area.";
+
+const companyDescription = `EV Energy Partners (EVEP) is an upstream Master Limited Partnership (MLP) focused on acquiring and operating oil and gas properties inthe continental United States.&nbsp;EVEP was formed by EnerVest Ltd., a largemanager of oil and gas assets for institutional investors. Current properties are located in the Appalachian Basin, the Monroe field in north Louisiana, Michigan, the Austin Chalk, South Central Texas, the Permian Basin, the San Juan Basin and the Mid-continent area.
+
+EnerVest acquires and operates oil and gas properties on behalf of our institutional investors. Typical acquisition size ranges from $20 million to $200 million, though recent transactions have exceeded $200 million.&nbsp;EnerVest operates more than 18,000 wells in 12 states: Arkansas, Colorado, Kansas, Louisiana, Michigan, New Mexico, New York, Ohio, Oklahoma, Pennsylvania, Texas, and West Virginia.&nbsp;Typical purchases contain at least 50% PDP reserves along with exploitation opportunity.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/enervest')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="EnerVest"
+				description={companyDescription}
+				logoPath="/images/ev.png"
+				contactPhone="(888) 988-3637"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

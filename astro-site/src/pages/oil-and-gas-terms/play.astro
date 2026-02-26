@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Play";
+const description = "A set of oil or gas accumulations sharing similar geologic, geographic properties, such as source rock, hydrocarbon type, and migration pathways.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Play"
+		definition="A set of oil or gas accumulations sharing similar geologic, geographic properties, such as source rock, hydrocarbon type, and migration pathways."
+		path="/oil-and-gas-terms/play"
+		prevTerm={{ href: "/oil-and-gas-terms/permeability", label: "Permeability" }}
+		nextTerm={{ href: "/oil-and-gas-terms/pooled-unit", label: "Pooled Unit" }}
+	/>
+</BaseLayout>

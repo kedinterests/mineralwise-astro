@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import StatePage from '../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Ohio Mineral Rights | MineralWise";
+const metaDescription = "Ohio Mineral Rights have a history dating back to the mid 1800's. The first commercial production of oil occurred in Washington County in 1860.";
+
+const stateName = "Ohio";
+const stateAbbr = "OH";
+const description = "Ohio Mineral Rights have a history dating back to the mid 1800's. The first commercial production of oil occurred in Washington County in 1860. Natural gas was later found in 1884. Ohio's mineral rights owners have seen a total of 274,733 wells drilled, which ranks them 4th in the nation behind Texas, Oklahoma, and Pennsylvania. Currently, most of Ohio's oil and gas wells are \"stripper\" wells that produce less than 10 barrels of oil per day or roughly 70 mcf of gas per day.";
+
+const stats = [];
+const majorFields = [
+	"Cuyahoga County",
+	"Geauga County",
+	"Knox County",
+	"Lake County",
+	"Licking County",
+	"Monroe County",
+	"Muskingum County",
+	"Perry County",
+	"Stark County",
+	"Trumbull County"
+];
+const companies = [
+	"Ashland Oil",
+	"Carter Resources",
+	"Columbia Natural Resources",
+	"D&L Energy",
+	"East Ohio Gas",
+	"Funk Exploration",
+	"Ohio Oil",
+	"Ramco Oil & Gas",
+	"Tri State Production",
+	"Viking Resources"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Marcellus Shale Ohio",
+		href: "/shale-plays/marcellus-shale-ohio",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/mineral-rights-by-state/ohio-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

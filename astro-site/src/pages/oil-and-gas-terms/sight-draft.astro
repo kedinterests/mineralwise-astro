@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Sight Draft";
+const description = "Often referred to as a bank draft (or even 30 day sight draft) is an instrument guaranteeing payment to a party within a certain time window, so long as certain conditions are met. Usually, the leasing company uses that period to confirm title ownership.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Sight Draft"
+		definition="Often referred to as a bank draft (or even 30 day sight draft) is an instrument guaranteeing payment to a party within a certain time window, so long as certain conditions are met. Usually, the leasing company uses that period to confirm title ownership."
+		path="/oil-and-gas-terms/sight-draft"
+		prevTerm={{ href: "/oil-and-gas-terms/shut-in-royalty", label: "Shut In Royalty" }}
+		nextTerm={{ href: "/oil-and-gas-terms/sour-gas-h2s", label: "Sour Gas H2s" }}
+	/>
+</BaseLayout>

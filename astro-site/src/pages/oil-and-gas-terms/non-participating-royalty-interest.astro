@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Non-Participating Royalty Interest";
+const description = "A royalty interest which “participates” in any oil or gas found but does not “participate” in lease bonuses or rentals. Technically, it is an interest that participates in the gross production of minerals that have been separated from the fee estate, but does not hold executive rights.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Non-Participating Royalty Interest"
+		definition="A royalty interest which “participates” in any oil or gas found but does not “participate” in lease bonuses or rentals. Technically, it is an interest that participates in the gross production of minerals that have been separated from the fee estate, but does not hold executive rights."
+		path="/oil-and-gas-terms/non-participating-royalty-interest"
+		prevTerm={{ href: "/oil-and-gas-terms/net-revenue-interest-nri", label: "Net Revenue Interest Nri" }}
+		nextTerm={{ href: "/oil-and-gas-terms/non-producing-mineral-owner", label: "Non Producing Mineral Owner" }}
+	/>
+</BaseLayout>

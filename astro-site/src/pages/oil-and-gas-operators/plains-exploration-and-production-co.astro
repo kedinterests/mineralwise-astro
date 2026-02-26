@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Plains Exploration and Production Co. | MineralWise";
+const description = "Plains Exploration and Production Co.";
+
+const companyDescription = `Plains Exploration is an oil and gas exploration and production company with headquarters in Houston, Texas. The Company's primary areas of operation are in California, the Gulf Coast region, the Mid-continent region, and the Rocky Mountains. Plains Exploration's stock is listed on the NASDAQ as PXP.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/plains-exploration-and-production-co')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Plains Exploration and Production Co."
+				description={companyDescription}
+				logoPath="/images/plains-exploration.png"
+				contactPhone="(866) 797-5669"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

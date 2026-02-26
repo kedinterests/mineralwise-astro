@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Exponential Decline";
+const description = "A single decline rate that is used for the life of a well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Exponential Decline"
+		definition="A single decline rate that is used for the life of a well."
+		path="/oil-and-gas-terms/exponential-decline"
+		prevTerm={{ href: "/oil-and-gas-terms/exploratory-well", label: "Exploratory Well" }}
+		nextTerm={{ href: "/oil-and-gas-terms/extraction-loss", label: "Extraction Loss" }}
+	/>
+</BaseLayout>

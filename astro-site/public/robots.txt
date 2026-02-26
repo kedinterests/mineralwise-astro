@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mineralwise.com/sitemap-index.xml

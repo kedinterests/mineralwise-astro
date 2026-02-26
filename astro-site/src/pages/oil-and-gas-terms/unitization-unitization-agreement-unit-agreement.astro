@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Unitization, Unitization Agreement, Unit Agreement";
+const description = "Joint operations to maximize recovery among separate operators within a common reservoir.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Unitization, Unitization Agreement, Unit Agreement"
+		definition="Joint operations to maximize recovery among separate operators within a common reservoir."
+		path="/oil-and-gas-terms/unitization-unitization-agreement-unit-agreement"
+		prevTerm={{ href: "/oil-and-gas-terms/undeveloped-acreage", label: "Undeveloped Acreage" }}
+		nextTerm={{ href: "/oil-and-gas-terms/upstream", label: "Upstream" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "BCF";
+const description = "The abbreviation for billion cubic feet of gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="BCF"
+		definition="The abbreviation for billion cubic feet of gas."
+		path="/oil-and-gas-terms/bcf"
+		prevTerm={{ href: "/oil-and-gas-terms/basic-sediment-and-water-bs-and-w", label: "Basic Sediment and Water, BS&amp;W" }}
+		nextTerm={{ href: "/oil-and-gas-terms/blowout-preventor-bp", label: "Blowout Preventor, BP" }}
+	/>
+</BaseLayout>

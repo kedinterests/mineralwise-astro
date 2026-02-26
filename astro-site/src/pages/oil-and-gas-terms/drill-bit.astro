@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Drill Bit";
+const description = "The item placed at the end of the drilling string used in drilling into the earth. Drill bits cut and chip small pieces of rock as the pipe rotates.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Drill Bit"
+		definition="The item placed at the end of the drilling string used in drilling into the earth. Drill bits cut and chip small pieces of rock as the pipe rotates."
+		path="/oil-and-gas-terms/drill-bit"
+		prevTerm={{ href: "/oil-and-gas-terms/downstream", label: "Downstream" }}
+		nextTerm={{ href: "/oil-and-gas-terms/drill-string", label: "Drill String" }}
+	/>
+</BaseLayout>

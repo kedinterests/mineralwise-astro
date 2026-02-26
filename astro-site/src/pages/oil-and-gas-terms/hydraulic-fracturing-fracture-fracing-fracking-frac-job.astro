@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Hydraulic Fracturing, Fracture, Fracing, Fracking, Frac Job";
+const description = "The process of using high pressure to pump sand along with water and other fluids into subsurface rock formations in order to improve flow of oil &amp;amp; gas into a well bore.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Hydraulic Fracturing, Fracture, Fracing, Fracking, Frac Job"
+		definition="The process of using high pressure to pump sand along with water and other fluids into subsurface rock formations in order to improve flow of oil &amp; gas into a well bore."
+		path="/oil-and-gas-terms/hydraulic-fracturing-fracture-fracing-fracking-frac-job"
+		prevTerm={{ href: "/oil-and-gas-terms/horizontal-pugh-clause", label: "Horizontal Pugh Clause" }}
+		nextTerm={{ href: "/oil-and-gas-terms/hydrocarbon", label: "Hydrocarbon" }}
+	/>
+</BaseLayout>

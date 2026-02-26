@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Talisman Energy | MineralWise";
+const description = "Talisman Energy";
+
+const companyDescription = `Inc. is an independent upstream oil and gas company headquartered in Calgary, Alberta, Canada. Talisman stock is listed on the Toronto Stock Exchange in Canada and the New York Stock Exchange in the United States and trades under the symbol TLM. Talisman operates in Canada with subsidiaries operating in the UK, Norway, Southeast Asia, North Africa and the United States.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/talisman-energy')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Talisman Energy"
+				description={companyDescription}
+				logoPath="/images/talisman.png"
+				contactPhone="(607) 562-4000"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

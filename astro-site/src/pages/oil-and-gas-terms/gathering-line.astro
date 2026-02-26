@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Gathering Line";
+const description = "A pipeline, usually within an oilfield which gathers produced oil and/or gas to bring it to a more common point for further transmission.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Gathering Line"
+		definition="A pipeline, usually within an oilfield which gathers produced oil and/or gas to bring it to a more common point for further transmission."
+		path="/oil-and-gas-terms/gathering-line"
+		prevTerm={{ href: "/oil-and-gas-terms/gatherer", label: "Gatherer" }}
+		nextTerm={{ href: "/oil-and-gas-terms/geophone", label: "Geophone" }}
+	/>
+</BaseLayout>

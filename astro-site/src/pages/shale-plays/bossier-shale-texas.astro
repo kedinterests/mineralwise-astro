@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import ShalePlayPage from '../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Bossier Shale Texas | MineralWise";
+const description = "The Bossier Shale is located in East Texas. The Bossier Shale has a thickness of around 180 ft and is located above the Haynesville Shale. The Bossier Shale is known in the oil and gas industry as one of the &quot;tight&quot; sand plays. To date, relatively small amounts of actual well data are available.Bossier Shale CompaniesSignificant producers within the Bossier shale are:Anadarko PetroleumBerry PetroleumCabot Oil and GasChesapeake EnergyComstock ResourcesCubic EnergyDevon EnergyEl Paso Corp.EnCana Corp.EOG ResourcesEXCO ResourcesForest OilGMX ResourcesGoodrich PetroleumNoble EnergyPenn VirginiaPetrohawkPlains Exploration and ProductionQuestar Corp.Shell WesternSM EnergySt. Mary Land &amp;amp; ExplorationXTO EnergyBossier Shale GeologyThe Bossier Shale is an over pressurized geological formation found at depths of 12,000 to 15,000 feet. The productive zone is located in the upper 500 to 600 ft of the shale.Bossier Shale LocationThe Bossier Shale is located in the following counties of Texas:Harrison County TXMarion County TXNacagdoches County TXPanola County TXRusk County TXShelby County TXAdditional ReadingOil &amp;amp; Gas 101 – General information for mineral rights owners.";
+
+const shaleName = "Bossier Shale";
+const state = undefined;
+const descriptionText = "The Bossier Shale is located in East Texas. The Bossier Shale has a thickness of around 180 ft and is located above the Haynesville Shale. The Bossier Shale is known in the oil and gas industry as one of the \"tight\" sand plays. To date, relatively small amounts of actual well data are available.";
+
+const companies = [
+	"Anadarko Petroleum",
+	"Berry Petroleum",
+	"Cabot Oil and Gas",
+	"Chesapeake Energy",
+	"Comstock Resources",
+	"Cubic Energy",
+	"Devon Energy",
+	"El Paso Corp.",
+	"EnCana Corp.",
+	"EOG Resources",
+	"EXCO Resources",
+	"Forest Oil",
+	"GMX Resources",
+	"Goodrich Petroleum",
+	"Noble Energy",
+	"Penn Virginia",
+	"Petrohawk",
+	"Plains Exploration and Production",
+	"Questar Corp.",
+	"Shell Western",
+	"SM Energy",
+	"St. Mary Land & Exploration",
+	"XTO Energy"
+];
+
+const geology = "";
+
+const counties = [
+	"Harrison County TX",
+	"Marion County TX",
+	"Nacagdoches County TX",
+	"Panola County TX",
+	"Rusk County TX",
+	"Shelby County TX"
+];
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		"external": false
+	}
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/shale-plays/bossier-shale-texas')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

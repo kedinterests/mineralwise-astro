@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Milagro Exploration | MineralWise";
+const description = "Milagro Exploration";
+
+const companyDescription = `is an oil and gas exploration and production company with headquarters in Houston, Texas. The Company's primary areas of operation are in southeastern Texas and central/southern Louisiana.
+
+Those who own gas royalties and oil royalties are an important group to Milagro Exploration. If you receive oil royalty or gas royalty from a lease under production by Milagro Exploration, you can contact them at (713) 750-1600`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/milagro-exploration')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Milagro Exploration"
+				description={companyDescription}
+				logoPath="/images/milagro.png"
+				contactPhone="(713) 750-1600"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

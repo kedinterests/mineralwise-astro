@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Division Order";
+const description = "A schedule of owners and their decimal ownership share in revenues of a well’s production derived from the sale of oil or gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Division Order"
+		definition="A schedule of owners and their decimal ownership share in revenues of a well’s production derived from the sale of oil or gas."
+		path="/oil-and-gas-terms/division-order"
+		prevTerm={{ href: "/oil-and-gas-terms/dissolved-gas", label: "Dissolved Gas" }}
+		nextTerm={{ href: "/oil-and-gas-terms/division-order-title-opinion", label: "Division Order Title Opinion" }}
+	/>
+</BaseLayout>

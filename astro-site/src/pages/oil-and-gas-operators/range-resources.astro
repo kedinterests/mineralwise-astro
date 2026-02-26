@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Range Resources | MineralWise";
+const description = "Range Resources";
+
+const companyDescription = `is an oil and gas company that operates in the Southwest, Appalachian Basin and the Gulf Coast. Range Resources stock is listed on the New York Stock Exchange under the symbol RRC. Range focuses on natural gas shale and coal bed methane projects. The 2008 year-end drilling inventory for the oil and gas drilling company included more than 12,000 proven drilling projects, and 3.7 (3.0 net) million acres of leases with proved reserves totaling 2.7 Tcfe.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/range-resources')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Range Resources"
+				description={companyDescription}
+				logoPath="/images/range-resources.jpg"
+				contactPhone="1-877-506-4133"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import ShalePlayPage from '../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Tuscaloosa Marine Shale Louisiana | MineralWise";
+const description = "The Tuscaloosa Marine Shale spans portions of Louisiana and Mississippi in the Gulf Coast Region. The play is currently estimated to&amp;nbsp;cover an area of 5,900 square miles.Tuscaloosa Marine Shale CompaniesSignificant operators within the Tuscaloosa Marine Shale are:Amelia ResourcesDenbury ResourcesDevon EnergyEncanaEncore Acquisition (Denbury Resources)Goodrich PetroleumTuscaloosa Marine Shale GeologyThe Tuscaloosa Marine Shale is from the Cretaceous age, where the middle member marine shale is the target of exploratory drilling. The Tuscaloosa formation is defined by three separate stratigraphic units. The middle unit is predominately shale and found at depths that vary from 9,000 to 14,000 ft, with a formation thickness of 500 to 800 ft.The gray and black shale of the Tuscaloosa Marine formation&amp;nbsp;provide the high levels of organic content&amp;nbsp;needed to make shale plays&amp;nbsp;attractive. In certain areas of the play, sands are also present in the middle member of the Tuscaloosa Marine formation. As you move down dip in the trend, the middle member of the play gets thicker. The upper Tuscaloosa is characterized by its sand and clay content, while the lower member of the formation produces from conventional zones sometimes referred to as the Stringer Sand and the Massive Sand formations. The Tuscaloosa Marine Shale formation is estimated to hold over 7 billion barrels of oil (source: LSU Basin Research Institute)Tuscaloosa Marine Shale LocationThe Tuscaloosa Marine Shale is located in the following Louisiana counties:Allen Parish LAAvoyelles Parish LABeauregard Parish LACatahoula Parish LAConcordia Parish LAEast Feliciana Parish LAEast Baton Rouge Parish LAEvangeline Parish LAGrant Parish LALivingston Parish LAPointe Coupee Parish LARapides Parish LASt. Helena Parish LASt Landry Parish LASt. Tammany Parish LATangipahoa Parish LAVernon Parish LAWashington Parish LAWest Feliciana Parish LA";
+
+const shaleName = "Tuscaloosa Marine Shale";
+const state = undefined;
+const descriptionText = "The Tuscaloosa Marine Shale spans portions of Louisiana and Mississippi in the Gulf Coast Region. The play is currently estimated to&nbsp;cover an area of 5,900 square miles.";
+
+const companies = [
+	"Amelia Resources",
+	"Denbury Resources",
+	"Devon Energy",
+	"Encana",
+	"Encore Acquisition (Denbury Resources)",
+	"Goodrich Petroleum"
+];
+
+const geology = "";
+
+const counties = [
+	"Allen Parish LA",
+	"Avoyelles Parish LA",
+	"Beauregard Parish LA",
+	"Catahoula Parish LA",
+	"Concordia Parish LA",
+	"East Feliciana Parish LA",
+	"East Baton Rouge Parish LA",
+	"Evangeline Parish LA",
+	"Grant Parish LA",
+	"Livingston Parish LA",
+	"Pointe Coupee Parish LA",
+	"Rapides Parish LA",
+	"St. Helena Parish LA",
+	"St Landry Parish LA",
+	"St. Tammany Parish LA",
+	"Tangipahoa Parish LA",
+	"Vernon Parish LA",
+	"Washington Parish LA",
+	"West Feliciana Parish LA"
+];
+
+const additionalReading = [];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/shale-plays/tuscaloosa-marine-shale-louisiana')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

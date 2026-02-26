@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Oil &amp; Gas Mineral Lease";
+const description = "The agreement outlining the basic terms of developing lands or minerals such as royalty to be paid, length of time, description of lands.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Oil &amp; Gas Mineral Lease"
+		definition="The agreement outlining the basic terms of developing lands or minerals such as royalty to be paid, length of time, description of lands."
+		path="/oil-and-gas-terms/oil-and-gas-mineral-lease"
+		prevTerm={{ href: "/oil-and-gas-terms/oil-and-gas-field", label: "Oil &amp; Gas “Field”" }}
+		nextTerm={{ href: "/oil-and-gas-terms/oil-gravity", label: "Oil Gravity" }}
+	/>
+</BaseLayout>

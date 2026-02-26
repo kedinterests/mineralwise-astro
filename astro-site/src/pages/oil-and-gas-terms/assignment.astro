@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Assignment";
+const description = "The legal instrument whereby Oil and Gas Leases, Royalty Interests, or Overriding Royalty interests are assigned or conveyed.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Assignment"
+		definition="The legal instrument whereby Oil and Gas Leases, Royalty Interests, or Overriding Royalty interests are assigned or conveyed."
+		path="/oil-and-gas-terms/assignment"
+		prevTerm={{ href: "/oil-and-gas-terms/api-number", label: "API Number" }}
+		nextTerm={{ href: "/oil-and-gas-terms/associate-reservoir", label: "Associate Reservoir" }}
+	/>
+</BaseLayout>

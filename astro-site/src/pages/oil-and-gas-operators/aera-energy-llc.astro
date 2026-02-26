@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Aera Energy LLC | MineralWise";
+const description = "Aera Energy LLC is a California based joint venture of Shell and Mobil Oil. The head office is located in Bakersfield, CA. The company also has oilfield operations in the L.A. Basin and in Ventura and Monterey Counties. Aera produces approximately 190,000 barrels of oil and 60 million cubic feet of natural gas each day and has proved oil and gas reserves equivalent to more than 900 million barrels of oil.";
+
+const companyDescription = `is a California based joint venture of Shell and Mobil Oil. The head office is located in Bakersfield, CA. The company also has oilfield operations in the L.A. Basin and in Ventura and Monterey Counties. Aera produces approximately 190,000 barrels of oil and 60 million cubic feet of natural gas each day and has proved oil and gas reserves equivalent to more than 900 million barrels of oil.
+
+The company was started as Aera Energy LLC on June 1, 1997 and consists of the California onshore and offshore exploration and production (E&P) assets previously operated by CalResources LLC (a former Shell Oil Company affiliate), Mobil Exploration & Producing U.S. Inc. (now an Exxon Mobil Corporation affiliate), and ARCO.
+
+Aera is active in the large producing fields in Kern County including North and South Belridge, Midway Sunset, Lost Hills, Cymric, and McKittrick. The company has additional onshore California operations located in or near Coalinga, Huntington Beach, San Ardo, and Ventura. Aera also operates Platform Emmy located in state waters one mile off Huntington Beach.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/aera-energy-llc')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Aera Energy LLC"
+				description={companyDescription}
+				logoPath="/images/aera.png"
+				contactPhone="(661) 665-5000"
+				showProductionVerification={true}
+				showCashPayment={true}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

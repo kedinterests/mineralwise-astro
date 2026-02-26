@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import CompanyPage from '../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+
+const title = "Crown Energy Company | MineralWise";
+const description = "Crown Energy Company";
+
+const companyDescription = `is an oil and gas exploration and production company with headquarters in Oklahoma City, Oklahoma. The Company's primary areas of operation are in the Mid-continent region.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-operators/crown-energy-company')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Crown Energy Company"
+				description={companyDescription}
+				logoPath="/images/crown-energy.png"
+				contactPhone="(405) 526-0111"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

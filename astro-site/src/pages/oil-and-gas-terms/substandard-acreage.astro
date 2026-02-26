@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TermPage from '../../components/TermPage.astro';
+
+const title = "Substandard Acreage";
+const description = "Amount of acreage that is less than the standard amount for a proration unit for a field.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Substandard Acreage"
+		definition="Amount of acreage that is less than the standard amount for a proration unit for a field."
+		path="/oil-and-gas-terms/substandard-acreage"
+		prevTerm={{ href: "/oil-and-gas-terms/structural-trap", label: "Structural Trap" }}
+		nextTerm={{ href: "/oil-and-gas-terms/surface-casing", label: "Surface Casing" }}
+	/>
+</BaseLayout>
