@@ -32,7 +32,11 @@ const currentPath = Astro.url.pathname;
 			<div class="siq-expsearch-cont">
 				<form class="siq-expsearch" action="/">
 					<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
-					<span class="siq-expsearch-icon"></span>
+					<span class="siq-expsearch-icon" aria-label="Open search">
+						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+						</svg>
+					</span>
 				</form>
 			</div>
 		</div>
@@ -102,7 +106,11 @@ const currentPath = Astro.url.pathname;
 				<div class="siq-expsearch-cont">
 					<form class="siq-expsearch" action="/">
 						<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
-						<span class="siq-expsearch-icon"></span>
+						<span class="siq-expsearch-icon" aria-label="Open search">
+							<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
+						</span>
 					</form>
 				</div>
 			</div>
@@ -128,6 +136,32 @@ const currentPath = Astro.url.pathname;
 				const menu = document.querySelector(`[data-mobile-dropdown-menu="${menuId}"]`);
 				if (menu) {
 					menu.classList.toggle('hidden');
+				}
+			});
+		});
+
+		// SearchIQ icon-only: expand/collapse on icon click, close on outside click
+		document.querySelectorAll('.siq-icon-searchbox-wrap .siq-expsearch-icon').forEach((icon) => {
+			const searchBox = icon.closest('.siq-icon-searchbox-wrap');
+			const inputBox = searchBox?.querySelector('.siq-expsearch-input') as HTMLInputElement | null;
+			if (!searchBox || !inputBox) return;
+
+			icon.addEventListener('click', (e) => {
+				e.preventDefault();
+				if (!searchBox.classList.contains('siq-search-open')) {
+					searchBox.classList.add('siq-search-open');
+					inputBox.focus();
+				} else {
+					searchBox.classList.remove('siq-search-open');
+					inputBox.blur();
+				}
+			});
+
+			document.body.addEventListener('click', (evt) => {
+				const target = evt.target as Element | null;
+				if (target?.closest('.siq-icon-searchbox-wrap')) return;
+				if (searchBox.classList.contains('siq-search-open')) {
+					searchBox.classList.remove('siq-search-open');
 				}
 			});
 		});

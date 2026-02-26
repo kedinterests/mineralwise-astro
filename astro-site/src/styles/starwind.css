@@ -455,3 +455,60 @@ hr {
     padding: 0 10px;
   }
 }
+
+/* SearchIQ icon-only search (replicates WordPress shortcode type="icon" behavior) */
+.siq-icon-searchbox-wrap .siq-expsearch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.siq-icon-searchbox-wrap .siq-expsearch-cont {
+  display: flex;
+  align-items: center;
+}
+
+.siq-icon-searchbox-wrap .siq-expsearch-input {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: width 0.25s ease, opacity 0.2s ease;
+}
+
+.siq-icon-searchbox-wrap.siq-search-open .siq-expsearch-input {
+  width: 220px;
+  min-width: 220px;
+  padding: 0.5rem 0.75rem;
+  opacity: 1;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.siq-icon-searchbox-wrap .siq-expsearch-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  cursor: pointer;
+  color: currentColor;
+}
+
+.siq-icon-searchbox-wrap .siq-expsearch-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile: expand from left */
+.siq-icon-searchbox-wrap.openFromLeft .siq-expsearch {
+  flex-direction: row-reverse;
+}
+
+.siq-icon-searchbox-wrap.openFromLeft.siq-search-open .siq-expsearch-input {
+  width: 100%;
+  min-width: 180px;
+  max-width: 280px;
+}
