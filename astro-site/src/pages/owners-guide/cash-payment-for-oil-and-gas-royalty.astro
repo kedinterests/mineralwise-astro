@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Maximize Your Oil &amp; Gas Royalties: Cash Payment Options for Mineral Rights";
 const description = "Discover how to exchange your oil and gas royalties for a lump sum cash payment. Explore opportunities, benefits, and hassle-free options for selling your mineral rights today!";
@@ -23,7 +23,7 @@ const tabs = [
 			},
 			{
 				title: "Oil & Gas 101: Oil and Gas Basics for the Mineral Owner",
-				href: "/oil-and-gas-basics-for-mineral-owners",
+				href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
 				description: "Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing."
 			}
 		]
@@ -43,7 +43,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description} adConfig="none">
-	<PageShell breadcrumbs={getBreadcrumbs('/cash-payment-for-oil-and-gas-royalty')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/cash-payment-for-oil-and-gas-royalty')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}

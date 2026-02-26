@@ -24,15 +24,20 @@ const description = "Discover expert insights and tools for managing your minera
 		.ad-slot.ad-ac {
 			padding: 1.5rem 0;
 		}
+		@media (max-width: 767px) {
+			#hero-background {
+				background-position: calc(50% - 30px) 15% !important;
+			}
+		}
 	</style>
 	
 	<!-- Hero Section with Full-Width Background -->
-	<section class="relative min-h-[500px] md:min-h-[600px] flex items-center bg-cover bg-center bg-no-repeat w-full overflow-hidden">
+	<section class="relative min-h-[500px] md:min-h-[450px] flex items-center bg-cover bg-center bg-no-repeat w-full overflow-hidden">
 		<!-- Background Image - Flipped Horizontally with Parallax -->
-		<div id="hero-background" class="absolute inset-0 bg-cover" style="background-image: url('/images/hero.png'); background-position: center 25%;"></div>
+		<div id="hero-background" class="absolute inset-0 bg-cover" style="background-image: url('/images/hero.png'); background-position: center 15%;"></div>
 		
 		<!-- Gradient Overlay from Left to Right -->
-		<div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+		<div class="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
 		
 		<!-- Content Container - Left Side (where gradient is darkest) -->
 		<div class="relative z-10 container mx-auto px-4 max-w-7xl w-full">
@@ -44,7 +49,7 @@ const description = "Discover expert insights and tools for managing your minera
 				<p class="text-xl md:text-2xl mb-8 font-light text-white">
 					Empowering mineral rights owners with education, opportunities, and insights.
 				</p>
-				<Button href="/owners-guide" variant="primary" size="lg" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold">
+				<Button href="/owners-guide" variant="primary" size="lg" class="bg-blue-600 hover:bg-blue-700 text-white hover:text-white hover:no-underline px-8 py-4 text-lg font-semibold">
 					Mineral Owners Start Here
 				</Button>
 			</div>
@@ -56,34 +61,9 @@ const description = "Discover expert insights and tools for managing your minera
 		<AboveContentAd />
 	</div>
 
-	<!-- Search Section -->
-	<section class="py-6 bg-white dark:bg-neutral-950 w-full">
-		<div class="container mx-auto px-4 max-w-4xl">
-			<form id="siq_searchForm" class="max-w-2xl mx-auto">
-				<input 
-					type="search" 
-					placeholder="Type here to search..." 
-					name="s" 
-					class="w-full h-14 px-6 text-lg rounded-lg border-2 border-gray-300 dark:border-gray-700 dark:bg-neutral-800 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
-					autocomplete="off"
-				/>
-			</form>
-		</div>
-	</section>
-
 	<!-- Main Content Section -->
 	<section class="pt-4 bg-white dark:bg-neutral-950 w-full">
 		<div class="container mx-auto px-4 max-w-6xl">
-			<!-- Forum Link - Creative Card at Top -->
-			<div class="mb-16 max-w-full mx-auto">
-					<p class="text-2xl text-gray-800 dark:text-gray-200 text-center">
-						If you would like to discuss oil & gas mineral related issues with other landowners, <br>visit the popular{' '}
-						<a href="https://mineralrightsforum.com" target="_blank" rel="noreferrer noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold underline decoration-2 underline-offset-4">
-							Mineral Rights Forum
-						</a>.
-					</p>
-			</div>
-
 			<!-- Two Column Layout: Mineral Rights Text + Sticky Questions -->
 			<div class="grid grid-cols-1 md:grid-cols-[60%_40%] gap-12 mb-16" id="content-scroll-container">
 				<!-- Left Column - Mineral Rights Content -->
@@ -93,7 +73,7 @@ const description = "Discover expert insights and tools for managing your minera
 					</h2>
 					<div class="h-1 w-60 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6"></div>
 					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-						Mineral rights can be described as the <em class="text-blue-600 dark:text-blue-400 font-semibold">unseen</em> value associated with a tract of land. Historically, land was transferred among owners, with the royalty rights co-mingled with the surface rights. As oil and gas production began in the U.S., these rights started to be viewed independently. If mineral rights are <strong>severed</strong>, i.e. the process of separating mineral rights from the surface rights, a new and separate chain of title for the minerals begins.
+						Mineral rights can be described as the unseen value associated with a tract of land. Historically, land was transferred among owners, with the royalty rights co-mingled with the surface rights. As oil and gas production began in the U.S., these rights started to be viewed independently. If mineral rights are severed, i.e. the process of separating mineral rights from the surface rights, a new and separate chain of title for the minerals begins.
 					</p>
 					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
 						Separate ownership of mineral rights and surface rights can sometimes cause confusion. Regarding oil and gas production, the owner of the surface rights has limited input whether oil or gas is produced from underneath his property. If production is established, a portion of the value is paid via a royalty fraction (i.e. percentage) to the mineral rights owner.
@@ -111,31 +91,31 @@ const description = "Discover expert insights and tools for managing your minera
 						</p>
 						<ul class="space-y-4">
 							<li>
-								<a href="/leased-and-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+								<a href="/owners-guide/leased-and-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>My mineral rights are leased and producing.</span>
 								</a>
 							</li>
 							<li>
-								<a href="/unleased-mineral-owner" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+								<a href="/owners-guide/unleased-mineral-owner" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>I am an un-leased mineral rights owner.</span>
 								</a>
 							</li>
 							<li>
-								<a href="/leased-but-not-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+								<a href="/owners-guide/leased-but-not-producing" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>My mineral rights are leased but not producing.</span>
 								</a>
 							</li>
 							<li>
-								<a href="/lease-proposals" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+								<a href="/owners-guide/lease-proposals" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>I just received an oil or gas lease proposal - what's next?</span>
 								</a>
 							</li>
 							<li>
-								<a href="/cash-payment-for-oil-and-gas-royalty" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold text-lg transition-colors">
+								<a href="/owners-guide/cash-payment-for-oil-and-gas-royalty" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>I am interested in a cash payment for my minerals.</span>
 								</a>
@@ -179,9 +159,9 @@ const description = "Discover expert insights and tools for managing your minera
 			
 			if (!heroSection || !heroBackground) return;
 			
-			// Make background taller to prevent gaps during parallax
-			heroBackground.style.height = '120%';
-			heroBackground.style.top = '-10%';
+			// Make background taller and extend above to prevent gaps during parallax (top bar adds height)
+			heroBackground.style.height = '140%';
+			heroBackground.style.top = '-20%';
 			
 			function updateParallax() {
 				const rect = heroSection.getBoundingClientRect();

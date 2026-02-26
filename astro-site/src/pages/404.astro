@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/starwind/button/Button.astro';
+
+const title = "Page Not Found | MineralWise";
+const description = "The page you're looking for doesn't exist. Return to MineralWise for mineral rights education and resources.";
+---
+
+<BaseLayout title={title} description={description} adConfig="none">
+	<style>
+		:global(main) {
+			width: 100% !important;
+			max-width: 100% !important;
+			padding: 0 !important;
+			min-height: calc(100vh - 280px) !important;
+		}
+	</style>
+
+	<section class="error-404">
+		<div class="error-404-bg"></div>
+		<div class="error-404-content">
+			<div class="error-404-number">404</div>
+			<h1 class="error-404-title">This well came up dry</h1>
+			<p class="error-404-text">
+				The page you're looking for doesn't exist or has been moved. Time to head back to the surface.
+			</p>
+			<div class="error-404-actions">
+				<Button href="/" variant="primary" size="lg" class="bg-blue-600 hover:bg-blue-700 text-white hover:text-white hover:no-underline">
+					Back to Home
+				</Button>
+				<a href="/owners-guide" class="error-404-link">Owner's Guide</a>
+				<a href="/search" class="error-404-link">Search</a>
+			</div>
+		</div>
+		<!-- Decorative drill pattern -->
+		<div class="error-404-pattern" aria-hidden="true">
+			<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+						<path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#grid)"/>
+			</svg>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.error-404 {
+		position: relative;
+		min-height: calc(100vh - 280px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.error-404-bg {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, #0c1929 0%, #1a365d 40%, #0f172a 100%);
+	}
+
+	.error-404-pattern {
+		position: absolute;
+		inset: 0;
+		opacity: 0.5;
+	}
+
+	.error-404-content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		padding: 3rem 1.5rem;
+		max-width: 560px;
+	}
+
+	.error-404-number {
+		font-size: clamp(6rem, 20vw, 12rem);
+		font-weight: 900;
+		line-height: 0.9;
+		color: rgba(255, 255, 255, 0.08);
+		letter-spacing: -0.02em;
+		user-select: none;
+	}
+
+	.error-404-title {
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		font-weight: 700;
+		color: #fff;
+		margin: -1rem 0 1rem;
+	}
+
+	.error-404-text {
+		font-size: 1.125rem;
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+
+	.error-404-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.error-404-link {
+		color: rgba(255, 255, 255, 0.9);
+		text-decoration: none;
+		font-weight: 600;
+		padding: 0.5rem 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 0.375rem;
+		transition: all 0.2s;
+	}
+
+	.error-404-link:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.5);
+		text-decoration: underline;
+	}
+</style>

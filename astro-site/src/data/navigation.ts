@@ -19,31 +19,31 @@ export const navigation: NavItem[] = [
 		children: [
 			{
 				title: 'Oil & Gas 101',
-				href: '/oil-and-gas-basics-for-mineral-owners',
+				href: '/owners-guide/oil-and-gas-basics-for-mineral-owners',
 			},
 			{
 				title: 'Leased & Producing',
-				href: '/leased-and-producing',
+				href: '/owners-guide/leased-and-producing',
 			},
 			{
 				title: 'Unleased Mineral Owner',
-				href: '/unleased-mineral-owner',
+				href: '/owners-guide/unleased-mineral-owner',
 			},
 			{
 				title: 'Leased But Not Producing',
-				href: '/leased-but-not-producing',
+				href: '/owners-guide/leased-but-not-producing',
 			},
 			{
 				title: 'Lease Proposals',
-				href: '/lease-proposals',
+				href: '/owners-guide/lease-proposals',
 			},
 			{
 				title: 'Opportunities',
-				href: '/opportunities-for-all',
+				href: '/owners-guide/opportunities-for-all',
 			},
 			{
 				title: 'Prefer Cash Payment',
-				href: '/cash-payment-for-oil-and-gas-royalty',
+				href: '/owners-guide/cash-payment-for-oil-and-gas-royalty',
 			},
 		],
 	},

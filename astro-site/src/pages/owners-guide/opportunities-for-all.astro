@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Unclaimed Oil &amp; Gas Royalties: Recover Your Funds &amp; Explore Investment Opportunities";
 const description = "Learn how to recover unclaimed oil and gas royalties or royalties in suspense. Explore investment basics, risk evaluation, and get started in the oil and gas sector today!";
@@ -34,7 +34,7 @@ const tabs = [
 		articles: [
 			{
 				title: "Oil and Gas Investment Basics",
-				href: "/oil-and-gas-basics-for-mineral-owners",
+				href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
 				description: "Short article explaining direct oil & gas investment basics for those considering investing in oil/gas wells. Topics include risk evaluation, deal structure."
 			}
 		]
@@ -43,7 +43,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={getBreadcrumbs('/opportunities-for-all')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/opportunities-for-all')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}

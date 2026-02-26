@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Oil and Gas Basics for Mineral Owners | A Comprehensive Guide";
 const description = "Learn the fundamentals of oil and gas ownership, leasing, royalties, and production. Maximize the value of your mineral rights with this in-depth guide on oil and gas basics.";
@@ -37,7 +37,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-basics-for-mineral-owners')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/oil-and-gas-basics-for-mineral-owners')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Terms and Conditions | MineralWise";
 const description = "Review MineralWise terms and conditions, including acceptable use, disclaimers, intellectual property, and limitations.";
@@ -8,10 +10,57 @@ const description = "Review MineralWise terms and conditions, including acceptab
 const content = "<div>\n    <section id=\"t5FrWPvbvs0J_t5FrWPvbvs0J\"><div><div><div><div><div><h1><span>Terms and Conditions</span></h1></div></div></div><div><div><div><p><strong>Please read the following terms and conditions carefully before using this site. </strong></p><p><span>By using this site, you signify your agreement to these Terms and Conditions. If you agree to these Terms and Conditions, please enjoy the use of this site. If you do not agree to these Terms and Conditions, do not use this site. KED Interests, LLC (KEDILLC) may modify these Terms and Conditions at anytime.</span></p><p></p><p><strong>Restrictions on Use</strong></p><p><span>This site is copyright protected. Provided that if not otherwise specifically stated, any textual or graphical material you copy, print, or download is licensed to you by KEDILLC for your personal, non-commercial use only, provided that you do not change or delete any copyright, trademark or other proprietary notices.&nbsp;You are hereby notified that unauthorized use of content or material presented on this website is subject to prosecution.</span></p><p></p><p><span>THE MATERIALS IN THIS SITE ARE PROVIDED \"AS IS\" AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED. KEDILLC&nbsp;DOES NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF THE USE OF THE CONTENT OR OTHER MATERIALS ON THIS SITE IN TERMS OF THEIR CORRECTNESS, ACCURACY, RELIABILITY, OR OTHERWISE.&nbsp;NO CONTENT OR OTHER MATERIAL PRESENTED ON THIS SITE IS INTENDED AS LEGAL ADVICE.&nbsp;NOTHING CONTAINED ON THIS SITE SHOULD BE CONSTRUED AS LEGAL ADVICE.&nbsp;WE RECOMMEND THAT YOU SEEK QUALIFIED LEGAL COUNSEL ON MATTERS WHICH YOU CONSIDER IMPORTANT TO YOU.</span></p><p></p><p><span>KEDILLC has no duty or policy to update any information or statements contained on this site and, therefore, such information or statements should not be relied upon as being current as of the date you access this site. Moreover, any portion of the materials available on this site may include technical inaccuracies or typographical errors. Changes to the materials available on this site may be made from time to time without notice.</span></p><p></p><p><span>TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, KEDILLC DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. KEDILLC&nbsp;DOES NOT WARRANT THE ACCURACY, COMPLETENESS OR USEFULNESS OF ANY INFORMATION CONTAINED ON THIS SITE. KEDILLC DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE MATERIALS AVAILABLE ON THIS SITE WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THE MATERIALS, THIS SITE OR THE SERVER THAT MAKES THEM AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. YOU (AND NOT KEDILLC) ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR AND CORRECTION OF ANY HARM EXPERIENCED AS A RESULT OF THIS SITE'S USE.</span></p><p></p><p><span>UNDER NO CIRCUMSTANCES, INCLUDING, BUT NOT LIMITED TO, NEGLIGENCE, SHALL KEDILLC BE LIABLE FOR ANY SPECIAL OR CONSEQUENTIAL DAMAGES THAT RESULT FROM THE USE OF, OR THE INABILITY TO USE, SITE OR ANY DOWNLOADED MATERIALS, EVEN IF KEDILLC OR ITS REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL KEDILLC's TOTAL LIABILITY TO YOU FROM ALL DAMAGES, LOSSES, AND CAUSES OF ACTION (WHETHER IN CONTRACT, OR OTHERWISE) EXCEED THE AMOUNT YOU PAID TO KEDILLC, IF ANY, FOR PRODUCTS PURCHASED ON THIS SITE. APPLICABLE LAW MAY NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, OR THE ABOVE LIMITATIONS OF LIABILITY, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</span></p><p></p><p><strong>Links to Other Websites</strong></p><p><span>KEDILLC makes no representation whatsoever regarding the content of any other web sites which you may access from this site. When you access a non-KEDILLC web site,&nbsp;understand that it is independent from KEDILLC and that KEDILLC has no control over the content on that web site. A link to a non-KEDILLC web site does not mean that KEDILLC endorses or accepts any responsibility for the content or use of such web site.</span></p><p></p><p><strong>Submissions</strong></p><p><span>Should any viewer of a document on this web site respond to KEDILLC with information including feedback data, such as questions, comments, suggestions, or the like regarding the site, or the content of any item, such information shall be deemed to be non-confidential and KEDILLC shall have no obligation of any kind with respect to such information. In addition, KEDILLC shall be free to reproduce, use, disclose, display, exhibit, transmit, perform, create derivative works, and distribute the information to others without limitation, and to authorize others to do the same. Further, KEDILLC shall be free to use any ideas, concepts, know-how or techniques contained in such information for any purpose whatsoever, including, but not limited to, developing, manufacturing and marketing products and other items incorporating such information. This paragraph is not intended to apply to any personal information about you (such as name, mailing address and e-mail address), the use of which will be governed by KEDILLC Privacy Statement.</span></p><p></p><p><span>In consideration of KEDILLC's continuing efforts to enhance and improve the products, services and offerings of this web site and to respond to feedback from users, you agree to transfer such ideas, concepts, know-how and techniques to KEDILLC without&nbsp;compensation. You agree to execute any and all documents that KEDILLC&nbsp;may reasonably request in connection with confirming KEDILLC ownership of and unlimited right to use such ideas, concepts, know-how and techniques.</span></p><p></p><p><span>You are solely responsible for the content of any comments&nbsp;or submissions you make. You agree that no comments submitted by you to this web site will: (i) violate any right of any third party, including copyright, trademark, privacy or other personal or proprietary rights; (ii) be or contain libelous or otherwise unlawful, abusive, or obscene material or constitute the misappropriation of the trade secrets of any third party; and (iii) disparage the products or services of any third party. You agree not to submit any personal information (other than your email address or user name) through email sent to other users or messages posted on this site by you.</span></p><p></p><p><strong>Termination</strong></p><p><span>This Agreement is effective unless and until terminated by either you or KEDILLC. You may terminate this Agreement at any time by no longer using this web site, provided that all prior uses of this web site shall be governed by this Agreement.KEDILLC&nbsp;may terminate this Agreement at any time and without notice, and accordingly deny you access to this web site, in KEDILLC’s sole discretion for any reason, including your failure to comply with any term or provision of this Agreement. Upon any termination of this Agreement by either you or KEDILLC, you must promptly destroy all materials downloaded or otherwise obtained from this web site, as well as all copies of such materials, whether made under the terms of this Agreement or otherwise.</span></p></div></div></div></div></div></section>";
 ---
 
-<BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+<BaseLayout title={title} description={description} adConfig="none">
+	<PageShell breadcrumbs={getBreadcrumbs('/terms-and-conditions')}>
+		<ArticleContent>
+			<div class="legal-page" set:html={content} />
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.legal-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.legal-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.legal-page p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #374151;
+		margin-bottom: 1rem;
+	}
+
+	.legal-page strong {
+		color: #1a1a1a;
+	}
+
+	.legal-page a {
+		color: #0284c7;
+		text-decoration: none;
+	}
+
+	.legal-page a:hover {
+		color: #0369a1;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.legal-page {
+			padding: 1.5rem;
+		}
+
+		.legal-page h1 {
+			font-size: 2rem;
+		}
+	}
+</style>

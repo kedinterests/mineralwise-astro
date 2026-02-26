@@ -270,6 +270,30 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Content links: normalize to underline on hover across all content areas */
+.content-section a,
+.content-wrapper a,
+.content-body a,
+.legal-page a,
+.additional-reading a,
+.prose a,
+.about-page a,
+.company-section a,
+article a {
+  text-decoration: none;
+}
+.content-section a:hover,
+.content-wrapper a:hover,
+.content-body a:hover,
+.legal-page a:hover,
+.additional-reading a:hover,
+.prose a:hover,
+.about-page a:hover,
+.company-section a:hover,
+article a:hover {
+  text-decoration: underline;
+}
+
 p {
   margin-bottom: 1.25rem;
   line-height: 1.7;

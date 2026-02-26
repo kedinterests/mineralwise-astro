@@ -1,0 +1,120 @@
+---
+const offerUrl = 'https://www.mineralwise.com/offer#form';
+---
+
+<div id="top-bar" class="top-bar" role="banner">
+	<div class="top-bar__inner">
+		<p class="top-bar__text">
+			Received a letter about purchasing your minerals? To consider an alternate offer –{' '}
+			<a href={offerUrl} class="top-bar__button">Click Here</a>
+		</p>
+		<button
+			type="button"
+			class="top-bar__close"
+			aria-label="Close announcement"
+			onclick="document.getElementById('top-bar').classList.add('top-bar--hidden'); try { localStorage.setItem('topBarDismissed', '1'); } catch(e) {}"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		try {
+			if (localStorage.getItem('topBarDismissed') === '1') {
+				document.getElementById('top-bar')?.classList.add('top-bar--hidden');
+			}
+		} catch (e) {}
+	});
+</script>
+
+<style>
+	.top-bar {
+		background: #000;
+		color: #fff;
+		text-align: center;
+		padding: 0.5rem 3rem 0.5rem 1rem;
+		position: relative;
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+
+	.top-bar--hidden {
+		display: none;
+	}
+
+	.top-bar__inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.top-bar__text {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.4;
+	}
+
+	.top-bar__button {
+		display: inline-block;
+		background: var(--accent);
+		color: #fff;
+		padding: 0.25rem 0.75rem;
+		border-radius: 4px;
+		font-weight: 600;
+		font-size: 0.85rem;
+		text-decoration: none;
+		transition: background 0.2s, color 0.2s;
+		white-space: nowrap;
+	}
+
+	.top-bar__button:hover {
+		background: var(--accent-dark);
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.top-bar__close {
+		position: absolute;
+		right: 0.75rem;
+		top: 50%;
+		transform: translateY(-50%);
+		background: transparent;
+		border: none;
+		color: #fff;
+		cursor: pointer;
+		padding: 0.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		opacity: 0.8;
+		transition: opacity 0.2s;
+	}
+
+	.top-bar__close:hover {
+		opacity: 1;
+	}
+
+	@media (max-width: 640px) {
+		.top-bar {
+			padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+		}
+
+		.top-bar__text {
+			font-size: 0.8rem;
+		}
+
+		.top-bar__button {
+			font-size: 0.8rem;
+			padding: 0.2rem 0.6rem;
+		}
+	}
+</style>

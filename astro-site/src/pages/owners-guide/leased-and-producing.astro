@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Comprehensive Guide to Managing Leased and Producing Mineral Rights";
 const description = "Learn everything about managing leased and producing mineral rights, from royalty statements and taxes to oil &amp; gas measurement, surface rights, and revenue management. Explore tax-saving strategies and production verification tips for mineral owners.";
@@ -93,7 +93,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={getBreadcrumbs('/leased-and-producing')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/leased-and-producing')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}

@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 				<a
 					href={item.href}
 					class:list={{
-						'text-1rem font-semibold transition-colors flex items-center': true,
+						'text-1.2rem font-semibold transition-colors flex items-center': true,
 						'text-gray-900 dark:text-white': true,
 						'hover:text-[#0284c7] dark:hover:text-sky-400': true,
 					}}
@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
 	<div class="siq-icon-item-siq-selectbox moveToExtremeRight">
 		<div class="siq-icon-searchbox-wrap">
 			<div class="siq-expsearch-cont">
-				<form class="siq-expsearch" action="/">
+				<form class="siq-expsearch" action="/search" method="get">
 					<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
 					<span class="siq-expsearch-icon" aria-label="Open search">
 						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -72,6 +72,14 @@ const currentPath = Astro.url.pathname;
 							</svg>
 						</button>
 						<div class="hidden mt-2 pl-4 space-y-2" data-mobile-dropdown-menu={item.title}>
+							{item.href && item.href !== '#' && (
+								<a
+									href={item.href}
+									class="block text-sm font-semibold text-gray-900 dark:text-white hover:text-[#0284c7] dark:hover:text-sky-400 mb-1"
+								>
+									{item.title}
+								</a>
+							)}
 							{item.children.map((child) => (
 								<a
 									href={child.href}
@@ -104,7 +112,7 @@ const currentPath = Astro.url.pathname;
 		<div class="siq-icon-item-siq-selectbox mt-4">
 			<div class="siq-icon-searchbox-wrap openFromLeft">
 				<div class="siq-expsearch-cont">
-					<form class="siq-expsearch" action="/">
+					<form class="siq-expsearch" action="/search" method="get">
 						<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
 						<span class="siq-expsearch-icon" aria-label="Open search">
 							<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

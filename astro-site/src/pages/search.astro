@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
+
+const title = "Search Results | MineralWise";
+const description = "Search MineralWise for mineral rights, oil and gas terms, operators, shale plays, and more.";
+---
+
+<BaseLayout title={title} description={description} adConfig="bc-only">
+	<PageShell breadcrumbs={getBreadcrumbs('/search')}>
+		<ArticleContent>
+			<div class="search-results-page">
+				<h1>Search Results</h1>
+				<p class="intro">Search MineralWise for mineral rights, oil and gas terms, operators, shale plays, and more.</p>
+				<!-- SearchIQ search results widget - populated by SearchIQ script -->
+				<div id="siq_search_results" class="search-results-container"></div>
+			</div>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>
+
+<style>
+	.search-results-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	:global(.dark) .search-results-page {
+		background: rgb(38 38 38);
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+	}
+
+	.search-results-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	:global(.dark) .search-results-page h1 {
+		color: rgb(250 250 250);
+	}
+
+	.search-results-page .intro {
+		font-size: 1.125rem;
+		color: #666;
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+
+	:global(.dark) .search-results-page .intro {
+		color: rgb(163 163 163);
+	}
+
+	.search-results-container {
+		min-height: 200px;
+		margin-top: 1rem;
+	}
+
+	/* SearchIQ results - links match site accent color */
+	.search-results-page :global(#siq_search_results a) {
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.search-results-page :global(#siq_search_results a:hover) {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.search-results-page {
+			padding: 1.5rem;
+		}
+
+		.search-results-page h1 {
+			font-size: 2rem;
+		}
+	}
+</style>

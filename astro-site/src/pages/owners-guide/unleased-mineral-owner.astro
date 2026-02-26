@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Essential Guide for Unleased Mineral Rights Owners | Value, Leasing, &amp; Inheritance";
 const description = "Discover everything unleased mineral rights owners need to know. Learn about mineral rights value, inheritance, leasing your land, surface vs mineral rights, and fracking explained.";
@@ -53,7 +53,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={getBreadcrumbs('/unleased-mineral-owner')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/unleased-mineral-owner')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}

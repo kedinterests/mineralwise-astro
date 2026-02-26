@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Privacy Policy | MineralWise";
 const description = "Read the MineralWise privacy policy covering data collection, cookies, advertising tools, and your information choices.";
@@ -8,10 +10,57 @@ const description = "Read the MineralWise privacy policy covering data collectio
 const content = "<div>\n    <section id=\"pFY9McG__izU_pFY9McG__izU\"><div><div><div><div><div><h1><span>Privacy Policy</span></h1></div></div></div><div><div><div><p>This site is operated and managed by KED Interests, LLC (KEDILLC).&nbsp; We take your privacy seriously. Please read the following to learn more about our privacy policy. </p><p> </p><p>NOTICE: <a class=\"link--external\" href=\"http://www.onguardonline.gov/\" target=\"_blank\" rel=\"noreferrer noopener nofollow\">Click here for important information about safe surfing from the U.S. Federal Government.</a></p><p> </p><p><strong>What This Privacy Policy Covers</strong></p><p>This policy covers how KEDILLC treats personal information that we collect and receive from this site.</p><p> </p><p><strong>Information Collection and Use</strong></p><p>KEDILLC collects personal information from you only when you choose to share it with us. Our goal is to provide you with great services and a customer-friendly experience.</p><p> </p><p>If you choose to tell a friend about our site, we will ask you for your friend's name and email address. We will send your friend a one-time email inviting him or her to visit the site. KEDILLC does not store this information permanently and it is used for the sole purpose of sending a one-time email.&nbsp; Should they respond affirmatively, they will then be considered as a party who has opted into our future services and offerings.</p><p> </p><p>Cookies: This site automatically receives and records certain non-personal information about your visit through the use of cookies. Cookies are files that your Web browser places on your computer's hard drive. Information collected includes your IP address, your referral source, and the page(s) you request.</p><p> </p><p><strong>Generally, we use cookies to: </strong></p><p>    • Fulfill your requests for products and services, and to improve our services.</p><p>    • Remind us of who you are on return visits. This cookie is set when you first visit the site.</p><p>    • Estimate our audience size and measure traffic patterns.</p><p> </p><p>If you are uncomfortable having a cookie placed on your system, you may elect to turn off the cookie or delete existing cookies in your browser. If you turn off or delete cookies, you may not be able to receive special offers or any other site features that rely upon them.</p><p>All of our web properties are subject to showing Display Advertising.&nbsp; As such, we make use of Google's Remarketing with Analytics feature.&nbsp; Visitors to our web properties may opt-out of Google Analytics for Display Advertising and customize the Google Display Network ads using the&nbsp;Ads Preferences Manager.&nbsp; You may also make use of the&nbsp;Google Analytics opt-out browser add-on.</p><p> </p><p>Third-party vendors, including Google, show your ads on sites across the Internet.&nbsp; We and third party vendors, including Google, use first-party cookies (such as the Google Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on someone's past visits to your website.</p><p> </p><p><strong>Information Sharing and Customer Choice</strong></p><p>KEDILLC does not rent, sell, or share personal information about you with other people or non-affiliated companies.</p><p>KEDILLC may from time to time, communicate with you regarding our products and services that we feel may be of interest to you. KEDILLC may send special offers and updates, newsletters, and service-related announcements. Only KEDILLC will send you these communications. If you do not want to receive promotional information, simply notify us by opting-out of future correspondence. We provide you clear instructions on how to opt-out. Generally, you may not opt-out of service-related announcements which are not promotional in nature.</p><p> </p><p><strong>Confidentiality and Security</strong></p><p>We limit access to personal information about you to employees who we believe reasonably need to come into contact with that information to provide services to you. In certain circumstances, where and when needed, KEDILLC uses industry-standard SSL encryption to protect data transmissions.</p><p> </p><p><strong>Changes to this Privacy Policy</strong></p><p>KEDILLC may update this policy at anytime. If we decide to change our privacy policy, we will post those changes to this site.</p><p> </p><p>If you have questions or suggestions, please contact us at:</p><p>KED Interests, LLC</p><p>539 West Commerce St.  Ste. 1450</p><p>Dallas, TX 75208</p></div></div></div></div></div></section>";
 ---
 
-<BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+<BaseLayout title={title} description={description} adConfig="none">
+	<PageShell breadcrumbs={getBreadcrumbs('/privacy-policy')}>
+		<ArticleContent>
+			<div class="legal-page" set:html={content} />
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.legal-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.legal-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.legal-page p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #374151;
+		margin-bottom: 1rem;
+	}
+
+	.legal-page strong {
+		color: #1a1a1a;
+	}
+
+	.legal-page a {
+		color: #0284c7;
+		text-decoration: none;
+	}
+
+	.legal-page a:hover {
+		color: #0369a1;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.legal-page {
+			padding: 1.5rem;
+		}
+
+		.legal-page h1 {
+			font-size: 2rem;
+		}
+	}
+</style>

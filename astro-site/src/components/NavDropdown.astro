@@ -17,32 +17,54 @@ const isActive = item.children?.some(child => currentPath === child.href) || fal
 ---
 
 <div class="relative group flex items-center">
-	<button
-		class:list={{
-			'text-1rem font-semibold transition-colors flex items-center gap-1 leading-none': true,
-			'text-gray-900 dark:text-white': true,
-			'hover:text-[#0284c7] dark:hover:text-sky-400': true,
-		}}
-		aria-expanded="false"
-		aria-haspopup="true"
-	>
-		<span class="flex items-center">{item.title}</span>
-		<svg
-			class="h-4 w-4 transition-transform group-hover:rotate-180 flex-shrink-0"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
+	{item.href && item.href !== '#' ? (
+		<a
+			href={item.href}
+			class:list={{
+				'text-1.2rem font-semibold transition-colors flex items-center gap-1 leading-none': true,
+				'text-gray-900 dark:text-white': true,
+				'hover:text-[#0284c7] dark:hover:text-sky-400': true,
+			}}
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-		</svg>
-	</button>
+			<span class="flex items-center">{item.title}</span>
+			<svg
+				class="h-4 w-4 transition-transform group-hover:rotate-180 flex-shrink-0"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				aria-hidden="true"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+			</svg>
+		</a>
+	) : (
+		<button
+			class:list={{
+				'text-1.2rem font-semibold transition-colors flex items-center gap-1 leading-none': true,
+				'text-gray-900 dark:text-white': true,
+				'hover:text-[#0284c7] dark:hover:text-sky-400': true,
+			}}
+			aria-expanded="false"
+			aria-haspopup="true"
+		>
+			<span class="flex items-center">{item.title}</span>
+			<svg
+				class="h-4 w-4 transition-transform group-hover:rotate-180 flex-shrink-0"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+			</svg>
+		</button>
+	)}
 	<div class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
 		<div class="py-2">
 			{item.children?.map((child) => (
 				<a
 					href={child.href}
 					class:list={{
-						'block px-4 py-2 text-.9rem font-medium transition-colors': true,
+						'block px-4 py-2 text-1rem font-semibold transition-colors': true,
 						'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800': true,
 					}}
 					target={child.external ? '_blank' : undefined}

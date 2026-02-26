@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageShell from '../components/PageShell.astro';
-import ArticleContent from '../components/ArticleContent.astro';
-import OwnerGuideTabs from '../components/OwnerGuideTabs.astro';
-import { getBreadcrumbs } from '../data/hierarchy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
 
 const title = "Maximize Your Oil and Gas Lease Proposal – Expert Tips for Mineral Owners";
 const description = "Unlock the full potential of your oil and gas mineral rights. Learn expert tips, avoid common mistakes, and negotiate the best lease terms with our comprehensive guide to oil and gas leasing.";
@@ -58,7 +58,7 @@ const tabs = [
 ---
 
 <BaseLayout title={title} description={description}>
-	<PageShell breadcrumbs={getBreadcrumbs('/lease-proposals')}>
+	<PageShell breadcrumbs={getBreadcrumbs('/owners-guide/lease-proposals')}>
 		<ArticleContent>
 			<OwnerGuideTabs 
 				heading={heading}
