@@ -1,24 +1,125 @@
 ---
 import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
+
+type JsonLd = Record<string, unknown>;
 
 interface Props {
 	title: string;
 	description: string;
-	image?: ImageMetadata;
+  image?: ImageMetadata | string;
+  schema?: JsonLd | JsonLd[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image, schema } = Astro.props;
+
+function normalizeWhitespace(value: string): string {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function truncateAtWord(value: string, maxLength: number): string {
+  if (value.length <= maxLength) return value;
+  const truncated = value.slice(0, maxLength - 1);
+  const lastSpace = truncated.lastIndexOf(' ');
+  if (lastSpace > 20) {
+    return `${truncated.slice(0, lastSpace)}…`;
+  }
+  return `${truncated}…`;
+}
+
+function toSeoTitle(rawTitle: string): string {
+  let value = normalizeWhitespace(rawTitle || SITE_TITLE);
+
+  if (!/\bMineralWise\b/i.test(value)) {
+    value = `${value} | MineralWise`;
+  }
+
+  if (value.length < 20) {
+    value = `${value} Guide`;
+  }
+
+  return truncateAtWord(value, 65);
+}
+
+function toSeoDescription(rawDescription: string): string {
+  const fallback = 'Comprehensive mineral rights education and oil and gas resources for owners, lessors, and royalty stakeholders.';
+  let value = normalizeWhitespace(rawDescription || fallback);
+
+  if (value.length > 160) {
+    value = truncateAtWord(value, 160);
+  }
+
+  if (value.length < 70) {
+    const suffix = ' Learn more at MineralWise.';
+    if (!/\bMineralWise\b/i.test(value)) {
+      value = `${value}${suffix}`;
+    }
+  }
+
+  if (value.length < 70) {
+    value = `${value} Mineral rights education resources.`;
+  }
+
+  return truncateAtWord(value, 170);
+}
+
+const seoTitle = toSeoTitle(title);
+const seoDescription = toSeoDescription(description);
+const siteURL = new URL('/', Astro.site ?? Astro.url).toString();
+const canonicalURLString = canonicalURL.toString();
+const defaultOgImagePath = '/images/mwlogoog.png';
+const imagePath = typeof image === 'string' ? image : image?.src ?? defaultOgImagePath;
+const imageURL = new URL(imagePath, Astro.url).toString();
+const organizationId = `${siteURL}#organization`;
+const websiteId = `${siteURL}#website`;
+const webpageId = `${canonicalURLString}#webpage`;
+
+const baseSchema: JsonLd[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE_TITLE,
+    url: siteURL,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: siteURL,
+    name: SITE_TITLE,
+    publisher: {
+      '@id': organizationId,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': webpageId,
+    url: canonicalURLString,
+    name: seoTitle,
+    description: seoDescription,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: imageURL,
+    },
+  },
+];
+
+const additionalSchema = Array.isArray(schema) ? schema : schema ? [schema] : [];
+const allSchema = [...baseSchema, ...additionalSchema];
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/images/mwfacicon.png" />
+<link rel="shortcut icon" type="image/png" href="/images/mwfacicon.png" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
@@ -32,23 +133,27 @@ const { title, description, image = FallbackImage } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{seoTitle}</title>
+<meta name="title" content={seoTitle} />
+<meta name="description" content={seoDescription} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:title" content={seoTitle} />
+<meta property="og:description" content={seoDescription} />
+<meta property="og:image" content={imageURL} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:title" content={seoTitle} />
+<meta property="twitter:description" content={seoDescription} />
+<meta property="twitter:image" content={imageURL} />
+
+{allSchema.map((schemaObject) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schemaObject)} />
+))}
 
 <!-- Google Ad Manager / GPT -->
 <script type="text/javascript" is:inline>

@@ -23,6 +23,16 @@ npm run dev
 
 Visit `http://localhost:4321` to see your site.
 
+### SEO Validation
+
+Run the metadata/schema audit before deploy:
+
+```bash
+npm run seo:audit
+```
+
+This check ensures each Astro page uses `BaseLayout` or `BaseHead`, verifies required `title` and `description` props, and flags likely placeholder metadata.
+
 ## Migration Scripts
 
 ### 1. Download Images
