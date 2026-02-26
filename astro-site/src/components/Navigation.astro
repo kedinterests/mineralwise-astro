@@ -26,6 +26,17 @@ const currentPath = Astro.url.pathname;
 			)}
 		</div>
 	))}
+	<!-- SearchIQ search icon -->
+	<div class="siq-icon-item-siq-selectbox moveToExtremeRight">
+		<div class="siq-icon-searchbox-wrap">
+			<div class="siq-expsearch-cont">
+				<form class="siq-expsearch" action="/">
+					<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
+					<span class="siq-expsearch-icon"></span>
+				</form>
+			</div>
+		</div>
+	</div>
 </nav>
 
 <!-- Mobile Menu Button -->
@@ -85,6 +96,17 @@ const currentPath = Astro.url.pathname;
 				)}
 			</div>
 		))}
+		<!-- SearchIQ search icon (mobile) -->
+		<div class="siq-icon-item-siq-selectbox mt-4">
+			<div class="siq-icon-searchbox-wrap openFromLeft">
+				<div class="siq-expsearch-cont">
+					<form class="siq-expsearch" action="/">
+						<input type="search" placeholder="Search" name="s" class="siq-expsearch-input" aria-label="Search" autocomplete="off" />
+						<span class="siq-expsearch-icon"></span>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
