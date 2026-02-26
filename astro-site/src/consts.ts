@@ -3,3 +3,6 @@
 
 export const SITE_TITLE = 'MineralWise - Leading Mineral Rights Education';
 export const SITE_DESCRIPTION = 'Comprehensive education and resources for mineral rights owners, covering oil and gas leasing, royalty management, and mineral rights by state.';
+
+/** Production site URL. Set PUBLIC_SITE_URL env var when building for production. */
+export const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://mineralwise.com';

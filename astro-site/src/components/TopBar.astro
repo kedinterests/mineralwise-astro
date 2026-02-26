@@ -1,5 +1,5 @@
 ---
-const offerUrl = 'https://www.mineralwise.com/offer#form';
+const offerUrl = Astro.site ? new URL('/offer#form', Astro.site).toString() : '/offer#form';
 ---
 
 <div id="top-bar" class="top-bar" role="banner">
