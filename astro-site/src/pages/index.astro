@@ -59,6 +59,11 @@ const description = "Discover expert insights and tools for managing your minera
 				aspect-ratio: 4 / 3;
 				min-height: 300px;
 			}
+			.hero-content {
+				max-width: 65%;
+				margin-left: 0;
+				margin-right: auto;
+			}
 		}
 		.hero-cta-btn {
 			background: var(--accent) !important;
@@ -90,7 +95,6 @@ const description = "Discover expert insights and tools for managing your minera
 					alt=""
 					width="1536"
 					height="1024"
-					fetchpriority="high"
 					loading="eager"
 					decoding="sync"
 				/>
@@ -100,7 +104,7 @@ const description = "Discover expert insights and tools for managing your minera
 		<!-- Gradient Overlay from Left to Right -->
 		<div class="absolute inset-0" style="background: linear-gradient(to right, black 0%, transparent 80%);"></div>		
 		<!-- Content Container - Left Side (where gradient is darkest) -->
-		<div class="relative z-10 container mx-auto px-4 max-w-7xl w-full">
+		<div class="hero-content relative z-10 container mx-auto px-4 max-w-7xl w-full">
 			<div class="max-w-2xl text-white">
 				<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
 					Insight for<br />
