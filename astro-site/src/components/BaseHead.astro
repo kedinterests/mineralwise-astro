@@ -215,6 +215,15 @@ const allSchema = [...baseSchema, ...additionalSchema];
     var script = document.createElement("SCRIPT");
     script.src = window.siqConfig.baseUrl + '/js/container/siq-container-2.js?cb=' + (Math.floor(Math.random()*999999)) + '&engineKey=' + siqConfig.engineKey;
     script.id = "siq-container";
+    script.onload = function() {
+      var orig = window.SIQ_settings_loaded;
+      if (orig) {
+        window.SIQ_settings_loaded = function(b) {
+          b.resultPageUrl = (window.location.origin || '') + '/search';
+          orig(b);
+        };
+      }
+    };
     document.getElementsByTagName("HEAD")[0].appendChild(script);
   })();
 </script>
