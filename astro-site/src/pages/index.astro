@@ -31,15 +31,15 @@ const description = "Discover expert insights and tools for managing your minera
 		}
 		/* Reserve space to prevent CLS - aspect-ratio + min-height */
 		.hero-section {
-			aspect-ratio: 2 / 1;
-			min-height: 500px;
+			min-height: 550px;
+			max-height: 550px;
 		}
 		#hero-background picture,
 		#hero-background img {
 			width: 100%;
-			height: 100%;
+			/* height: 100%; */
 			object-fit: cover;
-			object-position: center 10%;
+			object-position: bottom;
 		}
 		#hero-background picture {
 			display: block;
@@ -54,7 +54,7 @@ const description = "Discover expert insights and tools for managing your minera
 		@media (max-width: 767px) {
 			.hero-section {
 				aspect-ratio: 4 / 3;
-				min-height: 400px;
+				min-height: 300px;
 			}
 			#hero-background img {
 				object-position: calc(50% - 30px) 15%;
@@ -116,13 +116,8 @@ const description = "Discover expert insights and tools for managing your minera
 		</div>
 	</section>
 
-	<!-- AC Ad: after hero -->
-	<div class="ad-slot ad-ac">
-		<AboveContentAd />
-	</div>
-
 	<!-- Main Content Section -->
-	<section class="pt-4 bg-white dark:bg-neutral-950 w-full">
+	<section class="mt-16 pt-4 bg-white dark:bg-neutral-950 w-full">
 		<div class="container mx-auto px-4 max-w-6xl">
 			<!-- Two Column Layout: Mineral Rights Text + Sticky Questions -->
 			<div class="grid grid-cols-1 md:grid-cols-[60%_40%] gap-12 mb-16" id="content-scroll-container">
