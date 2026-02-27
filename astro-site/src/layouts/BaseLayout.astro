@@ -33,6 +33,7 @@ const showBcAd = adConfig === 'bc-only' || adConfig === 'home';
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+		<slot name="head" />
 	</head>
 	<body>
 		<TopBar />

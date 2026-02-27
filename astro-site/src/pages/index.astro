@@ -2,12 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/starwind/button/Button.astro';
 import AboveContentAd from '../components/AboveContentAd.astro';
+import { Fragment } from 'astro/jsx-runtime';
 
 const title = "MineralWise - Leading Mineral Rights Education";
 const description = "Discover expert insights and tools for managing your mineral rights with MineralWise. Learn about leasing, royalties, property valuation, and more. Empowering mineral owners with knowledge and resources.";
 ---
 
 <BaseLayout title={title} description={description} adConfig="home">
+	<Fragment slot="head">
+		<link rel="preload" href="/images/hero-768.webp" as="image" type="image/webp" media="(max-width: 768px)" />
+		<link rel="preload" href="/images/hero.webp" as="image" type="image/webp" media="(min-width: 769px)" />
+	</Fragment>
 	<style>
 		:global(main) {
 			width: 100% !important;
@@ -24,9 +29,35 @@ const description = "Discover expert insights and tools for managing your minera
 		.ad-slot.ad-ac {
 			padding: 1.5rem 0;
 		}
+		/* Reserve space to prevent CLS - aspect-ratio + min-height */
+		.hero-section {
+			aspect-ratio: 2 / 1;
+			min-height: 500px;
+		}
+		#hero-background picture,
+		#hero-background img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center 10%;
+		}
+		#hero-background picture {
+			display: block;
+			position: absolute;
+			inset: 0;
+		}
+		#hero-background img {
+			display: block;
+			position: absolute;
+			inset: 0;
+		}
 		@media (max-width: 767px) {
-			#hero-background {
-				background-position: calc(50% - 30px) 15% !important;
+			.hero-section {
+				aspect-ratio: 4 / 3;
+				min-height: 400px;
+			}
+			#hero-background img {
+				object-position: calc(50% - 30px) 15%;
 			}
 		}
 		.hero-cta-btn {
@@ -40,9 +71,30 @@ const description = "Discover expert insights and tools for managing your minera
 	</style>
 	
 	<!-- Hero Section with Full-Width Background -->
-	<section class="relative min-h-[500px] md:min-h-[500px] flex items-center bg-cover bg-center bg-no-repeat w-full overflow-hidden">
-		<!-- Background Image - Flipped Horizontally with Parallax -->
-		<div id="hero-background" class="absolute inset-0 bg-cover" style="background-image: url('/images/hero.png'); background-position: center 10%;"></div>
+	<section class="hero-section relative flex items-center w-full overflow-hidden">
+		<!-- Background Image - Optimized WebP, responsive srcset -->
+		<div id="hero-background" class="absolute inset-0">
+			<picture class="block absolute inset-0">
+				<source
+					type="image/webp"
+					srcset="
+						/images/hero-480.webp 480w,
+						/images/hero-768.webp 768w,
+						/images/hero-1200.webp 1200w,
+						/images/hero.webp 1536w
+					"
+					sizes="100vw"
+				/>
+				<img
+					src="/images/hero.webp"
+					alt=""
+					width="1536"
+					height="1024"
+					fetchpriority="high"
+					decoding="async"
+				/>
+			</picture>
+		</div>
 		
 		<!-- Gradient Overlay from Left to Right -->
 		<div class="absolute inset-0" style="background: linear-gradient(to right, black 0%, transparent 80%);"></div>		
@@ -159,32 +211,25 @@ const description = "Discover expert insights and tools for managing your minera
 	</section>
 
 	<script>
-		// Parallax effect for hero background
+		// Parallax effect for hero background (transform only - no layout shift)
 		function initParallax() {
-			const heroSection = document.querySelector('section');
-			const heroBackground = document.getElementById('hero-background');
+			const heroSection = document.querySelector('.hero-section');
+			const heroImg = document.querySelector('#hero-background img');
 			
-			if (!heroSection || !heroBackground) return;
-			
-			// Make background taller and extend above to prevent gaps during parallax (top bar adds height)
-			heroBackground.style.height = '140%';
-			heroBackground.style.top = '-20%';
+			if (!heroSection || !heroImg) return;
 			
 			function updateParallax() {
 				const rect = heroSection.getBoundingClientRect();
 				const scrollY = window.scrollY;
 				const heroTop = rect.top + scrollY;
 				
-				// Calculate parallax offset (background moves slower than scroll)
 				const parallaxSpeed = 0.5;
 				const offset = (scrollY - heroTop) * parallaxSpeed;
 				
-				// Only apply parallax when hero is in viewport
 				if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
-					heroBackground.style.transform = `scaleX(1) translateY(${offset}px)`;
+					heroImg.style.transform = `translateY(${offset}px)`;
 				} else {
-					// Reset when out of viewport
-					heroBackground.style.transform = 'scaleX(1) translateY(0px)';
+					heroImg.style.transform = 'translateY(0)';
 				}
 			}
 			
