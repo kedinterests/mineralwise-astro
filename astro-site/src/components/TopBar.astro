@@ -1,12 +1,12 @@
 ---
-const offerUrl = Astro.site ? new URL('/offer#form', Astro.site).toString() : '/offer#form';
+const offerUrl = Astro.site ? new URL('/offer', Astro.site).toString() : '/offer#form';
 ---
 
 <div id="top-bar" class="top-bar" role="banner">
 	<div class="top-bar__inner">
 		<p class="top-bar__text">
 			Received a letter about purchasing your minerals? To consider an alternate offer –{' '}
-			<a href={offerUrl} class="top-bar__button">Click Here</a>
+			<a class="font-bold" href={offerUrl}>Click Here</a>
 		</p>
 		<button
 			type="button"

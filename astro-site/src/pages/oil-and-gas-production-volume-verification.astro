@@ -1,17 +1,203 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Fragment } from 'astro/jsx-runtime';
+import PageShell from '../components/PageShell.astro';
+import ArticleContent from '../components/ArticleContent.astro';
+import { getBreadcrumbs } from '../data/hierarchy';
 
 const title = "Verify Oil and Gas Production Volumes | Free Tools for Royalty Owners";
-const description = "Ensure you";
-
-const content = "<div>\n    <section id=\"hjdB_k5Nly4M_hjdB_k5Nly4M\"><div><div><div><div><div><h1><span>Volume Verification</span></h1></div></div></div><div><div><div><p><span>Verifying oil and gas production just got easier. Technology makes it so. A longstanding question in the mind of many oil and gas royalty owners has been, “Am I getting paid on the full oil and gas production volumes that are produced from my wells”?</span></p><p></p><h2><span>There’s an Easy and Free Way for Royalty Owners to Verify Oil and Gas Production Volumes</span></h2><p><span>The good news is that technology now makes it easy and affordable to validate exactly what production volumes oil and gas companies are reporting to the oil and gas regulatory agencies. You can do it right here. If you would like to discuss mineral rights related issues with other landowners visit MineralRightsForum.com.</span></p><p></p><h2><span>Operators are Required to Submit Oil and Gas Production Volumes</span></h2><p><span>Each Operator (the company responsible for operating and maintaining oil and gas wells) is responsible to conduct business according to the rules of the regulatory agency that governs oil and gas activity within a particular state. One such rule is to report all oil and gas production from wells. These reports must be submitted each month on a well or lease basis. Oil, gas, water, NGL's – all must be reported. Furthermore, the First Purchaser must also submit a Purchasers report, so that production volumes can be compared to that of the Operators.</span></p></div></div></div><div><div><div><div><div><div><div><h2><span>Oil and Gas Measurement</span></h2><p><span>Produced oil and gas is measured prior to leaving the well site, as required by law. The gross volume from which your royalty share is calculated is based on this measurement. Customary industry standard is that the Operator verifies the measurements of the First Purchaser through a check meter for gas, or by re-checking (after oil has been removed from the location) the levels in the oil storage tanks. Natural gas meters are typically calibrated every thirty days. Today’s measurement technology is generally accurate to within 1.5 %. Furthermore, with a properly calibrated meter, random over measurements and under measurements will tend to cancel each other over time. You can read more about oil and gas measurement in the article Oil and Gas Measurement.</span></p></div></div></div></div></div><div><div><div><div><picture><source srcset=\"/images/vlume.jpg, /images/vlume.jpg\" media=\"(min-width: 992px)\"><source srcset=\"/images/vlume.jpg, /images/vlume.jpg\" media=\"(min-width: 768px)\"><img srcset=\"/images/vlume.jpg, /images/vlume.jpg\" src=\"/images/vlume.jpg\" loading=\"lazy\" alt=\"\" title=\"vlume.jpg\" draggable=\"false\"></picture></div></div></div></div></div></div><div><div><div><h2><span>Am I Being Cheated?</span></h2><p><span>With respect to the risk of you being shorted your properly due production, it is important to keep in mind that it is in your Operator’s best interest to insure proper measurement. Operators want to get paid properly on their share just as much as you want the same on your share. While there are recorded cases of theft, it is uncommon to find systematic theft of hydrocarbons through oil and gas measurement manipulation.</span></p><p></p><h2><span>Verify Your Oil and Gas Production Volumes Here</span></h2><p><span>If you'd like professional help in interpreting this data, or if you have special needs in this area, we have trained associates that can help.</span></p></div></div></div><div><div><div><div><div><div><div><ul><li><a href=\"http://www.gsa.state.al.us/ogb/production_nav.aspx\" target=\"_blank\" rel=\"noreferrer noopener\">Alabama</a></li><li><a href=\"http://opi.consrv.ca.gov/opi/opi.dll\" target=\"_blank\" rel=\"noreferrer noopener\">California</a></li><li><a href=\"http://cogcc.state.co.us/\" target=\"_blank\" rel=\"noreferrer noopener\">Colorado</a></li><li><a href=\"http://www.dep.state.fl.us/water/mines/oil_gas/index.htm\" target=\"_blank\" rel=\"noreferrer noopener\">Florida</a></li><li><a href=\"http://www.isgs.illinois.edu/sections/oil-gas/launchims.shtml\" target=\"_blank\" rel=\"noreferrer noopener\">Illinois</a></li><li><a href=\"http://www.in.gov/dnr/dnroil/\" target=\"_blank\" rel=\"noreferrer noopener\">Indiana</a></li><li><a href=\"http://www.kgs.ku.edu/Magellan/Field/lease.html\" target=\"_blank\" rel=\"noreferrer noopener\">Kansas</a></li><li><a href=\"http://oilandgas.ky.gov/Pages/Welcome.aspx\" target=\"_blank\" rel=\"noreferrer noopener\">Kentucky</a></li><li><a href=\"http://sonris-www.dnr.state.la.us/www_root/sonris_portal_1.htm\" target=\"_blank\" rel=\"noreferrer noopener\">Louisiana</a></li><li><a href=\"http://www.ogb.state.ms.us/welldatamenu.php\" target=\"_blank\" rel=\"noreferrer noopener\">Mississippi</a></li><li><a href=\"http://bogc.dnrc.mt.gov/onlinedata.asp\" target=\"_blank\" rel=\"noreferrer noopener\">Montana</a></li></ul></div></div></div></div></div><div><div><div><div><div><ul><li><a href=\"http://www.nogcc.ne.gov/\" target=\"_blank\" rel=\"noreferrer noopener\">Nebraska</a></li><li><a href=\"http://octane.nmt.edu/gotech/Petroleum_Data/General.aspx\" target=\"_blank\" rel=\"noreferrer noopener\">New Mexico</a></li><li><a href=\"http://www.dec.ny.gov/cfmx/extapps/GasOil/\" target=\"_blank\" rel=\"noreferrer noopener\">New York</a></li><li><a href=\"https://www.dmr.nd.gov/oilgas/findwellsvw.asp\" target=\"_blank\" rel=\"noreferrer noopener\">North Dakota</a></li><li><a href=\"http://www.occeweb.com/Orawebapps/OCCOraWebAppsone.html\" target=\"_blank\" rel=\"noreferrer noopener\">Oklahoma</a></li><li><a href=\"http://denr.sd.gov/des/og/welldata.aspx\" target=\"_blank\" rel=\"noreferrer noopener\">South Dakota</a></li><li><a href=\"http://webapps.rrc.state.tx.us/PDQ/home.do\" target=\"_blank\" rel=\"noreferrer noopener\">Texas</a></li><li><a href=\"http://oilgas.ogm.utah.gov/Data_Center/LiveData_Search/production.htm\" target=\"_blank\" rel=\"noreferrer noopener\">Utah</a></li><li><a href=\"http://www.dep.wv.gov/oil-and-gas/Pages/default.aspx\" target=\"_blank\" rel=\"noreferrer noopener\">West Virginia</a></li><li><a href=\"http://wogcc.state.wy.us/\" target=\"_blank\" rel=\"noreferrer noopener\">Wyoming</a></li></ul></div></div></div></div></div></div></div><div><div><div><p><strong>Additional Reading</strong></p><ul><li><a href=\"/oil-gas-measurement\">Oil &amp; Gas Measurement</a><span> – Explanation of how oil and gas is measured at the lease and how it relates to payment for royalty owners or mineral owners. Defines MMBTU, MCF, BBL and more.</span></li></ul><p></p><ul><li><a href=\"/oil-and-gas-investment-basics\">Oil and Gas Investment Basics</a><span> – Short article explaining direct oil &amp; gas investment basics for those considering investing in oil/gas wells. Topics include risk evaluation, deal structure.</span></li></ul></div></div></div></div></div></section>";
+const description = "Ensure you receive accurate royalty payments. Free tools and state-by-state links to verify oil and gas production volumes reported by operators.";
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="content-wrapper">
-		<div class="content-section">
-			<Fragment set:html={content} />
-		</div>
-	</article>
+	<PageShell breadcrumbs={getBreadcrumbs('/oil-and-gas-production-volume-verification')}>
+		<ArticleContent>
+			<div class="content-page">
+				<h1>Volume Verification</h1>
+
+				<div class="content-body">
+					<p>Verifying oil and gas production just got easier. Technology makes it so. A longstanding question in the mind of many oil and gas royalty owners has been, "Am I getting paid on the full oil and gas production volumes that are produced from my wells"?</p>
+
+					<h2>There's an Easy and Free Way for Royalty Owners to Verify Oil and Gas Production Volumes</h2>
+					<p>The good news is that technology now makes it easy and affordable to validate exactly what production volumes oil and gas companies are reporting to the oil and gas regulatory agencies. You can do it right here. If you would like to discuss mineral rights related issues with other landowners visit <a href="https://mineralrightsforum.com" target="_blank" rel="noreferrer noopener">MineralRightsForum.com</a>.</p>
+
+					<h2>Operators are Required to Submit Oil and Gas Production Volumes</h2>
+					<p>Each Operator (the company responsible for operating and maintaining oil and gas wells) is responsible to conduct business according to the rules of the regulatory agency that governs oil and gas activity within a particular state. One such rule is to report all oil and gas production from wells. These reports must be submitted each month on a well or lease basis. Oil, gas, water, NGL's – all must be reported. Furthermore, the First Purchaser must also submit a Purchasers report, so that production volumes can be compared to that of the Operators.</p>
+
+					<h2>Oil and Gas Measurement</h2>
+					<p>Produced oil and gas is measured prior to leaving the well site, as required by law. The gross volume from which your royalty share is calculated is based on this measurement. Customary industry standard is that the Operator verifies the measurements of the First Purchaser through a check meter for gas, or by re-checking (after oil has been removed from the location) the levels in the oil storage tanks. Natural gas meters are typically calibrated every thirty days. Today's measurement technology is generally accurate to within 1.5 %. Furthermore, with a properly calibrated meter, random over measurements and under measurements will tend to cancel each other over time. You can read more about oil and gas measurement in the article <a href="/oil-gas-measurement">Oil and Gas Measurement</a>.</p>
+
+					<img src="/images/vlume.jpg" alt="Oil and gas volume measurement diagram" class="content-image" loading="lazy" />
+
+					<h2>Am I Being Cheated?</h2>
+					<p>With respect to the risk of you being shorted your properly due production, it is important to keep in mind that it is in your Operator's best interest to insure proper measurement. Operators want to get paid properly on their share just as much as you want the same on your share. While there are recorded cases of theft, it is uncommon to find systematic theft of hydrocarbons through oil and gas measurement manipulation.</p>
+
+					<h2>Verify Your Oil and Gas Production Volumes Here</h2>
+					<p>If you'd like professional help in interpreting this data, or if you have special needs in this area, we have trained associates that can help.</p>
+
+					<ul>
+						<li><a href="http://www.gsa.state.al.us/ogb/production_nav.aspx" target="_blank" rel="noreferrer noopener">Alabama</a></li>
+						<li><a href="http://opi.consrv.ca.gov/opi/opi.dll" target="_blank" rel="noreferrer noopener">California</a></li>
+						<li><a href="http://cogcc.state.co.us/" target="_blank" rel="noreferrer noopener">Colorado</a></li>
+						<li><a href="http://www.dep.state.fl.us/water/mines/oil_gas/index.htm" target="_blank" rel="noreferrer noopener">Florida</a></li>
+						<li><a href="http://www.isgs.illinois.edu/sections/oil-gas/launchims.shtml" target="_blank" rel="noreferrer noopener">Illinois</a></li>
+						<li><a href="http://www.in.gov/dnr/dnroil/" target="_blank" rel="noreferrer noopener">Indiana</a></li>
+						<li><a href="http://www.kgs.ku.edu/Magellan/Field/lease.html" target="_blank" rel="noreferrer noopener">Kansas</a></li>
+						<li><a href="http://oilandgas.ky.gov/Pages/Welcome.aspx" target="_blank" rel="noreferrer noopener">Kentucky</a></li>
+						<li><a href="http://sonris-www.dnr.state.la.us/www_root/sonris_portal_1.htm" target="_blank" rel="noreferrer noopener">Louisiana</a></li>
+						<li><a href="http://www.ogb.state.ms.us/welldatamenu.php" target="_blank" rel="noreferrer noopener">Mississippi</a></li>
+						<li><a href="http://bogc.dnrc.mt.gov/onlinedata.asp" target="_blank" rel="noreferrer noopener">Montana</a></li>
+						<li><a href="http://www.nogcc.ne.gov/" target="_blank" rel="noreferrer noopener">Nebraska</a></li>
+						<li><a href="http://octane.nmt.edu/gotech/Petroleum_Data/General.aspx" target="_blank" rel="noreferrer noopener">New Mexico</a></li>
+						<li><a href="http://www.dec.ny.gov/cfmx/extapps/GasOil/" target="_blank" rel="noreferrer noopener">New York</a></li>
+						<li><a href="https://www.dmr.nd.gov/oilgas/findwellsvw.asp" target="_blank" rel="noreferrer noopener">North Dakota</a></li>
+						<li><a href="http://www.occeweb.com/Orawebapps/OCCOraWebAppsone.html" target="_blank" rel="noreferrer noopener">Oklahoma</a></li>
+						<li><a href="http://denr.sd.gov/des/og/welldata.aspx" target="_blank" rel="noreferrer noopener">South Dakota</a></li>
+						<li><a href="http://webapps.rrc.state.tx.us/PDQ/home.do" target="_blank" rel="noreferrer noopener">Texas</a></li>
+						<li><a href="http://oilgas.ogm.utah.gov/Data_Center/LiveData_Search/production.htm" target="_blank" rel="noreferrer noopener">Utah</a></li>
+						<li><a href="http://www.dep.wv.gov/oil-and-gas/Pages/default.aspx" target="_blank" rel="noreferrer noopener">West Virginia</a></li>
+						<li><a href="http://wogcc.state.wy.us/" target="_blank" rel="noreferrer noopener">Wyoming</a></li>
+					</ul>
+				</div>
+
+				<div class="additional-reading">
+					<h2>Additional Reading</h2>
+					<ul>
+						<li><a href="/oil-gas-measurement">Oil &amp; Gas Measurement</a> – Explanation of how oil and gas is measured at the lease and how it relates to payment for royalty owners or mineral owners. Defines MMBTU, MCF, BBL and more.</li>
+						<li><a href="/oil-and-gas-investment-basics">Oil and Gas Investment Basics</a> – Short article explaining direct oil &amp; gas investment basics for those considering investing in oil/gas wells. Topics include risk evaluation, deal structure.</li>
+					</ul>
+				</div>
+			</div>
+		</ArticleContent>
+	</PageShell>
 </BaseLayout>
+
+<style>
+	.content-page {
+		background: white;
+		border-radius: 15px;
+		padding: 2.5rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.content-page h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #1a1a1a;
+	}
+
+	.content-body {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+	}
+
+	.content-body h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.content-body h2:first-of-type {
+		margin-top: 0;
+	}
+
+	.content-body p {
+		margin-bottom: 1.25rem;
+	}
+
+	.content-body p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.content-body ul {
+		margin: 1.25rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.content-body li {
+		margin-bottom: 0.75rem;
+	}
+
+	.content-body a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.content-body a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	.content-body strong {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.content-image {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+		margin: 1.5rem 0 2rem 0;
+	}
+
+	.additional-reading {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e5e7eb;
+	}
+
+	.additional-reading h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: #1a1a1a;
+	}
+
+	.additional-reading ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.additional-reading li {
+		font-size: 1.0625rem;
+		line-height: 1.7;
+		color: #374151;
+		margin-bottom: 0.5rem;
+	}
+
+	.additional-reading a {
+		color: #0ea5e9;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.additional-reading a:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		.content-page {
+			padding: 1.5rem;
+		}
+
+		.content-page h1 {
+			font-size: 2rem;
+		}
+
+		.content-body h2 {
+			font-size: 1.5rem;
+		}
+
+		.content-image {
+			height: 250px;
+		}
+	}
+</style>

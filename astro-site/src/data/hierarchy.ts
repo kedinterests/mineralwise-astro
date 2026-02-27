@@ -14,6 +14,7 @@ export const pageHierarchy: Record<string, PageNode> = {
 	'/about': { label: 'About', parent: '/' },
 	'/about/team': { label: 'Our Team', parent: '/about' },
 	'/contact-us': { label: 'Contact Us', parent: '/' },
+	'/offer': { label: 'Cash Proposal', parent: '/' },
 	'/advertising': { label: 'Advertise', parent: '/' },
 	'/privacy-policy': { label: 'Privacy Policy', parent: '/' },
 	'/terms-and-conditions': { label: 'Terms & Conditions', parent: '/' },
