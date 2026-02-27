@@ -31,15 +31,18 @@ const description = "Discover expert insights and tools for managing your minera
 		}
 		/* Reserve space to prevent CLS - aspect-ratio + min-height */
 		.hero-section {
-			min-height: 550px;
+			aspect-ratio: 2 / 1;
 			max-height: 550px;
+		}
+		#hero-background {
+			background: #1a1a1a;
 		}
 		#hero-background picture,
 		#hero-background img {
 			width: 100%;
-			/* height: 100%; */
+			height: 100%;
 			object-fit: cover;
-			object-position: bottom;
+			object-position: center 30%;
 		}
 		#hero-background picture {
 			display: block;
@@ -55,9 +58,6 @@ const description = "Discover expert insights and tools for managing your minera
 			.hero-section {
 				aspect-ratio: 4 / 3;
 				min-height: 300px;
-			}
-			#hero-background img {
-				object-position: calc(50% - 30px) 15%;
 			}
 		}
 		.hero-cta-btn {
@@ -207,44 +207,6 @@ const description = "Discover expert insights and tools for managing your minera
 	</section>
 
 	<script>
-		// Parallax effect for hero background (transform only - no layout shift)
-		function initParallax() {
-			const heroSection = document.querySelector('.hero-section');
-			const heroImg = document.querySelector('#hero-background img');
-			
-			if (!heroSection || !heroImg) return;
-			
-			function updateParallax() {
-				const rect = heroSection.getBoundingClientRect();
-				const scrollY = window.scrollY;
-				const heroTop = rect.top + scrollY;
-				
-				const parallaxSpeed = 0.5;
-				const offset = (scrollY - heroTop) * parallaxSpeed;
-				
-				if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
-					heroImg.style.transform = `translateY(${offset}px)`;
-				} else {
-					heroImg.style.transform = 'translateY(0)';
-				}
-			}
-			
-			// Use requestAnimationFrame for smooth performance
-			let ticking = false;
-			function onScroll() {
-				if (!ticking) {
-					window.requestAnimationFrame(() => {
-						updateParallax();
-						ticking = false;
-					});
-					ticking = true;
-				}
-			}
-			
-			window.addEventListener('scroll', onScroll, { passive: true });
-			updateParallax(); // Initial call
-		}
-		
 		// Sticky questions section
 		function initStickyQuestions() {
 			const container = document.getElementById('content-scroll-container');
@@ -288,12 +250,8 @@ const description = "Discover expert insights and tools for managing your minera
 		
 		// Initialize when DOM is ready
 		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', () => {
-				initParallax();
-				initStickyQuestions();
-			});
+			document.addEventListener('DOMContentLoaded', initStickyQuestions);
 		} else {
-			initParallax();
 			initStickyQuestions();
 		}
 	</script>
