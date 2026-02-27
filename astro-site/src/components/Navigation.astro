@@ -126,22 +126,22 @@ const currentPath = Astro.url.pathname;
 	</div>
 </div>
 
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const menuButton = document.getElementById('mobile-menu-button');
-		const mobileMenu = document.getElementById('mobile-menu');
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', function() {
+		var menuButton = document.getElementById('mobile-menu-button');
+		var mobileMenu = document.getElementById('mobile-menu');
 		
 		if (menuButton && mobileMenu) {
-			menuButton.addEventListener('click', () => {
+			menuButton.addEventListener('click', function() {
 				mobileMenu.classList.toggle('hidden');
 			});
 		}
 		
 		// Mobile dropdowns
-		document.querySelectorAll('[data-mobile-dropdown]').forEach(button => {
-			button.addEventListener('click', () => {
-				const menuId = button.getAttribute('data-mobile-dropdown');
-				const menu = document.querySelector(`[data-mobile-dropdown-menu="${menuId}"]`);
+		document.querySelectorAll('[data-mobile-dropdown]').forEach(function(button) {
+			button.addEventListener('click', function() {
+				var menuId = button.getAttribute('data-mobile-dropdown');
+				var menu = document.querySelector('[data-mobile-dropdown-menu="' + menuId + '"]');
 				if (menu) {
 					menu.classList.toggle('hidden');
 				}
@@ -149,29 +149,32 @@ const currentPath = Astro.url.pathname;
 		});
 
 		// SearchIQ icon-only: expand/collapse on icon click, close on outside click
-		document.querySelectorAll('.siq-icon-searchbox-wrap .siq-expsearch-icon').forEach((icon) => {
-			const searchBox = icon.closest('.siq-icon-searchbox-wrap');
-			const inputBox = searchBox?.querySelector('.siq-expsearch-input') as HTMLInputElement | null;
-			if (!searchBox || !inputBox) return;
-
-			icon.addEventListener('click', (e) => {
-				e.preventDefault();
-				if (!searchBox.classList.contains('siq-search-open')) {
-					searchBox.classList.add('siq-search-open');
-					inputBox.focus();
-				} else {
-					searchBox.classList.remove('siq-search-open');
-					inputBox.blur();
+		// Use event delegation so it works even if SearchIQ or other scripts modify the DOM
+		document.addEventListener('click', function(evt) {
+			var target = evt.target;
+			var icon = target && typeof target.closest === 'function' && target.closest('.siq-expsearch-icon');
+			if (icon) {
+				evt.preventDefault();
+				evt.stopPropagation();
+				var searchBox = icon.closest('.siq-icon-searchbox-wrap');
+				var inputBox = searchBox && searchBox.querySelector('.siq-expsearch-input');
+				if (searchBox && inputBox) {
+					if (!searchBox.classList.contains('siq-search-open')) {
+						searchBox.classList.add('siq-search-open');
+						inputBox.focus();
+					} else {
+						searchBox.classList.remove('siq-search-open');
+						inputBox.blur();
+					}
 				}
-			});
-
-			document.body.addEventListener('click', (evt) => {
-				const target = evt.target as Element | null;
-				if (target?.closest('.siq-icon-searchbox-wrap')) return;
-				if (searchBox.classList.contains('siq-search-open')) {
-					searchBox.classList.remove('siq-search-open');
-				}
-			});
+				return;
+			}
+			// Close when clicking outside
+			if (target && typeof target.closest === 'function' && !target.closest('.siq-icon-searchbox-wrap')) {
+				document.querySelectorAll('.siq-icon-searchbox-wrap.siq-search-open').forEach(function(box) {
+					box.classList.remove('siq-search-open');
+				});
+			}
 		});
 	});
 </script>
