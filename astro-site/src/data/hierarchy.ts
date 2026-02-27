@@ -156,6 +156,7 @@ export const pageHierarchy: Record<string, PageNode> = {
 	'/owners-guide/lease-proposals': { label: 'Lease Proposals', parent: '/owners-guide' },
 	'/pugh-clause-2': { label: 'Pugh Clause', parent: '/owners-guide/lease-proposals' },
 	'/owners-guide/opportunities-for-all': { label: 'Opportunities', parent: '/owners-guide' },
+	'/oil-and-gas-investment-basics': { label: 'Oil and Gas Investment Basics', parent: '/owners-guide/opportunities-for-all' },
 	'/royalty-in-suspense': { label: 'Royalty in Suspense', parent: '/owners-guide/opportunities-for-all' },
 	'/owners-guide/cash-payment-for-oil-and-gas-royalty': { label: 'Prefer Cash Payment', parent: '/owners-guide' },
 	'/all-oil-and-gas-terms': { label: 'Oil & Gas Terms', parent: '/' },
