@@ -43,7 +43,7 @@ export const navigation: NavItem[] = [
 			},
 			{
 				title: 'Prefer Cash Payment',
-				href: '/owners-guide/cash-payment-for-oil-and-gas-royalty',
+				href: '/offer',
 			},
 		],
 	},
