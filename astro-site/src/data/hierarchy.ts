@@ -152,6 +152,7 @@ export const pageHierarchy: Record<string, PageNode> = {
 	'/top-leasing': { label: 'Top Leasing', parent: '/owners-guide/leased-but-not-producing' },
 	'/lease-my-land': { label: 'How to Attract Oil Companies to Lease Your Land', parent: '/top-leasing' },
 	'/owners-guide/lease-proposals': { label: 'Lease Proposals', parent: '/owners-guide' },
+	'/pugh-clause-2': { label: 'Pugh Clause', parent: '/owners-guide/lease-proposals' },
 	'/owners-guide/opportunities-for-all': { label: 'Opportunities', parent: '/owners-guide' },
 	'/royalty-in-suspense': { label: 'Royalty in Suspense', parent: '/owners-guide/opportunities-for-all' },
 	'/owners-guide/cash-payment-for-oil-and-gas-royalty': { label: 'Prefer Cash Payment', parent: '/owners-guide' },
