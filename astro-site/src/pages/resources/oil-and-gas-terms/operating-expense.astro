@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Operating Expense";
+const description = "The costs of operating a well to produce oil &amp;amp; gas.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Operating Expense"
+		definition="The costs of operating a well to produce oil &amp; gas."
+		path="/resources/oil-and-gas-terms/operating-expense"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/oil-well", label: "Oil Well" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/operator", label: "Operator" }}
+	/>
+</BaseLayout>

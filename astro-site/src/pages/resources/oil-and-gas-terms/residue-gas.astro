@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Residue Gas";
+const description = "Gas remaining after processing and extraction of NGL.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Residue Gas"
+		definition="Gas remaining after processing and extraction of NGL."
+		path="/resources/oil-and-gas-terms/residue-gas"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/reservoir-engineering", label: "Reservoir Engineering" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/revenue-statement", label: "Revenue Statement" }}
+	/>
+</BaseLayout>

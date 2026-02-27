@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Questar Corporation | MineralWise";
+const description = "Questar Corporation";
+
+const companyDescription = `is a natural gas exploration and production company based in the United States. Questar stock is listed on the NYSE under the symbol STR. Questar focuses its natural gas production on the low risk development projects of the Rocky Mountain and Mid-Continent areas. Division offices are located in Denver, Tulsa and Oklahoma City. Questar also owns and operates the Clay Basin storage facility, the largest underground storage facility in the Rocky Mountains.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/questar-corporation')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Questar Corporation"
+				description={companyDescription}
+				logoPath="/images/questar.png"
+				contactPhone="(303) 672-6900"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Ultra Petroleum | MineralWise";
+const description = "Ultra Petroleum";
+
+const companyDescription = `is an oil and gas exploration and production company with headquarters in Houston, Texas. Ultra Petroleum's primary areas of operation are in the Green River Basin in Wyoming, and the Appalachian Basin. The Company's stock can be found listed on the NYSE as UPL.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/ultra-petroleum')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Ultra Petroleum"
+				description={companyDescription}
+				logoPath="/images/ultra-petroleum.jpg"
+				contactPhone="(281) 876-0120"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

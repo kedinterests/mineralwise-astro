@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "CNX Gas Corp. | MineralWise";
+const description = "CNX Gas Corp.";
+
+const companyDescription = `CNX Gas Corporation is an independent oil and gas corporation with headquarters in Pittsburgh, Pennsylvania. CNX Gas operates primarily in the Illinois and Appalachian basin regions, but has operations in Virginia, southwestern Pennsylvania, and northern Tennessee. CNX Gas is listed on the NYSE as CXG.&nbsp;The company was founded in 2005 as an offshoot of CONSOL Energy Inc.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/cnx-gas-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="CNX Gas Corp."
+				description={companyDescription}
+				logoPath="/images/cnx-gas.jpg"
+				contactPhone="(724) 485-4000"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

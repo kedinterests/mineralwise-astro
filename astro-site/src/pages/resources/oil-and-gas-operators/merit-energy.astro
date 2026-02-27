@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Merit Energy | MineralWise";
+const description = "Merit Energy";
+
+const companyDescription = `is an oil and gas exploration and production company with headquarters in Dallas, Texas. Founded in 1989, the Company has proved reserves of over 450 MMBOE and operates primarily in the southern U.S. states of Texas, Louisiana, New Mexico, and Oklahoma.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/merit-energy')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Merit Energy"
+				description={companyDescription}
+				logoPath="/images/merit-energy.png"
+				contactPhone="(972) 628-1511"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "JM Huber Corp. | MineralWise";
+const description = "JM Huber Corp.";
+
+const companyDescription = `Huber Energy is a relatively large privately owned energy company organized as a subsidiary of the J.M. Huber Corporation.&nbsp;Company headquarters are in Houston TX, with additional offices in Denver CO and Sheridan WY.&nbsp;The company has a long history, having been active in oil and gas exploration, development and production since 1919.
+
+The company seeks to acquire properties with established production history and significant remaining exploration potential. This means acquiring, exploring and producing oil and gas in geographic areas selected to match our geological and technological expertise. Often the company seeks to establish exploration alliances with other energy companies and in areas where Huber has significant experience.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/jm-huber-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="JM Huber Corp."
+				description={companyDescription}
+				logoPath="/images/jm-huber-corp.jpg"
+				contactPhone="(713) 871-4400"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

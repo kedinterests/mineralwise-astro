@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Decline Rate";
+const description = "The rate of change in oil and gas production for a particular well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Decline Rate"
+		definition="The rate of change in oil and gas production for a particular well."
+		path="/resources/oil-and-gas-terms/decline-rate"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/decline-curve", label: "Decline Curve" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/defects-in-title", label: "Defects in Title" }}
+	/>
+</BaseLayout>

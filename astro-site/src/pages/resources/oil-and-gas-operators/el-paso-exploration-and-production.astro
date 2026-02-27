@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "El Paso Exploration & Production | MineralWise";
+const description = "El Paso Exploration & Production";
+
+const companyDescription = `Company is a large integrated natural gas, oil, and natural gas liquids producer. El Paso stock is traded on the NYSE under the symbol EP, and is headquartered in Houston TX. El Paso is one of the top 10 independent natural gas producers in North America with a balanced program throughout the United States, Brazil, and Egypt.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/el-paso-exploration-and-production')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="El Paso Exploration & Production"
+				description={companyDescription}
+				logoPath="/images/el-paso.png"
+				contactPhone="(713) 420-2600"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

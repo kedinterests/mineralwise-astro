@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Condensate, Lease Condensate";
+const description = "A low-density mixture of hydrocarbon liquids that are often present as gaseous components in the raw production stream from an oil or gas well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Condensate, Lease Condensate"
+		definition="A low-density mixture of hydrocarbon liquids that are often present as gaseous components in the raw production stream from an oil or gas well."
+		path="/resources/oil-and-gas-terms/condensate-lease-condensate"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/compression", label: "Compression" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/contiguous-tract", label: "Contiguous Tract" }}
+	/>
+</BaseLayout>

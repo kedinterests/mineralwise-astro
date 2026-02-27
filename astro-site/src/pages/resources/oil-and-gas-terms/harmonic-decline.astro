@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Harmonic Decline";
+const description = "Non-exponential with more pronounced or steeper decline rates. It incorporates the “slope” or bending of the decline to match a decline profile.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Harmonic Decline"
+		definition="Non-exponential with more pronounced or steeper decline rates. It incorporates the “slope” or bending of the decline to match a decline profile."
+		path="/resources/oil-and-gas-terms/harmonic-decline"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/gun-barrel-separator", label: "Gun Barrel Separator" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/held-by-production-hbp", label: "Held By Production, HBP" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Energen Corp. | MineralWise";
+const description = "Energen Corp.";
+
+const companyDescription = `Energen Corporation is an American oil and gas company with headquarters in Birmingham, Alabama. The Company's stock is listed in the NYSE as EGN. Energen operates primarily in northern and central Alabama, but also has operations in the Permian Basin region.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/energen-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Energen Corp."
+				description={companyDescription}
+				logoPath="/images/energen.jpg"
+				contactPhone="(205) 326-2700"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

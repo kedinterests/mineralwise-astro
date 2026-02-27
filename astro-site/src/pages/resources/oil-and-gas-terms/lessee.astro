@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Lessee";
+const description = "The purchaser (taker) of an Oil, Gas and Mineral Lease.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Lessee"
+		definition="The purchaser (taker) of an Oil, Gas and Mineral Lease."
+		path="/resources/oil-and-gas-terms/lessee"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/lease-bonus", label: "Lease Bonus" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/lessor", label: "Lessor" }}
+	/>
+</BaseLayout>

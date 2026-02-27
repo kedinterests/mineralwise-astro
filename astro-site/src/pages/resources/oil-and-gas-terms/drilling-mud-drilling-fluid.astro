@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Drilling Mud, Drilling Fluid";
+const description = "Fluid used to lubricate the drill string, line, the walls of a well, flush cuttings to the surface and create enough hydrostatic weight to prevent blowouts.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Drilling Mud, Drilling Fluid"
+		definition="Fluid used to lubricate the drill string, line, the walls of a well, flush cuttings to the surface and create enough hydrostatic weight to prevent blowouts."
+		path="/resources/oil-and-gas-terms/drilling-mud-drilling-fluid"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/drill-string", label: "Drill String" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/drilling-rig", label: "Drilling Rig" }}
+	/>
+</BaseLayout>

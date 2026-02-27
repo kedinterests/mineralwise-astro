@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Unit Corp. | MineralWise";
+const description = "Unit Corp is an oil and gas exploration and production company with headquarters in Tulsa, Oklahoma. The Company’s primary operations occur in the Arkhoma and Anadarko Basins, the Rocky Mountains, and the Louisiana and Texas Gulf Coast.&nbsp;The Company was founded in 1963 and its stock is listed on the NYSE as UDE.";
+
+const companyDescription = `Unit Corp is an oil and gas exploration and production company with headquarters in Tulsa, Oklahoma. The Company’s primary operations occur in the Arkhoma and Anadarko Basins, the Rocky Mountains, and the Louisiana and Texas Gulf Coast.&nbsp;The Company was founded in 1963 and its stock is listed on the NYSE as UDE.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/unit-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Unit Corp."
+				description={companyDescription}
+				logoPath="/images/unit-corp.jpg"
+				contactPhone="(918) 493-7700"
+				showProductionVerification={true}
+				showCashPayment={true}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -49,27 +49,27 @@ export const navigation: NavItem[] = [
 	},
 	{
 		title: 'Resources',
-		href: '#',
+		href: '/resources',
 		children: [
 			{
 				title: 'Mineral Rights by State',
-				href: '/mineral-rights-by-state',
+				href: '/resources/mineral-rights-by-state',
 			},
 			{
 				title: 'Shale Plays',
-				href: '/shale-plays',
+				href: '/resources/shale-plays',
 			},
 			{
 				title: 'Oil & Gas Operators',
-				href: '/oil-and-gas-operators',
+				href: '/resources/oil-and-gas-operators',
 			},
 			{
 				title: 'Oil & Gas Terms',
-				href: '/oil-and-gas-terms',
+				href: '/resources/oil-and-gas-terms',
 			},
 			{
 				title: 'Oil & Gas Abbreviations',
-				href: '/oil-and-gas-abbreviations',
+				href: '/resources/oil-and-gas-abbreviations',
 			},
 		],
 	},

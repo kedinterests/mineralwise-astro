@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Clayton Williams Energy, Inc. | MineralWise";
+const description = "Clayton Williams Energy, Inc.";
+
+const companyDescription = `Clayton Williams Energy is an oil and gas exploration and production company with headquarters in Midland, Texas. The Company's primary areas of operation lie in Louisiana, Texas, and New Mexico. Clayton Williams Energy has proved reserves of over 30 million BOE. The Company's stock is listed on the NASDAQ GS as CWEI.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/clayton-williams-energy-inc')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Clayton Williams Energy, Inc."
+				description={companyDescription}
+				logoPath="/images/clayton-williams.jpg"
+				contactPhone="(432) 688-3419"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

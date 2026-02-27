@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Bottom Hole Pressure, BHP";
+const description = "The pressure of a well at the bottom of the hole or wellbore. Usually, measured in pounds per square inch or PSI. BHP is the commonly used abbreviation for bottom-hole pressure.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Bottom Hole Pressure, BHP"
+		definition="The pressure of a well at the bottom of the hole or wellbore. Usually, measured in pounds per square inch or PSI. BHP is the commonly used abbreviation for bottom-hole pressure."
+		path="/resources/oil-and-gas-terms/bottom-hole-pressure-bhp"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/bopd", label: "BOPD" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/brine", label: "Brine" }}
+	/>
+</BaseLayout>

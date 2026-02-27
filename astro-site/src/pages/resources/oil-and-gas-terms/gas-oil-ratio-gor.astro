@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Gas Oil Ratio, GOR";
+const description = "Number of cubic feet of gas produced per barrel of oil.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Gas Oil Ratio, GOR"
+		definition="Number of cubic feet of gas produced per barrel of oil."
+		path="/resources/oil-and-gas-terms/gas-oil-ratio-gor"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/gas-lift", label: "Gas Lift" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/gatherer", label: "Gatherer" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Pugh Clause";
+const description = "A clause often added to an oil lease to limit holding non producing lands or depths beyond primary term of a lease. Also known as a Freestone rider.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Pugh Clause"
+		definition="A clause often added to an oil lease to limit holding non producing lands or depths beyond primary term of a lease. Also known as a Freestone rider."
+		path="/resources/oil-and-gas-terms/pugh-clause"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/proven-reserves", label: "Proven Reserves" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/pumper-lease-operator-gauger", label: "Pumper Lease Operator Gauger" }}
+	/>
+</BaseLayout>

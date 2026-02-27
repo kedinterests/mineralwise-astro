@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Progressing or Progressive Cavity Pump";
+const description = "A type of artificial lift pump used in situations where formation liquids (both oil and water) will not flow to the surface under the influence of reservoir pressure.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Progressing or Progressive Cavity Pump"
+		definition="A type of artificial lift pump used in situations where formation liquids (both oil and water) will not flow to the surface under the influence of reservoir pressure."
+		path="/resources/oil-and-gas-terms/progressing-or-progressive-cavity-pump"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/producing-mineral-owner", label: "Producing Mineral Owner" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/proration-unit", label: "Proration Unit" }}
+	/>
+</BaseLayout>

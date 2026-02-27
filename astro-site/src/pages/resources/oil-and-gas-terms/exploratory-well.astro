@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Exploratory Well";
+const description = "Any well drilled for the purpose of securing geological or geophysical information to be used in the exploration or development of oil, gas, geothermal, or other mineral resources.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Exploratory Well"
+		definition="Any well drilled for the purpose of securing geological or geophysical information to be used in the exploration or development of oil, gas, geothermal, or other mineral resources."
+		path="/resources/oil-and-gas-terms/exploratory-well"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/executive-rights-to-minerals", label: "Executive Rights to Minerals" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/exponential-decline", label: "Exponential Decline" }}
+	/>
+</BaseLayout>

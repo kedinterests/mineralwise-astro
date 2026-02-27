@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Indiana Mineral Rights | MineralWise";
+const metaDescription = "Indiana mineral rights reach back to the late 1870's. The Trenton Field of Indiana was the first large oil-field discovered in 1876.";
+
+const stateName = "Indiana";
+const stateAbbr = "IN";
+const description = "Indiana mineral rights reach back to the late 1870's. The Trenton Field of Indiana was the first large oil-field discovered in 1876. From that point until the first decade of the twentieth century a major boom in oil and gas development occurred in east-central Indiana. Most oil and gas minerals now are produced in the southwestern part of the state known as the Illinois Basin. Oil and gas production peaked at 12 million barrels in the year 1956. Mineral rights owners within Indiana continue to enjoy modest but limited interest from oil and gas producers.";
+
+const stats = [];
+const majorFields = [
+	"Belknap Field",
+	"Darmstadt Field",
+	"Evansville Field",
+	"Lima Peru Field",
+	"Rock Hill Field",
+	"St. James Field",
+	"Trenton Field"
+];
+const companies = [
+	"BP North America",
+	"Citgo",
+	"Conoco Phillips",
+	"Enbridge Energy",
+	"Exxon Mobil",
+	"Indiana Gas",
+	"Kinder Morgan"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/indiana-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Division Order Title Opinion";
+const description = "An opinion, generally written by an attorney, stating the names and decimal ownership interests within a producing oil or gas well, unit, or lease.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Division Order Title Opinion"
+		definition="An opinion, generally written by an attorney, stating the names and decimal ownership interests within a producing oil or gas well, unit, or lease."
+		path="/resources/oil-and-gas-terms/division-order-title-opinion"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/division-order", label: "Division Order" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/downstream", label: "Downstream" }}
+	/>
+</BaseLayout>

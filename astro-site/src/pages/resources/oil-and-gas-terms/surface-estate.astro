@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Surface Estate";
+const description = "Rights and interests in the surface of land as opposed to the mineral estate.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Surface Estate"
+		definition="Rights and interests in the surface of land as opposed to the mineral estate."
+		path="/resources/oil-and-gas-terms/surface-estate"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/surface-casing", label: "Surface Casing" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/surface-owner", label: "Surface Owner" }}
+	/>
+</BaseLayout>

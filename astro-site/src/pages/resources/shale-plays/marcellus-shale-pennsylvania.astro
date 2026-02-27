@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import ShalePlayPage from '../../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Marcellus Shale Pennsylvania | MineralWise";
+const description = "The Marcellus Shale covers approximately 65 million acres or 2/3 of Pennsylvania and is located near the high demand marketplace of the Northeast. Pennsylvania has a long history of energy production. The first well within the U.S. was drilled in Pennsylvania in 1859 near Titusville. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus is now economically viable prompting recovery and marketing of its substantial resource of natural gas.&amp;nbsp;Pennsylvania is no doubt being significantly affected by this development.Marcellus Shale CompaniesSignificant producers within the Pennsylvania Marcellus Shale are:Anadarko PetroleumAtlas Energy ResourcesCabot Oil &amp;amp; Gas CorporationCarrizo Oil &amp;amp; Gas Corp.Chesapeake EnergyChief Oil &amp;amp; GasEast ResourcesEnergy Corporation of AmericaEOG ResourcesEQT CorpEXCO ResourcesFortuna EnergyNomac DrillingNorth Coast EnergyRange ResourcesRex Energy Corp.Southwestern Energy Production CompanyStatoilHydroStone Energy CompanyUltra Petroleum Corp.Marcellus Shale GeologyThe Marcellus shale of the Appalachian Basin is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface. It";
+
+const shaleName = "Marcellus Shale";
+const state = undefined;
+const descriptionText = "The Marcellus Shale covers approximately 65 million acres or 2/3 of Pennsylvania and is located near the high demand marketplace of the Northeast. Pennsylvania has a long history of energy production. The first well within the U.S. was drilled in Pennsylvania in 1859 near Titusville. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus is now economically viable prompting recovery and marketing of its substantial resource of natural gas.&nbsp;Pennsylvania is no doubt being significantly affected by this development.";
+
+const companies = [
+	"Anadarko Petroleum",
+	"Atlas Energy Resources",
+	"Cabot Oil & Gas Corporation",
+	"Carrizo Oil & Gas Corp.",
+	"Chesapeake Energy",
+	"Chief Oil & Gas",
+	"East Resources",
+	"Energy Corporation of America",
+	"EOG Resources",
+	"EQT Corp",
+	"EXCO Resources",
+	"Fortuna Energy",
+	"Nomac Drilling",
+	"North Coast Energy",
+	"Range Resources",
+	"Rex Energy Corp.",
+	"Southwestern Energy Production Company",
+	"StatoilHydro",
+	"Stone Energy Company",
+	"Ultra Petroleum Corp."
+];
+
+const geology = "";
+
+const counties = [
+	"Allegheny County PA",
+	"Armstrong County PA",
+	"Beaver County PA",
+	"Bedford County PA",
+	"Blair County PA",
+	"Bradford County PA",
+	"Butler County PA",
+	"Cambria County PA",
+	"Cameron County PA",
+	"Carbon County PA",
+	"Centre County PA",
+	"Clearfield County PA",
+	"Clinton County PA",
+	"Crawford County PA",
+	"Elk County PA",
+	"Fayette County PA",
+	"Forest County PA",
+	"Greene County PA",
+	"Indiana County PA",
+	"Jefferson County PA",
+	"Lawrence County PA",
+	"Luzerne County PA",
+	"McKean County PA",
+	"Mercer County PA",
+	"Pike County PA",
+	"Potter County PA",
+	"Somerset County PA",
+	"Susquehanna County PA",
+	"Tioga County PA",
+	"Venango County PA",
+	"Warren County PA",
+	"Washington County PA",
+	"Wayne County PA",
+	"Westmoreland County PA"
+];
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/resources/shale-plays/marcellus-shale-pennsylvania",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Maryland",
+		"href": "/resources/shale-plays/marcellus-shale-maryland",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale New Jersey",
+		"href": "/resources/shale-plays/marcellus-shale-new-jersey",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale New York",
+		"href": "/resources/shale-plays/marcellus-shale-new-york",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Ohio",
+		"href": "/resources/shale-plays/marcellus-shale-ohio",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale West Virginia",
+		"href": "/resources/shale-plays/marcellus-shale-west-virginia",
+		"external": false
+	}
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/shale-plays/marcellus-shale-pennsylvania')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

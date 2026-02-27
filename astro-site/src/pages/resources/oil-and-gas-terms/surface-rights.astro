@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Surface Rights";
+const description = "The set of rights associated with the surface of the land only, as differentiated from mineral rights.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Surface Rights"
+		definition="The set of rights associated with the surface of the land only, as differentiated from mineral rights."
+		path="/resources/oil-and-gas-terms/surface-rights"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/surface-owner", label: "Surface Owner" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/suspended-funds", label: "Suspended Funds" }}
+	/>
+</BaseLayout>

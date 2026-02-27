@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Penn Virginia | MineralWise";
+const description = "Penn Virginia is a large geographically diverse producer of oil and natural gas with core areas of operation in the East Texas, Mid-Continent, Appalachian, Mississippi and the Gulf Coast region. Penn Virginia stock trades on the NYSE under the symbol PVA.";
+
+const companyDescription = `Penn Virginia is a large geographically diverse producer of oil and natural gas with core areas of operation in the East Texas, Mid-Continent, Appalachian, Mississippi and the Gulf Coast region. Penn Virginia stock trades on the NYSE under the symbol PVA. At end of year 2008, proved natural gas and oil reserves were approximately 916 Bcfe, of which 82% were natural gas and 51% were proved developed. Also ending 2008, Pen Virginia owned 1.2 million net acres of leasehold interests (land under lease), approximately 37% of which were undeveloped.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/penn-virginia')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Penn Virginia"
+				description={companyDescription}
+				logoPath="/images/penn-virginia.png"
+				contactPhone="(610) 687-8900"
+				showProductionVerification={true}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

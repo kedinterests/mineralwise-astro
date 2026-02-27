@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Natural Gas Liquids, NGL";
+const description = "Ethane, Propane, Butane, Isobutane, Pentanes, and some heavier hydrocarbons are often referred to as Natural gas liquids or NGLs. These heavier hydrocarbon liquids, NGLs, traditionally have a higher value than the gaseous natural stream.Liquids that are often processed through a plant to separate the heavier hydrocarbon liquids from the natural gas stream.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Natural Gas Liquids, NGL"
+		definition="Ethane, Propane, Butane, Isobutane, Pentanes, and some heavier hydrocarbons are often referred to as Natural gas liquids or NGLs. These heavier hydrocarbon liquids, NGLs, traditionally have a higher value than the gaseous natural stream."
+		path="/resources/oil-and-gas-terms/natural-gas-liquids-ngl"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/mmcf", label: "Mmcf" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/net-revenue-interest-nri", label: "Net Revenue Interest Nri" }}
+	/>
+</BaseLayout>

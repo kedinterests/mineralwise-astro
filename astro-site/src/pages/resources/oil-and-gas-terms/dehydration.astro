@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Dehydration";
+const description = "The process of removing water vapor from produced natural gas. This is done in order to bring the raw gas stream up to minimum quality standards for transporting in the pipeline network.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Dehydration"
+		definition="The process of removing water vapor from produced natural gas. This is done in order to bring the raw gas stream up to minimum quality standards for transporting in the pipeline network."
+		path="/resources/oil-and-gas-terms/dehydration"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/defects-in-title", label: "Defects in Title" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/delay-rental", label: "Delay Rental" }}
+	/>
+</BaseLayout>

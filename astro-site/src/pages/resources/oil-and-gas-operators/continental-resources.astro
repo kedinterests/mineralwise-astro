@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Continental Resources | MineralWise";
+const description = "Continental Resources";
+
+const companyDescription = `is an oil and gas exploration and production company based in Enid, Oklahoma. Continental Resources stock is listed on the NYSE under the symbol CLR. Continental Resources focuses its exploration and production efforts in the Rocky Mountain, Mid-Continent, and Gulf Coast regions of the United States. The company targets unconventional plays such as the Bakken shale in Montana and North Dakota.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/continental-resources')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Continental Resources"
+				description={companyDescription}
+				logoPath="/images/continental.jpg"
+				contactPhone="(800) 256-8955"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

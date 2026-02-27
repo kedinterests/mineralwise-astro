@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Check Meter";
+const description = "An additional meter installed at the well site in order to “check” the main meter.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Check Meter"
+		definition="An additional meter installed at the well site in order to “check” the main meter."
+		path="/resources/oil-and-gas-terms/check-meter"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/casinghead-gas", label: "Casinghead Gas" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/christmas-tree-wellhead", label: "Christmas Tree, Wellhead" }}
+	/>
+</BaseLayout>

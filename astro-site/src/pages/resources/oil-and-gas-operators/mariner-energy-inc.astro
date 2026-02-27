@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Mariner Energy, Inc. | MineralWise";
+const description = "Mariner Energy, Inc.";
+
+const companyDescription = `Mariner Energy is an oil and gas exploration and production company with headquarters in Houston, Texas. The Company's stock is listed on the NYSE as ME. The Company's operations are primarily in the Gulf Coast and Permian Basin regions. The Company has over 1 trillion cubic feet in proven reserves.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/mariner-energy-inc')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Mariner Energy, Inc."
+				description={companyDescription}
+				logoPath="/images/mariner.jpg"
+				contactPhone="(713) 358-8639"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

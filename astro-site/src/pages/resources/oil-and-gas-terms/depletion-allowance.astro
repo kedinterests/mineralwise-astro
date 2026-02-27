@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Depletion Allowance";
+const description = "The tax deduction allowed by the IRS for royalty and mineral owners to offset the decrease in value of a capital investment caused by the production (depletion) of minerals.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Depletion Allowance"
+		definition="The tax deduction allowed by the IRS for royalty and mineral owners to offset the decrease in value of a capital investment caused by the production (depletion) of minerals."
+		path="/resources/oil-and-gas-terms/depletion-allowance"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/depletion", label: "Depletion" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/developmental-well", label: "Developmental Well" }}
+	/>
+</BaseLayout>

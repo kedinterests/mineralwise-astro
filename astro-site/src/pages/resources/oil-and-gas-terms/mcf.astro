@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Mcf";
+const description = "One thousand cubic feet of natural gas measured at standard pressure and temperature conditions.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Mcf"
+		definition="One thousand cubic feet of natural gas measured at standard pressure and temperature conditions."
+		path="/resources/oil-and-gas-terms/mcf"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/lessor", label: "Lessor" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/mcfe", label: "Mcfe" }}
+	/>
+</BaseLayout>

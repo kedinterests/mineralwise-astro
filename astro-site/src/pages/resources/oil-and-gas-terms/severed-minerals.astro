@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Severed Minerals";
+const description = "Minerals whose title has been severed from the surface title.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Severed Minerals"
+		definition="Minerals whose title has been severed from the surface title."
+		path="/resources/oil-and-gas-terms/severed-minerals"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/severance-tax", label: "Severance Tax" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/shut-in-royalty", label: "Shut In Royalty" }}
+	/>
+</BaseLayout>

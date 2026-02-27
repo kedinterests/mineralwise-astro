@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Downstream";
+const description = "This term is used in describing oil and gas operations occurring after the sales meter.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Downstream"
+		definition="This term is used in describing oil and gas operations occurring after the sales meter."
+		path="/resources/oil-and-gas-terms/downstream"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/division-order-title-opinion", label: "Division Order Title Opinion" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/drill-bit", label: "Drill Bit" }}
+	/>
+</BaseLayout>

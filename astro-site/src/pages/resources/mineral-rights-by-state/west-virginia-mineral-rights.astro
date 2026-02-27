@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "West Virginia Mineral Rights | MineralWise";
+const metaDescription = "West Virginia Mineral Rights have a history that goes back to the time when Indians primarily occupied the land. Native Americans called natural gas vents \"burning springs\".";
+
+const stateName = "West Virginia";
+const stateAbbr = "WV";
+const description = "West Virginia Mineral Rights have a history that goes back to the time when Indians primarily occupied the land. Native Americans called natural gas vents \"burning springs\". The oil and gas industry in West Virginia got its start as a result of salt mining. Many large oil and gas fields were found near to or over the top of salt domes. The Rathbone brothers discovered the first oil well in 1859.";
+
+const stats = [];
+const majorFields = [
+	"Doddridge County",
+	"Harrison County",
+	"Jackson County",
+	"Kanawha County",
+	"Lewis County",
+	"Logan County",
+	"McDowell County",
+	"Mingo County",
+	"Ritchie County",
+	"Upshur County"
+];
+const companies = [
+	"Cabot Oil & Gas",
+	"CDX Gas",
+	"Chesapeake Appalachia",
+	"Dominion Exploration",
+	"Equitable Production",
+	"Geomet Operating",
+	"Goex",
+	"Linn Operating",
+	"Penn Virginia Oil and Gas",
+	"Tug Fork Development"
+];
+const regulatoryLink = {
+	text: "http://www.wvdep.org/item.cfm?ssid=23",
+	href: "http://www.wvdep.org/item.cfm?ssid=23",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Huron Shale",
+		href: "/resources/shale-plays/huron-shale",
+		external: false
+	},
+	{
+		text: "Marcellus Shale West Virginia",
+		href: "/directory/shale-plays/marcellus-shale-west-virginia",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/west-virginia-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Initial Production, IP";
+const description = "The rate of initial flow from a well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Initial Production, IP"
+		definition="The rate of initial flow from a well."
+		path="/resources/oil-and-gas-terms/initial-production-ip"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/infill-drilling", label: "Infill Drilling" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/injection-well", label: "Injection Well" }}
+	/>
+</BaseLayout>

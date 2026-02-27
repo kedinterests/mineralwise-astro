@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Proven Reserves";
+const description = "Oil or gas which has not yet been produced but has been located and is economically recoverable. Used to refer to reserves that have a 90% (P90) or better probability of being produced in the current environment.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Proven Reserves"
+		definition="Oil or gas which has not yet been produced but has been located and is economically recoverable. Used to refer to reserves that have a 90% (P90) or better probability of being produced in the current environment."
+		path="/resources/oil-and-gas-terms/proven-reserves"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/proration-unit", label: "Proration Unit" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/pugh-clause", label: "Pugh Clause" }}
+	/>
+</BaseLayout>

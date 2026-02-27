@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "P&amp;A or Plug &amp; Abandon";
+const description = "Plugging and abandoning a well. After a well’s productive life, it is usually plugged and abandoned with cement and heavy mud. The wellhead is removed, and the casing cut off 3-6 feet underground, and a steel plate welded over the top.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="P&amp;A or Plug &amp; Abandon"
+		definition="Plugging and abandoning a well. After a well’s productive life, it is usually plugged and abandoned with cement and heavy mud. The wellhead is removed, and the casing cut off 3-6 feet underground, and a steel plate welded over the top."
+		path="/resources/oil-and-gas-terms/p-and-a-or-plug-and-abandon"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/overriding-royalty-interest-orri", label: "Overriding Royalty Interest Orri" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/paid-up-lease", label: "Paid Up Lease" }}
+	/>
+</BaseLayout>

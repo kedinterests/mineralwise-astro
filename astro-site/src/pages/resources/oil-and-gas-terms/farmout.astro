@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Farmout";
+const description = "Assignment or partial assignment of an oil and gas lease from one lessee to another lessee. Also referred to as a farm-out or farm out.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Farmout"
+		definition="Assignment or partial assignment of an oil and gas lease from one lessee to another lessee. Also referred to as a farm-out or farm out."
+		path="/resources/oil-and-gas-terms/farmout"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/farm-in", label: "Farm-In" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/field-rules", label: "Field Rules" }}
+	/>
+</BaseLayout>

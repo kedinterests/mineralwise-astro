@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Allowable, Oil Allowable, Gas Allowable";
+const description = "Amount of oil or gas which a well, leasehold or field may produce per month under proration orders of the Texas Railroad Commission (RRC).";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Allowable, Oil Allowable, Gas Allowable"
+		definition="Amount of oil or gas which a well, leasehold or field may produce per month under proration orders of the Texas Railroad Commission (RRC)."
+		path="/resources/oil-and-gas-terms/allowable-oil-allowable-gas-allowable"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/aggregate-pay-laws", label: "Aggregate Pay Laws" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/api-number", label: "API Number" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Defects in Title";
+const description = "Items which are or appear to be problematic with respect to having a clear title. Clear title would be a title with no questions or encumbrances as relating to ownership.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Defects in Title"
+		definition="Items which are or appear to be problematic with respect to having a clear title. Clear title would be a title with no questions or encumbrances as relating to ownership."
+		path="/resources/oil-and-gas-terms/defects-in-title"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/decline-rate", label: "Decline Rate" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/dehydration", label: "Dehydration" }}
+	/>
+</BaseLayout>

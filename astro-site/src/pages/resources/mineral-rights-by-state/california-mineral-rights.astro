@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "California Mineral Rights | MineralWise";
+const metaDescription = "California Mineral Rights date back to the early days of oil and gas exploration. At one point in America's history, California led the United States in oil production.";
+
+const stateName = "California";
+const stateAbbr = "CA";
+const description = "California Mineral Rights date back to the early days of oil and gas exploration. At one point in America's history, California led the United States in oil production. California is known for its large oil fields like the Midway-Sunset field and the Kern River field. In 2008, mineral rights in California became popularized in the movie There Will Be Blood that documented the petroleum boom at the turn of the century in California. Mineral rights in CA produce significant economic contribution to the state through the oil and gas production industry.";
+
+const stats = [];
+const majorFields = [
+	"Belridge South Field",
+	"Cymric Field",
+	"Elk Hills Field",
+	"French Camp Field",
+	"Grimes Field",
+	"Kern River Field",
+	"Lindsey Slough Field",
+	"Midway-Sunset Field",
+	"Rio Vista Field",
+	"Willows-Beehive Field"
+];
+const companies = [
+	"Aera Energy",
+	"Berry Petroleum",
+	"Chevron",
+	"Occidental of Elk Hills",
+	"Plains Exploration and Production",
+	"Rosetta Resources",
+	"Thums Long Beach Company",
+	"Tidelands Oil Production",
+	"Venoco",
+	"Vintage Production"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/california-mineral-rights')}>
+		<ArticleContent>
+			<StatePage 
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

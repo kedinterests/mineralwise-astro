@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Texas Mineral Rights | MineralWise";
+const metaDescription = "Texas Mineral Rights have a long history going back to the time when Texas was under the Spanish and Mexican flags. Texas mineral rights are even written in the state's constitutions of 1869 and 1876.";
+
+const stateName = "Texas";
+const stateAbbr = "TX";
+const description = "Texas Mineral Rights have a long history going back to the time when Texas was under the Spanish and Mexican flags. Texas mineral rights are even written in the state's constitutions of 1869 and 1876. Under current Texas law, mineral rights can be severed from the surface rights and sold and transferred as a separate unit.";
+const history = "Also, Texas mineral rights may be produced by the owner or leased to an oil and gas company for production. Two-thirds of the counties in Texas produce oil or gas for their mineral rights owners. The first oil well in the state of Texas was the Spindletop discovered in 1901 south of Beaumont, Texas";
+const stats = [];
+const majorFields = [
+	"Bald Prairie Field",
+	"Carthage Field",
+	"Freestone Field",
+	"Hugoton Field",
+	"Newark East Field",
+	"Oak Hill Field",
+	"Pinon Field",
+	"Sawyer Field",
+	"Spraberry Trend Field",
+	"Stiles Ranch Field"
+];
+const companies = [
+	"Apache",
+	"Chevron",
+	"COG Operating",
+	"Exxon Mobil",
+	"Hess Corporation",
+	"Kinder Morgan",
+	"Occidental Permian Limited",
+	"OXY USA",
+	"Pioneer Natural Resources",
+	"XTO Energy"
+];
+const regulatoryLink = {
+	text: "http://www.rrc.state.tx.us/",
+	href: "http://www.rrc.state.tx.us/",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Barnett Shale Texas",
+		href: "/resources/shale-plays/barnett-shale-texas",
+		external: false
+	},
+	{
+		text: "Bossier Shale",
+		href: "/resources/shale-plays/bossier-shale-texas",
+		external: false
+	},
+	{
+		text: "Eagle Ford Shale",
+		href: "/resources/shale-plays/eagle-ford-shale-texas",
+		external: false
+	},
+	{
+		text: "Haynesville Shale Texas",
+		href: "/resources/shale-plays/haynesville-shale-texas",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/texas-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				history={history}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

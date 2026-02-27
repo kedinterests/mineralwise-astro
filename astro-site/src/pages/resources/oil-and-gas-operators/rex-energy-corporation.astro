@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Rex Energy Corporation | MineralWise";
+const description = "Rex Energy Corporation";
+
+const companyDescription = `Rex Energy Corp. is an independent oil and gas exploration and production company with headquarters in State College, Pennsylvania. The Company's stock is listed on the NASDAQ as REXX. Rex Energy's primary areas of operation are in the Illinois and Appalachian Basins. As of 2008, the Company has proved reserves of 11,000 Mboe.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/rex-energy-corporation')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Rex Energy Corporation"
+				description={companyDescription}
+				logoPath="/images/rex-energy.png"
+				contactPhone="(814) 278-7267"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

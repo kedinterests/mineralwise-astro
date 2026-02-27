@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Royalty Percentage";
+const description = "Percentage of gross or net production that is paid to the mineral owner. Usually described as a fraction (1/8th, 3/16th, 1/6th, 1/5th, 1/4, etc.)";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Royalty Percentage"
+		definition="Percentage of gross or net production that is paid to the mineral owner. Usually described as a fraction (1/8th, 3/16th, 1/6th, 1/5th, 1/4, etc.)"
+		path="/resources/oil-and-gas-terms/royalty-percentage"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/royalty-interest", label: "Royalty Interest" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/royalty-statement", label: "Royalty Statement" }}
+	/>
+</BaseLayout>

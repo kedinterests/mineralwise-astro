@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "EOG Resources, Inc. | MineralWise";
+const description = "EOG Resources, Inc.";
+
+const companyDescription = `is one of the largest independent (non-integrated) oil and natural gas companies in the United States with proved reserves in the United States, Canada, offshore Trinidad and the United Kingdom North Sea. EOG stock is listed on the NYSE under the symbol EOG.
+
+Their main strategy of concentrating on growth through the drillbit has been very successful. One of the most active drillers in both the United States and Canada in recent years, EOG has built its reputation on organic growth. Some of their largest production increases have come from our Central Texas, East Texas, North Louisiana, South Texas and Rocky Mountain operating areas. In addition, our Canadian drilling and production programs, as well as those offshore Trinidad and in the United Kingdom North Sea, contribute to our ongoing success. Approximately 56 percent of EOG’s reserves on a natural gas equivalent basis were located in the United States, 22 percent in Canada, 21 percent in Trinidad and 1 percent in the United Kingdom North Sea. At year-end 2005, EOG had approximately 1,400 employees.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/eog-resources-inc')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="EOG Resources, Inc."
+				description={companyDescription}
+				logoPath="/images/eog.png"
+				contactPhone="(713) 651-6552"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

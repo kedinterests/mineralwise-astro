@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Reservoir Engineering";
+const description = "The application of scientific and engineering principles to the production from a developed reservoir for maximum economic return.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Reservoir Engineering"
+		definition="The application of scientific and engineering principles to the production from a developed reservoir for maximum economic return."
+		path="/resources/oil-and-gas-terms/reservoir-engineering"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/reservoir", label: "Reservoir" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/residue-gas", label: "Residue Gas" }}
+	/>
+</BaseLayout>

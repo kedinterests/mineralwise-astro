@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Casing";
+const description = "Pipe cemented in the well to seal off formation fluids and to keep the hole from caving in.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Casing"
+		definition="Pipe cemented in the well to seal off formation fluids and to keep the hole from caving in."
+		path="/resources/oil-and-gas-terms/casing"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/btu-factor", label: "BTU Factor" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/casinghead-gas", label: "Casinghead Gas" }}
+	/>
+</BaseLayout>

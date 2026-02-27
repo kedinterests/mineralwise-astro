@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Yates Petroleum Corp. | MineralWise";
+const description = "Yates Petroleum Corp.";
+
+const companyDescription = `Yates Petroleum is an American oil and gas exploration and production company with headquarters in Artesia, New Mexico. The Company operates primarily in New Mexico, but also has operations in Colorado and Wyoming. Yates Petroleum was founded in 1907 by Martin Yates.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/yates-petroleum-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Yates Petroleum Corp."
+				description={companyDescription}
+				logoPath="/images/yates-petroleum-corp.jpg"
+				contactPhone="(575) 748- 1471"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

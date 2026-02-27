@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Wildcat";
+const description = "A well drilled in an unproven area for the purpose of discovering a new field or reservoir.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Wildcat"
+		definition="A well drilled in an unproven area for the purpose of discovering a new field or reservoir."
+		path="/resources/oil-and-gas-terms/wildcat"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/well-site", label: "Well Site" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/working-interest-wi", label: "Working Interest Wi" }}
+	/>
+</BaseLayout>

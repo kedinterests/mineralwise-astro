@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Montana Mineral Rights | MineralWise";
+const metaDescription = "Montana Mineral Rights value varies widely across the state. Montana's mineral rights produce a wide range of hydrocarbon products including crude oil, natural gas, and coal.";
+
+const stateName = "Montana";
+const stateAbbr = "MT";
+const description = "Montana Mineral Rights value varies widely across the state. Montana's mineral rights produce a wide range of hydrocarbon products including crude oil, natural gas, and coal. The first oil field discovered in Montana was the Florence oil field in the late 1800's.";
+
+const stats = [];
+const majorFields = [
+	"Bowdoin Field",
+	"Cabin Creek Field",
+	"Cedar Creek Field",
+	"CX Field",
+	"Elm Coulee Field",
+	"Lookout Butte Field",
+	"Pennel Field",
+	"Pine Field",
+	"Tiger Ridge Field"
+];
+const companies = [
+	"Devon Louisiana",
+	"EnCana Energy Resources",
+	"Encore Operating",
+	"Fidelity Exploration & Production",
+	"Headington Oil",
+	"Klabzuba Oil & Gas",
+	"Lyco Energy",
+	"Nance Petroleum",
+	"Ocean Energy"
+];
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	},
+	{
+		text: "Bakken Shale Montana",
+		href: "/resources/shale-plays/bakken-shale-montana",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/montana-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

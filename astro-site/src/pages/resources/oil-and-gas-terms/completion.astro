@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Completion";
+const description = "This is the process which takes place immediately after the drilling operation is complete. This involves the setting of casing, tubing, packers, possibly down hole pumps, possibly hydraulic fracturing, possibly installing sand screens etc.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Completion"
+		definition="This is the process which takes place immediately after the drilling operation is complete. This involves the setting of casing, tubing, packers, possibly down hole pumps, possibly hydraulic fracturing, possibly installing sand screens etc."
+		path="/resources/oil-and-gas-terms/completion"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/commodity-prices", label: "Commodity Prices" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/compression", label: "Compression" }}
+	/>
+</BaseLayout>

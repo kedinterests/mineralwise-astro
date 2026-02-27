@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "First Purchaser";
+const description = "The party who first purchases and takes title to the production from an oil or gas well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="First Purchaser"
+		definition="The party who first purchases and takes title to the production from an oil or gas well."
+		path="/resources/oil-and-gas-terms/first-purchaser"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/field-wide-unit", label: "Field-Wide Unit" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/first-right-of-refusal", label: "First Right of Refusal" }}
+	/>
+</BaseLayout>

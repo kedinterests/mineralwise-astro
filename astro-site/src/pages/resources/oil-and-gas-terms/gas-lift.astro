@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Gas Lift";
+const description = "The process of raising or lifting fluid from a well by means of gas injected down the well through tubing or tubing casing annulus. Injected gas aerates the fluid to make it less dense, forcing the fluid out of the well bore.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Gas Lift"
+		definition="The process of raising or lifting fluid from a well by means of gas injected down the well through tubing or tubing casing annulus. Injected gas aerates the fluid to make it less dense, forcing the fluid out of the well bore."
+		path="/resources/oil-and-gas-terms/gas-lift"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/fuel-and-shrinkage", label: "Fuel and Shrinkage" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/gas-oil-ratio-gor", label: "Gas Oil Ratio, GOR" }}
+	/>
+</BaseLayout>

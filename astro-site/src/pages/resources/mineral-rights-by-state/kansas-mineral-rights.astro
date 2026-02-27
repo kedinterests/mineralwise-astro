@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import StatePage from '../../../components/StatePage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Kansas Mineral Rights | MineralWise";
+const metaDescription = "Kansas mineral rights owners benefit from both oil and gas production. Natural gas mineral rights were first exploited in Kansas in 1922 in Seward county in the Hugoton embayment.";
+
+const stateName = "Kansas";
+const stateAbbr = "KS";
+const description = "Kansas mineral rights owners benefit from both oil and gas production. Natural gas mineral rights were first exploited in Kansas in 1922 in Seward county in the Hugoton embayment. The original well was abandoned at first because it did not produce oil, but later the the Independent Oil and Gas Company discovered natural gas with their Crawford No. 1 well.";
+
+const stats = [];
+const majorFields = [
+	"Bemis-Shutts Field",
+	"Bradshaw Field",
+	"Chase Field",
+	"El Dorado Field",
+	"Glick Field",
+	"Greenwood Field",
+	"Hall-Gurney Field",
+	"Hugoton Field",
+	"Kraf Prusa Field",
+	"Panoma Field",
+	"Trapp Field"
+];
+const companies = [
+	"American Warrior",
+	"Anadarko Petroleum",
+	"Berexco",
+	"BP America",
+	"Cimarex Energy",
+	"Dart Cherokee Basin Operating",
+	"EOG Resources",
+	"Exxon Mobil",
+	"Layne Energy Operating",
+	"Merit Energy Company",
+	"Murfin Drilling",
+	"OXY USA",
+	"Pioneer Natural Resources",
+	"Quest Cherokee",
+	"Vess Oil Corporation"
+];
+const regulatoryLink = {
+	text: "http://www.kgs.ku.edu/PRS/petroDB.html",
+	href: "http://www.kgs.ku.edu/PRS/petroDB.html",
+	external: true
+};
+const additionalReading = [
+	{
+		text: "Oil & Gas 101",
+		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+		external: false
+	}
+];
+---
+
+<BaseLayout title={title} description={metaDescription}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/mineral-rights-by-state/kansas-mineral-rights')}>
+		<ArticleContent>
+			<StatePage
+				stateName={stateName}
+				stateAbbr={stateAbbr}
+				description={description}
+				majorFields={majorFields}
+				companies={companies}
+				regulatoryLink={regulatoryLink}
+				additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

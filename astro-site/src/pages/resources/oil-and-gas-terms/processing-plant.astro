@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Processing Plant";
+const description = "A plant to remove liquefiable hydrocarbons. Processing plants strip out condensate and NGLs from the gas production stream, as well as other gases or impurities.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Processing Plant"
+		definition="A plant to remove liquefiable hydrocarbons. Processing plants strip out condensate and NGLs from the gas production stream, as well as other gases or impurities."
+		path="/resources/oil-and-gas-terms/processing-plant"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/probable-reserves", label: "Probable Reserves" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/producer", label: "Producer" }}
+	/>
+</BaseLayout>

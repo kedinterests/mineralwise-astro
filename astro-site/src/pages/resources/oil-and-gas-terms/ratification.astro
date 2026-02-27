@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Ratification";
+const description = "The act of confirming. Ratification of an oil and gas lease means to confirm it’s existence and terms.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Ratification"
+		definition="The act of confirming. Ratification of an oil and gas lease means to confirm it’s existence and terms."
+		path="/resources/oil-and-gas-terms/ratification"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/qualified-intermediary", label: "Qualified Intermediary" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/recompletion", label: "Recompletion" }}
+	/>
+</BaseLayout>

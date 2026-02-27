@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Separator";
+const description = "Apparatus that separates oil, gases, and water contained in the effluent from a production well.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Separator"
+		definition="Apparatus that separates oil, gases, and water contained in the effluent from a production well."
+		path="/resources/oil-and-gas-terms/separator"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/sedimentary-rock", label: "Sedimentary Rock" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/severance", label: "Severance" }}
+	/>
+</BaseLayout>

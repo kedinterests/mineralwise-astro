@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Hyperbolic Decline";
+const description = "Non-exponential with subtle multiple decline rates. It incorporates the “slope” or bending of the decline to match a declined profile. Hyperbolic curves decline faster early in the life of the well and slower as time increases.This glossary of common oil and gas terms and definitions will aid newcomers as well as experienced royalty owners or mineral owners with the terminology used in the Oil and Gas industry. We also have a page of Oil and Gas Abbreviations and Acronyms. These are some of the most commonly used oil and gas terms. If you would like to discuss mineral rights related issues with other landowners visit MineralRightsForum.com.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Hyperbolic Decline"
+		definition="Non-exponential with subtle multiple decline rates. It incorporates the “slope” or bending of the decline to match a declined profile. Hyperbolic curves decline faster early in the life of the well and slower as time increases."
+		path="/resources/oil-and-gas-terms/hyperbolic-decline"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/hydrocarbon", label: "Hydrocarbon" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/independent-producer", label: "Independent Producer" }}
+	/>
+</BaseLayout>

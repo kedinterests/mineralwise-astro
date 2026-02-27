@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Mineral Title";
+const description = "Refers to the legal ownership of the mineral estate (minerals), generally referred to as associated with a particular tract of land.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Mineral Title"
+		definition="Refers to the legal ownership of the mineral estate (minerals), generally referred to as associated with a particular tract of land."
+		path="/resources/oil-and-gas-terms/mineral-title"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/mineral-rights", label: "Mineral Rights" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/mmbtu", label: "Mmbtu" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Chevron | MineralWise";
+const description = "Chevron Corporation operates as an integrated energy company worldwide. Chevron stock is listed on the NYSE under the symbol CVX. The company's petroleum operations include the exploration, development, production, and marketing of crude oil and natural gas; refining, marketing, and transportation operations comprise refining crude oil into finished petroleum products; marketing crude oil and products derived from petroleum; and transporting crude oil, natural gas, and petroleum products by pipeline, marine vessel, motor equipment, and rail car.";
+
+const companyDescription = `Chevron Corporation operates as an integrated energy company worldwide. Chevron stock is listed on the NYSE under the symbol CVX. The company's petroleum operations include the exploration, development, production, and marketing of crude oil and natural gas; refining, marketing, and transportation operations comprise refining crude oil into finished petroleum products; marketing crude oil and products derived from petroleum; and transporting crude oil, natural gas, and petroleum products by pipeline, marine vessel, motor equipment, and rail car.
+
+Its chemical operations include manufacture and marketing of commodity petrochemicals, plastics for industrial uses, and fuel and lubricant oil additives. The company also engages in the production and marketing of coal and molybdenum; development and operation of commercial power projects; and cash management and debt financing, corporate administrative, insurance, and real estate activities. The company was formerly known as ChevronTexaco Corporation and changed its name to Chevron Corporation in 2005. Chevron Corporation was founded in 1879 and is based in San Ramon, California.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/chevron')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Chevron"
+				description={companyDescription}
+				logoPath="/images/chevron.jpg"
+				contactPhone="(925) 842-1000"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

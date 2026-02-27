@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Independent Producer";
+const description = "An energy company, usually in the exploration and production segment of the industry – and generally, with no marketing, transportation or refining operations. Also known as a non-integrated producing company in the oil industry.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Independent Producer"
+		definition="An energy company, usually in the exploration and production segment of the industry – and generally, with no marketing, transportation or refining operations. Also known as a non-integrated producing company in the oil industry."
+		path="/resources/oil-and-gas-terms/independent-producer"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/hyperbolic-decline", label: "Hyperbolic Decline" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/infill-drilling", label: "Infill Drilling" }}
+	/>
+</BaseLayout>

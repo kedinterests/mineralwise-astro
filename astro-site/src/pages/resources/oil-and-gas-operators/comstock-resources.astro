@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Comstock Resources | MineralWise";
+const description = "Comstock Resources";
+
+const companyDescription = `is an independent energy company based in Frisco, TX. Comstock stock is traded on the NYSE under the symbol CRK. The company focuses its drilling operations in the East Texas / North Louisiana and South Texas regions. Comstock has acquired over 984 Bcfe (billion cubic feet equivalent) of proved oil and gas reserves since 1991. 90% of these reserves are natural gas while the remaining 10% are crude oil. Comstock Resources also drills in the Haynesville Shale. The company recently sold their offshore oil and gas operations to Stone Energy Corporation.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/comstock-resources')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Comstock Resources"
+				description={companyDescription}
+				logoPath="/images/comstock.jpg"
+				contactPhone="(972) 668-8800"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

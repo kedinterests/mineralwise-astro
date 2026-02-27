@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Quicksilver Resources | MineralWise";
+const description = "Quicksilver Resources";
+
+const companyDescription = `is an oil and gas production and drilling company based in Forth Worth Texas. Quicksilver is traded on the NYSE under the symbol KYK. The company is an industry leader in the exploration and productions of shale gas, tight sand gas, and coal bed methane properties. Quicksilver has significant holdings in the Barnett Shale of North Texas. In November of 2007 Quicksilver sold its oil and gas properties in Michigan, Indiana, and Kentucky to BreitBurn Energy, a Master Limited Partnership.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/quicksilver-resources')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Quicksilver Resources"
+				description={companyDescription}
+				logoPath="/images/quicksilver.jpg"
+				contactPhone="(877) 665-8600"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

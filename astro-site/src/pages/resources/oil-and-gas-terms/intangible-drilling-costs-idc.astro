@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Intangible Drilling Costs, IDC";
+const description = "All costs incurred in drilling a well other than equipment or leasehold. These expenses are 100% tax deductible even if the well is productive.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Intangible Drilling Costs, IDC"
+		definition="All costs incurred in drilling a well other than equipment or leasehold. These expenses are 100% tax deductible even if the well is productive."
+		path="/resources/oil-and-gas-terms/intangible-drilling-costs-idc"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/injection-well", label: "Injection Well" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/interest", label: "Interest" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/PageShell.astro';
+import ArticleContent from '../../components/ArticleContent.astro';
+import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
+import { getBreadcrumbs } from '../../data/hierarchy';
+import { navigation } from '../../data/navigation';
+
+const title = "Mineral Rights Resources | State Guides, Shale Plays, Operators & Glossary";
+const description = "Explore mineral rights resources including state-by-state guides, shale play directories, oil and gas operator profiles, and comprehensive industry terminology. Find the information you need.";
+
+const heading = "Resources";
+const intro = "Browse our directory of mineral rights resources. Find state-specific information, shale play details, operator contact information, and industry terminology to help you navigate the oil and gas landscape.";
+
+// Use Resources submenu items from navigation
+const resourcesNav = navigation.find((n) => n.title === 'Resources');
+const articles = (resourcesNav?.children ?? []).map((child) => ({
+	title: child.title,
+	href: child.href,
+	description: getResourceDescription(child.href),
+}));
+
+const tabs = [
+	{
+		label: "Resources",
+		id: "resources",
+		articles,
+	},
+];
+
+function getResourceDescription(href: string): string {
+	const descriptions: Record<string, string> = {
+		'/resources/mineral-rights-by-state': 'State-by-state guides with mineral rights history, operators, production, and major fields.',
+		'/resources/shale-plays': 'Directory of major U.S. shale plays including locations, geology, and active companies.',
+		'/resources/oil-and-gas-operators': 'Contact information and profiles for oil and gas operators and producers.',
+		'/resources/oil-and-gas-terms': 'Comprehensive A–Z glossary of oil and gas terminology and definitions.',
+		'/resources/oil-and-gas-abbreviations': 'Common abbreviations and acronyms used in the oil and gas industry.',
+	};
+	return descriptions[href] ?? 'Explore this resource.';
+}
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources')}>
+		<ArticleContent>
+			<OwnerGuideTabs
+				heading={heading}
+				intro={intro}
+				tabs={tabs}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

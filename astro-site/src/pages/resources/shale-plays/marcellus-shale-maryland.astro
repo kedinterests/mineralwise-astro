@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import ShalePlayPage from '../../../components/ShalePlayPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Marcellus Shale Maryland | MineralWise";
+const description = "The Marcellus Shale covers the westernmost portion of Maryland. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus Shale is now economically viable, prompting recovery and marketing of this substantial resource of natural gas. The location of this resource near major natural gas markets of the Northeast contributes to favorable pricing for Marcellus natural gas.Marcellus Shale CompaniesSignificant producers within the Marcellus Shale are:Anadarko PetroleumAtlas Energy ResourcesCabot Oil &amp;amp; Gas CorporationCarrizo Oil &amp;amp; Gas Corp.Chesapeake EnergyChief Oil &amp;amp; GasEast ResourcesEnergy Corporation of AmericaEOG ResourcesEQT CorpEXCO ResourcesFortuna EnergyNomac DrillingNorth Coast EnergyRange ResourcesRex Energy Corp.Southwestern Energy Production CompanyStatoilHydroStone Energy CompanyUltra Petroleum Corp.Marcellus Shale GeologyThe Marcellus shale of the Appalachian Basin is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface. It";
+
+const shaleName = "Marcellus Shale";
+const state = undefined;
+const descriptionText = "The Marcellus Shale covers the westernmost portion of Maryland. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus Shale is now economically viable, prompting recovery and marketing of this substantial resource of natural gas. The location of this resource near major natural gas markets of the Northeast contributes to favorable pricing for Marcellus natural gas.";
+
+const companies = [
+	"Anadarko Petroleum",
+	"Atlas Energy Resources",
+	"Cabot Oil & Gas Corporation",
+	"Carrizo Oil & Gas Corp.",
+	"Chesapeake Energy",
+	"Chief Oil & Gas",
+	"East Resources",
+	"Energy Corporation of America",
+	"EOG Resources",
+	"EQT Corp",
+	"EXCO Resources",
+	"Fortuna Energy",
+	"Nomac Drilling",
+	"North Coast Energy",
+	"Range Resources",
+	"Rex Energy Corp.",
+	"Southwestern Energy Production Company",
+	"StatoilHydro",
+	"Stone Energy Company",
+	"Ultra Petroleum Corp."
+];
+
+const geology = "";
+
+const counties = [
+	"Allegany County MD",
+	"Garrett County MD"
+];
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/resources/shale-plays/marcellus-shale-maryland",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale New Jersey",
+		"href": "/resources/shale-plays/marcellus-shale-new-jersey",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale New York",
+		"href": "/resources/shale-plays/marcellus-shale-new-york",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Ohio",
+		"href": "/resources/shale-plays/marcellus-shale-ohio",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale Pennsylvania",
+		"href": "/resources/shale-plays/marcellus-shale-pennsylvania",
+		"external": false
+	},
+	{
+		"text": "Marcellus Shale West Virginia",
+		"href": "/resources/shale-plays/marcellus-shale-west-virginia",
+		"external": false
+	}
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/shale-plays/marcellus-shale-maryland')}>
+		<ArticleContent>
+			<ShalePlayPage
+				shaleName={shaleName}
+				state={state}
+				description={descriptionText}
+				companies={companies}
+				geology={geology}
+				counties={counties}additionalReading={additionalReading}
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

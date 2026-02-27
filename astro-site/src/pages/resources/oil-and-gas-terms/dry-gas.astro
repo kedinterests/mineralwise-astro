@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Dry Gas";
+const description = "Natural gas that does not have a significant amount of liquid hydrocarbons or water vapor.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Dry Gas"
+		definition="Natural gas that does not have a significant amount of liquid hydrocarbons or water vapor."
+		path="/resources/oil-and-gas-terms/dry-gas"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/drilling-rig", label: "Drilling Rig" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/dry-hole", label: "Dry Hole" }}
+	/>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Permeability";
+const description = "Ability of rock to transmit fluids through pore spaces.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Permeability"
+		definition="Ability of rock to transmit fluids through pore spaces."
+		path="/resources/oil-and-gas-terms/permeability"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/perforations", label: "Perforations" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/play", label: "Play" }}
+	/>
+</BaseLayout>

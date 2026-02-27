@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Working Interest, WI";
+const description = "Interest(s) in a mineral property.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Working Interest, WI"
+		definition="Interest(s) in a mineral property."
+		path="/resources/oil-and-gas-terms/working-interest-wi"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/wildcat", label: "Wildcat" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/workover", label: "Workover" }}
+	/>
+</BaseLayout>

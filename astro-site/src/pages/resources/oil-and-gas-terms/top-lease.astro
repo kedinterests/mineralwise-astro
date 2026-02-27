@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Top Lease";
+const description = "An oil and gas lease which becomes effective only after the expiration (or termination) of an existing lease upon the subject land tract.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Top Lease"
+		definition="An oil and gas lease which becomes effective only after the expiration (or termination) of an existing lease upon the subject land tract."
+		path="/resources/oil-and-gas-terms/top-lease"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/title-curative", label: "Title Curative" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/transporter", label: "Transporter" }}
+	/>
+</BaseLayout>

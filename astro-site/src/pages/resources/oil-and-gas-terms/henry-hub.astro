@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Henry Hub";
+const description = "Located in Erath, LA, the Henry Hub is a pipeline interchange and the delivery point for the New York Mercantile Exchange (NYMEX) natural gas futures contracts.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Henry Hub"
+		definition="Located in Erath, LA, the Henry Hub is a pipeline interchange and the delivery point for the New York Mercantile Exchange (NYMEX) natural gas futures contracts."
+		path="/resources/oil-and-gas-terms/henry-hub"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/held-by-production-hbp", label: "Held By Production, HBP" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/horizontal-drilling", label: "Horizontal Drilling" }}
+	/>
+</BaseLayout>

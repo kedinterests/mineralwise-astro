@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Reserve Pit, Mud Pit";
+const description = "Pit used to collect spent drilling fluids, cutting, and wash water during drilling operations.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Reserve Pit, Mud Pit"
+		definition="Pit used to collect spent drilling fluids, cutting, and wash water during drilling operations."
+		path="/resources/oil-and-gas-terms/reserve-pit-mud-pit"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/regulatory-agency", label: "Regulatory Agency" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/reservoir", label: "Reservoir" }}
+	/>
+</BaseLayout>

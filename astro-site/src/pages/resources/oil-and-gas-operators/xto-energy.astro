@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "XTO Energy | MineralWise";
+const description = "XTO Energy is an oil and gas exploration and production company with headquarters in Ft. Worth TX. XTO stock is listed on the NYSE under the symbol XTO. XTO Energy has significant leasehold within and operates in the Barnett Shale, Appalachian, Mid-Continent, Permian Basin, and Gulf Coast regions of the United States. It is one of the nations largest independent oil and gas producers with reserves of over 2.06 billion barrels of oil equivalent.";
+
+const companyDescription = `is an oil and gas exploration and production company with headquarters in Ft. Worth TX. XTO stock is listed on the NYSE under the symbol XTO. XTO Energy has significant leasehold within and operates in the Barnett Shale, Appalachian, Mid-Continent, Permian Basin, and Gulf Coast regions of the United States. It is one of the nations largest independent oil and gas producers with reserves of over 2.06 billion barrels of oil equivalent.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/xto-energy')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="XTO Energy"
+				description={companyDescription}
+				logoPath="/images/xto-energy.png"
+				contactPhone="(800) 299-2800"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

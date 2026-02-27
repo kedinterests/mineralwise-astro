@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageShell from '../../../components/PageShell.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import CompanyPage from '../../../components/CompanyPage.astro';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+
+const title = "Kodiak Oil & Gas Corp. | MineralWise";
+const description = "Kodiak Oil & Gas Corp.";
+
+const companyDescription = `Kodiak Oil & Gas is an independent oil & gas exploration and production company with headquarters in Denver, Colorado. The Company's primary area of operation is in the Rocky Mountain region of the U.S. It also operates in parts of Montana and North Dakota. Kodiak's stock is listed in the NYSE as KOG.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<PageShell breadcrumbs={getBreadcrumbs('/resources/oil-and-gas-operators/kodiak-oil-and-gas-corp')}>
+		<ArticleContent>
+			<CompanyPage
+				companyName="Kodiak Oil & Gas Corp."
+				description={companyDescription}
+				logoPath="/images/kodiak.jpg"
+				contactPhone="(303) 592-8075"
+				showProductionVerification={true}
+				
+			/>
+		</ArticleContent>
+	</PageShell>
+</BaseLayout>

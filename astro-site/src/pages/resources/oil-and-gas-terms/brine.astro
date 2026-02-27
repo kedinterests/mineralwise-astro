@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TermPage from '../../../components/TermPage.astro';
+
+const title = "Brine";
+const description = "Another word for salt water.";
+---
+
+<BaseLayout title={title} description={description}>
+	<TermPage
+		term="Brine"
+		definition="Another word for salt water."
+		path="/resources/oil-and-gas-terms/brine"
+		prevTerm={{ href: "/resources/oil-and-gas-terms/bottom-hole-pressure-bhp", label: "Bottom Hole Pressure, BHP" }}
+		nextTerm={{ href: "/resources/oil-and-gas-terms/british-thermal-unit-btu", label: "British Thermal Unit, BTU" }}
+	/>
+</BaseLayout>
