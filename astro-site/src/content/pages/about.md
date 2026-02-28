@@ -1,11 +1,13 @@
 ---
 title: "MineralWise: Expert Advice for Oil & Gas Mineral Rights Owners"
-description: "Discover expert consulting, advice, and resources for oil and gas mineral rights owners in America. MineralWise empowers you to maximize bonus and royalty payments while navigating mineral ownership with confidence."
+description: Discover expert consulting, advice, and resources for oil and gas
+  mineral rights owners in America. MineralWise empowers you to maximize bonus
+  and royalty payments while navigating mineral ownership with confidence.
+pubDate: 2026-02-28T15:22:00.000-05:00
 ---
-
 # About MineralWise.com
 
-Welcome – We're glad you're visiting. MineralWise is an educational brand of KED Interests focused on citizen oil & gas mineral owners in America. We provide consulting, advice, and intelligence to America's mineral owners.
+Welcome! We're glad you're visiting. MineralWise is an educational brand of KED Interests focused on citizen oil & gas mineral owners in America. We provide consulting, advice, and intelligence to America's mineral owners.
 
 America's mineral owners negotiate daily with Oil and Gas Companies, receiving millions of dollars in bonus and royalty payments. Our services provide knowledge and understanding to this relationship.
 

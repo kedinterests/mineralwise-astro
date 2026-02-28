@@ -83,13 +83,26 @@ astro-site/
 
 ## 🔧 Local Development
 
-For local testing:
-```bash
-npm run dev
-# Visit http://localhost:4321/admin
-```
+The `/api/auth` and `/api/callback` endpoints are Cloudflare Functions—they **don't run** during `astro dev`. So GitHub OAuth will not work on localhost.
 
-**Note**: OAuth will only work on your deployed Cloudflare Pages site, not localhost. You'll need to deploy first to test authentication.
+To use the CMS locally, use the **local backend** (already enabled in `config.yml`):
+
+1. **Start decap-server** (from the repo root, in a separate terminal):
+   ```bash
+   npx decap-server
+   ```
+   Runs on port 8081 by default.
+
+2. **Start Astro**:
+   ```bash
+   cd astro-site && npm run dev
+   ```
+
+3. **Visit** `http://localhost:4321/admin` (or `/admin/index.html`)
+
+4. Decap will use the local proxy instead of GitHub—no auth required.
+
+**Note**: If you see a GitHub login prompt instead, decap-server isn't running. Start it first.
 
 ## 🐛 Troubleshooting
 
