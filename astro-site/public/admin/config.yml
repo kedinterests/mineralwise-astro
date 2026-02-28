@@ -22,7 +22,9 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Hero Title", name: "heroTitle", widget: "string", required: false}
+      - {label: "Hero Tagline", name: "heroTagline", widget: "string", required: false}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "blog"

@@ -10,6 +10,12 @@
         "description": {
           "type": "string"
         },
+        "heroTitle": {
+          "type": "string"
+        },
+        "heroTagline": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }

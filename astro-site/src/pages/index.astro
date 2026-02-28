@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/starwind/button/Button.astro';
-import AboveContentAd from '../components/AboveContentAd.astro';
 import { Fragment } from 'astro/jsx-runtime';
+import { getEntry, render } from 'astro:content';
 
-const title = "MineralWise - Leading Mineral Rights Education";
-const description = "Discover expert insights and tools for managing your mineral rights with MineralWise. Learn about leasing, royalties, property valuation, and more. Empowering mineral owners with knowledge and resources.";
+const page = await getEntry('pages', 'home');
+if (!page) {
+	throw new Error('Home page content not found');
+}
+
+const { Content } = await render(page);
+const { title, description, heroTitle, heroTagline } = page.data;
 ---
 
 <BaseLayout title={title} description={description} adConfig="home">
@@ -73,6 +78,29 @@ const description = "Discover expert insights and tools for managing your minera
 			background: var(--accent-dark) !important;
 			color: white !important;
 		}
+		.home-content :global(h2) {
+			font-size: 1.5rem;
+			font-weight: 800;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			color: rgb(17 24 39);
+		}
+		.home-content :global(h2:first-child) {
+			margin-top: 0;
+			font-size: 2.25rem;
+		}
+		.home-content :global(p) {
+			font-size: 1.125rem;
+			line-height: 1.75;
+			color: rgb(55 65 81);
+			margin-bottom: 1rem;
+		}
+		:global(.dark) .home-content :global(h2) {
+			color: white;
+		}
+		:global(.dark) .home-content :global(p) {
+			color: rgb(209 213 219);
+		}
 	</style>
 	
 	<!-- Hero Section with Full-Width Background -->
@@ -106,12 +134,9 @@ const description = "Discover expert insights and tools for managing your minera
 		<!-- Content Container - Left Side (where gradient is darkest) -->
 		<div class="hero-content relative z-10 container mx-auto px-4 max-w-7xl w-full">
 			<div class="max-w-2xl text-white">
-				<h1 class="text-3xl md:text-7xl font-black mb-6 tracking-tight text-white">
-					Insight for<br />
-					<span class="text-white">Mineral Owners</span>
-				</h1>
+				<h1 class="text-3xl md:text-7xl font-black mb-6 tracking-tight text-white" set:html={heroTitle?.replace(/\n/g, '<br />') ?? 'Insight for<br />Mineral Owners'} />
 				<p class="text-lg md:text-2xl mb-8 font-light text-white">
-					Empowering mineral rights owners with education, opportunity, and insights.
+					{heroTagline ?? "Empowering mineral rights owners with education, opportunity, and insights."}
 				</p>
 				<Button href="/owners-guide" variant="primary" size="lg" class="hero-cta-btn px-8 py-4 text-lg font-semibold">
 					Mineral Owners Start Here
@@ -125,22 +150,14 @@ const description = "Discover expert insights and tools for managing your minera
 		<div class="container mx-auto px-4 max-w-6xl">
 			<!-- Two Column Layout: Mineral Rights Text + Sticky Questions -->
 			<div class="grid grid-cols-1 md:grid-cols-[60%_40%] gap-12 mb-16" id="content-scroll-container">
-				<!-- Left Column - Mineral Rights Content -->
-				<div class="space-y-6">
-					<h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white leading-tight">
-						Mineral Rights and Surface Rights
-					</h2>
+				<!-- Left Column - Mineral Rights Content (CMS-editable) -->
+				<div class="space-y-6 home-content">
 					<div class="h-1 w-60 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-6"></div>
-					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-						Mineral rights can be described as the unseen value associated with a tract of land. Historically, land was transferred among owners, with the royalty rights co-mingled with the surface rights. As oil and gas production began in the U.S., these rights started to be viewed independently. If mineral rights are severed, i.e. the process of separating mineral rights from the surface rights, a new and separate chain of title for the minerals begins.
-					</p>
-					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-						Separate ownership of mineral rights and surface rights can sometimes cause confusion. Regarding oil and gas production, the owner of the surface rights has limited input whether oil or gas is produced from underneath his property. If production is established, a portion of the value is paid via a royalty fraction (i.e. percentage) to the mineral rights owner.
-					</p>
+					<Content />
 				</div>
 
 				<!-- Right Column - Sticky Questions Section -->
-				<div class="space-y-6">
+				<div id="sticky-questions" class="space-y-6">
 					<div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-sm p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
 						<h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900 dark:text-white text-center">
 							Questions about Mineral Rights?
@@ -174,7 +191,7 @@ const description = "Discover expert insights and tools for managing your minera
 								</a>
 							</li>
 							<li>
-								<a href="/owners-guide/cash-payment-for-oil-and-gas-royalty" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
+								<a href="/offer" class="group flex items-start gap-3 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline font-semibold text-lg transition-colors">
 									<span class="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400"></span>
 									<span>I am interested in a cash payment for my minerals.</span>
 								</a>
@@ -182,29 +199,6 @@ const description = "Discover expert insights and tools for managing your minera
 						</ul>
 					</div>
 				</div>
-			</div>
-
-			<!-- Additional Content Sections -->
-			<div class="space-y-12">
-				<!-- Leasing Section -->
-					<div class="flex items-center gap-3 mb-4">
-						<h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
-							Leasing Your Mineral Rights
-						</h2>
-					</div>
-					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-						If a landman comes knocking at your door, it's wise to know a few things before signing an oil and gas lease. Here are two articles that will help you negotiate your oil and gas lease. The first, <strong>Oil and Gas Leases: Top Ten Things Not to Do</strong> describes some of the mistakes owners make and how you can avoid them. The second article, <strong>Oil and Gas Leasing: Top Ten Things to Do</strong> illustrates how you can pursue the best deal for your mineral rights regarding your lease bonus payment, royalty percentage, and other important lease provisions.
-					</p>
-
-				<!-- Taxes Section -->
-					<div class="flex items-center gap-3 mb-4 mt-10">
-						<h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
-							Mineral Rights Taxes
-						</h2>
-					</div>
-					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-						As with other assets, royalty rights come with a tax liability. These tax burdens vary depending on whether the minerals are being produced or not. Minerals can be taxed both at the state and county level, in addition to your Federal tax obligation. The <strong>County Ad Valorem Tax</strong> is generally levied only on producing minerals. There are several ways to mitigate tax impact, including the <strong>Depletion Allowance</strong> and <strong>1031 Exchanges</strong>.
-					</p>
 			</div>
 
 		</div>
