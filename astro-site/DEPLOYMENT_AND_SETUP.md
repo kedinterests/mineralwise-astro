@@ -1,6 +1,8 @@
 # Deployment & Setup Guide
 
-Cloudflare Pages deployment and optional Decap CMS setup.
+Cloudflare Pages deployment and Decap CMS setup.
+
+**For a new site built from scraped HTML with Decap as a core requirement**, see **[DECAP_FIRST_BUILD_GUIDE.md](../DECAP_FIRST_BUILD_GUIDE.md)** in the repo root. That guide covers content-first architecture, conversion to Markdown, and frontend editing from day one.
 
 ---
 
@@ -70,6 +72,10 @@ Cloudflare Pages → Settings → Environment variables. Add variables (e.g. `PU
 - **Images not loading:** Ensure images in `public/images/`; run `npm run download-images` if needed
 - **Links broken:** Use relative paths (`/about` not `about.html`)
 
+### Sitemap
+
+Add `@astrojs/sitemap` for SEO. Requires `site` in `astro.config.mjs`. Output: `sitemap-index.xml`. Add redirect `/sitemap.xml` → `/sitemap-index.xml` in `_redirects`.
+
 ### Local Testing
 
 ```bash
@@ -80,9 +86,9 @@ npm run dev
 
 ---
 
-## Part 2: Decap CMS (Optional)
+## Part 2: Decap CMS (Required for Content Editing)
 
-Decap CMS edits Markdown content collections. **The main site (400+ pages)** uses static `.astro` files in `src/pages/`—those are not in Decap. Use Decap for blog posts and any future Markdown-based content.
+Decap CMS edits Markdown content collections. Content must live in `src/content/` (e.g. `pages/`, `blog/`) so it can be edited from the **frontend admin** at `/admin`, not through the code editor. For a **Decap-first** build from scraped HTML, see **DECAP_FIRST_BUILD_GUIDE.md**.
 
 ### What's Configured
 
@@ -95,7 +101,7 @@ Decap CMS edits Markdown content collections. **The main site (400+ pages)** use
 1. **Create GitHub OAuth App**
    - [GitHub Settings → OAuth Apps](https://github.com/settings/developers) → New OAuth App
    - Homepage URL: `https://your-site.pages.dev`
-   - Callback URL: `https://your-site.pages.dev/api/auth/callback`
+   - **Authorization callback URL:** `https://your-site.pages.dev/api/callback` (must be `/api/callback`, not `/api/auth/callback`)
    - Copy Client ID and Client Secret
 
 2. **Cloudflare Environment Variables**

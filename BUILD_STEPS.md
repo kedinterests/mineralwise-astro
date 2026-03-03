@@ -2,6 +2,8 @@
 
 A chronological record of the steps taken to build this site, from initial setup through performance optimization.
 
+**For building a NEW site from scraped HTML with Decap CMS as a core requirement (content editable from frontend admin, not code editor):** See **[DECAP_FIRST_BUILD_GUIDE.md](./DECAP_FIRST_BUILD_GUIDE.md)**.
+
 ---
 
 ## 1. Project Foundation
@@ -9,7 +11,7 @@ A chronological record of the steps taken to build this site, from initial setup
 ### Initial Setup
 
 - **Source:** Content migrated from a Brizzy/WordPress site
-- **Scraped HTML:** Original pages exported to `scraped/` directory
+- **Scraped HTML:** Original pages exported to `scraped/` directory (bakken: `/Users/chrismalone/Documents/bakken/scraped`)
 - **Framework:** Astro 5 with static output
 - **Styling:** Tailwind CSS v4 + custom `starwind.css` (design tokens, typography)
 - **Build:** Vite, UnoCSS, MDX, sitemap
@@ -27,7 +29,7 @@ mineralwise-astro/
 │   │   ├── layouts/      # BaseLayout
 │   │   └── pages/        # Astro pages (400+)
 │   └── scraped/          # Original HTML (reference)
-├── scraped/              # Scraped HTML files
+├── scraped/              # Scraped HTML files (bakken: /Users/chrismalone/Documents/bakken/scraped)
 └── src/
 ```
 
@@ -41,6 +43,10 @@ mineralwise-astro/
 - **Command:** `npm run download-images`
 - **Purpose:** Extract image URLs from scraped HTML, download to `public/images/`, create `src/data/image-map.json`
 - **Output:** Local copies of all images used across the site
+
+### Exclude Tag Archive Pages
+
+**Do not create pages for tag archives.** Skip any scraped file with `__tag__` in the filename (e.g. `bsp-news__tag__Bakken+Production.html`). Reference: bakkenshale.com/sitemap.xml.
 
 ### HTML to Astro Conversion
 
@@ -148,6 +154,14 @@ Per-page cleanup applied during migration:
   - Removed parallax `height: 140%` / `top: -20%` (layout-changing); kept `transform: translateY()` only
   - Added `<link rel="preload">` for hero image in page head
 
+### Sitemap
+
+- **Package:** `@astrojs/sitemap`
+- **Config:** Add to `astro.config.mjs`: `integrations: [sitemap()]`
+- **Requirement:** Set `site: 'https://your-domain.com'` in config (required for sitemap)
+- **Output:** `sitemap-index.xml` at build; add `Sitemap: https://your-domain.com/sitemap-index.xml` to `robots.txt`
+- **Redirect:** Add `/sitemap.xml /sitemap-index.xml 301` to `public/_redirects` for crawler compatibility
+
 ### Caching
 
 - **File:** `astro-site/public/_headers`
@@ -169,11 +183,13 @@ Per-page cleanup applied during migration:
 - **Config:** `wrangler.toml` (optional; `pages_build_output_dir = "dist"`)
 - **Deploy:** `npm run deploy` (build + `wrangler pages deploy`)
 
-### Optional: Decap CMS
+### Decap CMS
 
 - **Admin:** `/admin`
-- **Auth:** GitHub OAuth via Cloudflare Functions (`functions/api/auth.js`)
+- **Auth:** GitHub OAuth via Cloudflare Functions (`functions/api/auth.js`, `functions/api/callback.js`)
+- **Callback URL:** `https://yoursite.com/api/callback` (GitHub OAuth App setting)
 - **Collections:** Blog, Pages; see `DEPLOYMENT_AND_SETUP.md` and `README_CMS.md`
+- **Decap-first build:** See `DECAP_FIRST_BUILD_GUIDE.md` for new sites
 
 ---
 
@@ -194,6 +210,7 @@ Per-page cleanup applied during migration:
 
 ## 9. Related Documentation
 
+- **DECAP_FIRST_BUILD_GUIDE.md** — **For new sites:** Build from scraped HTML with Decap CMS from day one; content editable from frontend admin
 - **README.md** — Getting started, project structure, migration scripts
 - **MIGRATION.md** — Migration plan, tracker, content cleanup, hierarchy
 - **DEPLOYMENT_AND_SETUP.md** — Cloudflare Pages, custom domain, Decap CMS

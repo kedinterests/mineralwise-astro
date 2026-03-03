@@ -97,7 +97,9 @@ See [MIGRATION.md](./MIGRATION.md) for the full migration guide (plan, tracker, 
 
 ## Deployment
 
-See [DEPLOYMENT_AND_SETUP.md](./DEPLOYMENT_AND_SETUP.md) for Cloudflare Pages deployment and optional Decap CMS setup.
+See [DEPLOYMENT_AND_SETUP.md](./DEPLOYMENT_AND_SETUP.md) for Cloudflare Pages deployment and Decap CMS setup.
+
+**Building a new site from scraped HTML with Decap CMS from the start?** See [DECAP_FIRST_BUILD_GUIDE.md](../DECAP_FIRST_BUILD_GUIDE.md) in the repo root.
 
 ## Features
 

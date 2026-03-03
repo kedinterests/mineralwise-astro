@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Thank You | MineralWise" description="Thanks for joining Mineral Owner Tips. You're all set to receive expert insights for mineral rights owners.">
+	<div class="thank-you-page">
+		<div class="thank-you-content">
+			<h1>Thank You for Subscribing to Mineral Owner Tips</h1>
+			<p>You're all set. Check your inbox for a confirmation email and look for our tips and insights on mineral rights.</p>
+			<p>
+				<a href="/" class="thank-you-link">Return to MineralWise</a>
+			</p>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.thank-you-page {
+		min-height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+
+	.thank-you-content {
+		max-width: 36rem;
+		text-align: center;
+	}
+
+	.thank-you-content h1 {
+		font-size: 1.875rem;
+		font-weight: 800;
+		color: rgb(17 24 39);
+		margin-bottom: 1rem;
+	}
+
+	.thank-you-content p {
+		font-size: 1.125rem;
+		line-height: 1.75;
+		color: rgb(55 65 81);
+		margin-bottom: 1rem;
+	}
+
+	.thank-you-link {
+		display: inline-block;
+		margin-top: 1.5rem;
+		padding: 0.5rem 1rem;
+		font-weight: 600;
+		color: white;
+		background: var(--accent, #2563eb);
+		border-radius: 0.375rem;
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.thank-you-link:hover {
+		opacity: 0.9;
+	}
+
+	:global(.dark) .thank-you-content h1 {
+		color: white;
+	}
+
+	:global(.dark) .thank-you-content p {
+		color: rgb(209 213 219);
+	}
+</style>

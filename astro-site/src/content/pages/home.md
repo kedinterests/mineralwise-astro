@@ -1,5 +1,5 @@
 ---
-title: "MineralWise - Leading Mineral Rights Education"
+title: "MineralWise | Mineral Rights Education, Leasing & Owner Resources"
 description: "Discover expert insights and tools for managing your mineral rights with MineralWise. Learn about leasing, royalties, property valuation, and more. Empowering mineral owners with knowledge and resources."
 heroTitle: |
   Insight for

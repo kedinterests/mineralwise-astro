@@ -19,7 +19,7 @@ Decap CMS has been successfully installed and configured for your MineralWise As
 3. Fill in:
    - **Application name**: `MineralWise CMS`
    - **Homepage URL**: `https://your-site.pages.dev` (replace with your Cloudflare Pages URL)
-   - **Authorization callback URL**: `https://your-site.pages.dev/api/auth/callback`
+   - **Authorization callback URL**: `https://your-site.pages.dev/api/callback` (must be `/api/callback`, not `/api/auth/callback`)
 4. Click **"Register application"**
 5. **Copy the Client ID** and **generate a Client Secret**
 
@@ -48,6 +48,8 @@ Edit `public/admin/config.yml`:
 6. Start editing content!
 
 ## 📁 File Structure
+
+**Bakken project:** Scraped files at `/Users/chrismalone/Documents/bakken/scraped`
 
 ```
 astro-site/
