@@ -5,6 +5,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BelowContentAd from '../components/BelowContentAd.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 type AdConfig = 'none' | 'bc-only' | 'home';
@@ -47,6 +48,7 @@ const showBcAd = adConfig === 'bc-only' || adConfig === 'home';
 			</div>
 		)}
 		<Footer />
+		<CookieBanner />
 		<script is:inline>
 			(function() {
 				function isOnsite(href) {
@@ -65,10 +67,17 @@ const showBcAd = adConfig === 'bc-only' || adConfig === 'home';
 							a.removeAttribute('target');
 						} else {
 							a.setAttribute('target', '_blank');
-							var rel = (a.getAttribute('rel') || '').trim();
-							if (!rel.includes('noopener')) rel += (rel ? ' ' : '') + 'noopener';
-							if (!rel.includes('noreferrer')) rel += (rel ? ' ' : '') + 'noreferrer';
-							a.setAttribute('rel', rel);
+							var existingRel = a.getAttribute('rel');
+							if (!existingRel) {
+								// No rel set — apply full security defaults for unknown external links
+								a.setAttribute('rel', 'noopener noreferrer');
+							} else {
+								// rel was explicitly set by the server template — respect it.
+								// Only add noopener if missing; do NOT add noreferrer (intentional omission).
+								if (!existingRel.includes('noopener')) {
+									a.setAttribute('rel', existingRel.trim() + ' noopener');
+								}
+							}
 						}
 					});
 				}
@@ -79,6 +88,15 @@ const showBcAd = adConfig === 'bc-only' || adConfig === 'home';
 				}
 				document.addEventListener('astro:page-load', processLinks);
 			})();
+		</script>
+		<script is:inline>
+			// Cookie consent event handlers — load/suppress analytics based on visitor choice.
+			window.addEventListener('cookieConsentAccepted', function() {
+				// TODO: load analytics scripts here
+			});
+			window.addEventListener('cookieConsentDeclined', function() {
+				// TODO: ensure analytics scripts are not loaded or are removed
+			});
 		</script>
 	</body>
 </html>

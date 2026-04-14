@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Cookie Policy | MineralWise';
+const description =
+	'Learn how MineralWise uses cookies, what data we collect, and how to manage your preferences based on your location and applicable privacy laws.';
+---
+
+<BaseLayout title={title} description={description} maxWidth={800} adConfig="none">
+	<article class="policy-page">
+		<header class="policy-header">
+			<h1>Cookie Policy</h1>
+			<p class="policy-updated">Last Updated: April 14, 2026</p>
+		</header>
+
+		<section>
+			<h2>What Are Cookies</h2>
+			<p>
+				Cookies are small text files that a website stores on your device when you visit. They are
+				read back by the site on subsequent visits to recognize you, remember your preferences, or
+				understand how you're using the site. Cookies can't run code or carry viruses — they're
+				simply data files.
+			</p>
+			<p>
+				There are two broad categories. <strong>First-party cookies</strong> are set directly by
+				the website you're visiting (in this case, MineralWise). <strong>Third-party cookies</strong>
+				are set by external services — analytics platforms, ad networks, or embedded content providers
+				— whose code runs on the page.
+			</p>
+			<p>
+				Cookies also vary by how long they last. <strong>Session cookies</strong> disappear when
+				you close your browser. <strong>Persistent cookies</strong> remain on your device for a
+				defined period, or until you delete them manually.
+			</p>
+		</section>
+
+		<section>
+			<h2>How We Use Cookies</h2>
+			<p>
+				MineralWise uses a limited and purposeful set of cookies. We do not use advertising cookies
+				or third-party tracking networks that follow you across the web.
+			</p>
+			<p>
+				<strong>Essential cookies</strong> are required for the site to work correctly. They handle
+				things like remembering your cookie consent choice so you aren't prompted again on every
+				visit. Without these, parts of the site would not function.
+			</p>
+			<p>
+				<strong>Analytics cookies</strong> help us understand how visitors engage with our content
+				— which pages are most read, how long visitors stay, and where people enter and exit the
+				site. This data is aggregated and anonymous. We use it to improve the quality and relevance
+				of our mineral rights resources. No personally identifiable information is collected through
+				analytics.
+			</p>
+			<p>
+				<strong>Preference cookies</strong> may be used to remember choices you make on the site,
+				such as display settings, so you don't have to reset them each time you return.
+			</p>
+			<p>
+				We do not use cookies for advertising, remarketing, or cross-site behavioral profiling.
+			</p>
+		</section>
+
+		<section>
+			<h2>Your Rights by Region</h2>
+			<p>
+				Privacy laws vary significantly depending on where you are located. Here is how your rights
+				apply:
+			</p>
+			<p>
+				<strong>California, Colorado, and Connecticut (United States).</strong> Residents of
+				California have rights under the California Privacy Rights Act (CPRA/CCPA), including the
+				right to know what personal data is collected, the right to delete it, and the right to opt
+				out of its sale or sharing. Colorado residents have similar rights under the Colorado Privacy
+				Act (CPA), and Connecticut residents under the Connecticut Data Privacy Act (CTDPA). If
+				you're in one of these states, you can decline non-essential cookies using the banner at the
+				bottom of this page.
+			</p>
+			<p>
+				<strong>European Union and GDPR regions.</strong> If you are located in the EU, UK,
+				Switzerland, or another jurisdiction covered by the General Data Protection Regulation (GDPR)
+				or equivalent law, you have the right to give or withhold consent before non-essential
+				cookies are set, and to withdraw that consent at any time. The cookie banner we display is
+				designed to respect that right.
+			</p>
+			<p>
+				<strong>Rest of the world.</strong> Even if local law doesn't require a formal consent
+				banner in your region, you still have the ability to manage your cookie preferences. You can
+				decline non-essential cookies at any time using the banner or by clearing your browser
+				cookies.
+			</p>
+		</section>
+
+		<section>
+			<h2>How to Manage Your Consent</h2>
+			<p>
+				When you first visit MineralWise from a qualifying location, a banner appears at the bottom
+				of the page. You can choose to accept all cookies or decline non-essential ones. Your choice
+				is stored in a cookie named <code>cookie_consent</code> for one year so you won't be asked
+				repeatedly.
+			</p>
+			<p>
+				If you change your mind, you can clear this cookie at any time through your browser's
+				privacy or history settings (look for "Clear cookies" or "Clear browsing data"). The next
+				time you visit, the banner will reappear and you can make a fresh choice.
+			</p>
+			<p>
+				You can also configure your browser to block all cookies, block third-party cookies only,
+				or alert you each time a cookie is set. The steps vary by browser — check the help
+				documentation for Chrome, Firefox, Safari, or Edge for instructions specific to your setup.
+			</p>
+		</section>
+
+		<section>
+			<h2>Third-Party Services</h2>
+			<p>
+				Some pages on MineralWise may load resources from third-party services — for example, web
+				fonts, embedded maps, or analytics tools. These services may set their own cookies
+				independently of ours, subject to their own privacy policies. We do not control those
+				cookies or the data those third parties collect.
+			</p>
+			<p>
+				When you decline non-essential cookies on MineralWise, we make a best effort not to load
+				third-party analytics scripts. However, some functionality (such as fonts or security
+				services) may still make requests that involve cookies outside our direct control. We
+				encourage you to review the privacy policies of any third-party services you encounter.
+			</p>
+		</section>
+
+		<section>
+			<h2>Contact</h2>
+			<p>
+				If you have questions about this Cookie Policy or how we handle your data, please reach out
+				through our <a href="/contact-us">contact page</a>. We're happy to clarify anything.
+			</p>
+		</section>
+	</article>
+</BaseLayout>
+
+<style>
+	.policy-page {
+		padding: 3rem 1.5rem;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.policy-header {
+		margin-bottom: 2.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 2px solid #e5e7eb;
+	}
+
+	:global(.dark) .policy-header {
+		border-bottom-color: #374151;
+	}
+
+	.policy-page h1 {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 700;
+		color: #111827;
+		margin: 0 0 0.5rem;
+		line-height: 1.2;
+	}
+
+	:global(.dark) .policy-page h1 {
+		color: #f9fafb;
+	}
+
+	.policy-updated {
+		font-size: 0.875rem;
+		color: #6b7280;
+		margin: 0;
+	}
+
+	:global(.dark) .policy-updated {
+		color: #9ca3af;
+	}
+
+	.policy-page section {
+		margin-bottom: 2.25rem;
+	}
+
+	.policy-page h2 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #111827;
+		margin: 0 0 0.875rem;
+		padding-bottom: 0.375rem;
+		border-bottom: 1px solid #f3f4f6;
+	}
+
+	:global(.dark) .policy-page h2 {
+		color: #f3f4f6;
+		border-bottom-color: #1f2937;
+	}
+
+	.policy-page p {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: #374151;
+		margin: 0 0 1rem;
+	}
+
+	:global(.dark) .policy-page p {
+		color: #d1d5db;
+	}
+
+	.policy-page p:last-child {
+		margin-bottom: 0;
+	}
+
+	.policy-page strong {
+		color: #111827;
+		font-weight: 600;
+	}
+
+	:global(.dark) .policy-page strong {
+		color: #f9fafb;
+	}
+
+	.policy-page code {
+		font-family: ui-monospace, 'Cascadia Code', monospace;
+		font-size: 0.8125rem;
+		background: #f3f4f6;
+		color: #111827;
+		padding: 0.125rem 0.375rem;
+		border-radius: 0.25rem;
+	}
+
+	:global(.dark) .policy-page code {
+		background: #1f2937;
+		color: #e5e7eb;
+	}
+
+	.policy-page a {
+		color: #0284c7;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.policy-page a:hover {
+		color: #0369a1;
+	}
+</style>
