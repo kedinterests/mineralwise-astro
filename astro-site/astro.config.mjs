@@ -12,7 +12,7 @@ const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 // https://astro.build/config
 export default defineConfig({
 	site: siteUrl,
-	output: 'static', // Use 'static' for localhost, change to 'server' when deploying to Cloudflare Pages
+	output: 'static',
 	integrations: [UnoCSS(), mdx(), sitemap()],
 	vite: {
 		plugins: [tailwind()],
