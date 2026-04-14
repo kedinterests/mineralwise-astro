@@ -5,6 +5,7 @@ export interface NavItem {
 	title: string;
 	href: string;
 	external?: boolean;
+	allowReferrer?: boolean;
 	children?: NavItem[];
 }
 
@@ -89,5 +90,6 @@ export const navigation: NavItem[] = [
 		title: 'Forum',
 		href: 'https://mineralrightsforum.com',
 		external: true,
+		allowReferrer: true,
 	},
 ];

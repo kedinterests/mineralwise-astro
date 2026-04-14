@@ -14,8 +14,8 @@ export async function onRequestPost(context) {
       'https://flow.zoho.com/806242011/flow/webhook/incoming?zapikey=1001.9c5c16450fe42afcce4029e3cc43d92a.f0974967b5b41a95258f71daae449128&isdebug=false',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ email }).toString(),
       }
     );
 
