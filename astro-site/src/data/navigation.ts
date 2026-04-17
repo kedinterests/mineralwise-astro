@@ -88,7 +88,7 @@ export const navigation: NavItem[] = [
 	},
 	{
 		title: 'Forum',
-		href: 'https://mineralrightsforum.com',
+		href: 'https://www.mineralrightsforum.com',
 		external: true,
 		allowReferrer: true,
 	},

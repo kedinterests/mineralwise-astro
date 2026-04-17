@@ -23,7 +23,7 @@ export async function GET({ site }: { site: URL | undefined }) {
 
 ## Key Information
 
-- [Mineral Rights Forum](https://mineralrightsforum.com) – Community discussion for mineral rights owners
+- [Mineral Rights Forum](https://www.mineralrightsforum.com) – Community discussion for mineral rights owners
 - [Privacy Policy](${base}/privacy-policy)
 - [Terms & Conditions](${base}/terms-and-conditions)
 
