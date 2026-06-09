@@ -1,3 +1,6 @@
+# CMS admin — serve index.html directly without redirect loop
+/admin /admin/index.html 200
+
 # Duplicate/artifact page redirects
 /contact-us-2/ /contact-us/ 301
 /depletion-allowance-2/ /resources/oil-and-gas-terms/depletion-allowance/ 301
