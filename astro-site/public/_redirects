@@ -1,3 +1,7 @@
+# Duplicate/artifact page redirects
+/contact-us-2/ /contact-us/ 301
+/depletion-allowance-2/ /resources/oil-and-gas-terms/depletion-allowance/ 301
+
 # Sitemap (sitemap.xml -> sitemap-index.xml for crawler compatibility)
 /sitemap.xml /sitemap-index.xml 301
 

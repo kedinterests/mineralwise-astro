@@ -13,7 +13,29 @@ const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 export default defineConfig({
 	site: siteUrl,
 	output: 'static',
-	integrations: [UnoCSS(), mdx(), sitemap()],
+	integrations: [
+		UnoCSS(),
+		mdx(),
+		sitemap({
+			filter: (page) => {
+				const excluded = [
+					'https://mineralwise.com/admin/',
+					'https://mineralwise.com/adstxt/',
+					'https://mineralwise.com/blog/first-post/',
+					'https://mineralwise.com/blog/second-post/',
+					'https://mineralwise.com/blog/third-post/',
+					'https://mineralwise.com/blog/markdown-style-guide/',
+					'https://mineralwise.com/blog/using-mdx/',
+					'https://mineralwise.com/contact-us-2/',
+					'https://mineralwise.com/depletion-allowance-2/',
+					'https://mineralwise.com/search/',
+					'https://mineralwise.com/thank-you/',
+					'https://mineralwise.com/offer/',
+				];
+				return !excluded.includes(page);
+			},
+		}),
+	],
 	vite: {
 		plugins: [tailwind()],
 	},
