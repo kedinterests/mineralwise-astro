@@ -1,9 +1,5 @@
 backend:
-  name: github
-  repo: kedinterests/mineralwise-astro
-  branch: main
-  base_url: https://mineralwise.com
-  auth_endpoint: api/auth
+  name: git-gateway
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
