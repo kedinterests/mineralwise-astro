@@ -1,5 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: kedinterests/mineralwise-astro
+  branch: main
+  auth_endpoint: api/auth
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
