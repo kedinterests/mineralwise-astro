@@ -4,7 +4,7 @@ backend:
   name: github
   repo: kedinterests/mineralwise-astro
   branch: main
-  base_url: https://mineralwise-astro.pages.dev  # Update to your actual Cloudflare Pages URL
+  base_url: https://mineralwise.com
   auth_endpoint: api/auth
 
 # Uncomment below to enable drafts
