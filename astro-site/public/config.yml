@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: kedinterests/mineralwise-astro
+  branch: main
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: astro-site/public/images
+public_folder: /images
+
+collections:
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    folder: "astro-site/src/content/pages" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Hero Title", name: "heroTitle", widget: "string", required: false}
+      - {label: "Hero Tagline", name: "heroTagline", widget: "string", required: false}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "astro-site/src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Updated Date", name: "updatedDate", widget: "datetime", required: false}
+      - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - label: "Main Navigation"
+        name: "navigation"
+        file: "astro-site/src/data/navigation.ts"
+        fields:
+          - {label: "Navigation Items", name: "navigation", widget: "list", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "URL", name: "href", widget: "string"},
+              {label: "External", name: "external", widget: "boolean", required: false},
+              {label: "Children", name: "children", widget: "list", required: false, fields: [
+                {label: "Title", name: "title", widget: "string"},
+                {label: "URL", name: "href", widget: "string"}
+              ]}
+            ]}
