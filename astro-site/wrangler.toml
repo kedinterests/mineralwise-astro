@@ -5,6 +5,5 @@ name = "mineralwise-astro"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
 
-# Uncomment if using environment variables
-# [vars]
-# ENVIRONMENT = "production"
+[vars]
+PUBLIC_SITE_URL = "https://mineralwise.com"
