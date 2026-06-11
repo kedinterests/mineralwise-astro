@@ -2,7 +2,7 @@
 
 **Period affected:** Launch of Astro site through June 2026
 **Symptom:** Organic traffic near zero. 198 clicks on 53,945 impressions (0.37% CTR, avg position 37.41) in GA4/Search Console.
-**Root cause:** Three compounding issues, two of which were silent failures.
+**Root cause:** Multiple compounding issues, two of which were silent failures.
 
 ---
 
@@ -20,15 +20,15 @@ Result: 230+ old URLs returned 404 instead of redirecting. Google de-indexed all
 
 ---
 
-### 2. Build deployed without PUBLIC_SITE_URL set (local dist had localhost canonicals)
+### 2. PUBLIC_SITE_URL was a dashboard secret — invisible and unverifiable
 
-The Astro site reads `PUBLIC_SITE_URL` at build time to generate canonical URLs, sitemap entries, and JSON-LD structured data. When built locally without that env var set, every page's canonical pointed to `http://localhost:4321/` and the sitemap listed `http://localhost:4321/sitemap-0.xml`.
+The Astro site reads `PUBLIC_SITE_URL` at build time to generate canonical URLs, sitemap entries, and JSON-LD structured data. It was set correctly in Cloudflare Pages as a dashboard secret, so the live site always had correct canonicals. However, because it was a secret (encrypted), the value was invisible in the dashboard — there was no way to confirm what it was set to without doing a test deploy.
 
-The live site had correct URLs because Cloudflare Pages runs its own build with the env var set as a secret. However, if anyone had deployed from a local build (via `npm run deploy`), they would have shipped localhost canonicals to production without realizing it.
+Additionally, the local `dist/` built without the env var contains localhost URLs throughout. If anyone ran `npm run deploy` locally, they would ship localhost canonicals to production with no warning.
 
-**Fix applied:** Already resolved by Cloudflare Pages building with the env var. The local `dist/` is now just stale — not deployed.
+**Fix applied:** `PUBLIC_SITE_URL` moved from a dashboard secret to `wrangler.toml` as a plain `[vars]` entry. It is now visible, version-controlled, and verifiable. Dashboard secret deleted.
 
-**Watch for next time:** Never run `npm run deploy` locally for this project without first setting `PUBLIC_SITE_URL=https://mineralwise.com`. Better: remove the local deploy path entirely and only deploy through Cloudflare Pages CI. After any deploy, immediately check `curl https://mineralwise.com/ | grep canonical` to confirm the canonical URL is correct.
+**Watch for next time:** `PUBLIC_SITE_URL` is a public domain name — it is not sensitive and should never be a secret. Any env var that affects build output (canonicals, sitemap, structured data) must be in `wrangler.toml` so it can be reviewed. Never run `npm run deploy` locally without first confirming the env var is set. After any deploy, verify with `curl https://mineralwise.com/ | grep canonical`.
 
 ---
 
@@ -84,6 +84,7 @@ Title generation logic was truncating strings and appending a literal `…` char
 
 Before go-live on any new Astro/Cloudflare Pages site:
 
+- [ ] `PUBLIC_SITE_URL` is set in `wrangler.toml`, not as a dashboard secret
 - [ ] `curl https://domain.com/ | grep canonical` returns the production domain, not localhost
 - [ ] `curl https://domain.com/sitemap-index.xml` contains production URLs, not localhost
 - [ ] `curl -I https://www.domain.com/` returns 301, not 200
