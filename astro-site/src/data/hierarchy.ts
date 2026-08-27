@@ -268,7 +268,6 @@ export const pageHierarchy: Record<string, PageNode> = {
 	'/resources/oil-and-gas-terms/henry-hub': { label: 'Henry Hub', parent: '/resources/oil-and-gas-terms' },
 	'/resources/oil-and-gas-terms/horizontal-drilling': { label: 'Horizontal Drilling', parent: '/resources/oil-and-gas-terms' },
 	'/resources/oil-and-gas-terms/horizontal-pugh-clause': { label: 'Horizontal Pugh Clause', parent: '/resources/oil-and-gas-terms' },
-	'/resources/oil-and-gas-terms/hydraulic-fracturing-fracture-fracing-fracking-frac-job': { label: 'Hydraulic Fracturing Fracture Fracing Fracking Frac Job', parent: '/resources/oil-and-gas-terms' },
 	'/resources/oil-and-gas-terms/hydrocarbon': { label: 'Hydrocarbon', parent: '/resources/oil-and-gas-terms' },
 	'/resources/oil-and-gas-terms/hyperbolic-decline': { label: 'Hyperbolic Decline', parent: '/resources/oil-and-gas-terms' },
 	'/resources/oil-and-gas-terms/independent-producer': { label: 'Independent Producer', parent: '/resources/oil-and-gas-terms' },

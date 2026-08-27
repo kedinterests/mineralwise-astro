@@ -6,8 +6,20 @@ import UnoCSS from 'unocss/astro';
 import tailwind from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
-// Set PUBLIC_SITE_URL when building for production (e.g. https://yourdomain.com)
+// Must be set for production builds. A build without it emits localhost
+// canonicals, sitemap entries and JSON-LD. It lives in wrangler.toml [vars]
+// rather than as a dashboard secret so the value stays reviewable.
 const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+
+// Utility pages: real routes, but nothing we want Google spending crawl budget on.
+// Content redirects are handled in functions/_middleware.js, not here.
+const SITEMAP_EXCLUDE = [
+	'/admin/',
+	'/adstxt/',
+	'/search/',
+	'/thank-you/',
+	'/offer/',
+];
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,21 +30,8 @@ export default defineConfig({
 		mdx(),
 		sitemap({
 			filter: (page) => {
-				const excluded = [
-					'https://mineralwise.com/admin/',
-					'https://mineralwise.com/adstxt/',
-					'https://mineralwise.com/blog/first-post/',
-					'https://mineralwise.com/blog/second-post/',
-					'https://mineralwise.com/blog/third-post/',
-					'https://mineralwise.com/blog/markdown-style-guide/',
-					'https://mineralwise.com/blog/using-mdx/',
-					'https://mineralwise.com/contact-us-2/',
-					'https://mineralwise.com/depletion-allowance-2/',
-					'https://mineralwise.com/search/',
-					'https://mineralwise.com/thank-you/',
-					'https://mineralwise.com/offer/',
-				];
-				return !excluded.includes(page);
+				const pathname = new URL(page).pathname;
+				return !SITEMAP_EXCLUDE.includes(pathname);
 			},
 		}),
 	],

@@ -1,20 +1,16 @@
-# CMS admin — serve index.html directly without redirect loop
+# Keep this file tiny.
+#
+# Cloudflare Pages silently stops processing _redirects after roughly 112 rules,
+# and it matches literal paths only, so /foo and /foo/ each need their own line.
+# The migration's 344-rule file is what broke the site. All content redirects now
+# live in functions/_middleware.js, which has no rule limit, normalises the
+# trailing slash, and refuses to point at a page that does not exist.
+#
+# Only add a rule here if it cannot be expressed in the middleware: a 200 rewrite,
+# or something that must run before the Functions layer.
+
+# CMS admin — serve index.html directly without a redirect loop
 /admin /admin/index.html 200
 
-# Duplicate/artifact page redirects
-/contact-us-2/ /contact-us/ 301
-/depletion-allowance-2/ /resources/oil-and-gas-terms/depletion-allowance/ 301
-
-# Sitemap (sitemap.xml -> sitemap-index.xml for crawler compatibility)
+# Crawler compatibility: some tools request /sitemap.xml by convention.
 /sitemap.xml /sitemap-index.xml 301
-
-# Resources section wildcard redirects (old paths -> /resources/)
-/mineral-rights-by-state /resources/mineral-rights-by-state 301
-/mineral-rights-by-state/* /resources/mineral-rights-by-state/:splat 301
-/shale-plays /resources/shale-plays 301
-/shale-plays/* /resources/shale-plays/:splat 301
-/oil-and-gas-operators /resources/oil-and-gas-operators 301
-/oil-and-gas-operators/* /resources/oil-and-gas-operators/:splat 301
-/oil-and-gas-terms /resources/oil-and-gas-terms 301
-/oil-and-gas-terms/* /resources/oil-and-gas-terms/:splat 301
-/oil-and-gas-abbreviations /resources/oil-and-gas-abbreviations 301

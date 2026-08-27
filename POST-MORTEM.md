@@ -95,3 +95,123 @@ Before go-live on any new Astro/Cloudflare Pages site:
 - [ ] `robots.txt` disallows `/admin/`
 - [ ] Page titles render without truncation (check with browser dev tools on 3–4 pages)
 - [ ] Resubmit sitemap in Search Console after launch
+
+---
+
+## Second pass — 27 August 2026
+
+The June fixes were real but incomplete. Search Console on 20 August still showed
+**235 Not found (404)** and an average position of 34.8. The validation run started
+11 June failed on 13 June because the underlying faults were still live.
+
+### 7. The wildcard rules redirected into 404s
+
+Moving the specific slugs into `functions/_middleware.js` (fix 1) fixed the rule
+*limit*, but `public/_redirects` kept its wildcards:
+
+```
+/oil-and-gas-terms/*   /resources/oil-and-gas-terms/:splat   301
+/oil-and-gas-operators/* /resources/oil-and-gas-operators/:splat 301
+```
+
+A wildcard cannot check that its destination exists. The migration had also
+*renamed* slugs, so these sent Googlebot from a real old URL to a new URL that
+was never built. Verified live on 20 August:
+
+| Requested | Redirected to | Result |
+|---|---|---|
+| `/oil-and-gas-terms/fracking/` | `/resources/oil-and-gas-terms/fracking/` | 404 |
+| `/oil-and-gas-terms/drilling-mud/` | `/resources/oil-and-gas-terms/drilling-mud/` | 404 |
+| `/oil-and-gas-operators/anadarko-petroleum/` | `/resources/oil-and-gas-operators/anadarko-petroleum/` | 404 |
+
+Those pages existed the whole time, under `fracking-hydraulic-fracturing-fracture-fracing-frac-job`,
+`drilling-mud-drilling-fluid`, and at the root as `/anadarko-petroleum/`.
+Redirect-to-404 is worse than a plain 404: Google spends the crawl and still
+gets nothing.
+
+**Fix applied:** `_redirects` is now 2 rules — the `/admin` 200 rewrite and the
+`/sitemap.xml` alias. Everything else moved into a generated middleware whose
+build step *refuses to emit a rule whose destination is not a real page*.
+
+### 8. `_redirects` never matched URLs without a trailing slash
+
+`/depletion-allowance-2/` redirected; `/depletion-allowance-2` returned 404.
+Cloudflare Pages adds its own 308 for the missing slash only on assets that
+exist, so every rule in `_redirects` silently covered half the inventory.
+Google holds both variants from the Squarespace era.
+
+**Fix applied:** the middleware normalises the path before lookup and redirects
+straight to the slashed form, so each mapping is written once and no redirect
+becomes a two-hop chain.
+
+### 9. www redirected on the homepage only
+
+The June Cloudflare rule covered `www.mineralwise.com/`. Deep paths were not
+covered — on 27 August `https://www.mineralwise.com/resources/oil-and-gas-terms/royalty/`
+still returned **200**, serving a complete duplicate of the site on a second host.
+
+**Fix applied:** host consolidation now happens in the middleware, in code, with
+the path and query string preserved. It runs before any path logic so a www
+request produces one redirect, not two.
+
+### 10. The Squarespace-era hierarchy had no redirects at all
+
+Before the Brizy rebuild the site used nested paths — `/owners-guide/...`,
+`/library/oil-and-gas-terms/...`, `/directory/shale-plays/...`,
+`/mineral-rights-by-state/...`. None of these were in any redirect map. They are
+the bulk of the 235.
+
+**Fix applied:** `scripts/legacy-urls.txt` captures the full historical inventory
+(909 URLs, reconstructed from the Wayback CDX index plus the pre-migration
+sitemap scrape). The generator resolves each one against the pages that exist and
+matches on the final path segment, so `/library/oil-and-gas-terms/farm-in-definition`,
+`/oil-and-gas-terms/farm-in` and `/farm-in` all resolve without one rule each.
+
+### 11. Twenty-six empty pages in the sitemap
+
+`/resources/oil-and-gas-terms/a/` through `/z/` were alphabet stubs containing a
+single empty `<div>`. Nothing on the site linked to them; they existed only in
+the sitemap, where they invited Google to crawl 26 blank pages. They are a large
+part of the 276 "Crawled – currently not indexed".
+
+**Fix applied:** deleted, and redirected to the glossary index.
+
+### 12. Duplicate fracking term page
+
+`hydraulic-fracturing-fracture-fracing-fracking-frac-job` and
+`fracking-hydraulic-fracturing-fracture-fracing-frac-job` carried the same
+definition under two slugs. Deleted the first, redirected it to the second, and
+repaired the prev/next chain either side of it.
+
+---
+
+## What is now enforced
+
+`node scripts/test-redirects.mjs` fails the build if any of these regress:
+
+- a live page redirects away from itself
+- a Pages Function or static asset gets rewritten
+- a redirect lands on a page that does not exist
+- a URL that should stay 404 starts redirecting
+- www fails to consolidate onto the apex with path and query intact
+- any of the specific 404s from the 20 August Search Console export comes back
+
+Run `node scripts/build-redirects.mjs` after adding, renaming or deleting a page,
+then `node scripts/test-redirects.mjs`, and commit the regenerated middleware.
+
+## Still open (content work, not redirects)
+
+- The median page is 61 words. 198 glossary terms run 30–60 words each, which is
+  what "Crawled – currently not indexed" is reporting. Expanding the 40–60 terms
+  that draw real impressions is the next lever.
+- 33 term slugs stack every synonym (`lease-automatic-custody-transfer-unit-lact-unit`).
+  Aliases now cover the readable forms, but the canonical slugs are still ugly.
+- `/pugh-clause-2/` holds the substantial Pugh Clause article while the glossary
+  stub owns `/resources/oil-and-gas-terms/pugh-clause/`. The `-2` is an import
+  artifact on the better page. Worth resolving, but it changes a live URL.
+- `/what-is-fracking/` is a 10 KB article and should be kept, not merged into the
+  40-word glossary entry as the 20 August recovery plan suggested.
+- Zoho PageSense and SearchIQ load on every page from `BaseHead.astro`. Confirm
+  both are still wanted.
+- GA4 is not filtering `trafficheap.cc` referral spam, and `mineralrightsforum.com`
+  is not set as a referral exclusion.
