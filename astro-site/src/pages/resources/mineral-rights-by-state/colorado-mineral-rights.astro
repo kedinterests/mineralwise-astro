@@ -23,6 +23,9 @@ const majorFields = [
 	"San Juan Basin Gas Area",
 	"Wattenberg Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "";
 const companies = [
 	"Chevron",
 	"HS Resources",
@@ -37,9 +40,10 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -53,6 +57,9 @@ const additionalReading = [
 				description={description}
 				majorFields={majorFields}
 				companies={companies}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				additionalReading={additionalReading}
 			/>
 		</ArticleContent>

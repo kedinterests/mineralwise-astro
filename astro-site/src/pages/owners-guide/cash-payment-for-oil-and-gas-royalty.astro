@@ -5,11 +5,38 @@ import ArticleContent from '../../components/ArticleContent.astro';
 import OwnerGuideTabs from '../../components/OwnerGuideTabs.astro';
 import { getBreadcrumbs } from '../../data/hierarchy';
 
-const title = "Maximize Your Oil &amp; Gas Royalties: Cash Payment Options for Mineral Rights";
+const title = "Maximize Your Oil & Gas Royalties: Cash Payment Options for Mineral Rights";
 const description = "Discover how to exchange your oil and gas royalties for a lump sum cash payment. Explore opportunities, benefits, and hassle-free options for selling your mineral rights today!";
 
 const heading = "Cash Payment For Oil And Gas Royalty";
 const intro = "Why Wait? You Have a Cash Option for Royalties and Mineral Rights. Remember the old saying \"A bird in the hand is worth two in the bush\"? If you're interested in exchanging your oil or gas royalty income stream for a lump sum cash payment, this option is available. Depending on your specific situation, it could make sense for you. Reasons for selling royalties and mineral rights effectively fall into two basic categories – opportunity and need.";
+
+const sections = [
+	{
+		"heading": "A Cash Payment Can Fuel Opportunity",
+		"html": [
+			"Opportunity comes in many faces, the perfect home for your family just got reduced in price, a great deal on a new vehicle, a small business just became available allowing you to leave your corporate job behind. In short, opportunity presents itself that requires cash in order to bring it to fruition. Ready cash can allow you to answer opportunity’s call."
+		]
+	},
+	{
+		"heading": "Cash Payment to Solve Life’s Needs",
+		"html": [
+			"Needs of course come in many ways. An unusually high tax obligation is coming due, an unexpected medical issue crops up, time has come to secure your child’s college funding, unplanned vehicle repairs, a job loss. All of these represent an unexpected need for a cash payment, a situation which can often be remedied by an oil and gas royalty or mineral rights sale."
+		]
+	},
+	{
+		"heading": "Administrative Hassle",
+		"html": [
+			"Other more benign reasons to sell oil royalties revolve around administrative issues such as estate planning, inheritance planning, elimination of burdensome paperwork, elimination of taxes, and divesting of royalties of insignificant size. All of these represent elimination of the “hassle factor” of owning interests which may not suit your particular circumstances."
+		]
+	},
+	{
+		"heading": "Determining the Value of Your Producing Mineral Rights",
+		"html": [
+			"In order to get an idea of what your oil or gas royalty stream is worth, one must look at a number of factors. Location, size of the land tract, depth restrictions, operating costs - all of these play into valuing royalties. The price of crude oil or natural gas, and the production decline rate are two of the more important variables. Of course estimation must be made several years into the future as to how these elements will fluctuate. When exchanging a cash payment now for an expected future cash flow stream, the time value of money also plays into the calculation. (A dollar in hand now is worth more than a dollar promised next year, because the dollar in hand can be used to earn interest over the course of the year). Also, mineral and royalty interests may qualify for use in <a href=\"/1031-exchange-for-mineral-rights/\">Like-Kind Exchanges (1031 Exchanges)</a> which can defer taxes. Under the Case Study section, you’ll find examples where oil and gas royalties have been exchanged for an immediate cash payment."
+		]
+	}
+];
 
 const tabs = [
 	{
@@ -18,12 +45,12 @@ const tabs = [
 		articles: [
 			{
 				title: "Volume Verification",
-				href: "/oil-and-gas-production-volume-verification",
+				href: "/oil-and-gas-production-volume-verification/",
 				description: "Short article explaining how oil and gas royalty owners can verify their oil and gas production. Includes links to free state verification"
 			},
 			{
 				title: "Oil & Gas 101: Oil and Gas Basics for the Mineral Owner",
-				href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
+				href: "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
 				description: "Article explaining the basics of oil and gas production written for mineral rights owners. Topics include drilling, production, pricing and marketing."
 			}
 		]
@@ -34,7 +61,7 @@ const tabs = [
 		articles: [
 			{
 				title: "1031 Exchange for Mineral Rights",
-				href: "/1031-exchange-for-mineral-rights",
+				href: "/1031-exchange-for-mineral-rights/",
 				description: "Learn what qualifies, how it works, and the benefits of Like-Kind Exchanges which can defer taxes."
 			}
 		]
@@ -49,6 +76,7 @@ const tabs = [
 				heading={heading}
 				intro={intro}
 				tabs={tabs}
+				sections={sections}
 			/>
 		</ArticleContent>
 	</PageShell>

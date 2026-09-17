@@ -11,7 +11,7 @@ const metaDescription = "Alabama's mineral rights began to have commercial value
 const stateName = "Alabama";
 const stateAbbr = "AL";
 const description = "Alabama's mineral rights began to have commercial value as early as 1865. This was just 6 years after the first well was drilled in Titusville PA. Even earlier Indians in north-central Alabama were selling oil from asphaltic rocks as medicine. In the early 1900s the first commercially marketed natural gas production in the southeastern U.S. took place near Huntsville. In 1944, oil was discovered near Gilbertown in Choctaw County. The discovery of Alabama's giant Citronelle Field in Mobile County in 1955 brought significant attention from the industry.";
-const history = "Exploration and production of mineral rights in Alabama have dramatically increased since 1980. From that time, approximately 11,000 wells were permitted and 286 additional fields were established in the Alabama. Similarly, the number of producing wells increased from 1,000 in 1980 to nearly 6,000 in 2005. The oil and gas industry provides major economic benefits to Alabama mineral rights owners and its citizens.";
+const history = "Alabama is ranked 10th nationally in the production of natural gas and 15th in the production of liquid hydrocarbons. The annual gas production from Alabama State waters mineral rights has ranged between 150 and 200 billion cubic feet or approximately 50% of the State's total gas production. Production of coalbed methane mineral rights ranges between 116 and 120 billion cubic feet annually.\n\nExploration and production of mineral rights in Alabama have dramatically increased since 1980. From that time, approximately 11,000 wells were permitted and 286 additional fields were established in the Alabama. Similarly, the number of producing wells increased from 1,000 in 1980 to nearly 6,000 in 2005. The oil and gas industry provides major economic benefits to Alabama mineral rights owners and its citizens.";
 const stats = [
 	{
 		label: "Natural Gas Production Rank",
@@ -43,6 +43,9 @@ const majorFields = [
 	"Black Warrior Basin",
 	"Citronelle Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Alabama Oil and Gas Board";
 const companies = [
 	"Bishop Petroleum",
 	"Black Rock Operating",
@@ -62,9 +65,10 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -80,6 +84,9 @@ const additionalReading = [
 				stats={stats}
 				majorFields={majorFields}
 				companies={companies}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				regulatoryLink={regulatoryLink}
 				additionalReading={additionalReading}
 			/>

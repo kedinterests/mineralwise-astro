@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Marcellus Shale New York | MineralWise";
-const description = "The Marcellus Shale covers the southern portion of New York and is located next to the high demand marketplace of the Northeast. With the advent of horizontal drilling technology combined with modern hydraulic fracturing techniques, the Marcellus Shale is now economically viable prompting recovery and marketing of this substantial resource of natural gas for the citizens of New York. Multiple oil and gas Operators are pursuing the New York Marcellus Shale.Marcellus Shale CompaniesSignificant producers within the Marcellus Shale are:Anadarko PetroleumAtlas Energy ResourcesCabot Oil &amp;amp; Gas CorporationCarrizo Oil &amp;amp; Gas Corp.Chesapeake EnergyChief Oil &amp;amp; GasEast ResourcesEnergy Corporation of AmericaEOG ResourcesEQT CorpEXCO ResourcesFortuna EnergyNomac DrillingNorth Coast EnergyRange ResourcesRex Energy Corp.Southwestern Energy Production CompanyStatoilHydroStone Energy CompanyUltra Petroleum Corp.Marcellus Shale GeologyThe Marcellus shale of the Appalachian Basin is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface. It";
+const description = "The Marcellus Shale covers the southern portion of New York and is located next to the high demand marketplace of the Northeast.";
 
 const shaleName = "Marcellus Shale";
 const state = undefined;
@@ -35,7 +35,7 @@ const companies = [
 	"Ultra Petroleum Corp."
 ];
 
-const geology = "";
+const geology = "The Marcellus shale of the Appalachian Basin is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface. It's thickness ranges anywhere from about 50 feet to 900 feet. It takes it's name from the location of it's outcrop near Marcellus New York, and extends throughout much of the Appalachian Basin. It is a black carbonaceous (organic rich), low density shale that occurs within Kentucky, Maryland, New Jersey, New York, Ohio, Pennsylvania, Tennessee, Virginia, and West Virginia. The extent of the Marcellus Shale in New York is limited to the southern portion of the state.";
 
 const counties = [
 	"Allegany County NY",
@@ -62,36 +62,45 @@ const counties = [
 	"Yates County NY"
 ];
 
+const companiesIntro = "Significant producers within the Marcellus Shale are:";
+const locationIntro = "The Marcellus Shale is located in the following counties of New York:";
+
 const additionalReading = [
 	{
 		"text": "Oil & Gas 101",
-		"href": "/resources/shale-plays/marcellus-shale-new-york",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-new-york/",
+		"external": false,
+		"note": "General information for mineral rights owners."
 	},
 	{
 		"text": "Marcellus Shale Maryland",
-		"href": "/resources/shale-plays/marcellus-shale-maryland",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-maryland/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Maryland. Written for oil and gas mineral rights and royalty owners in MD."
 	},
 	{
 		"text": "Marcellus Shale New Jersey",
-		"href": "/resources/shale-plays/marcellus-shale-new-jersey",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-new-jersey/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of New Jersey. Written for oil and gas mineral rights and royalty owners in NJ."
 	},
 	{
 		"text": "Marcellus Shale Ohio",
-		"href": "/resources/shale-plays/marcellus-shale-ohio",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-ohio/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Ohio. Written for oil and gas mineral rights and royalty owners in OH."
 	},
 	{
 		"text": "Marcellus Shale Pennsylvania",
-		"href": "/resources/shale-plays/marcellus-shale-pennsylvania",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-pennsylvania/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Pennsylvania. Written for oil and gas mineral rights and royalty owners in PA."
 	},
 	{
 		"text": "Marcellus Shale West Virginia",
-		"href": "/resources/shale-plays/marcellus-shale-west-virginia",
-		"external": false
+		"href": "/resources/shale-plays/marcellus-shale-west-virginia/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of West Virginia. Written for oil and gas mineral rights and royalty owners in WV."
 	}
 ];
 ---
@@ -105,7 +114,10 @@ const additionalReading = [
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

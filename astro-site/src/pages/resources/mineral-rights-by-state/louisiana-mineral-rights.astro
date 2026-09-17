@@ -23,6 +23,9 @@ const majorFields = [
 	"Spider Field",
 	"Vernon Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Louisiana Department of Natural Resources";
 const companies = [
 	"Cabot Oil & Gas",
 	"Chesapeake Energy",
@@ -41,14 +44,16 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Haynesville Shale Louisiana",
-		href: "/resources/shale-plays/haynesville-shale-louisiana",
-		external: false
+		"text": "Haynesville Shale Louisiana",
+		"href": "/resources/shale-plays/haynesville-shale-louisiana/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Haynesville Shale of Louisiana. Written for oil and gas mineral rights and royalty owners in LA."
 	}
 ];
 ---
@@ -60,6 +65,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

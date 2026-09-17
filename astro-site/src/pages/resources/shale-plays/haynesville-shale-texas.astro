@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Haynesville Shale Texas | MineralWise";
-const description = "The Haynesville shale play of northwest Louisiana and East Texas burst on the scene in early 2008. The oil and gas industry quickly applied what had been earlier learned from the Barnett Shale of Texas, thereby producing impressive results relatively quickly. Chesapeake Energy is the largest leaseholder of the Haynesville Shale with more than 500,000 net acres followed by EnCana and Shell with over 300,000 net acres each. Petrohawk also has over 300,000 net acres targeting the Haynesville. Activity increased dramatically in mid 2008 as oil and gas prices soared. As of 2010, the Haynesville shale has more rigs drilling for gas in the formation than any other play in the US.Haynesville Shale CompaniesSignificant producers within the Haynesville Shale are:Anadarko PetroleumBerry PetroleumCabot Oil and GasChesapeake EnergyComstock ResourcesCrimson ExplorationCubic EnergyDevon EnergyEagel OilEl Paso Corp.EnCana Corp.EOG ResourcesEXCO ResourcesForest OilGMX ResourcesGoodrich PetroleumNFR EnergyNoble EnergyPenn VirginiaPetrohawkPlains Exploration and ProductionQuestar Corp.Shell WesternSt. Mary Land &amp;amp; ExplorationSM EnergySojitz EnergySouthwestern EnergyXTO EnergyHaynesville Shale GeologyThe Haynesville shale is a shale of Upper Jurassic age that lies between the Smackover Formation and the Cotton Valley Group. Similar to other successful shale plays, the Lower Bossier/Haynesville Shale rock is both the source rock (rich in organic content) and the reservoir rock (having sufficient porosity and permeability to store and transmit hydrocarbons). The formation is a black, organic-rich shale that is the upper member of the Louark group. It is divided into upper and lower members with the lower members being the subject of primary interest to the industry. The lower member is 300-350 feet thick in the most prospective East Texas areas and approximately 200-250 feet thick in Northwest Louisiana. The shale produces from depths of approximately 10,000 feet.Haynesville Shale LocationThe Haynesville shale covers an area of approximately 3 million acres located primarily in the following counties of Texas:Gregg County TXHarrison County TXMarion County TXPanola County TXShelby County TXRusk County TXUpshur County TXAdditional ReadingOil &amp;amp; Gas 101 – General information for mineral rights owners.Haynesville Shale Louisiana - Short article describing geology, location &amp;amp; counties within the Haynesville Shale of Louisiana. Written for oil and gas mineral rights and royalty owners in LA.";
+const description = "The Haynesville shale play of northwest Louisiana and East Texas burst on the scene in early 2008.";
 
 const shaleName = "Haynesville Shale";
 const state = undefined;
@@ -43,7 +43,7 @@ const companies = [
 	"XTO Energy"
 ];
 
-const geology = ",";
+const geology = "The Haynesville shale is a shale of Upper Jurassic age that lies between the Smackover Formation and the Cotton Valley Group. Similar to other successful shale plays, the Lower Bossier/Haynesville Shale rock is both the source rock (rich in organic content) and the reservoir rock (having sufficient porosity and permeability to store and transmit hydrocarbons). The formation is a black, organic-rich shale that is the upper member of the Louark group. It is divided into upper and lower members with the lower members being the subject of primary interest to the industry. The lower member is 300-350 feet thick in the most prospective East Texas areas and approximately 200-250 feet thick in Northwest Louisiana. The shale produces from depths of approximately 10,000 feet.";
 
 const counties = [
 	"Gregg County TX",
@@ -55,16 +55,21 @@ const counties = [
 	"Upshur County TX"
 ];
 
+const companiesIntro = "Significant producers within the Haynesville Shale are:";
+const locationIntro = "The Haynesville shale covers an area of approximately 3 million acres located primarily in the following counties of Texas:";
+
 const additionalReading = [
 	{
 		"text": "Oil & Gas 101",
-		"href": "/resources/shale-plays/haynesville-shale-texas",
-		"external": false
+		"href": "/resources/shale-plays/haynesville-shale-texas/",
+		"external": false,
+		"note": "General information for mineral rights owners."
 	},
 	{
 		"text": "Haynesville Shale Louisiana",
-		"href": "/resources/shale-plays/haynesville-shale-louisiana",
-		"external": false
+		"href": "/resources/shale-plays/haynesville-shale-louisiana/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Haynesville Shale of Louisiana. Written for oil and gas mineral rights and royalty owners in LA."
 	}
 ];
 ---
@@ -78,7 +83,10 @@ const additionalReading = [
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

@@ -25,6 +25,9 @@ const majorFields = [
 	"Sleepy Hollow Field",
 	"Terrestrial Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Nebraska Oil and Gas Conservation Commission";
 const companies = [
 	"Benson Mineral Group",
 	"Berexco",
@@ -48,9 +51,10 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -62,6 +66,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

@@ -25,6 +25,9 @@ const majorFields = [
 	"Quackenbush Hill Field",
 	"Rayner Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "New York State Department of Environmental Protection";
 const companies = [
 	"Ardent Resources",
 	"Case Brothers",
@@ -42,19 +45,22 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Marcellus Shale New York",
-		href: "/resources/shale-plays/marcellus-shale-new-york",
-		external: false
+		"text": "Marcellus Shale New York",
+		"href": "/resources/shale-plays/marcellus-shale-new-york/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of New York. Written for oil and gas mineral rights and royalty owners in NY."
 	},
 	{
-		text: "Utica Shale",
-		href: "/resources/shale-plays/utica-shale",
-		external: false
+		"text": "Utica Shale",
+		"href": "/resources/shale-plays/utica-shale/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Utica Shale. Written for oil and gas mineral rights and royalty owners."
 	}
 ];
 ---
@@ -66,6 +72,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

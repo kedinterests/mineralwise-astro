@@ -25,6 +25,20 @@ const majorFields = [
 	"Westmoreland County",
 	"Venango County"
 ];
+const counties = [
+	"Armstrong County",
+	"Clearfield County",
+	"Crawford County",
+	"Fayette County",
+	"Indiana County",
+	"Jefferson County",
+	"McKean County",
+	"Mercer County",
+	"Westmoreland County",
+	"Venango County"
+];
+const countiesHeading = "Top Gas Producing Counties in Pennsylvania";
+const regulatorName = "";
 const companies = [
 	"Chesapeake Energy",
 	"CNX Gas",
@@ -34,14 +48,16 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Marcellus Shale Pennsylyvania",
-		href: "/resources/shale-plays/marcellus-shale-pennsylvania",
-		external: false
+		"text": "Marcellus Shale Pennsylyvania",
+		"href": "/resources/shale-plays/marcellus-shale-pennsylvania/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Pennsylvania. Written for oil and gas mineral rights and royalty owners in PA."
 	}
 ];
 ---
@@ -53,6 +69,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				additionalReading={additionalReading}

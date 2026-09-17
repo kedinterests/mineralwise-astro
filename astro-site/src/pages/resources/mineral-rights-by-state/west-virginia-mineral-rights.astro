@@ -25,6 +25,20 @@ const majorFields = [
 	"Ritchie County",
 	"Upshur County"
 ];
+const counties = [
+	"Doddridge County",
+	"Harrison County",
+	"Jackson County",
+	"Kanawha County",
+	"Lewis County",
+	"Logan County",
+	"McDowell County",
+	"Mingo County",
+	"Ritchie County",
+	"Upshur County"
+];
+const countiesHeading = "Top Oil and Gas Producing Counties in West Virginia";
+const regulatorName = "West Virginia Department of Environmental Protection";
 const companies = [
 	"Cabot Oil & Gas",
 	"CDX Gas",
@@ -44,19 +58,22 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Huron Shale",
-		href: "/resources/shale-plays/huron-shale",
-		external: false
+		"text": "Huron Shale",
+		"href": "/resources/shale-plays/huron-shale/",
+		"external": false,
+		"note": "Information for West Virginia and Kentucky mineral rights and royalty owners of the Huron Shale gas play."
 	},
 	{
-		text: "Marcellus Shale West Virginia",
-		href: "/resources/shale-plays/marcellus-shale-west-virginia/",
-		external: false
+		"text": "Marcellus Shale West Virginia",
+		"href": "/resources/shale-plays/marcellus-shale-west-virginia/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of West Virginia. Written for oil and gas mineral rights and royalty owners in WV."
 	}
 ];
 ---
@@ -68,6 +85,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

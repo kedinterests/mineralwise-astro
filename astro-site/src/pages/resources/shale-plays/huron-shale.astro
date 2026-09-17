@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Huron Shale | MineralWise";
-const description = "The Huron Shale is located in the Appalachian Basin in West Virginia and Kentucky.Huron Shale CompaniesSignificant producers within the Huron Shale are:EQT Corp.Equitable ResourcesExco (XCO) ResourcesRange Resources.Huron Shale GeologyThe Huron Shale is a geological formation ranging from 200 to 2,000 feet thick and is found at depths of 4,000 to 5,000 feet.Huron Shale LocationThe Huron Shale is located in the following counties of West Virginia:Braxton County WVCabell County WVCalhoun County WVClay County WVFayette County WVJackson County WVKanawha County WVLincoln County WVLogan County WVMason County WVMingo County WVNicholas County WVPleasants County WVPutnam County WVRaleigh County WVRitchie County WVRoane County WVTyler County WVWayne County WVWirt County WVWood County WVWyoming County WVThe Huron Shale is located in the following counties of Kentucky:Boyd County KYFloyd County KYJohnson County KYLawrence County KYMartin County KYPike County KYAdditional ReadingOil &amp;amp; Gas 101 – General information for mineral rights owners.";
+const description = "The Huron Shale is located in the Appalachian Basin in West Virginia and Kentucky.";
 
 const shaleName = "Huron Shale";
 const state = undefined;
@@ -19,7 +19,7 @@ const companies = [
 	"Range Resources."
 ];
 
-const geology = "";
+const geology = "The Huron Shale is a geological formation ranging from 200 to 2,000 feet thick and is found at depths of 4,000 to 5,000 feet.";
 
 const counties = [
 	"Braxton County WV",
@@ -43,14 +43,24 @@ const counties = [
 	"Wayne County WV",
 	"Wirt County WV",
 	"Wood County WV",
-	"Wyoming County WV"
+	"Wyoming County WV",
+	"Boyd County KY",
+	"Floyd County KY",
+	"Johnson County KY",
+	"Lawrence County KY",
+	"Martin County KY",
+	"Pike County KY"
 ];
+
+const companiesIntro = "Significant producers within the Huron Shale are:";
+const locationIntro = "The Huron Shale is located in the following counties of West Virginia: The Huron Shale is located in the following counties of Kentucky:";
 
 const additionalReading = [
 	{
 		"text": "Oil & Gas 101",
-		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		"external": false
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
 	}
 ];
 ---
@@ -64,7 +74,10 @@ const additionalReading = [
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Barnett Shale Texas | MineralWise";
-const description = "The Barnett Shale covers approximately 17 counties in North Central Texas, of which only 6 are in what is known as the core zone. The Newark East Field, most commonly referred to as the Barnett Shale, was discovered in the 1980";
+const description = "The Barnett Shale covers approximately 17 counties in North Central Texas, of which only 6 are in what is known as the core zone.";
 
 const shaleName = "Barnett Shale";
 const state = undefined;
@@ -31,11 +31,39 @@ const companies = [
 	"EnCana Oil & Gas"
 ];
 
-const geology = "";
+const geology = "The Mississippian aged Barnett Formation in the Fort Worth Basin is classic in that the “shale-gas” system contains the rock source, reservoir, and seal. The reservoir rock is dominated by fine-grained (clay- to silt-sized) particles. This reservoir is known as a \"tight\" gas reservoir. The Barnett shale is up to 1,000 feet thick in some areas and is located 7,500 to 8,000 feet below the surface.";
 
-const counties = [];
+const counties = [
+	"Bosque County TX",
+	"Comanche County TX",
+	"Cooke County TX",
+	"Denton County TX",
+	"Ellis County TX",
+	"Erath County TX",
+	"Hamilton County TX",
+	"Hill County TX",
+	"Hood County TX",
+	"Jack County TX",
+	"Johnson County TX",
+	"Montague County TX",
+	"Palo Pinto County TX",
+	"Parker County TX",
+	"Somervell County TX",
+	"Tarrant County TX",
+	"Wise County TX"
+];
 
-const additionalReading = [];
+const companiesIntro = "Significant producers within the Barnett Shale are:";
+const locationIntro = "The Barnett Shale is located in the following counties of Texas:";
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
+	}
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -47,7 +75,10 @@ const additionalReading = [];
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

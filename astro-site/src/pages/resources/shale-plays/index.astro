@@ -7,12 +7,40 @@ import { getBreadcrumbs, pageHierarchy } from '../../../data/hierarchy';
 const title = "Comprehensive Guide to U.S. Shale Plays: Locations, Resources, and Information";
 const description = "Explore a detailed overview of major U.S. shale plays, including Bakken, Eagle Ford, Marcellus, Utica, and more. Learn about their locations, resources, and energy potential across states like Texas, North Dakota, Pennsylvania, and beyond. Stay informed with expert insights.";
 
+// One line summary per play, recovered from the original directory page
+const summaries: Record<string, string> = {
+	"/resources/shale-plays/bakken-shale-montana": "Short article describing the formation, location & counties of the Bakken Shale in Montana. Written for oil & gas mineral rights and royalty owners in MT.",
+	"/resources/shale-plays/bakken-shale-north-dakota": "Short article describing the formation, location & counties of the Bakken Shale in North Dakota. Written for oil & gas mineral rights and royalty owners in ND.",
+	"/resources/shale-plays/barnett-shale-texas": "Short article describing the formation, location & counties of the Barnett Shale in Texas. Written for oil & gas mineral rights and royalty owners in TX.",
+	"/resources/shale-plays/bossier-shale-texas": "Short article describing the formation, location & counties of the Bossier Shale. Written for oil & gas mineral rights and royalty owners in TX.",
+	"/resources/shale-plays/eagle-ford-shale-texas": "Short article describing the formation, location & counties within the Eagle Ford Shale. Written for oil & gas mineral rights and royalty owners in TX.",
+	"/resources/shale-plays/fayetteville-shale-arkansas": "Short article describing the formation, location & counties within the Fayetteville Shale of Arkansas. Written for oil & gas mineral rights and royalty owners in AR.",
+	"/resources/shale-plays/haynesville-shale-louisiana": "Short article describing the formation, location & counties within the Haynesville Shale of Louisiana. Written for oil & gas mineral rights and royalty owners in LA.",
+	"/resources/shale-plays/haynesville-shale-texas": "Short article describing the formation, location & counties in the Haynesville Shale of Texas. Written for oil & gas mineral rights and royalty owners in TX.",
+	"/resources/shale-plays/huron-shale": "Short article describing the formation, location & counties in the Huron Shale. Written for oil & gas mineral rights and royalty owners in WV & KY.",
+	"/resources/shale-plays/marcellus-shale-maryland": "Short article describing the formation, location & counties in the Marcellus Shale of Maryland. Written for oil & gas mineral rights and royalty owners in MD.",
+	"/resources/shale-plays/marcellus-shale-new-jersey": "Short article describing the formation, location & counties in the Marcellus Shale of New Jersey. Written for oil & gas mineral rights and royalty owners in NJ.",
+	"/resources/shale-plays/marcellus-shale-new-york": "Short article describing the formation, location & counties in the Marcellus Shale of New York. Written for oil & gas mineral rights and royalty owners in NY.",
+	"/resources/shale-plays/marcellus-shale-ohio": "Short article describing the formation, location & counties in the Marcellus Shale of Ohio. Written for oil & gas mineral rights and royalty owners in OH.",
+	"/resources/shale-plays/marcellus-shale-pennsylvania": "Short article on the Marcellus Shale of Pennsylvania describing the formation, location & counties. Written for oil & gas mineral rights and royalty owners in PA.",
+	"/resources/shale-plays/marcellus-shale-west-virginia": "Short article describing the formation, location & counties in the Marcellus Shale of West Virginia. Written for oil & gas mineral rights and royalty owners in WV.",
+	"/resources/shale-plays/niobrara-shale-colorado-and-wyoming": "Short article describing the formation, location & counties of the Niobrara Shale in Colorado and Wyoming. Written for oil & gas mineral rights and royalty owners in CO and WY.",
+	"/resources/shale-plays/tuscaloosa-marine-shale-louisiana": "Short article describing the formation, location & counties of the Tuscaloosa Marine Shale in Louisiana. Written for oil & gas mineral rights and royalty owners in LA.",
+	"/resources/shale-plays/utica-shale": "Short article describing the formation, location & counties in the Utica Shale. Written for oil & gas mineral rights and royalty owners.",
+	"/resources/shale-plays/utica-shale-new-york": "Short article describing the formation, location & counties in the Utica Shale in New York. Written for oil & gas mineral rights and royalty owners.",
+	"/resources/shale-plays/utica-shale-ohio": "Short article describing the formation, location & counties in the Utica Shale in Ohio. Written for oil & gas mineral rights and royalty owners.",
+	"/resources/shale-plays/woodford-shale-oklahoma": "Short article describing the formation, location & counties in the Woodford Shale. Written for oil & gas mineral rights and royalty owners."
+};
+
+const sourcesNote = "Below you'll find articles related to the various natural gas shale plays by state. The articles include information on operators, production, and active counties within the shale plays. Information presented on these Shale Play pages comes from various sources including Operator's public websites, State Oil and Gas Regulatory Bodies, the Energy Information Administration, and proprietary industry knowledge.";
+
 // Get all shale plays from hierarchy
 const shalePlays = Object.entries(pageHierarchy)
 	.filter(([path, node]) => node.parent === '/resources/shale-plays')
 	.map(([path, node]) => ({
 		path,
-		name: node.label
+		name: node.label,
+		summary: summaries[path.replace(/\/$/, '')] ?? ''
 	}));
 
 // Sort alphabetically by name
@@ -25,12 +53,14 @@ shalePlays.sort((a, b) => a.name.localeCompare(b.name));
 			<div class="shale-plays-page">
 				<h1>Shale Plays</h1>
 				<p class="intro">Explore our comprehensive directory of major U.S. shale plays, including detailed information about their locations, geology, companies, and energy potential.</p>
+				<p class="intro">{sourcesNote}</p>
 				
 				{shalePlays.length > 0 ? (
 					<div class="shale-plays-grid">
 						{shalePlays.map((shale) => (
 							<a href={shale.path} class="shale-card">
 								<div class="shale-name">{shale.name}</div>
+								{shale.summary && <p class="shale-summary">{shale.summary}</p>}
 							</a>
 						))}
 					</div>
@@ -43,6 +73,14 @@ shalePlays.sort((a, b) => a.name.localeCompare(b.name));
 </BaseLayout>
 
 <style>
+	.shale-summary {
+		font-size: 0.9375rem;
+		font-weight: 400;
+		color: #4b5563;
+		line-height: 1.55;
+		margin: 0.5rem 0 0;
+	}
+
 	.shale-plays-page {
 		background: white;
 		border-radius: 15px;

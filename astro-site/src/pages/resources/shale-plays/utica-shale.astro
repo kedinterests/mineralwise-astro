@@ -6,11 +6,11 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Utica Shale | MineralWise";
-const description = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently&amp;nbsp;oil &amp;amp; gas activity has expanded across a wider area and Ohio found itself at the center of an oil &amp;amp; gas boom.The advent of horizontal drilling and hydraulic fracturing completion technology is now advancing the development of the Utica Shale.Utica Shale CompaniesSignificant producers within the Utica Shale are:Anschutz Exploration (Sold Acreage to Chesapeake)Chesapeake EnergyRange ResourcesUtica Shale GeologyThe Utica Shale is from the Ordivician age and is found approximately 2,000 feet below the Marcellus Shale in Ohio.&amp;nbsp;Total depths to the base of the Utica range from 3,000 to 9,000 feet across Ohio. The Utica is a massive, organic rich thermally mature black to greyish shale. They variance in depth and thermal maturity across the play means the formation is prospective for dry gas, wet gas, NGLs, condensate and oil. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The thickness of the Utica Shale varies from 200 to 400 feet across the most prospective areas of Ohio.Utica Shale LocationThe Utica Shale is located in the following counties of Ohio:Ashland County OhioAshtabula County OHAthens County OHBelmont County OHCarroll County OHColumbiana County OHCoshocton County OHCuyahoga County OHDelaware County OHErie County OHFranklin County OHGallia County OHGeauga County OHGuernsey County OHHarrison County OHHolmes County OHHuron County OHJefferson County OHKnox County OHLake County OHLawrence County OHLicking County OHLorain County OHMorrow County OHMahoning County OHMedina County OHMeigs County OHMonroe County OHMorgan County OHMuskingum County OHNoble County OHPerry County OHPortage County OHRichland County OHStark County OHSummit County OHTrumball County OHTuscarawas County OHWashington County OHWayne County OH";
+const description = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale.";
 
 const shaleName = "Utica Shale";
 const state = undefined;
-const descriptionText = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently&nbsp;oil &amp; gas activity has expanded across a wider area and Ohio found itself at the center of an oil &amp; gas boom.";
+const descriptionText = "The Utica Shale is located across much of the Appalachian Basin in the Northeast U.S. The play covers a larger geographic area than the Marcellus Shale. The first Utica Shale production was established in 1934 in Pottawatomie County, NY, but more recently oil & gas activity has expanded across a wider area and Ohio found itself at the center of an oil & gas boom.\n\nThe advent of horizontal drilling and hydraulic fracturing completion technology is now advancing the development of the Utica Shale.";
 
 const companies = [
 	"Anschutz Exploration (Sold Acreage to Chesapeake)",
@@ -18,7 +18,7 @@ const companies = [
 	"Range Resources"
 ];
 
-const geology = "";
+const geology = "The Utica Shale is from the Ordivician age and is found approximately 2,000 feet below the Marcellus Shale in Ohio. Total depths to the base of the Utica range from 3,000 to 9,000 feet across Ohio. The Utica is a massive, organic rich thermally mature black to greyish shale. They variance in depth and thermal maturity across the play means the formation is prospective for dry gas, wet gas, NGLs, condensate and oil. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The thickness of the Utica Shale varies from 200 to 400 feet across the most prospective areas of Ohio.";
 
 const counties = [
 	"Ashland County Ohio",
@@ -63,7 +63,23 @@ const counties = [
 	"Wayne County OH"
 ];
 
-const additionalReading = [];
+const companiesIntro = "Significant producers within the Utica Shale are:";
+const locationIntro = "The Utica Shale is located in the following counties of Ohio:";
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
+	},
+	{
+		"text": "Utica Shale New York",
+		"href": "/resources/shale-plays/utica-shale-new-york/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Utica Shale of New York. Written for oil and gas mineral rights and royalty owners in NY."
+	}
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -75,7 +91,10 @@ const additionalReading = [];
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

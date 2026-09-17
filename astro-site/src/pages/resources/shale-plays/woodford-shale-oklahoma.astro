@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Woodford Shale Oklahoma | MineralWise";
-const description = "The Woodford Shale is located in Oklahoma. The first production of the Woodford Shale occurred in 1934 in Pottawatomie County. Currently over 130 wells have been drilled in the Woodford Shale. Like in most shale gas plays, Woodford wells were first vertically drilled, then as technology advanced, horizontal wells have become the norm.Woodford Shale CompaniesSignificant producers within the Woodford Shale are:Antero ResourcesChesapeake EnergyCimarex EnergyContinental ResourcesDevon EnergyNewfield ExplorationPetroquest EnergyRange ResourcesSt. Mary Land and ExplorationXTO EnergyWoodford Shale GeologyThe Woodford Shale is located in the following geologic basins of Oklahoma: Anadarko Shelf, Arbuckle Uplift, Ardmore Basin, Arkoma Basin, and the Ozark Uplift. The shale is found at depths from 7,500 to 8,500 feet, and is generally 50 to 300 feet thick.Woodford Shale LocationThe Woodford Shale is located in the following counties of Oklahoma:Bryan County OKCanadian County OKCarter County OKCoal County OKGarvin County OKHughes County OKJohnston County OKMarshall County OKMayes County OKMcIntosh County OKPittsburg County OKWagoner County OK";
+const description = "The Woodford Shale is located in Oklahoma. The first production of the Woodford Shale occurred in 1934 in Pottawatomie County.";
 
 const shaleName = "Woodford Shale";
 const state = undefined;
@@ -25,7 +25,7 @@ const companies = [
 	"XTO Energy"
 ];
 
-const geology = "";
+const geology = "The Woodford Shale is located in the following geologic basins of Oklahoma: Anadarko Shelf, Arbuckle Uplift, Ardmore Basin, Arkoma Basin, and the Ozark Uplift. The shale is found at depths from 7,500 to 8,500 feet, and is generally 50 to 300 feet thick.";
 
 const counties = [
 	"Bryan County OK",
@@ -42,7 +42,17 @@ const counties = [
 	"Wagoner County OK"
 ];
 
-const additionalReading = [];
+const companiesIntro = "Significant producers within the Woodford Shale are:";
+const locationIntro = "The Woodford Shale is located in the following counties of Oklahoma:";
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
+	}
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -54,7 +64,10 @@ const additionalReading = [];
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Utica Shale New York | MineralWise";
-const description = "The Utica Shale is located in the state of New York. The first production of the Utica Shale occurred in 1934 in Pottawatomie County. Well over 100 wells have been drilled in the Utica Shale in New York. The advent of horizontal drilling and hydraulic fracturing completion technology is now advancing the development of the Utica Shale.Utica Shale CompaniesSignificant producers within the Utica Shale are:Altai ResourcesEquitable ResourcesForest OilGastemJunexQuesterre EnergyRange ResourcesTalisman EnergyUtica Shale GeologyThe Utica Shale is from the Ordivician age. The Utica is a massive, organic rich thermally mature black to greyish shale. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The Utica Shale composition changes throughout the Appalachian Basin and thickens as it moves eastward across New YorkUtica Shale LocationThe Utica Shale is located in the following counties of New York:Allegany County NYBroome County NYChemung County NYChenango County NYCortland County NYDelaware County NYFulton County NYHerkimer County NYMadison County NYMontgomery County NYOneida County NYOtsego County NYSchohaire County NYSchuyler County NYSteuban County NYSullivan County NYTioga County NYTompkins County NYUlster County NY";
+const description = "The Utica Shale is located in the state of New York. The first production of the Utica Shale occurred in 1934 in Pottawatomie County.";
 
 const shaleName = "Utica Shale";
 const state = undefined;
@@ -23,7 +23,7 @@ const companies = [
 	"Talisman Energy"
 ];
 
-const geology = "";
+const geology = "The Utica Shale is from the Ordivician age. The Utica is a massive, organic rich thermally mature black to greyish shale. The deposition of the Utica Shale followed lithospheric downwarping that is associated with tectonic loading. The shale terminates by shallow shelf carbonates. The Utica Shale composition changes throughout the Appalachian Basin and thickens as it moves eastward across New York";
 
 const counties = [
 	"Allegany County NY",
@@ -47,7 +47,23 @@ const counties = [
 	"Ulster County NY"
 ];
 
-const additionalReading = [];
+const companiesIntro = "Significant producers within the Utica Shale are:";
+const locationIntro = "The Utica Shale is located in the following counties of New York:";
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
+	},
+	{
+		"text": "Utica Shale Ohio",
+		"href": "/resources/shale-plays/utica-shale-ohio/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Utica Shale of Ohio. Written for oil and gas mineral rights and royalty owners in NY."
+	}
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -59,7 +75,10 @@ const additionalReading = [];
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

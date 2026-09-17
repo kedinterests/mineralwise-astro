@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Bakken Shale Montana | MineralWise";
-const description = "The Bakken Shale covers an area of approximately 200,000 square miles in the Williston Basin. The Bakken Shale covers the northeastern portion of Montana. Learn about significant producers, geology, and counties within the Bakken Shale of Montana.";
+const description = "The Bakken Shale covers an area of approximately 200,000 square miles in the Williston Basin. The Bakken Shale covers the northeastern portion of Montana.";
 
 const shaleName = "Bakken Shale";
 const state = undefined;
@@ -50,16 +50,21 @@ const counties = [
 	"Wibaux County MT"
 ];
 
+const companiesIntro = "Significant producers within the Bakken Shale are:";
+const locationIntro = "The Bakken Shale is located in the following Montana counties:";
+
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
 	},
 	{
-		text: "Bakken Shale North Dakota",
-		href: "/resources/shale-plays/bakken-shale-north-dakota",
-		external: false
+		"text": "Bakken Shale North Dakota",
+		"href": "/resources/shale-plays/bakken-shale-north-dakota/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Bakken Shale of North Dakota. Written for oil and gas mineral rights and royalty owners in ND."
 	}
 ];
 ---
@@ -73,7 +78,10 @@ const additionalReading = [
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

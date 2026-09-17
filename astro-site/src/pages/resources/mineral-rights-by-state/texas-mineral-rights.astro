@@ -25,6 +25,20 @@ const majorFields = [
 	"Spraberry Trend Field",
 	"Stiles Ranch Field"
 ];
+const counties = [
+	"Andrews County",
+	"Freestone County",
+	"Gaines County",
+	"Johnson County",
+	"Midland County",
+	"Panola County",
+	"Pecos County",
+	"Scurry County",
+	"Tarrant County",
+	"Yoakum County"
+];
+const countiesHeading = "Major Oil and Gas Producing Counties in Texas";
+const regulatorName = "Railroad Commission of Texas";
 const companies = [
 	"Apache",
 	"Chevron",
@@ -44,29 +58,34 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Barnett Shale Texas",
-		href: "/resources/shale-plays/barnett-shale-texas",
-		external: false
+		"text": "Barnett Shale Texas",
+		"href": "/resources/shale-plays/barnett-shale-texas/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Barnett Shale of Texas. Written for oil and gas mineral rights and royalty owners in TX."
 	},
 	{
-		text: "Bossier Shale",
-		href: "/resources/shale-plays/bossier-shale-texas",
-		external: false
+		"text": "Bossier Shale",
+		"href": "/resources/shale-plays/bossier-shale-texas/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Bossier Shale. Written for oil and gas mineral rights and royalty owners."
 	},
 	{
-		text: "Eagle Ford Shale",
-		href: "/resources/shale-plays/eagle-ford-shale-texas",
-		external: false
+		"text": "Eagle Ford Shale",
+		"href": "/resources/shale-plays/eagle-ford-shale-texas/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Eagle Ford Shale. Written for oil and gas mineral rights and royalty owners."
 	},
 	{
-		text: "Haynesville Shale Texas",
-		href: "/resources/shale-plays/haynesville-shale-texas",
-		external: false
+		"text": "Haynesville Shale Texas",
+		"href": "/resources/shale-plays/haynesville-shale-texas/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Haynesville Shale of Texas. Written for oil and gas mineral rights and royalty owners in TX."
 	}
 ];
 ---
@@ -78,6 +97,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				history={history}
 				majorFields={majorFields}
 				companies={companies}

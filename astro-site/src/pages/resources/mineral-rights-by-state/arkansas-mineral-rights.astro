@@ -25,6 +25,9 @@ const majorFields = [
 	"Reyes Salinas Well",
 	"Whisehunt Well"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Arkansas Oil and Gas Commission";
 const companies = [
 	"Chesapeake",
 	"Hallwood Petroleum",
@@ -41,14 +44,16 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Fayetteville Shale Arkansas",
-		href: "/resources/shale-plays/fayetteville-shale-arkansas",
-		external: false
+		"text": "Fayetteville Shale Arkansas",
+		"href": "/resources/shale-plays/fayetteville-shale-arkansas/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Fayetteville Shale of Arkansas. Written for oil and gas mineral rights and royalty owners in AR."
 	}
 ];
 ---
@@ -62,6 +67,9 @@ const additionalReading = [
 				description={description}
 				majorFields={majorFields}
 				companies={companies}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				regulatoryLink={regulatoryLink}
 				additionalReading={additionalReading}
 			/>

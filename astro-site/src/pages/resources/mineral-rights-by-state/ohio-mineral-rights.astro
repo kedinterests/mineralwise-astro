@@ -25,6 +25,20 @@ const majorFields = [
 	"Stark County",
 	"Trumbull County"
 ];
+const counties = [
+	"Cuyahoga County",
+	"Geauga County",
+	"Knox County",
+	"Lake County",
+	"Licking County",
+	"Monroe County",
+	"Muskingum County",
+	"Perry County",
+	"Stark County",
+	"Trumbull County"
+];
+const countiesHeading = "Top Oil and Gas Producing Counties in Ohio";
+const regulatorName = "";
 const companies = [
 	"Ashland Oil",
 	"Carter Resources",
@@ -39,14 +53,16 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Marcellus Shale Ohio",
-		href: "/resources/shale-plays/marcellus-shale-ohio",
-		external: false
+		"text": "Marcellus Shale Ohio",
+		"href": "/resources/shale-plays/marcellus-shale-ohio/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Ohio. Written for oil and gas mineral rights and royalty owners in OH."
 	}
 ];
 ---
@@ -58,6 +74,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				additionalReading={additionalReading}

@@ -23,6 +23,9 @@ const majorFields = [
 	"Red River Formation",
 	"Silurian Formation"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "North Dakota Oil and Gas Commission";
 const companies = [
 	"Continental Resources",
 	"EOG Resources",
@@ -38,14 +41,16 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Bakken Shale North Dakota",
-		href: "/resources/shale-plays/bakken-shale-north-dakota",
-		external: false
+		"text": "Bakken Shale North Dakota",
+		"href": "/resources/shale-plays/bakken-shale-north-dakota/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Bakken Shale of North Dakota. Written for oil and gas mineral rights and royalty owners in ND."
 	}
 ];
 ---
@@ -57,6 +62,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

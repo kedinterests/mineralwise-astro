@@ -11,6 +11,62 @@ const description = "Learn the fundamentals of oil and gas ownership, leasing, r
 const heading = "Oil & Gas 101: Oil and Gas Basics for the Mineral Owner";
 const intro = "Often landowners are relatively uninterested in minerals, mineral estates, etc. until they receive a letter from an oil company proposing to lease their mineral rights. Then, everything changes. Now they're quite interested in learning a few things… which is the reason Oil and Gas Mineral Services Co. exists, to serve America's mineral owners. An oil company is interested in leasing your minerals because they have reason to believe that they can find oil or gas there. Consider this article as your Oil and Gas 101 course, primarily written for the mineral rights owner. Learning oil and gas basics will help you maximize the value of your mineral rights.";
 
+const lead = [
+	"In America, we enjoy a broad range of property rights. One such right is mineral ownership under the land we own, assuming someone before us has not severed the mineral estate from the surface estate. A legally binding mineral title opinion is typically the only document that substantiates mineral ownership (at least with regard to earning income from mineral production, which is our focus). The complexity of such a mineral title opinion can vary dramatically. In the 18th and 19th century, when land was originally deeded to individuals, the mineral estate naturally came with the land, and if it has not been severed since, remains with the land."
+];
+
+const sections = [
+	{
+		"heading": "The Oil Company (\"the Operator\") Relationship with the Mineral Owner",
+		"html": [
+			"To bring oil and gas reserves to market, minerals are leased by oil companies through a legally binding contract known as an Oil, Gas, and Mineral Lease. This arrangement between individual mineral owners and oil companies began prior to 1900 and still thrives today. Although there are numerous other important details, the basic economic structure of the Lease is straightforward: in exchange for an up-front lease bonus payment, plus a royalty percentage of the value of any production, the mineral owner grants the oil company the right to drill and produce. In some cases, no drilling occurs and the lease simply expires. However, a well may in fact be drilled. We’ll assume here that drilling is viewed as a good thing by all involved. After all, nobody will enjoy economic gain if no drilling activity occurs."
+		],
+		"quote": "the basic economic structure of the Lease is straightforward"
+	},
+	{
+		"heading": "Drilling and Completion Activities",
+		"html": [
+			"Assuming the oil company decides to drill, they may drill on your tract. If you are a surface owner, the oil company will likely propose a drill site, notify you, and offer to pay for damages related to the surface use. Obviously, all parties should be guided by reasoned thinking as to the compensation for damages, road usage, pipelines etc. Both parties should remember that realizing economic gain from mineral production is accomplished by partnership between the mineral owner and the Operator. Drilling operations can vary from 10 days to 90 days, or even more. Completing the well (perforating, hydraulic fracturing, installing production equipment etc.) can take a similar period. Now, let’s say that we’ve “made a well” …"
+		]
+	},
+	{
+		"heading": "Producing Characteristics of Oil and Gas Wells",
+		"html": [
+			"Oil and gas is produced from what are commonly known as reservoirs. Production rates generally decline more rapidly in the early stages of a wells producing life. There are typically three types of drive mechanisms from which hydrocarbons flow through reservoirs: water drive, depletion drive, and solution drive. One of the primary determinants of value for a producing well is its decline curve. A decline curve illustrates the production history of a particular well, and is also used to predict future performance. Now, the hydrocarbon must be sold; lets look at the marketing of the production."
+		]
+	},
+	{
+		"heading": "Oil and Gas Marketing",
+		"html": [
+			"In the majority of cases, a royalty owner’s share of production is marketed and sold along with the working interest owner’s portion (working interest owners are those owners obligated to pay for the expenses of drilling and operating a well). The quality of produced hydrocarbons varies substantially and has direct impact on its value. Oil gravity and sulphur content are the two most important characteristics affecting crude oil pricing. With natural gas, the MMBTU content and the amount of impurities have the most impact on the value per MCF."
+		]
+	},
+	{
+		"heading": "Oil and Gas Measurement",
+		"html": [
+			"Produced oil and gas is measured prior to leaving the well site, as required by law. The gross volume from which your royalty share is calculated is based on this measurement. Customary industry standard requires that the Operator verifies the measurements of the First Purchaser through a “check” meter for gas, or by rechecking (behind the First Purchaser) the levels in the oil storage tanks. With respect to the risk of you being “shorted” or cheated on your properly due production, it is important to keep in mind that it is in your Operator’s best interest to insure proper product measurement."
+		]
+	},
+	{
+		"heading": "Oil and Gas Royalty Statement Deductions",
+		"html": [
+			"You may notice a column on your royalty check stub that contains deductions for making production ready for sale. Common deductions are for compression, dehydration, and removing impurities from gas. Debate, often in court, has gone on for years as to the applicability of these charges."
+		]
+	},
+	{
+		"heading": "Oil and Gas Prices",
+		"html": [
+			"Important to any article on oil and gas basics is certainly a paragraph on pricing. Crude oil and natural gas are commodities, and subject to daily swings in their value in the marketplace. The New York Mercantile Exchange (NYMEX) is the primary market maker for pricing these commodities. The actual cash (or physical) price which royalty owners and oil companies receive is usually based upon a contracted price set each month. Keep in mind that the oil company (along with you the royalty owner) benefits by negotiating for the best price possible."
+		]
+	},
+	{
+		"heading": "Oil and Gas Severance Taxes and Ad Valorem Taxes: The Tax Man Cometh",
+		"html": [
+			"State governments levy a severance tax when natural resources such as oil and gas are “severed” from the earth. Generally, the First Purchaser is responsible for collecting and accounting for this tax which is collected during the normal monthly accounting cycle. This should be easily calculable, and match the deduction shown on your royalty check stub. County governments render and collect a yearly ad valorem tax on producing minerals in many states. Owners are usually assessed and billed annually."
+		]
+	}
+];
+
 const tabs = [
 	{
 		label: "Essential Guides",
@@ -18,17 +74,17 @@ const tabs = [
 		articles: [
 			{
 				title: "Lease My Land",
-				href: "/oil-and-gas-leases-10-common-mistakes-during-mineral-lease-negotiation",
+				href: "/lease-my-land/",
 				description: "Short article explaining how to attract oil and gas companies to lease your land. Topics include mineral values, property records, and finding companies."
 			},
 			{
 				title: "Mineral Rights Value",
-				href: "/mineral-rights-value",
+				href: "/mineral-rights-value/",
 				description: "Short article explaining how to estimate the value of oil & gas mineral rights and what influences their value. Gain perspective on your minerals and royalty."
 			},
 			{
 				title: "Oil & Gas Production 101",
-				href: "/oil-and-gas-production-nontechnical-language",
+				href: "/oil-and-gas-production-nontechnical-language/",
 				description: "Article explaining the drilling, completing, and testing of oil and gas wells in nontechnical language."
 			}
 		]
@@ -43,6 +99,8 @@ const tabs = [
 				heading={heading}
 				intro={intro}
 				tabs={tabs}
+				lead={lead}
+				sections={sections}
 			/>
 		</ArticleContent>
 	</PageShell>

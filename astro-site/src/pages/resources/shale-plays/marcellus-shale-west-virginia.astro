@@ -6,7 +6,7 @@ import ShalePlayPage from '../../../components/ShalePlayPage.astro';
 import { getBreadcrumbs } from '../../../data/hierarchy';
 
 const title = "Marcellus Shale West Virginia | MineralWise";
-const description = "The Marcellus Shale covers the north central and lower portion of the eastern panhandle of West Virginia.Marcellus Shale CompaniesSignificant producers within the overall area of the Marcellus Shale are:Anadarko PetroleumAtlas Energy ResourcesCabot Oil &amp;amp; Gas CorporationCarrizo Oil &amp;amp; Gas Corp.Chesapeake EnergyChief Oil &amp;amp; GasEast ResourcesEnergy Corporation of AmericaEOG ResourcesEQT CorpEXCO ResourcesFortuna EnergyNomac DrillingNorth Coast EnergyRange ResourcesRex Energy Corp.Southwestern Energy Production CompanyStatoilHydroStone Energy CompanyUltra Petroleum Corp.Marcellus Shale GeologyThe Marcellus shale is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface.Marcellus Shale LocationThe Marcellus Shale is located in the following counties of West Virginia:Barbour County WVBraxton County WVBrooke County WVCalhoun County WVClay County WVDoddridge County WVGilmer County WVGrant County WVGreenbrier County WVHancock County WVHardy County WVHarrison County WVLewis County WVMarion County WVMarshall County WVMineral County WVMonongalia County WVNicholas County WVOhio County WVPendleton County WVPleasants County WVPocahontas County WVRandolph County WVRoane County WVTaylor County WVTucker County WVTyler County WVUpshur County WVWebster County WVWetzel County WVWirt County WVWood County WV";
+const description = "The Marcellus Shale covers the north central and lower portion of the eastern panhandle of West Virginia.";
 
 const shaleName = "Marcellus Shale";
 const state = undefined;
@@ -35,7 +35,7 @@ const companies = [
 	"Ultra Petroleum Corp."
 ];
 
-const geology = "";
+const geology = "The Marcellus shale is from the Middle Devonian age and is located between 5,000 and 8,000 feet below the surface.";
 
 const counties = [
 	"Barbour County WV",
@@ -72,7 +72,47 @@ const counties = [
 	"Wood County WV"
 ];
 
-const additionalReading = [];
+const companiesIntro = "Significant producers within the overall area of the Marcellus Shale are:";
+const locationIntro = "The Marcellus Shale is located in the following counties of West Virginia:";
+
+const additionalReading = [
+	{
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners."
+	},
+	{
+		"text": "Marcellus Shale Maryland",
+		"href": "/resources/shale-plays/marcellus-shale-maryland/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Maryland. Written for oil and gas mineral rights and royalty owners in MD."
+	},
+	{
+		"text": "Marcellus Shale New Jersey",
+		"href": "/resources/shale-plays/marcellus-shale-new-jersey/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of New Jersey. Written for oil and gas mineral rights and royalty owners in NJ."
+	},
+	{
+		"text": "Marcellus Shale New York",
+		"href": "/resources/shale-plays/marcellus-shale-new-york/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of New York. Written for oil and gas mineral rights and royalty owners in NY."
+	},
+	{
+		"text": "Marcellus Shale Ohio",
+		"href": "/resources/shale-plays/marcellus-shale-ohio/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Ohio. Written for oil and gas mineral rights and royalty owners in OH."
+	},
+	{
+		"text": "Marcellus Shale Pennsylvania",
+		"href": "/resources/shale-plays/marcellus-shale-pennsylvania/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Marcellus Shale of Pennsylvania. Written for oil and gas mineral rights and royalty owners in PA."
+	}
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -84,7 +124,10 @@ const additionalReading = [];
 				description={descriptionText}
 				companies={companies}
 				geology={geology}
-				counties={counties}additionalReading={additionalReading}
+				counties={counties}
+				companiesIntro={companiesIntro}
+				locationIntro={locationIntro}
+				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
 	</PageShell>

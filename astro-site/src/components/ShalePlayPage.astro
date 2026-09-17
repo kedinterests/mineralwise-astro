@@ -6,6 +6,8 @@ interface Props {
 	companies: string[];
 	geology: string;
 	counties: string[];
+	companiesIntro?: string;
+	locationIntro?: string;
 	stats?: Array<{
 		label: string;
 		value: string;
@@ -14,6 +16,7 @@ interface Props {
 		text: string;
 		href: string;
 		external?: boolean;
+		note?: string;
 	}>;
 }
 
@@ -24,20 +27,23 @@ const {
 	companies,
 	geology,
 	counties,
+	companiesIntro,
+	locationIntro,
 	stats = [],
 	additionalReading = []
 } = Astro.props;
 
 const fullTitle = shaleName;
+const introParagraphs = (description || '').split('\n\n').map((p) => p.trim()).filter(Boolean);
 ---
 
 <div class="shale-play-page">
 	<!-- Hero Section -->
 	<div class="shale-hero">
 		<h1 class="shale-title">{fullTitle}</h1>
-		{description && (
-			<p class="shale-intro">{description}</p>
-		)}
+		{introParagraphs.map((paragraph) => (
+			<p class="shale-intro">{paragraph}</p>
+		))}
 	</div>
 
 	<!-- Companies Section -->
@@ -46,7 +52,7 @@ const fullTitle = shaleName;
 			<h2 class="section-title">
 				{shaleName} Companies
 			</h2>
-			<p class="section-intro">Significant producers within the {shaleName} are:</p>
+			<p class="section-intro">{companiesIntro || `Significant producers within the ${shaleName} are:`}</p>
 			<ul class="companies-list">
 				{companies.map((company) => (
 					<li>{company}</li>
@@ -75,7 +81,7 @@ const fullTitle = shaleName;
 			<h2 class="section-title">
 				{shaleName} Location
 			</h2>
-			<p class="section-intro">The {shaleName} is located in the following {state ? `${state} ` : ''}counties:</p>
+			<p class="section-intro">{locationIntro || `The ${shaleName} is located in the following ${state ? `${state} ` : ''}counties:`}</p>
 			<ul class="counties-list">
 				{counties.map((county) => (
 					<li>{county}</li>
@@ -101,6 +107,7 @@ const fullTitle = shaleName;
 						>
 							{item.text}
 						</a>
+						{item.note && <span class="reading-note">: {item.note}</span>}
 					</li>
 				))}
 			</ul>
@@ -135,6 +142,16 @@ const fullTitle = shaleName;
 		color: #4b5563;
 		line-height: 1.7;
 		margin: 0;
+	}
+
+	.shale-intro + .shale-intro {
+		margin-top: 1rem;
+	}
+
+	.reading-note {
+		font-size: 1rem;
+		color: #4b5563;
+		line-height: 1.6;
 	}
 
 	.shale-stats {

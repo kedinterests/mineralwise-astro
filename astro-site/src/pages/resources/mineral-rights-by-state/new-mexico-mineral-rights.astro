@@ -29,6 +29,9 @@ const majorFields = [
 	"Tularosa Basin",
 	"Zuni Gallup Basin"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "";
 const companies = [
 	"Armstrong Energy",
 	"Cimarron Exploration",
@@ -42,9 +45,10 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -56,6 +60,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				additionalReading={additionalReading}

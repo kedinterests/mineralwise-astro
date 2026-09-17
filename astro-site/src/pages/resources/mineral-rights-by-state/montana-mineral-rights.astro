@@ -24,6 +24,9 @@ const majorFields = [
 	"Pine Field",
 	"Tiger Ridge Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "";
 const companies = [
 	"Devon Louisiana",
 	"EnCana Energy Resources",
@@ -37,14 +40,16 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Bakken Shale Montana",
-		href: "/resources/shale-plays/bakken-shale-montana",
-		external: false
+		"text": "Bakken Shale Montana",
+		"href": "/resources/shale-plays/bakken-shale-montana/",
+		"external": false,
+		"note": "Short article describing geology, location & counties within the Bakken Shale of Montana. Written for oil and gas mineral rights and royalty owners in MT."
 	}
 ];
 ---
@@ -56,6 +61,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				additionalReading={additionalReading}

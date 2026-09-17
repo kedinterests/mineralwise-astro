@@ -8,6 +8,7 @@ interface Link {
 	text: string;
 	href: string;
 	external?: boolean;
+	note?: string;
 }
 
 interface Props {
@@ -18,6 +19,9 @@ interface Props {
 	stats?: Stat[];
 	majorFields?: string[];
 	companies?: string[];
+	counties?: string[];
+	countiesHeading?: string;
+	regulatorName?: string;
 	regulatoryLink?: Link;
 	additionalReading?: Link[];
 }
@@ -30,6 +34,9 @@ const {
 	stats = [],
 	majorFields = [],
 	companies = [],
+	counties = [],
+	countiesHeading,
+	regulatorName,
 	regulatoryLink,
 	additionalReading = []
 } = Astro.props;
@@ -49,7 +56,9 @@ const {
 		<section class="state-section">
 			<h2 class="section-title">History & Overview</h2>
 			<div class="section-content">
-				<p>{history}</p>
+				{history.split('\n\n').filter((p) => p.trim()).map((paragraph) => (
+					<p>{paragraph.trim()}</p>
+				))}
 			</div>
 		</section>
 	)}
@@ -97,13 +106,25 @@ const {
 		</section>
 	)}
 
+	<!-- Producing Counties -->
+	{counties.length > 0 && (
+		<section class="state-section">
+			<h2 class="section-title">{countiesHeading || `Major Oil and Gas Producing Counties in ${stateName}`}</h2>
+			<ul class="info-list counties-list">
+				{counties.map((county) => (
+					<li>{county}</li>
+				))}
+			</ul>
+		</section>
+	)}
+
 	<!-- Regulatory Link -->
 	{regulatoryLink && (
 		<section class="state-section">
 			<h2 class="section-title">{stateName} Mineral Rights Links</h2>
 			<div class="section-content">
 				<p>
-					{stateName} Oil and Gas Board: 
+					{regulatorName || `${stateName} Oil and Gas Board`}:{' '}
 					<a 
 						href={regulatoryLink.href} 
 						target={regulatoryLink.external ? "_blank" : undefined}
@@ -132,6 +153,7 @@ const {
 						>
 							{link.text}
 						</a>
+						{link.note && <span class="reading-note">: {link.note}</span>}
 					</li>
 				))}
 			</ul>
@@ -147,6 +169,17 @@ const {
 </div>
 
 <style>
+	.counties-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		gap: 0.125rem 1.5rem;
+	}
+
+	.reading-note {
+		color: #4b5563;
+		line-height: 1.6;
+	}
+
 	.state-page {
 		background: white;
 		border-radius: 15px;

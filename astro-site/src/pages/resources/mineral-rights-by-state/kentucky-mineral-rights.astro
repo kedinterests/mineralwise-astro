@@ -20,6 +20,15 @@ const majorFields = [
 	"Letcher County",
 	"Metcalfe County"
 ];
+const counties = [
+	"Adair County",
+	"Green County",
+	"Knox County",
+	"Letcher County",
+	"Metcalfe County"
+];
+const countiesHeading = "Top Oil and Gas Producing Counties in Kentucky";
+const regulatorName = "";
 const companies = [
 	"Abarta Oil & Gas",
 	"Bretagne",
@@ -29,18 +38,26 @@ const companies = [
 	"MDM Energy",
 	"New River Energy",
 	"North Coast Energy",
-	"Vinland Energy"
+	"Vinland Energy",
+	"Top Oil and Gas Producing Counties in Kentucky",
+	"Adair County",
+	"Green County",
+	"Knox County",
+	"Letcher County",
+	"Metcalfe County"
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	},
 	{
-		text: "Huron Shale",
-		href: "/resources/shale-plays/huron-shale",
-		external: false
+		"text": "Huron Shale",
+		"href": "/resources/shale-plays/huron-shale/",
+		"external": false,
+		"note": "Information for West Virginia and Kentucky mineral rights and royalty owners of the Huron Shale gas play."
 	}
 ];
 ---
@@ -52,6 +69,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				additionalReading={additionalReading}

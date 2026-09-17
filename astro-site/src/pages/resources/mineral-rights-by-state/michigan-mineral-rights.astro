@@ -23,8 +23,22 @@ const majorFields = [
 	"Springdale Township Field",
 	"Walker Oil Field",
 	"White River Field",
-	"Williams Field"
+	"Williams Field",
+	"Active Oil and Gas Companies in Michigan",
+	"Dart Oil and Gas",
+	"Howard Energy",
+	"Jordan Development",
+	"Mercury Exploration",
+	"Merit Energy",
+	"Muskegon Development",
+	"Omimex Energy",
+	"Quicksilver Resources",
+	"Summit Petroleum",
+	"White River Production"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Michigan Department of Environmental Quality";
 const companies = [
 	"Dart Oil and Gas",
 	"Howard Energy",
@@ -44,9 +58,10 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -58,6 +73,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

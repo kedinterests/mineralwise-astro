@@ -11,18 +11,43 @@ interface Tab {
 	articles: Article[];
 }
 
+interface Section {
+	heading: string;
+	html: string[];
+	quote?: string;
+}
+
 interface Props {
 	heading: string;
 	intro: string;
 	tabs: Tab[];
+	lead?: string[];
+	sections?: Section[];
 }
 
-const { heading, intro, tabs } = Astro.props;
+const { heading, intro, tabs, lead = [], sections = [] } = Astro.props;
 ---
 
 <div class="owner-guide-card">
 	<h1 class="owner-guide-heading">{heading}</h1>
+	{lead.map((paragraph) => (
+		<p class="owner-guide-intro" set:html={paragraph} />
+	))}
 	<p class="owner-guide-intro">{intro}</p>
+
+	{sections.length > 0 && (
+		<div class="owner-guide-body">
+			{sections.map((section) => (
+				<section>
+					<h2>{section.heading}</h2>
+					{section.quote && <blockquote>{section.quote}</blockquote>}
+					{section.html.map((paragraph) => (
+						<p set:html={paragraph} />
+					))}
+				</section>
+			))}
+		</div>
+	)}
 	
 	<div class="tabs-container">
 		<div class="tabs-header" role="tablist">
@@ -107,6 +132,46 @@ const { heading, intro, tabs } = Astro.props;
 </script>
 
 <style>
+	.owner-guide-intro + .owner-guide-intro {
+		margin-top: 1rem;
+	}
+
+	.owner-guide-body {
+		margin: 2.5rem 0;
+	}
+
+	.owner-guide-body section {
+		margin-bottom: 2.25rem;
+	}
+
+	.owner-guide-body h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #1a1a1a;
+		line-height: 1.3;
+		margin: 0 0 0.75rem;
+	}
+
+	.owner-guide-body p {
+		font-size: 1.0625rem;
+		line-height: 1.8;
+		color: #374151;
+		margin: 0 0 1rem;
+	}
+
+	.owner-guide-body blockquote {
+		margin: 0 0 1rem;
+		padding: 0.5rem 0 0.5rem 1.25rem;
+		border-left: 4px solid #3b82f6;
+		font-size: 1.25rem;
+		font-style: italic;
+		color: #1f2937;
+	}
+
+	.owner-guide-body a {
+		color: #2563eb;
+	}
+
 	.owner-guide-card {
 		background: white;
 		border-radius: 15px;

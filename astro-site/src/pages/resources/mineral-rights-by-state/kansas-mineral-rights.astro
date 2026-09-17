@@ -26,6 +26,9 @@ const majorFields = [
 	"Panoma Field",
 	"Trapp Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "Kansas Geological Survey Energy Resources";
 const companies = [
 	"American Warrior",
 	"Anadarko Petroleum",
@@ -50,9 +53,10 @@ const regulatoryLink = {
 };
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -64,6 +68,9 @@ const additionalReading = [
 				stateName={stateName}
 				stateAbbr={stateAbbr}
 				description={description}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				majorFields={majorFields}
 				companies={companies}
 				regulatoryLink={regulatoryLink}

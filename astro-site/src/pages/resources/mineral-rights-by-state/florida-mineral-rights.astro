@@ -27,6 +27,9 @@ const majorFields = [
 	"Sunoco Felda field",
 	"West Felda Field"
 ];
+const counties = [];
+const countiesHeading = "";
+const regulatorName = "";
 const companies = [
 	"Breitburn Energy Partners",
 	"Mack Oil",
@@ -38,9 +41,10 @@ const companies = [
 ];
 const additionalReading = [
 	{
-		text: "Oil & Gas 101",
-		href: "/owners-guide/oil-and-gas-basics-for-mineral-owners",
-		external: false
+		"text": "Oil & Gas 101",
+		"href": "/owners-guide/oil-and-gas-basics-for-mineral-owners/",
+		"external": false,
+		"note": "General information for mineral rights owners. Start here if you’re a newbie."
 	}
 ];
 ---
@@ -54,6 +58,9 @@ const additionalReading = [
 				description={description}
 				majorFields={majorFields}
 				companies={companies}
+				counties={counties}
+				countiesHeading={countiesHeading}
+				regulatorName={regulatorName}
 				additionalReading={additionalReading}
 			/>
 		</ArticleContent>
