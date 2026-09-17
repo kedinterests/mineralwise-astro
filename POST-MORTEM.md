@@ -221,8 +221,10 @@ then `node scripts/test-redirects.mjs`, and commit the regenerated middleware.
 ## Third pass: 17 September 2026, glossary rebuilt as letter pages
 
 The 198 single-term glossary pages ran 30 to 60 words each and were the bulk of
-"Crawled, currently not indexed". The Squarespace site never had them as its
-main glossary: it had one page per letter. The glossary is now built that way.
+"Crawled, currently not indexed". The Squarespace site had one glossary page per
+letter (`/library/oil-and-gas-terms/oil-gas-definitions-p-terms`, titled
+"Oil & Gas Glossary - P Terms", 300 to 700 words each). The glossary is now built
+that way, and the new pages take their titles from those.
 
 - Terms are a content collection: one JSON file per term in
   `astro-site/src/content/terms/` (`term`, `definition`), editable in the CMS as

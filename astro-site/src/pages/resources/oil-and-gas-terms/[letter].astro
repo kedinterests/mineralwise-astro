@@ -27,8 +27,10 @@ const count = terms.length;
 const noun = count === 1 ? 'term' : 'terms';
 const startsWith = label === '0-9' ? 'a number' : `the letter ${label}`;
 
-const heading = `Oil & Gas Terms: ${label}`;
-const title = `Oil & Gas Terms Starting With ${label}: Glossary Definitions`;
+// Named after the Squarespace letter pages these replace ("Oil & Gas Glossary - P Terms").
+// BaseHead appends " | MineralWise" to the title.
+const heading = `Oil and Gas Glossary: ${label} Terms`;
+const title = heading;
 
 // Name a few short terms in the description so each letter page reads differently.
 // BaseHead trims anything over 160 characters, so use as many examples as fit.

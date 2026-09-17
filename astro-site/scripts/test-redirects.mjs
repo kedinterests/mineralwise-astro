@@ -247,8 +247,9 @@ const REGRESSIONS = {
 	// Grantor was a stray single-term page at the root; it is now a term on the G page.
 	'/grantor': `${T}/g#grantor`,
 	'/grantor/': `${T}/g#grantor`,
-	// Both generations of Squarespace letter pages, and the Brizy-era stubs, go to
-	// the matching letter page. A letter with no terms has no page: glossary index.
+	// The Squarespace letter pages (/library/.../oil-gas-definitions-p-terms), the
+	// Brizy-era stubs (/oil-and-gas-terms-p) and the Astro-era stubs all go to the
+	// matching letter page. A letter with no terms has no page: glossary index.
 	'/oil-and-gas-terms-p': `${T}/p`,
 	'/oil-and-gas-terms-p/': `${T}/p`,
 	'/oil-and-gas-terms-a': `${T}/a`,

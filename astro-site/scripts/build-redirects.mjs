@@ -208,7 +208,9 @@ const SECTION_INDEX = {
 	'/how-oil-gas-measured-a-177.html': '/oil-gas-measurement',
 	'/selling-mineral-rights': '/mineral-rights-value',
 };
-// The two generations of Squarespace letter pages map onto the new letter pages.
+// Old letter pages map onto the new letter pages: the Squarespace ones
+// (/library/oil-and-gas-terms/oil-gas-definitions-p-terms, real pages of 300 to 700
+// words) and the Brizy-era stubs from April 2025 (/oil-and-gas-terms-p, about 21 words).
 for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
 	SECTION_INDEX[`/oil-and-gas-terms-${letter}`] = letterPageOrIndex(letter);
 	SECTION_INDEX[`/library/oil-and-gas-terms/oil-gas-definitions-${letter}-terms`] =
