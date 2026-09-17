@@ -15,8 +15,18 @@
  * This script resolves every legacy URL against the routes that actually exist
  * in src/pages, and refuses to emit a rule whose destination is missing.
  *
+ * Glossary terms are not pages of their own. Each one is an anchor on a letter
+ * page (/resources/oil-and-gas-terms/p/#pugh-clause). A destination may therefore
+ * be written "page#anchor": the page must be a live route AND the anchor must be
+ * a term that is filed under that letter, or generation fails.
+ *
  * Inputs:
  *   src/pages/**            the authoritative list of live routes
+ *   src/content/terms/*.json the glossary terms; the filename is the anchor and
+ *                           the first letter of "term" picks the letter page
+ *   scripts/retired-term-urls.json
+ *                           every single-term URL retired when the glossary moved
+ *                           to letter pages, mapped to the anchor that replaced it
  *   scripts/legacy-urls.txt every URL this domain has served across the
  *                           Squarespace, Brizy and Astro eras (Wayback CDX +
  *                           the pre-migration sitemap scrape)
@@ -25,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ANCHOR_RE, GLOSSARY_BASE, letterFor, letterPath } from '../src/data/glossary-rules.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PAGES = path.join(ROOT, 'src/pages');
@@ -58,6 +69,84 @@ const NOT_A_PAGE = new Set(['/404', '/rss.xml', '/robots.txt', '/llms.txt']);
 for (const r of NOT_A_PAGE) routes.delete(r);
 
 const lastSegment = (p) => p.split('/').filter(Boolean).pop() || '';
+
+// ------------------------------------------------------------ glossary terms
+
+// The letter pages come from a dynamic route ([letter].astro), which the walk
+// above skips. They exist exactly when the collection has a term for that letter.
+const TERMS_DIR = path.join(ROOT, 'src/content/terms');
+const termProblems = [];
+const TERM_DEST = {}; // anchor -> '/resources/oil-and-gas-terms/<letter>#<anchor>'
+const anchorsByLetterPage = new Map(); // letter page -> Set of anchors on it
+for (const file of fs.readdirSync(TERMS_DIR).sort()) {
+	if (!file.endsWith('.json')) continue;
+	const anchor = file.replace(/\.json$/, '');
+	if (!ANCHOR_RE.test(anchor)) {
+		termProblems.push(`${file}: filename must be lowercase letters, digits and hyphens`);
+		continue;
+	}
+	let data;
+	try {
+		data = JSON.parse(fs.readFileSync(path.join(TERMS_DIR, file), 'utf8'));
+	} catch (err) {
+		termProblems.push(`${file}: not valid JSON (${err.message})`);
+		continue;
+	}
+	if (typeof data.term !== 'string' || !data.term.trim() || typeof data.definition !== 'string' || !data.definition.trim()) {
+		termProblems.push(`${file}: needs a non-empty "term" and "definition"`);
+		continue;
+	}
+	const page = letterPath(letterFor(data.term));
+	if (!anchorsByLetterPage.has(page)) anchorsByLetterPage.set(page, new Set());
+	anchorsByLetterPage.get(page).add(anchor);
+	TERM_DEST[anchor] = `${page}#${anchor}`;
+}
+if (termProblems.length) {
+	console.error('Refusing to generate: glossary term files are invalid.');
+	for (const p of termProblems) console.error('  ' + p);
+	process.exit(1);
+}
+for (const page of anchorsByLetterPage.keys()) {
+	if (routes.has(page)) {
+		console.error(`Refusing to generate: ${page} is both a static page and a glossary letter page.`);
+		process.exit(1);
+	}
+	routes.add(page);
+}
+
+/** Destination for a term, by anchor. Fails loudly if the term has been removed. */
+function term(anchor) {
+	if (!TERM_DEST[anchor]) {
+		console.error(`Refusing to generate: no glossary term with anchor "${anchor}" in src/content/terms.`);
+		process.exit(1);
+	}
+	return TERM_DEST[anchor];
+}
+
+/** The letter page if that letter has terms, otherwise the glossary index. Never an empty page. */
+const letterPageOrIndex = (letter) =>
+	anchorsByLetterPage.has(letterPath(letter)) ? letterPath(letter) : GLOSSARY_BASE;
+
+// Single-term URLs that were live pages until the glossary moved to letter pages.
+const retiredTermUrls = JSON.parse(
+	fs.readFileSync(path.join(ROOT, 'scripts/retired-term-urls.json'), 'utf8')
+);
+const RETIRED = {}; // retired path -> 'page#anchor'
+for (const [retiredPath, anchor] of Object.entries(retiredTermUrls)) {
+	if (routes.has(retiredPath)) {
+		console.error(`Refusing to generate: ${retiredPath} is listed as retired but is still a live page.`);
+		process.exit(1);
+	}
+	RETIRED[retiredPath] = term(anchor);
+}
+
+// For matching legacy URLs, a term can be found by its retired path or by its
+// anchor. Both resolve straight to the letter page anchor, never to a retired URL.
+const VIRTUAL = { ...RETIRED };
+for (const [anchor, dest] of Object.entries(TERM_DEST)) {
+	const asPath = `${GLOSSARY_BASE}/${anchor}`;
+	if (!routes.has(asPath) && !VIRTUAL[asPath]) VIRTUAL[asPath] = dest;
+}
 
 // ------------------------------------------------------------- legacy inputs
 
@@ -119,65 +208,69 @@ const SECTION_INDEX = {
 	'/how-oil-gas-measured-a-177.html': '/oil-gas-measurement',
 	'/selling-mineral-rights': '/mineral-rights-value',
 };
+// The two generations of Squarespace letter pages map onto the new letter pages.
 for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
-	SECTION_INDEX[`/oil-and-gas-terms-${letter}`] = '/resources/oil-and-gas-terms';
+	SECTION_INDEX[`/oil-and-gas-terms-${letter}`] = letterPageOrIndex(letter);
 	SECTION_INDEX[`/library/oil-and-gas-terms/oil-gas-definitions-${letter}-terms`] =
-		'/resources/oil-and-gas-terms';
+		letterPageOrIndex(letter);
 }
 
 /**
- * Slugs Google still holds that no longer match a filename, either because the
- * migration stacked every synonym into the slug or because two pages merged.
+ * Slugs Google still holds that match neither a page nor a glossary anchor,
+ * either because the migration stacked every synonym into the slug or because
+ * two pages merged. Glossary destinations go through term(), so an alias can
+ * never outlive the term it points at.
  * Sources: the Search Console 404 export and the 90-day Performance > Pages report.
  */
 const SLUG_ALIASES = {
-	fracking: '/resources/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job',
-	'hydraulic-fracturing': '/resources/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job',
-	'frac-job': '/resources/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job',
+	fracking: term('fracking'),
+	'hydraulic-fracturing': term('fracking'),
+	'frac-job': term('fracking'),
 	// merged duplicate: the two term pages carried the same definition
-	'hydraulic-fracturing-fracture-fracing-fracking-frac-job':
-		'/resources/oil-and-gas-terms/fracking-hydraulic-fracturing-fracture-fracing-frac-job',
-	'drilling-mud': '/resources/oil-and-gas-terms/drilling-mud-drilling-fluid',
-	'drilling-fluid': '/resources/oil-and-gas-terms/drilling-mud-drilling-fluid',
-	'plugging-and-abandonment': '/resources/oil-and-gas-terms/p-and-a-or-plug-and-abandon',
-	'plug-and-abandon': '/resources/oil-and-gas-terms/p-and-a-or-plug-and-abandon',
-	'p-and-a': '/resources/oil-and-gas-terms/p-and-a-or-plug-and-abandon',
-	'lact-unit': '/resources/oil-and-gas-terms/lease-automatic-custody-transfer-unit-lact-unit',
-	orri: '/resources/oil-and-gas-terms/overriding-royalty-interest-orri',
+	'hydraulic-fracturing-fracture-fracing-fracking-frac-job': term('fracking'),
+	'drilling-mud': term('drilling-mud'),
+	'drilling-fluid': term('drilling-mud'),
+	'plugging-and-abandonment': term('plug-and-abandon'),
+	'plug-and-abandon': term('plug-and-abandon'),
+	'p-and-a': term('plug-and-abandon'),
+	'lact-unit': term('lact-unit'),
+	orri: term('overriding-royalty-interest'),
 	npri: '/non-participating-royalty-interest-npri',
-	nri: '/resources/oil-and-gas-terms/net-revenue-interest-nri',
-	hbp: '/resources/oil-and-gas-terms/held-by-production-hbp',
-	condensate: '/resources/oil-and-gas-terms/condensate-lease-condensate',
-	'forced-pooling': '/resources/oil-and-gas-terms/forced-pooling-or-force-pooled',
-	landman: '/resources/oil-and-gas-terms/landman-petroleum-landman',
-	waterflood: '/resources/oil-and-gas-terms/waterflood-waterflooding',
-	'commercial-well': '/resources/oil-and-gas-terms/commercial-well-aka-producing-well',
-	'working-interest': '/resources/oil-and-gas-terms/working-interest-wi',
-	'bottom-hole-pressure': '/resources/oil-and-gas-terms/bottom-hole-pressure-bhp',
-	'salt-water-disposal-well': '/resources/oil-and-gas-terms/salt-water-disposal-well-swd',
-	'sour-gas': '/resources/oil-and-gas-terms/sour-gas-h2s',
-	'three-d-seismic': '/resources/oil-and-gas-terms/three-3-d-seismic-three-dimensional-seismic',
-	unitization: '/resources/oil-and-gas-terms/unitization-unitization-agreement-unit-agreement',
-	'natural-gas-liquids': '/resources/oil-and-gas-terms/natural-gas-liquids-ngl',
-	'initial-production': '/resources/oil-and-gas-terms/initial-production-ip',
-	'intangible-drilling-costs': '/resources/oil-and-gas-terms/intangible-drilling-costs-idc',
-	'gas-oil-ratio': '/resources/oil-and-gas-terms/gas-oil-ratio-gor',
-	barrel: '/resources/oil-and-gas-terms/barrel-bbl',
-	'british-thermal-unit': '/resources/oil-and-gas-terms/british-thermal-unit-btu',
-	'blowout-preventor': '/resources/oil-and-gas-terms/blowout-preventor-bp',
-	'christmas-tree': '/resources/oil-and-gas-terms/christmas-tree-wellhead',
-	pumper: '/resources/oil-and-gas-terms/pumper-lease-operator-gauger',
-	'reserve-pit': '/resources/oil-and-gas-terms/reserve-pit-mud-pit',
-	swab: '/resources/oil-and-gas-terms/swab-swabbing',
-	'basic-sediment-and-water': '/resources/oil-and-gas-terms/basic-sediment-and-water-bs-and-w',
-	'pounds-per-square-inch': '/resources/oil-and-gas-terms/pounds-per-square-inch-psi',
-	'progressive-cavity-pump': '/resources/oil-and-gas-terms/progressing-or-progressive-cavity-pump',
-	allowable: '/resources/oil-and-gas-terms/allowable-oil-allowable-gas-allowable',
-	'cubic-foot-of-gas': '/resources/oil-and-gas-terms/cubic-foot-of-gas-standard-cubic-foot-of-gas',
+	nri: term('net-revenue-interest'),
+	hbp: term('held-by-production'),
+	condensate: term('condensate'),
+	'forced-pooling': term('forced-pooling'),
+	landman: term('landman'),
+	waterflood: term('waterflood'),
+	'commercial-well': term('commercial-well'),
+	'working-interest': term('working-interest'),
+	'bottom-hole-pressure': term('bottom-hole-pressure'),
+	'salt-water-disposal-well': term('salt-water-disposal-well'),
+	'sour-gas': term('sour-gas'),
+	'three-d-seismic': term('three-d-seismic'),
+	unitization: term('unitization'),
+	'natural-gas-liquids': term('natural-gas-liquids'),
+	'initial-production': term('initial-production'),
+	'intangible-drilling-costs': term('intangible-drilling-costs'),
+	'gas-oil-ratio': term('gas-oil-ratio'),
+	barrel: term('barrel'),
+	'british-thermal-unit': term('british-thermal-unit'),
+	'blowout-preventor': term('blowout-preventor'),
+	'christmas-tree': term('christmas-tree'),
+	pumper: term('pumper'),
+	'reserve-pit': term('reserve-pit'),
+	swab: term('swab'),
+	'basic-sediment-and-water': term('basic-sediment-and-water'),
+	'pounds-per-square-inch': term('pounds-per-square-inch'),
+	'progressive-cavity-pump': term('progressive-cavity-pump'),
+	allowable: term('allowable'),
+	'cubic-foot-of-gas': term('cubic-foot-of-gas'),
 };
-// The 26 alphabet stub pages were empty. They are deleted; send them to the glossary.
+// /oil-and-gas-terms/a and friends: the letter page when that letter has terms,
+// otherwise the glossary index. (The empty alphabet stubs deleted on 27 August
+// all went to the index; the real letter pages replaced them in September.)
 for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
-	SLUG_ALIASES[letter] = '/resources/oil-and-gas-terms';
+	SLUG_ALIASES[letter] = letterPageOrIndex(letter);
 }
 
 // ------------------------------------------------------------------ matching
@@ -192,12 +285,16 @@ function similarity(a, b) {
 	return shared / (A.size + B.size - shared);
 }
 
-const routeList = [...routes];
+// Live routes plus the glossary's virtual paths. A match on a virtual path is
+// swapped for its letter page anchor by finalise(), so nothing resolves to a
+// retired URL. Live routes are listed last so they win a shared final segment.
+const routeList = [...Object.keys(VIRTUAL), ...routes];
 const routesBySegment = new Map();
 for (const r of routeList) {
 	if (r === '/') continue;
 	routesBySegment.set(lastSegment(r), r);
 }
+const finalise = (matched) => (matched && VIRTUAL[matched]) || matched;
 
 /** Which live section should a legacy path prefer when several slugs are close? */
 function preferredSection(p) {
@@ -249,8 +346,25 @@ function resolveLegacy(p) {
 
 // ------------------------------------------------------------------- build
 
+// Mirrors resolve() in the generated middleware: the slug table is only consulted
+// for single-segment paths and for short paths under a known legacy folder.
+const LEGACY_ROOTS = [
+	'resources', 'library', 'directory', 'owners-guide', 'oil-and-gas-terms',
+	'oil-and-gas-operators', 'oil-gas-operators', 'oil-and-gas-companies',
+	'shale-plays', 'mineral-rights-by-state', 'oil-gas-royalty-taxes',
+	'royalty-taxes', 'about', 'glossary',
+];
+function isSlugRoutable(p) {
+	const segments = p.split('/').filter(Boolean);
+	return segments.length === 1 || (segments.length <= 4 && LEGACY_ROOTS.includes(segments[0]));
+}
+
 const SLUGS = {};
-for (const r of routeList) if (r !== '/') SLUGS[lastSegment(r)] = r;
+for (const r of routes) if (r !== '/') SLUGS[lastSegment(r)] = r;
+// Retired term slugs and anchors, unless a live page already owns that segment.
+for (const [virtualPath, dest] of Object.entries(VIRTUAL)) {
+	if (!SLUGS[lastSegment(virtualPath)]) SLUGS[lastSegment(virtualPath)] = dest;
+}
 
 const unresolved = [];
 for (const raw of legacy) {
@@ -259,7 +373,8 @@ for (const raw of legacy) {
 	if (NEVER_REDIRECT.some((re) => re.test(p))) continue;
 	if (SECTION_INDEX[p]) continue;
 
-	const target = resolveLegacy(p);
+	if (RETIRED[p]) continue; // exact rule below
+	const target = finalise(resolveLegacy(p));
 	if (!target) {
 		unresolved.push(p);
 		continue;
@@ -272,21 +387,42 @@ for (const raw of legacy) {
 Object.assign(SLUGS, SLUG_ALIASES);
 
 const REDIRECTS = {};
-for (const [from, to] of Object.entries(SECTION_INDEX)) {
-	if (SLUGS[lastSegment(from)] === to) continue; // already covered by the slug table
+for (const [from, to] of [...Object.entries(SECTION_INDEX), ...Object.entries(RETIRED)]) {
+	if (SLUGS[lastSegment(from)] === to && isSlugRoutable(from)) continue; // already covered by the slug table
 	REDIRECTS[from] = to;
 }
 
 // ------------------------------------------------------------------- verify
 
-const dead = [
+const allRules = [
 	...Object.entries(SLUGS).map(([k, v]) => ['SLUGS', k, v]),
 	...Object.entries(REDIRECTS).map(([k, v]) => ['REDIRECTS', k, v]),
-].filter(([, , target]) => target !== '/' && !routes.has(target));
+];
 
+// 1. the page must exist, and an anchor must be a term filed on that page
+const dead = allRules.filter(([, , target]) => {
+	const [page, anchor] = target.split('#');
+	if (page !== '/' && !routes.has(page)) return true;
+	if (anchor !== undefined && !(anchorsByLetterPage.get(page) || new Set()).has(anchor)) return true;
+	return false;
+});
 if (dead.length) {
-	console.error('Refusing to generate: these rules point at pages that do not exist.');
+	console.error('Refusing to generate: these rules point at pages or anchors that do not exist.');
 	for (const [table, key, target] of dead) console.error(`  ${table}["${key}"] -> ${target}`);
+	process.exit(1);
+}
+
+// 2. no chains: a destination must not itself be redirected
+const chained = allRules.filter(([, , target]) => {
+	const page = target.split('#')[0];
+	if (page === '/') return false;
+	if (REDIRECTS[page]) return true;
+	const viaSlug = SLUGS[lastSegment(page)];
+	return viaSlug !== undefined && viaSlug.split('#')[0] !== page;
+});
+if (chained.length) {
+	console.error('Refusing to generate: these rules point at a URL that is itself redirected.');
+	for (const [table, key, target] of chained) console.error(`  ${table}["${key}"] -> ${target}`);
 	process.exit(1);
 }
 
@@ -301,8 +437,11 @@ const output = `// AUTO-GENERATED by scripts/build-redirects.mjs — do not hand
 // Re-run that script after adding, renaming or deleting a page.
 //
 // Every destination below was checked against src/pages at generation time, so
-// no rule here can redirect into a 404. See the script header for why this
-// logic lives in a Pages Function instead of public/_redirects.
+// no rule here can redirect into a 404. A destination written "page#anchor" is a
+// glossary term: the page is its letter page and the anchor was checked against
+// the terms filed under that letter. No destination is itself a redirected URL.
+// See the script header for why this logic lives in a Pages Function instead of
+// public/_redirects.
 
 // Legacy landing pages whose final segment is not a page slug.
 const REDIRECTS = ${serialise(REDIRECTS)};
@@ -317,19 +456,16 @@ const SLUGS = ${serialise(SLUGS)};
 // still serving a full duplicate of the site.
 const CANONICAL_HOST = '${CANONICAL_HOST}';
 
-// Pages Functions, build assets and static files are never rewritten.
+// Pages Functions, build assets and static files are never rewritten. Folder
+// names must match a whole segment: a bare /^\\/api/ also swallowed /api-number,
+// a glossary term Google still holds, and left it as a 404.
 const PASSTHROUGH =
-	/^\\/(api|_astro|admin|images|fonts|assets|cms\\.html|config\\.yml|favicon|robots\\.txt|sitemap|rss\\.xml|llms\\.txt|_headers|_redirects)/;
+	/^\\/(?:(?:api|_astro|admin|images|fonts|assets)(?:\\/|$)|cms\\.html|config\\.yml|favicon|robots\\.txt|sitemap|rss\\.xml|llms\\.txt|_headers|_redirects)/;
 
 // Folders that were flattened or moved by a migration. Paths outside this set
 // are left alone, so genuinely dead URLs keep returning 404 rather than being
 // swept into a redirect Google would read as a soft 404.
-const LEGACY_ROOTS = new Set([
-	'resources', 'library', 'directory', 'owners-guide', 'oil-and-gas-terms',
-	'oil-and-gas-operators', 'oil-gas-operators', 'oil-and-gas-companies',
-	'shale-plays', 'mineral-rights-by-state', 'oil-gas-royalty-taxes',
-	'royalty-taxes', 'about', 'glossary',
-]);
+const LEGACY_ROOTS = new Set(${JSON.stringify(LEGACY_ROOTS)});
 
 function normalise(pathname) {
 	const p = decodeURIComponent(pathname).toLowerCase().replace(/\\/+/g, '/').replace(/\\/+$/, '');
@@ -364,30 +500,46 @@ function resolve(p) {
 	return null;
 }
 
+// Where this path should go, as { page, anchor }, or null when there is no rule
+// or the path is already the canonical one.
+function destinationFor(pathname) {
+	if (PASSTHROUGH.test(pathname)) return null;
+	const current = normalise(pathname);
+	const target = resolve(current);
+	if (!target) return null;
+	const [page, anchor] = target.split('#');
+	if (page === current) return null;
+	return { page, anchor };
+}
+
 export async function onRequest(context) {
 	const url = new URL(context.request.url);
+	const wrongHost = url.hostname !== CANONICAL_HOST && url.hostname.endsWith('.' + CANONICAL_HOST);
 
-	// Host first: consolidate www onto the apex before doing anything else, so a
-	// www request never produces two redirects or lands on a duplicate page.
-	if (url.hostname !== CANONICAL_HOST && url.hostname.endsWith('.' + CANONICAL_HOST)) {
+	let found;
+	try {
+		found = destinationFor(url.pathname);
+	} catch {
+		found = null; // malformed percent-encoding: no rule can match it
+	}
+
+	if (!found) {
+		if (!wrongHost) return context.next();
+		// Consolidate www onto the apex with the path and query intact.
 		const canonical = new URL(url.toString());
 		canonical.hostname = CANONICAL_HOST;
 		canonical.protocol = 'https:';
 		return Response.redirect(canonical.toString(), 301);
 	}
 
-	if (PASSTHROUGH.test(url.pathname)) return context.next();
-
-	const current = normalise(url.pathname);
-	const target = resolve(current);
-
-	// Either there is no rule, or this URL is already the canonical one.
-	if (!target || target === current) return context.next();
-
-	// Redirect straight to the slashed form: Pages would otherwise add its own
-	// 308 for the missing slash and turn every redirect into a two-hop chain.
-	const destination = new URL(target === '/' ? '/' : target + '/', url.origin);
+	// One hop, always. Host and path are fixed in the same redirect, so a www
+	// legacy URL does not go www -> apex -> new page. The path is sent in its
+	// slashed form because Pages would otherwise add its own 308 for the missing
+	// slash. A glossary term carries its anchor so the visitor lands on the term.
+	const origin = wrongHost ? 'https://' + CANONICAL_HOST : url.origin;
+	const destination = new URL(found.page === '/' ? '/' : found.page + '/', origin);
 	destination.search = url.search;
+	if (found.anchor) destination.hash = found.anchor;
 	return Response.redirect(destination.toString(), 301);
 }
 `;

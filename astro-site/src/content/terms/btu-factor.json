@@ -1,0 +1,4 @@
+{
+  "term": "BTU Factor",
+  "definition": "A number which is multiplied by the volume of gas measured in MCF in order to arrive at the heating value of gas which is measured in millions of British Thermal Units (MMBTU)."
+}

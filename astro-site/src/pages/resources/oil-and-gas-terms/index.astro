@@ -2,35 +2,23 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageShell from '../../../components/PageShell.astro';
 import ArticleContent from '../../../components/ArticleContent.astro';
-import { getBreadcrumbs, pageHierarchy } from '../../../data/hierarchy';
+import { getBreadcrumbs } from '../../../data/hierarchy';
+import { getGlossaryLetters, type GlossaryTerm } from '../../../data/glossary';
 
 const title = "Comprehensive Glossary of Oil & Gas Terms: Definitions A-Z";
 const metaDescription = "Explore a detailed A-Z glossary of oil and gas terms, including key definitions like hydraulic fracturing, mineral rights, royalty interest, and more. Simplify complex industry jargon today!";
 
-// Get all terms from hierarchy
-const allTerms = Object.entries(pageHierarchy)
-	.filter(([path, node]) => node.parent === '/resources/oil-and-gas-terms')
-	.map(([path, node]) => ({
-		path,
-		label: node.label
-	}))
-	.sort((a, b) => a.label.localeCompare(b.label));
+// Terms come from the "terms" content collection (src/content/terms), grouped by
+// first letter. Each letter has its own page holding the definitions; this index
+// links every term straight to its anchor on that page.
+const letterPages = await getGlossaryLetters();
+const pageByLetter = new Map(letterPages.map((entry) => [entry.label, entry]));
 
-// Organize by first letter
-const termsByLetter: Record<string, Array<{ path: string; label: string }>> = {};
-allTerms.forEach(term => {
-	const firstLetter = term.label.charAt(0).toUpperCase();
-	if (!termsByLetter[firstLetter]) {
-		termsByLetter[firstLetter] = [];
-	}
-	termsByLetter[firstLetter].push(term);
-});
-
-// All letters A-Z
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+// All letters A-Z, plus 0-9 only when a term starts with a digit
+const letters = [...(pageByLetter.has('0-9') ? ['0-9'] : []), ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
 
 // Split terms into two columns for each letter
-function splitIntoColumns(terms: Array<{ path: string; label: string }>) {
+function splitIntoColumns(terms: GlossaryTerm[]) {
 	const mid = Math.ceil(terms.length / 2);
 	return {
 		column1: terms.slice(0, mid),
@@ -47,40 +35,37 @@ function splitIntoColumns(terms: Array<{ path: string; label: string }>) {
 					<h1>Oil & Gas Terms</h1>
 				</div>
 
-				<!-- Letter Index -->
+				<!-- Letter Index: each letter links to its own page. Letters with no terms have no page. -->
 				<div class="letter-index" id="top">
-					{letters.map(letter => (
-						<a 
-							href={`#terms-${letter.toLowerCase()}`}
-							class:list={['letter-link', { 'letter-link-empty': !termsByLetter[letter] || termsByLetter[letter].length === 0 }]}
-						>
-							{letter}
-						</a>
-					))}
+					{letters.map(letter => {
+						const page = pageByLetter.get(letter);
+						return page ? (
+							<a href={page.href} class="letter-link">{letter}</a>
+						) : (
+							<span class="letter-link letter-link-empty" aria-hidden="true">{letter}</span>
+						);
+					})}
 				</div>
 
 				<!-- Letter Sections -->
-				{letters.map(letter => {
-					const terms = termsByLetter[letter] || [];
-					if (terms.length === 0) return null;
-					
-					const { column1, column2 } = splitIntoColumns(terms);
+				{letterPages.map(page => {
+					const { column1, column2 } = splitIntoColumns(page.terms);
 					
 					return (
-						<section class="letter-section" id={`terms-${letter.toLowerCase()}`}>
-							<h2 class="letter-title">Oil & Gas Terms - {letter}</h2>
+						<section class="letter-section" id={`terms-${page.letter}`}>
+							<h2 class="letter-title"><a href={page.href}>Oil & Gas Terms - {page.label}</a></h2>
 							<div class="terms-grid">
 								<div class="terms-column">
 									{column1.map(term => (
-										<a href={term.path} class="term-link">
-											{term.label}
+										<a href={term.href} class="term-link">
+											{term.term}
 										</a>
 									))}
 								</div>
 								<div class="terms-column">
 									{column2.map(term => (
-										<a href={term.path} class="term-link">
-											{term.label}
+										<a href={term.href} class="term-link">
+											{term.term}
 										</a>
 									))}
 								</div>
@@ -176,6 +161,15 @@ function splitIntoColumns(terms: Array<{ path: string; label: string }>) {
 
 	.letter-section:last-child {
 		margin-bottom: 0;
+	}
+
+	.letter-title a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.letter-title a:hover {
+		color: #0ea5e9;
 	}
 
 	.letter-title {

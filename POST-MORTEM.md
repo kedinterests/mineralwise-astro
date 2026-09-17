@@ -215,3 +215,36 @@ then `node scripts/test-redirects.mjs`, and commit the regenerated middleware.
   both are still wanted.
 - GA4 is not filtering `trafficheap.cc` referral spam, and `mineralrightsforum.com`
   is not set as a referral exclusion.
+
+---
+
+## Third pass: 17 September 2026, glossary rebuilt as letter pages
+
+The 198 single-term glossary pages ran 30 to 60 words each and were the bulk of
+"Crawled, currently not indexed". The Squarespace site never had them as its
+main glossary: it had one page per letter. The glossary is now built that way.
+
+- Terms are a content collection: one JSON file per term in
+  `astro-site/src/content/terms/` (`term`, `definition`), editable in the CMS as
+  "Glossary Terms". The filename is the term's anchor and must not be renamed.
+- `/resources/oil-and-gas-terms/<letter>/` is generated per letter that has
+  terms. A letter with no terms gets no page (J, K, X, Y, Z today), and its legacy
+  letter URLs go to the glossary index instead.
+- 199 single-term URLs were retired (198 under `/resources/oil-and-gas-terms/`
+  plus the stray `/grantor` page). They are listed in
+  `astro-site/scripts/retired-term-urls.json` and each one 301s in one hop to
+  `/resources/oil-and-gas-terms/<letter>/#<anchor>`.
+- The redirect generator understands `page#anchor` destinations. It refuses to
+  generate if the page is missing, if the anchor is not a term filed under that
+  letter, or if any destination is itself a redirected URL (no chains).
+- `npm run build` now runs the generator and `test-redirects.mjs` first, so a term
+  renamed or added in the CMS re-points its redirects on the next deploy, and a
+  change that would break a redirect fails the build instead of shipping.
+- `/api-number` had been a plain 404: the middleware's passthrough pattern for
+  `/api/` matched any path that merely started with `/api`. Folder names in that
+  pattern now have to match a whole segment.
+- A www legacy URL used to take two hops (www to apex, then apex to the new
+  page). Host and path are now corrected in the same redirect.
+
+`/what-is-fracking/` is an article and stays where it is. The `fracking` glossary
+entry is a separate, short definition on the F page.

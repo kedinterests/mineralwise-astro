@@ -36,6 +36,23 @@ collections:
       - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
+  - name: "terms"
+    label: "Glossary Terms"
+    label_singular: "Glossary Term"
+    description: "Oil and gas glossary. Each term appears on the page for its first letter, for example Pugh Clause on /resources/oil-and-gas-terms/p/. Letter pages and the glossary index update on their own."
+    folder: "astro-site/src/content/terms"
+    create: true
+    delete: false
+    extension: "json"
+    format: "json"
+    identifier_field: "term"
+    slug: "{{slug}}"
+    summary: "{{term}}"
+    sortable_fields: ["term"]
+    fields:
+      - {label: "Term", name: "term", widget: "string", hint: "The first letter decides which letter page the term appears on."}
+      - {label: "Definition", name: "definition", widget: "text"}
+
   - name: "navigation"
     label: "Navigation"
     files:

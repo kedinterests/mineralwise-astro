@@ -27,4 +27,15 @@ const pages = defineCollection({
 	}),
 });
 
-export const collections = { blog, pages };
+// Glossary terms. One JSON file per term, edited through Decap ("Glossary Terms").
+// The filename is the term's anchor on its letter page, so it must not be renamed:
+// redirects from the old single-term URLs point at it (scripts/retired-term-urls.json).
+const terms = defineCollection({
+	loader: glob({ base: './src/content/terms', pattern: '*.json' }),
+	schema: z.object({
+		term: z.string().min(1),
+		definition: z.string().min(1),
+	}),
+});
+
+export const collections = { blog, pages, terms };

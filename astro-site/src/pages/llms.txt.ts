@@ -15,11 +15,11 @@ export async function GET({ site }: { site: URL | undefined }) {
 ## Services
 
 - [Owner's Guide](${base}/owners-guide) – Oil & gas basics, leasing, producing, and cash payment guidance for mineral owners
-- [Mineral Rights by State](${base}/mineral-rights-by-state) – State-by-state mineral rights information
-- [Shale Plays](${base}/shale-plays) – Major U.S. shale formations (Bakken, Eagle Ford, Marcellus, Utica, etc.)
-- [Oil & Gas Operators](${base}/oil-and-gas-operators) – Directory of oil and gas companies
-- [Oil & Gas Terms](${base}/oil-and-gas-terms) – Glossary of industry terminology
-- [Oil & Gas Abbreviations](${base}/oil-and-gas-abbreviations) – Common acronyms and abbreviations
+- [Mineral Rights by State](${base}/resources/mineral-rights-by-state/) – State-by-state mineral rights information
+- [Shale Plays](${base}/resources/shale-plays/) – Major U.S. shale formations (Bakken, Eagle Ford, Marcellus, Utica, etc.)
+- [Oil & Gas Operators](${base}/resources/oil-and-gas-operators/) – Directory of oil and gas companies
+- [Oil & Gas Terms](${base}/resources/oil-and-gas-terms/) – Glossary of industry terminology
+- [Oil & Gas Abbreviations](${base}/resources/oil-and-gas-abbreviations/) – Common acronyms and abbreviations
 
 ## Key Information
 
